@@ -23,9 +23,9 @@ import {
 import { LayoutGroup, motion, MotionConfigContext } from "framer-motion";
 import * as React from "react";
 import { useRef } from "react";
-import * as sharedStyle from "http://localhost:8080/framerusercontent.com/modules/0JLPmaxZxenFQzSWFxwu/qJpZiXfAIi1MBZmmNkaC/sw01V2bJD.js";
-import PricingCard from "http://localhost:8080/framerusercontent.com/modules/vtpBoVtrhiLTVvreeuco/rKkVR31H1uNx5fdvMwgs/DCs41GB7F.js";
-import PricingToggle from "http://localhost:8080/framerusercontent.com/modules/Gran4qwc004Lq5jmlToO/dx8BuHaZGyCdGRJ5hVQn/KUEyOwyvM.js";
+import * as sharedStyle from "/framerusercontent.com/modules/0JLPmaxZxenFQzSWFxwu/qJpZiXfAIi1MBZmmNkaC/sw01V2bJD.js";
+import PricingCard from "/framerusercontent.com/modules/vtpBoVtrhiLTVvreeuco/rKkVR31H1uNx5fdvMwgs/DCs41GB7F.js";
+import PricingToggle from "/framerusercontent.com/modules/Gran4qwc004Lq5jmlToO/dx8BuHaZGyCdGRJ5hVQn/KUEyOwyvM.js";
 const PricingToggleFonts = getFonts(PricingToggle);
 const MotionDivWithFX = withFX(motion.div);
 const PricingCardFonts = getFonts(PricingCard);
