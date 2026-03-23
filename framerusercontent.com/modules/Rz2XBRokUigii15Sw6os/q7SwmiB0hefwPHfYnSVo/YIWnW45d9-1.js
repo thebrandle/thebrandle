@@ -1,0 +1,19 @@
+let t = (t, e) => async () => {
+    let r = await t();
+    return r[e];
+  },
+  e = () => import("./YIWnW45d9-2.js"),
+  r = [t(e, "richText"), t(e, "richText1")];
+export async function resolveRichText(t) {
+  let e = r[t];
+  if (e) return await e();
+}
+export const __FramerMetadata__ = {
+  exports: {
+    resolveRichText: {
+      type: "function",
+      annotations: { framerContractVersion: "1" },
+    },
+    __FramerMetadata__: { type: "variable" },
+  },
+};

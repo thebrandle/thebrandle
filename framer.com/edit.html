@@ -1,0 +1,155 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="preload" as="script" href="/bootstrap.283728ab9eedb8add529aeafc200e6b827ff9cbd.js" />
+	<script>Object.defineProperty(window, 'secureFrameAncestors', { value: Object.freeze(true) });</script>
+<script>Object.defineProperty(window, 'framerEnvironment', { value: Object.freeze("production") });;
+</script>
+<script>
+Object.defineProperty(window, 'castlePublishableAPIKey', { value: Object.freeze("pk_xYqGbB61EcFiSh4LUshpT4DGoEQMKQMB") });
+</script>
+<script>Object.defineProperty(window, 'framerRelease', { value: Object.freeze({"channel":"stable"}) });;</script>
+<script>Object.defineProperty(window, 'framerUser', { value: Object.freeze(null) });</script>
+<script src="/bootstrap.283728ab9eedb8add529aeafc200e6b827ff9cbd.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<meta name="color-scheme" content="light dark">
+	
+	<script type="text/javascript">
+		Object.defineProperty(window, 'cssBundleURL', { value: "https://app.framerstatic.com/editorbar.JVPOUWZO.css" });
+		
+		Object.defineProperty(window, 'deferredJsFiles', {
+			value:["/s/app.283728ab9eedb8add529aeafc200e6b827ff9cbd/scripts/react/react.production.min.js","/s/app.283728ab9eedb8add529aeafc200e6b827ff9cbd/scripts/react-dom/react-dom.production.min.js","/s/app.283728ab9eedb8add529aeafc200e6b827ff9cbd/scripts/react-dom/react-dom-server-legacy.browser.production.min.js"]
+		});
+	</script>
+	
+		
+		<link href="https://app.framerstatic.com/chunk-VYDUMP4T.mjs" rel="modulepreload">
+<link href="https://app.framerstatic.com/chunk-HMF7T2NG.mjs" rel="modulepreload">
+<link href="https://app.framerstatic.com/chunk-2F5FSM3K.mjs" rel="modulepreload">
+<link href="https://app.framerstatic.com/chunk-AHQIRSXG.mjs" rel="modulepreload">
+	
+
+<style>
+  a[href="./projects"], a[href="/projects"], a[href="projects"],
+  a[href="./blog"], a[href="/blog"], a[href="blog"] {
+      display: none !important;
+  }
+</style>
+
+<style>
+  a[href="./projects"], a[href="/projects"], a[href="projects"],
+  a[href="./blog"], a[href="/blog"], a[href="blog"] {
+      display: none !important;
+  }
+</style>
+</head>
+
+
+
+<body class="notranslate editorbar">
+<div id="root" role="presentation"></div>
+
+
+<!--
+
+
+-->
+
+
+	<script>
+		// Keep these keys in sync with DarkModeProvider.tsx
+		var userDarkMode = localStorage.getItem("dark-mode") === "true"
+		var overrideSystem = localStorage.getItem("dark-mode-override-system") === "true"
+		var systemDarkMode = matchMedia("(prefers-color-scheme: dark)").matches
+		var isDarkMode = overrideSystem ? userDarkMode : systemDarkMode
+		if (isDarkMode) {
+			document.body.classList.add("framer-theme-dark")
+		}
+
+		// Set release channel as class on body.
+		var framerReleaseChannel = window.framerRelease && window.framerRelease.channel
+		if (framerReleaseChannel) {
+			document.body.classList.add("framer-release-" + framerReleaseChannel)
+		}
+
+		// Add a class to the body to indicate that the agent experiment is on and apply the agent theme
+		// as the default theme.
+		// TODO: Remove once experiment is removed.
+		var storageKey = framerReleaseChannel ? "experiments-" + framerReleaseChannel : "experiments"
+		try {
+			var experiments = JSON.parse(localStorage.getItem(storageKey) || "{}")
+			if (experiments.agent === "on") {
+				document.body.classList.add("agent")
+			}
+		} catch (e) {
+			// Ignore errors.
+		}
+	</script>
+
+
+
+
+<script src="https://app.framerstatic.com/editorbar.CFQTBZEJ.mjs" type="module"></script>
+
+<!-- CUSTOM FORM SUBMIT SCRIPT -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const contactForms = document.querySelectorAll('form.framer-nunqm3');
+    contactForms.forEach(form => {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const button = form.querySelector('button[type="submit"]');
+        if(!button) return;
+        
+        const originalContent = button.innerHTML;
+        const originalPointerEvents = button.style.pointerEvents;
+        
+        // Show loading state
+        button.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:100%;"><span style="font-size:18px;font-family:Inter,sans-serif;color:black">Sending...</span></div>';
+        button.style.pointerEvents = 'none';
+        
+        const formData = new FormData(form);
+        try {
+            await fetch('https://formsubmit.co/ajax/thebrandleteam@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json'
+                },
+                body: formData
+            });
+
+            // Show success state with black check mark
+            button.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:100%;color:black;font-family:Inter,sans-serif;"><svg style="animation: checkAnim 0.5s ease-in-out;" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-weight:600;font-size:18px;">Sent successfully</span></div>';
+            
+            form.reset();
+
+            // Revert after 4 seconds
+            setTimeout(() => {
+                button.innerHTML = originalContent;
+                button.style.pointerEvents = originalPointerEvents;
+            }, 4000);
+            
+        } catch (err) {
+            button.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;"><span style="color:red;font-size:18px;font-family:Inter,sans-serif;">Error! Try again.</span></div>';
+            setTimeout(() => {
+                button.innerHTML = originalContent;
+                button.style.pointerEvents = originalPointerEvents;
+            }, 4000);
+        }
+      });
+    });
+  });
+</script>
+<style>
+@keyframes checkAnim {
+  0% { stroke-dasharray: 50; stroke-dashoffset: 50; }
+  100% { stroke-dasharray: 50; stroke-dashoffset: 0; }
+}
+</style>
+</body>
+
+</html>
