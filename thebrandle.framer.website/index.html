@@ -58372,27 +58372,37 @@
 <!-- CUSTOM FORM SUBMIT SCRIPT -->
 <script>
 (function () {
-  var BUTTON_TEXT = 'get in touch';
-  var hooked = false;
+  window.__brandleFormHooked = true;
+
+  // The stable Framer class on the submit button (confirmed from live DOM)
+  var BTN_CLASS = 'framer-LqZE5';
+
+  function isSubmitBtn(el) {
+    return el && el.closest && el.closest('.' + BTN_CLASS) !== null;
+  }
 
   async function sendForm(btn) {
-    if (btn.dataset.sending === '1') return;
-    btn.dataset.sending = '1';
+    if (btn.dataset.bs === '1') return;
+    btn.dataset.bs = '1';
 
+    // Find the inner <p> or text node to update
+    var textEl = btn.querySelector('p') || btn;
     var originalHTML = btn.innerHTML;
-    btn.innerHTML = '<span style="font-size:16px;font-family:Inter,sans-serif;color:inherit">Sending...</span>';
+    textEl.textContent = 'Sending...';
 
-    // Collect all visible inputs/textareas on the page (Framer renders them outside a <form>)
-    var inputs = document.querySelectorAll('input[name], textarea[name]');
+    // Wait a tick for React state to flush, then read inputs
+    await new Promise(function(r){ setTimeout(r, 50); });
+
+    var inputs = document.querySelectorAll('input[name], textarea[name], select[name]');
     var data = {};
     inputs.forEach(function(el) { data[el.name] = el.value || ''; });
 
     var payload = {
-      name:    data['Name']    || data['name']    || '',
-      email:   data['E-mail']  || data['email']   || data['Email'] || '',
-      phone:   data['Phone']   || data['phone']   || '',
-      plan:    data['Plan']    || data['plan']     || '',
-      message: data['Message'] || data['message'] || '',
+      name:    data['Name']    || '',
+      email:   data['E-mail']  || data['Email'] || '',
+      phone:   data['Phone']   || '',
+      plan:    data['Plan']    || '',
+      message: data['Message'] || '',
     };
 
     try {
@@ -58402,67 +58412,50 @@
         body: JSON.stringify(payload),
       });
       var json = await res.json();
-      if (!res.ok) throw new Error(json.error || 'Server error');
+      if (!res.ok) throw new Error(json.error || 'Server error ' + res.status);
 
-      btn.innerHTML = '<span style="display:flex;align-items:center;gap:8px;font-size:16px;font-family:Inter,sans-serif;color:inherit"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Sent!</span>';
+      // Success
+      btn.innerHTML = '<a class="framer-13x93le framer-dbdkto" style="pointer-events:none"><div style="display:flex;align-items:center;justify-content:center;gap:8px;padding:0 24px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><p style="font-size:16px;font-weight:600;margin:0">Sent!</p></div></a>';
+
       // Reset inputs
       inputs.forEach(function(el) { el.value = ''; });
+
     } catch (err) {
-      console.error('[brandle form]', err);
-      btn.innerHTML = '<span style="font-size:16px;font-family:Inter,sans-serif;color:red">Error — try again</span>';
+      console.error('[brandle]', err);
+      btn.innerHTML = '<a class="framer-13x93le framer-dbdkto" style="pointer-events:none"><p style="font-size:15px;color:red;padding:0 16px;margin:0">Error — try again</p></a>';
     }
 
     setTimeout(function () {
       btn.innerHTML = originalHTML;
-      btn.dataset.sending = '';
+      btn.dataset.bs = '';
     }, 4000);
   }
 
-  function hookButton(btn) {
-    if (btn.dataset.hooked) return;
-    btn.dataset.hooked = '1';
+  // Use pointerdown in capture phase — fires before React's synthetic click
+  document.addEventListener('pointerdown', function (e) {
+    var btn = e.target.closest('.' + BTN_CLASS);
+    if (!btn) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    sendForm(btn);
+  }, true);
 
-    // Capture phase — intercept before Framer's own handlers
-    btn.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      sendForm(btn);
-    }, true);
+  // Belt-and-suspenders: also intercept click in capture phase
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.' + BTN_CLASS);
+    if (!btn) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+  }, true);
 
-    // Also intercept any ancestor form submit
-    var ancestor = btn.parentElement;
-    while (ancestor) {
-      if (ancestor.tagName === 'FORM') {
-        ancestor.addEventListener('submit', function(e){ e.preventDefault(); }, true);
-        break;
-      }
-      ancestor = ancestor.parentElement;
-    }
-  }
+  // Intercept the <a> tag inside the button from navigating
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('.' + BTN_CLASS + ' a');
+    if (!a) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+  }, true);
 
-  function findAndHook() {
-    var btns = document.querySelectorAll('button, [role="button"], a');
-    btns.forEach(function (el) {
-      var text = (el.innerText || el.textContent || '').trim().toLowerCase();
-      if (text === BUTTON_TEXT) {
-        hookButton(el);
-      }
-    });
-  }
-
-  // Run once DOM is ready + after React hydrates
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', findAndHook);
-  } else {
-    findAndHook();
-  }
-  setTimeout(findAndHook, 500);
-  setTimeout(findAndHook, 1500);
-  setTimeout(findAndHook, 3000);
-
-  // MutationObserver to catch any late renders
-  var obs = new MutationObserver(function () { findAndHook(); });
-  obs.observe(document.body || document.documentElement, { childList: true, subtree: true });
 })();
 </script>
 
