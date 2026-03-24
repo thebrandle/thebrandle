@@ -58421,6 +58421,18 @@
 
     // Use event delegation on document so this works even after Framer re-hydrates the DOM
     document.addEventListener('submit', handleFormSubmit);
+
+    // Intercept clicks anywhere inside the submit button (capture phase beats anchor navigation)
+    document.addEventListener('click', function(e) {
+      const button = e.target.closest('form.framer-nunqm3 button[type="submit"]');
+      if (!button) return;
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      const form = button.closest('form.framer-nunqm3');
+      if (form) {
+        handleFormSubmit({ target: form, preventDefault: () => {} });
+      }
+    }, true); // true = capture phase, so we intercept before the anchor fires
   })();
 </script>
 <style>
