@@ -58371,53 +58371,76 @@
   
 <!-- CUSTOM FORM SUBMIT SCRIPT -->
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const contactForms = document.querySelectorAll('form.framer-nunqm3');
-    contactForms.forEach(form => {
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const button = form.querySelector('button[type="submit"]');
-        if(!button) return;
-        
-        const originalContent = button.innerHTML;
-        const originalPointerEvents = button.style.pointerEvents;
-        
-        // Show loading state
-        button.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:100%;"><span style="font-size:18px;font-family:Inter,sans-serif;color:black">Sending...</span></div>';
-        button.style.pointerEvents = 'none';
-        
-        const formData = new FormData(form);
-        try {
-            await fetch('https://formsubmit.co/ajax/thebrandleteam@gmail.com', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json'
-                },
-                body: formData
-            });
+  (function () {
+    async function handleFormSubmit(form) {
+      const button = form.querySelector('button[type="submit"]');
+      if (!button) return;
 
-            // Show success state with black check mark
-            button.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:100%;color:black;font-family:Inter,sans-serif;"><svg style="animation: checkAnim 0.5s ease-in-out;" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-weight:600;font-size:18px;">Sent successfully</span></div>';
-            
-            form.reset();
+      const originalContent = button.innerHTML;
+      const originalPointerEvents = button.style.pointerEvents;
 
-            // Revert after 4 seconds
-            setTimeout(() => {
-                button.innerHTML = originalContent;
-                button.style.pointerEvents = originalPointerEvents;
-            }, 4000);
-            
-        } catch (err) {
-            button.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;"><span style="color:red;font-size:18px;font-family:Inter,sans-serif;">Error! Try again.</span></div>';
-            setTimeout(() => {
-                button.innerHTML = originalContent;
-                button.style.pointerEvents = originalPointerEvents;
-            }, 4000);
-        }
-      });
+      // Show loading state
+      button.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:100%;"><span style="font-size:18px;font-family:Inter,sans-serif;color:black">Sending...</span></div>';
+      button.style.pointerEvents = 'none';
+
+      // Read field values by name attribute
+      const getValue = (name) => (form.querySelector('[name="' + name + '"]') || {}).value || '';
+
+      const payload = {
+        name:    getValue('Name'),
+        email:   getValue('E-mail'),
+        phone:   getValue('Phone'),
+        plan:    getValue('Plan'),
+        message: getValue('Message'),
+      };
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Server error');
+
+        // Show success state
+        button.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:100%;color:black;font-family:Inter,sans-serif;"><svg style="animation:checkAnim 0.5s ease-in-out;" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-weight:600;font-size:18px;">Sent successfully</span></div>';
+        form.reset();
+
+        setTimeout(() => {
+          button.innerHTML = originalContent;
+          button.style.pointerEvents = originalPointerEvents;
+        }, 4000);
+
+      } catch (err) {
+        console.error('Form submission error:', err);
+        button.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;"><span style="color:red;font-size:18px;font-family:Inter,sans-serif;">Error — please try again.</span></div>';
+        setTimeout(() => {
+          button.innerHTML = originalContent;
+          button.style.pointerEvents = originalPointerEvents;
+        }, 4000);
+      }
+    }
+
+    // Capture-phase click listener: fires before the <a> tag inside the button causes navigation
+    document.addEventListener('click', function (e) {
+      const button = e.target.closest('form.framer-nunqm3 button[type="submit"]');
+      if (!button) return;
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      const form = button.closest('form.framer-nunqm3');
+      if (form) handleFormSubmit(form);
+    }, true);
+
+    // Fallback: plain submit event
+    document.addEventListener('submit', function (e) {
+      const form = e.target.closest('form.framer-nunqm3');
+      if (!form) return;
+      e.preventDefault();
+      handleFormSubmit(form);
     });
-  });
+  })();
 </script>
 <style>
 @keyframes checkAnim {
