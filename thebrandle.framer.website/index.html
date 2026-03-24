@@ -58371,83 +58371,101 @@
   
 <!-- CUSTOM FORM SUBMIT SCRIPT -->
 <script>
-  (function () {
-    async function handleFormSubmit(form) {
-      const button = form.querySelector('button[type="submit"]');
-      if (!button) return;
+(function () {
+  var BUTTON_TEXT = 'get in touch';
+  var hooked = false;
 
-      const originalContent = button.innerHTML;
-      const originalPointerEvents = button.style.pointerEvents;
+  async function sendForm(btn) {
+    if (btn.dataset.sending === '1') return;
+    btn.dataset.sending = '1';
 
-      // Show loading state
-      button.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:100%;"><span style="font-size:18px;font-family:Inter,sans-serif;color:black">Sending...</span></div>';
-      button.style.pointerEvents = 'none';
+    var originalHTML = btn.innerHTML;
+    btn.innerHTML = '<span style="font-size:16px;font-family:Inter,sans-serif;color:inherit">Sending...</span>';
 
-      // Read field values by name attribute
-      const getValue = (name) => (form.querySelector('[name="' + name + '"]') || {}).value || '';
+    // Collect all visible inputs/textareas on the page (Framer renders them outside a <form>)
+    var inputs = document.querySelectorAll('input[name], textarea[name]');
+    var data = {};
+    inputs.forEach(function(el) { data[el.name] = el.value || ''; });
 
-      const payload = {
-        name:    getValue('Name'),
-        email:   getValue('E-mail'),
-        phone:   getValue('Phone'),
-        plan:    getValue('Plan'),
-        message: getValue('Message'),
-      };
+    var payload = {
+      name:    data['Name']    || data['name']    || '',
+      email:   data['E-mail']  || data['email']   || data['Email'] || '',
+      phone:   data['Phone']   || data['phone']   || '',
+      plan:    data['Plan']    || data['plan']     || '',
+      message: data['Message'] || data['message'] || '',
+    };
 
-      try {
-        const res = await fetch('/api/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
+    try {
+      var res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      var json = await res.json();
+      if (!res.ok) throw new Error(json.error || 'Server error');
 
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error || 'Server error');
-
-        // Show success state
-        button.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:100%;color:black;font-family:Inter,sans-serif;"><svg style="animation:checkAnim 0.5s ease-in-out;" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-weight:600;font-size:18px;">Sent successfully</span></div>';
-        form.reset();
-
-        setTimeout(() => {
-          button.innerHTML = originalContent;
-          button.style.pointerEvents = originalPointerEvents;
-        }, 4000);
-
-      } catch (err) {
-        console.error('Form submission error:', err);
-        button.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;"><span style="color:red;font-size:18px;font-family:Inter,sans-serif;">Error — please try again.</span></div>';
-        setTimeout(() => {
-          button.innerHTML = originalContent;
-          button.style.pointerEvents = originalPointerEvents;
-        }, 4000);
-      }
+      btn.innerHTML = '<span style="display:flex;align-items:center;gap:8px;font-size:16px;font-family:Inter,sans-serif;color:inherit"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Sent!</span>';
+      // Reset inputs
+      inputs.forEach(function(el) { el.value = ''; });
+    } catch (err) {
+      console.error('[brandle form]', err);
+      btn.innerHTML = '<span style="font-size:16px;font-family:Inter,sans-serif;color:red">Error — try again</span>';
     }
 
-    // Capture-phase click listener: fires before the <a> tag inside the button causes navigation
-    document.addEventListener('click', function (e) {
-      const button = e.target.closest('form.framer-nunqm3 button[type="submit"]');
-      if (!button) return;
+    setTimeout(function () {
+      btn.innerHTML = originalHTML;
+      btn.dataset.sending = '';
+    }, 4000);
+  }
+
+  function hookButton(btn) {
+    if (btn.dataset.hooked) return;
+    btn.dataset.hooked = '1';
+
+    // Capture phase — intercept before Framer's own handlers
+    btn.addEventListener('click', function (e) {
       e.preventDefault();
       e.stopImmediatePropagation();
-      const form = button.closest('form.framer-nunqm3');
-      if (form) handleFormSubmit(form);
+      sendForm(btn);
     }, true);
 
-    // Fallback: plain submit event
-    document.addEventListener('submit', function (e) {
-      const form = e.target.closest('form.framer-nunqm3');
-      if (!form) return;
-      e.preventDefault();
-      handleFormSubmit(form);
+    // Also intercept any ancestor form submit
+    var ancestor = btn.parentElement;
+    while (ancestor) {
+      if (ancestor.tagName === 'FORM') {
+        ancestor.addEventListener('submit', function(e){ e.preventDefault(); }, true);
+        break;
+      }
+      ancestor = ancestor.parentElement;
+    }
+  }
+
+  function findAndHook() {
+    var btns = document.querySelectorAll('button, [role="button"], a');
+    btns.forEach(function (el) {
+      var text = (el.innerText || el.textContent || '').trim().toLowerCase();
+      if (text === BUTTON_TEXT) {
+        hookButton(el);
+      }
     });
-  })();
+  }
+
+  // Run once DOM is ready + after React hydrates
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', findAndHook);
+  } else {
+    findAndHook();
+  }
+  setTimeout(findAndHook, 500);
+  setTimeout(findAndHook, 1500);
+  setTimeout(findAndHook, 3000);
+
+  // MutationObserver to catch any late renders
+  var obs = new MutationObserver(function () { findAndHook(); });
+  obs.observe(document.body || document.documentElement, { childList: true, subtree: true });
+})();
 </script>
-<style>
-@keyframes checkAnim {
-  0% { stroke-dasharray: 50; stroke-dashoffset: 50; }
-  100% { stroke-dasharray: 50; stroke-dashoffset: 0; }
-}
-</style>
+
 </body>
 
 </html>
