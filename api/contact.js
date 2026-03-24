@@ -3,16 +3,32 @@ const { Resend } = require('resend');
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 module.exports = async function handler(req, res) {
+  // Allow CORS for Framer fetch requests
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', '*');
+
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
   // Only allow POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, email, phone, message, plan } = req.body || {};
+  const body = req.body || {};
+
+  // Support both Framer field names (Title Case) and our own (camelCase)
+  const name = body['Name'] || body['name'] || '';
+  const email = body['E-mail'] || body['email'] || body['Email'] || '';
+  const phone = body['Phone'] || body['phone'] || '';
+  const message = body['Message'] || body['message'] || '';
+  const plan = body['Plan'] || body['plan'] || '';
 
   // Basic validation
-  if (!name || !email || !message) {
-    return res.status(400).json({ error: 'Missing required fields' });
+  if (!name || !email) {
+    return res.status(400).json({ error: 'Missing required fields: Name and E-mail are required' });
   }
 
   try {
@@ -28,7 +44,7 @@ module.exports = async function handler(req, res) {
         <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
         <p><strong>Plan Selected:</strong> ${plan || 'Not selected'}</p>
         <p><strong>Message:</strong></p>
-        <p>${message}</p>
+        <p>${message || '(no message)'}</p>
       `,
     });
 
