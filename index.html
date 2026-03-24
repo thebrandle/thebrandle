@@ -58371,53 +58371,57 @@
   
 <!-- CUSTOM FORM SUBMIT SCRIPT -->
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const contactForms = document.querySelectorAll('form.framer-nunqm3');
-    contactForms.forEach(form => {
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const button = form.querySelector('button[type="submit"]');
-        if(!button) return;
-        
-        const originalContent = button.innerHTML;
-        const originalPointerEvents = button.style.pointerEvents;
-        
-        // Show loading state
-        button.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:100%;"><span style="font-size:18px;font-family:Inter,sans-serif;color:black">Sending...</span></div>';
-        button.style.pointerEvents = 'none';
-        
-        const formData = new FormData(form);
-        try {
-            await fetch('https://formsubmit.co/ajax/thebrandleteam@gmail.com', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json'
-                },
-                body: formData
-            });
+  (function () {
+    async function handleFormSubmit(e) {
+      const form = e.target.closest('form.framer-nunqm3');
+      if (!form) return;
+      e.preventDefault();
 
-            // Show success state with black check mark
-            button.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:100%;color:black;font-family:Inter,sans-serif;"><svg style="animation: checkAnim 0.5s ease-in-out;" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-weight:600;font-size:18px;">Sent successfully</span></div>';
-            
-            form.reset();
+      const button = form.querySelector('button[type="submit"]');
+      if (!button) return;
 
-            // Revert after 4 seconds
-            setTimeout(() => {
-                button.innerHTML = originalContent;
-                button.style.pointerEvents = originalPointerEvents;
-            }, 4000);
-            
-        } catch (err) {
-            button.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;"><span style="color:red;font-size:18px;font-family:Inter,sans-serif;">Error! Try again.</span></div>';
-            setTimeout(() => {
-                button.innerHTML = originalContent;
-                button.style.pointerEvents = originalPointerEvents;
-            }, 4000);
-        }
-      });
-    });
-  });
+      const originalContent = button.innerHTML;
+      const originalPointerEvents = button.style.pointerEvents;
+
+      // Show loading state
+      button.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:100%;"><span style="font-size:18px;font-family:Inter,sans-serif;color:black">Sending...</span></div>';
+      button.style.pointerEvents = 'none';
+
+      const formData = new FormData(form);
+      // Required by formsubmit.co AJAX mode
+      formData.append('_captcha', 'false');
+
+      try {
+        const res = await fetch('https://formsubmit.co/ajax/thebrandleteam@gmail.com', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: formData,
+        });
+
+        if (!res.ok) throw new Error('Network response was not ok');
+
+        // Show success state
+        button.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:100%;color:black;font-family:Inter,sans-serif;"><svg style="animation:checkAnim 0.5s ease-in-out;" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-weight:600;font-size:18px;">Sent successfully</span></div>';
+        form.reset();
+
+        setTimeout(() => {
+          button.innerHTML = originalContent;
+          button.style.pointerEvents = originalPointerEvents;
+        }, 4000);
+
+      } catch (err) {
+        console.error('Form submission error:', err);
+        button.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;"><span style="color:red;font-size:18px;font-family:Inter,sans-serif;">Error! Try again.</span></div>';
+        setTimeout(() => {
+          button.innerHTML = originalContent;
+          button.style.pointerEvents = originalPointerEvents;
+        }, 4000);
+      }
+    }
+
+    // Use event delegation on document so this works even after Framer re-hydrates the DOM
+    document.addEventListener('submit', handleFormSubmit);
+  })();
 </script>
 <style>
 @keyframes checkAnim {
