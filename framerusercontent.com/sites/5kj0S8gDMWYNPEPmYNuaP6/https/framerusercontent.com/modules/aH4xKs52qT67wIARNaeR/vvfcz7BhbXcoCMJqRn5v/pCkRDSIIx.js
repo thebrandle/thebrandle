@@ -681,7 +681,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function (props, ref) {
                                       className: "framer-styles-preset-1raml1m",
                                       "data-styles-preset": "hOrfMQMhw",
                                       children: /*#__PURE__*/ _jsx(Link, {
-                                        href: "https://www.instagram.com/thebrandlestudio/thebrandlestudio",
+                                        href: "https://www.instagram.com/thebrandlestudio",
                                         motionChild: true,
                                         nodeId: "pLsI3Sk0e",
                                         openInNewTab: false,

@@ -422,7 +422,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function (props, ref) {
                     }),
                     /*#__PURE__*/ _jsx(FormContainerWithFX, {
                       action:
-                        "https://formsubmit.co/thebrandleteam@gmail.com",
+"https://formsubmit.co/thebrandleteam@gmail.com?_next=Thanks!&_subject=TheBrandle Contact Form Submission"
                       className: "framer-nunqm3",
                       layoutDependency: layoutDependency,
                       layoutId: "QoNysywt8",

@@ -356,7 +356,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function (props, ref) {
                             }),
                             /*#__PURE__*/ _jsx(FormContainer, {
                               action:
-                                "https://formsubmit.co/thebrandleteam@gmail.com",
+"https://formsubmit.co/thebrandleteam@gmail.com?_next=Thanks!&_subject=TheBrandle Newsletter Signup"
                               className: "framer-1y2krao",
                               layoutDependency: layoutDependency,
                               layoutId: "TxzIETdiM",
@@ -688,7 +688,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function (props, ref) {
                                       className: "framer-styles-preset-1raml1m",
                                       "data-styles-preset": "hOrfMQMhw",
                                       children: /*#__PURE__*/ _jsx(Link, {
-                                        href: "https://www.instagram.com/thebrandlestudio/thebrandlestudio",
+                                        href: "https://www.instagram.com/thebrandlestudio",
                                         motionChild: true,
                                         nodeId: "pLsI3Sk0e",
                                         openInNewTab: false,
