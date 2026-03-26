@@ -707,7 +707,39 @@ const Component = /*#__PURE__*/ React.forwardRef(function (props, ref) {
                                   verticalAlignment: "top",
                                   withExternalLayout: true,
                                 }),
-                                
+                                /*#__PURE__*/ _jsx(RichText, {
+                                  __fromCanvasComponent: true,
+                                  children: /*#__PURE__*/ _jsx(React.Fragment, {
+                                    children: /*#__PURE__*/ _jsx(motion.p, {
+                                      className: "framer-styles-preset-1raml1m",
+                                      "data-styles-preset": "hOrfMQMhw",
+                                      children: /*#__PURE__*/ _jsx(Link, {
+                                        href: "https://wa.me/message/DS4BTRSU6RS4D1",
+                                        motionChild: true,
+                                        nodeId: "wHatsApp0e",
+                                        openInNewTab: true,
+                                        relValues: [],
+                                        scopeId: "pCkRDSIIx",
+                                        smoothScroll: false,
+                                        children: /*#__PURE__*/ _jsx(motion.a, {
+                                          className:
+                                            "framer-styles-preset-bq16ho",
+                                          "data-styles-preset": "jNXIpkS6r",
+                                          children: "WhatsApp",
+                                        }),
+                                      }),
+                                    }),
+                                  }),
+                                  className: "framer-10jtypg",
+                                  fonts: ["Inter"],
+                                  layoutDependency: layoutDependency,
+                                  layoutId: "wHatsApp0e",
+                                  style: {
+                                    "--framer-paragraph-spacing": "0px",
+                                  },
+                                  verticalAlignment: "top",
+                                  withExternalLayout: true,
+                                }),
                               ],
                             }),
                           ],
