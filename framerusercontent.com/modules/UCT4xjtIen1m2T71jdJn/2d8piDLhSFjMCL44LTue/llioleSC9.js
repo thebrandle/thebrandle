@@ -328,7 +328,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function (props, ref) {
                       className: "framer-1o9ikga",
                       "data-framer-name": "Thebrandle",
                       fonts: ["FS;Bebas Neue-regular"],
-                      initial: animation2,
+                      initial: { opacity: 1, rotate: 0, rotateX: 0, rotateY: 0, scale: 1, skewX: 0, skewY: 0, x: 0, y: 0 },
                       layoutDependency: layoutDependency,
                       layoutId: "VIoISixd_",
                       optimized: true,
@@ -481,8 +481,8 @@ const css = [
   ".framer-j9EhK .framer-1g084ze, .framer-j9EhK .framer-b7gcby { flex: none; gap: 0px; height: 50%; overflow: visible; position: relative; width: 100%; z-index: 1; }",
   ".framer-j9EhK .framer-1aykrtb { align-content: center; align-items: center; display: flex; flex: none; flex-direction: row; flex-wrap: nowrap; gap: 0px; height: calc(var(--framer-viewport-height, 100vh) * 1); justify-content: center; overflow: visible; padding: 0px; position: relative; width: 100%; }",
   ".framer-j9EhK.framer-v-1srj58c .framer-r5byhj { flex: 1 0 0px; height: 1px; top: calc(50.00000000000002% - 1fr / 2); }",
-  ".framer-j9EhK.framer-v-1srj58c .framer-1ehj7ej { left: 50%; position: absolute; top: -800px; }",
-  ".framer-j9EhK.framer-v-1srj58c .framer-isyott { bottom: -800px; left: 50%; position: absolute; }",
+  ".framer-j9EhK.framer-v-1srj58c .framer-1ehj7ej { left: 50%; position: absolute; top: -800px; translate: -50% 0; }",
+  ".framer-j9EhK.framer-v-1srj58c .framer-isyott { bottom: -800px; left: 50%; position: absolute; translate: -50% 0; }",
   ...sharedStyle.css,
 ];
 /**

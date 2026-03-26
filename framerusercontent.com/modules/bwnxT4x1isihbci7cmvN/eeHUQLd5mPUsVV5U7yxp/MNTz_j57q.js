@@ -232,7 +232,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function (props, ref) {
                     id: "mhT03T6qs",
                     layoutId: "mhT03T6qs",
                     qjzLotycz:
-                      "I start by understanding your brand and goals, then create a tailored design that reflects your vision. Once the design is approved, I develop the site with clean, scalable code and ensure it’s fully tested before launch.",
+                      "We start by understanding your brand and goals, then create a tailored design that reflects your vision. Once the design is approved, we develop the site with clean, scalable code and ensure it’s fully tested before launch.",
                     style: { width: "100%" },
                     v7GmS5esQ:
                       "What’s your process for designing and developing a new website?",
@@ -300,7 +300,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function (props, ref) {
                     id: "Dvc9hdVKp",
                     layoutId: "Dvc9hdVKp",
                     qjzLotycz:
-                      "I design with scalability in mind, making it easy to add new features as your business grows. I also offer ongoing support packages if you’d like me to handle updates for you.",
+                      "We design with scalability in mind, making it easy to add new features as your business grows. We also offer ongoing support packages if you’d like us to handle updates for you.",
                     style: { width: "100%" },
                     v7GmS5esQ:
                       "What if I need to make changes or add features in the future?",
@@ -368,7 +368,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function (props, ref) {
                     id: "mlIwnX3Yy",
                     layoutId: "mlIwnX3Yy",
                     qjzLotycz:
-                      "Yes, I incorporate SEO best practices into every website I build to help improve your search visibility from the start. For more advanced SEO strategies, I also offer customized SEO packages.",
+                      "Yes, we incorporate SEO best practices into every website we build to help improve your search visibility from the start. For more advanced SEO strategies, we also offer customized SEO packages.",
                     style: { width: "100%" },
                     v7GmS5esQ: "Do you offer SEO services?",
                     variant: "qXtk2iVId",
@@ -503,7 +503,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function (props, ref) {
                     id: "Ek5k9H9f7",
                     layoutId: "Ek5k9H9f7",
                     qjzLotycz:
-                      "I use responsive design techniques and thoroughly test on various devices and screen sizes. This ensures your site looks great and works well for all users, no matter how they access it.",
+                      "We use responsive design techniques and thoroughly test on various devices and screen sizes. This ensures your site looks great and works well for all users, no matter how they access it.",
                     style: { width: "100%" },
                     v7GmS5esQ:
                       "How do you ensure the website is mobile-friendly?",
