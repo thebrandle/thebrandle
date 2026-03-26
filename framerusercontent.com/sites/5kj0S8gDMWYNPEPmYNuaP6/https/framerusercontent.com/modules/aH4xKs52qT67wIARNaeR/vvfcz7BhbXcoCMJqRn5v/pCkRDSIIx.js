@@ -196,7 +196,15 @@ const Component = /*#__PURE__*/ React.forwardRef(function (props, ref) {
                                 "--framer-text-color":
                                   "var(--extracted-r6o4lv, rgb(11, 11, 12))",
                               },
-                              children: "Thebrandle",
+                              children: /*#__PURE__*/ _jsx("a", {
+                                href: "/",
+                                style: { display: "contents" },
+                                children: /*#__PURE__*/ _jsx("img", {
+                                  src: "/framerusercontent.com/assets/TheBrandleDark.svg",
+                                  style: { height: "0.8em", width: "auto" },
+                                  alt: "The Brandle"
+                                }),
+                              }),
                             }),
                           }),
                           className: "framer-1b5i8re",
@@ -229,7 +237,15 @@ const Component = /*#__PURE__*/ React.forwardRef(function (props, ref) {
                                       "--framer-text-color":
                                         "var(--extracted-r6o4lv, rgb(11, 11, 12))",
                                     },
-                                    children: "Thebrandle",
+                                    children: /*#__PURE__*/ _jsx("a", {
+                                      href: "/",
+                                      style: { display: "contents" },
+                                      children: /*#__PURE__*/ _jsx("img", {
+                                        src: "/framerusercontent.com/assets/TheBrandleDark.svg",
+                                        style: { height: "0.8em", width: "auto" },
+                                        alt: "The Brandle"
+                                      }),
+                                    }),
                                   }),
                                 }),
                                 viewBox: "0 0 269 146",

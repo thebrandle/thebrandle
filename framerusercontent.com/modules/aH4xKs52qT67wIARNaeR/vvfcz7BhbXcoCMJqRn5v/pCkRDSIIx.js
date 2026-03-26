@@ -196,10 +196,14 @@ const Component = /*#__PURE__*/ React.forwardRef(function (props, ref) {
                                 "--framer-text-color":
                                   "var(--extracted-r6o4lv, rgb(11, 11, 12))",
                               },
-                              children: /*#__PURE__*/ _jsx("img", {
-                                src: "/framerusercontent.com/assets/TheBrandle.svg",
-                                style: { height: "0.8em", width: "auto" },
-                                alt: "The Brandle"
+                              children: /*#__PURE__*/ _jsx("a", {
+                                href: "/",
+                                style: { display: "contents" },
+                                children: /*#__PURE__*/ _jsx("img", {
+                                  src: "/framerusercontent.com/assets/TheBrandleDark.svg",
+                                  style: { height: "0.8em", width: "auto" },
+                                  alt: "The Brandle"
+                                }),
                               }),
                             }),
                           }),
@@ -232,10 +236,14 @@ const Component = /*#__PURE__*/ React.forwardRef(function (props, ref) {
                                       "--framer-text-color":
                                         "var(--extracted-r6o4lv, rgb(11, 11, 12))",
                                     },
-                                    children: /*#__PURE__*/ _jsx("img", {
-                                      src: "/framerusercontent.com/assets/TheBrandle.svg",
-                                      style: { height: "0.8em", width: "auto" },
-                                      alt: "The Brandle"
+                                    children: /*#__PURE__*/ _jsx("a", {
+                                      href: "/",
+                                      style: { display: "contents" },
+                                      children: /*#__PURE__*/ _jsx("img", {
+                                        src: "/framerusercontent.com/assets/TheBrandleDark.svg",
+                                        style: { height: "0.8em", width: "auto" },
+                                        alt: "The Brandle"
+                                      }),
                                     }),
                                   }),
                                 }),
