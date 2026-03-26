@@ -279,7 +279,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function (props, ref) {
                                   "--framer-text-color":
                                     "var(--extracted-r6o4lv, rgb(255, 255, 255))",
                                 },
-                                children: "\xae",
+                                children: "",
                               }),
                             }),
                             className: "framer-1xb848l",
@@ -324,7 +324,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function (props, ref) {
                                         "--framer-text-color":
                                           "var(--extracted-r6o4lv, rgb(255, 255, 255))",
                                       },
-                                      children: "\xae",
+                                      children: "",
                                     }),
                                   }),
                                 },
@@ -341,7 +341,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function (props, ref) {
                                         "--framer-text-color":
                                           "var(--extracted-r6o4lv, var(--variable-reference-GcgGR2ESN-O1fMzCErz))",
                                       },
-                                      children: "\xae",
+                                      children: "",
                                     }),
                                   }),
                                 },
@@ -359,7 +359,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function (props, ref) {
                                         "--framer-text-color":
                                           "var(--extracted-r6o4lv, var(--variable-reference-GcgGR2ESN-O1fMzCErz))",
                                       },
-                                      children: "\xae",
+                                      children: "",
                                     }),
                                   }),
                                 },

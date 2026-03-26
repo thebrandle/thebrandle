@@ -300,8 +300,12 @@ const Component = /*#__PURE__*/ React.forwardRef(function (props, ref) {
                     gestureVariant
                   ),
                   children: [
-                    /*#__PURE__*/ _jsx(RichText, {
+                    /*#__PURE__*/ _jsx(RichTextWithFXWithOptimizedAppearEffect, {
                       __fromCanvasComponent: true,
+                      __perspectiveFX: false,
+                      __smartComponentFX: true,
+                      __targetOpacity: 1,
+                      animate: animation3,
                       children: /*#__PURE__*/ _jsx(React.Fragment, {
                         children: /*#__PURE__*/ _jsx(motion.p, {
                           style: {
@@ -323,10 +327,11 @@ const Component = /*#__PURE__*/ React.forwardRef(function (props, ref) {
                       }),
                       className: "framer-1o9ikga",
                       "data-framer-name": "Thebrandle",
-                      effect: textEffect,
                       fonts: ["FS;Bebas Neue-regular"],
+                      initial: animation2,
                       layoutDependency: layoutDependency,
                       layoutId: "VIoISixd_",
+                      optimized: true,
                       style: {
                         "--extracted-r6o4lv":
                           "var(--token-d74d16c5-23aa-4649-a2ad-0da8c936dade, rgb(255, 255, 255))",
