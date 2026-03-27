@@ -473,7 +473,7 @@ const css = [
   "@supports (aspect-ratio: 1) { body { --framer-aspect-ratio-supported: auto; } }",
   ".framer-j9EhK.framer-hnijwy, .framer-j9EhK .framer-hnijwy { display: block; }",
   ".framer-j9EhK.framer-jrv8u9 { align-content: center; align-items: center; display: flex; flex-direction: column; flex-wrap: nowrap; gap: 12px; height: 834px; justify-content: center; overflow: hidden; padding: 0px; position: relative; width: 1200px; }",
-  ".framer-j9EhK .framer-r5byhj { align-content: center; align-items: center; display: flex; flex: none; flex-direction: column; flex-wrap: nowrap; gap: 10px; height: min-content; justify-content: center; left: 0px; overflow: visible; padding: 0px 0px 18px 0px; position: absolute; right: 0px; top: 50%; z-index: 2; }",
+  ".framer-j9EhK .framer-r5byhj { align-content: center; align-items: center; display: none; flex: none; flex-direction: column; flex-wrap: nowrap; gap: 10px; height: min-content; justify-content: center; left: 0px; overflow: visible; padding: 0px 0px 18px 0px; position: absolute; right: 0px; top: 50%; z-index: 2; }",
   ".framer-j9EhK .framer-1ehj7ej { align-content: flex-start; align-items: flex-start; display: flex; flex: none; flex-direction: row; flex-wrap: nowrap; gap: 4px; height: min-content; justify-content: flex-start; overflow: visible; padding: 0px; position: relative; width: min-content; z-index: 2; }",
   ".framer-j9EhK .framer-1o9ikga, .framer-j9EhK .framer-q6nwym { -webkit-user-select: none; flex: none; height: auto; pointer-events: none; position: relative; user-select: none; white-space: pre; width: auto; }",
   ".framer-j9EhK .framer-isyott { flex: none; height: auto; position: relative; white-space: pre; width: auto; z-index: 1; }",
