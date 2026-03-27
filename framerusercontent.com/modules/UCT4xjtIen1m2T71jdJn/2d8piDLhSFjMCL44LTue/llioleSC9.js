@@ -42,7 +42,7 @@ function addPropertyOverrides(overrides, ...variants) {
 }
 const transition1 = {
   delay: 0,
-  duration: 1,
+  duration: 0.5,
   ease: [0.96, -0.02, 0.38, 1.01],
   type: "tween",
 };
@@ -211,10 +211,10 @@ const Component = /*#__PURE__*/ React.forwardRef(function (props, ref) {
   const { activeVariantCallback, delay } =
     useActiveVariantCallback(baseVariant);
   const onAppearcudx8a = activeVariantCallback(async (...args) => {
-    await delay(() => setVariant("EQjPBeGe0"), 400);
+    await delay(() => setVariant("EQjPBeGe0"), 200);
   });
   const onAppearbtcitc = activeVariantCallback(async (...args) => {
-    await delay(() => setVariant("GnN_BPSO1"), 700);
+    await delay(() => setVariant("GnN_BPSO1"), 350);
   });
   useOnVariantChange(baseVariant, {
     default: onAppearcudx8a,
