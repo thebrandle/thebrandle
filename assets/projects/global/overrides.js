@@ -30,8 +30,10 @@
     }
   };
 
+  // NOTE: BpFSTQ is P1's hero BUT also used as full-width image in P2/P3/P4 detail pages.
+  // It MUST NOT be in THUMB_MAP or CSS rules — would replace images on wrong pages.
+  // P1 (Shine) thumbnail is handled by patchThumbnails via SLUGS config only.
   var THUMB_MAP = {
-    'BpFSTQ5eQJd8x1t06THJsBy6mU': '/assets/projects/shine/bg.gif',
     'bPs9iY1xCdYs2KmVLN2FyaQJhk': '/assets/projects/apex/project2_01.gif',
     'T3l9K398sRcCWjbIM6rTgD8UILk': '/assets/projects/dropx/image3.webp',
     'SDIyriYujLHtLJeg9tbQiqvoT4': '/assets/projects/orblead/image1.webp',
