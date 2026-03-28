@@ -88,6 +88,33 @@
     });
   }
 
+  // ---- GLOBAL TEXT REPLACEMENTS (catches titles anywhere on page) ----
+  var TITLE_MAP = [
+    ['Radiant skincare branding', 'Shine Skincare Branding'],
+    ['Apex clothing Co. rebrand', '\u201COh My Pasta.\u201D Branding'],
+    ['Vero app development', 'DropX Website Design'],
+    ['Stoyo branding', 'ORBLEAD Website Design'],
+    ['Radiant skincare is offering a user-centric, ad-free platform.', 'High quality cosmetics brand created for independent and brave women.'],
+    ['Bold new look for an eco-conscious apparel brand.', 'A unique pasta bar branding project aimed to connect with customers.'],
+    ['Vero aimed to distinguish itself in a competitive social media landscape.', 'A sleek and stylish landing page design for high-conversion digital products.'],
+    ['Visual identity and packaging design for a Stoyo brand.', 'A simple minimalistic SaaS lead generation website design.'],
+  ];
+
+  function patchGlobalText() {
+    if (isDetail()) return; // project detail pages have their own overrides
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+    var node;
+    while (node = walker.nextNode()) {
+      var text = node.textContent;
+      for (var i = 0; i < TITLE_MAP.length; i++) {
+        if (text.indexOf(TITLE_MAP[i][0]) !== -1) {
+          node.textContent = text.replace(TITLE_MAP[i][0], TITLE_MAP[i][1]);
+          text = node.textContent;
+        }
+      }
+    }
+  }
+
   // ---- PATCH CARD TEXT & PILLS ----
   function patchCards() {
     document.querySelectorAll(LINK_SELECTOR).forEach(function(link) {
@@ -238,6 +265,7 @@
   // ---- FULL PASS ----
   function applyOverrides() {
     hideFifth();
+    patchGlobalText();
     patchCards();
     patchThumbnails();
     patchFilterArea();
