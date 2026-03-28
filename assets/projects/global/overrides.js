@@ -128,9 +128,10 @@
         var w = parseInt(img.getAttribute('width') || '0');
         if (w > 0 && w < 50) return;
         if (img.getAttribute('src') !== cfg.thumb) {
-          img.src = cfg.thumb;
-          img.srcset = '';
+          // Clear srcset/sizes FIRST, then set src via setAttribute
           img.removeAttribute('srcset');
+          img.removeAttribute('sizes');
+          img.setAttribute('src', cfg.thumb);
         }
       });
 
@@ -161,9 +162,11 @@
     var src = (img.getAttribute('src') || '') + ' ' + (img.getAttribute('srcset') || '');
     for (var key in THUMB_MAP) {
       if (src.indexOf(key) !== -1) {
-        img.src = THUMB_MAP[key];
-        img.srcset = '';
+        // Clear srcset and sizes FIRST so browser can't load from them
         img.removeAttribute('srcset');
+        img.removeAttribute('sizes');
+        // Use setAttribute to bypass the interceptor and set directly
+        img.setAttribute('src', THUMB_MAP[key]);
         return;
       }
     }
@@ -217,7 +220,9 @@
     if (isDetail()) return val;
     for (var key in THUMB_MAP) {
       if (val.indexOf(key) !== -1) {
-        setTimeout(function() { img.removeAttribute('srcset'); }, 0);
+        // Clear srcset and sizes immediately so browser uses our src
+        img.removeAttribute('srcset');
+        img.removeAttribute('sizes');
         return THUMB_MAP[key];
       }
     }
