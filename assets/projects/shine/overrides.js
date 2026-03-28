@@ -167,36 +167,61 @@
     });
   }
 
-  // Force-show containers that have opacity:0 from Framer appear animations
+  // ---- DISABLE FRAMER SCROLL ANIMATIONS on replaced-image containers ----
+  // Framer Motion continuously resets inline opacity/transform on scroll.
+  // We neutralize this by watching for style mutations and immediately reverting.
+  var watchedContainers = [];
+
+  function lockContainer(el) {
+    if (el._shineLocked) return;
+    el._shineLocked = true;
+    el.style.setProperty('opacity', '1', 'important');
+    el.style.setProperty('transform', 'none', 'important');
+    el.style.setProperty('visibility', 'visible', 'important');
+    el.style.setProperty('will-change', 'auto', 'important');
+    watchedContainers.push(el);
+
+    // Observe style attribute changes and immediately revert
+    var mo = new MutationObserver(function(muts) {
+      for (var i = 0; i < muts.length; i++) {
+        if (muts[i].attributeName === 'style') {
+          var s = getComputedStyle(el);
+          if (parseFloat(s.opacity) < 0.5 || s.visibility === 'hidden') {
+            el.style.setProperty('opacity', '1', 'important');
+            el.style.setProperty('transform', 'none', 'important');
+            el.style.setProperty('visibility', 'visible', 'important');
+          }
+        }
+      }
+    });
+    mo.observe(el, { attributes: true, attributeFilter: ['style'] });
+  }
+
   function forceShowContainers() {
-    // Force ALL images with overridden sources to have visible parent chains
+    // Lock every ancestor of every replaced image
     document.querySelectorAll('img[data-shine-processed]').forEach(function(img) {
       var el = img.parentElement;
       while (el && el !== document.body) {
         var s = getComputedStyle(el);
-        if (s.opacity === '0' || parseFloat(s.opacity) < 0.1) {
-          el.style.setProperty('opacity', '1', 'important');
-          el.style.setProperty('transform', 'none', 'important');
-          el.style.setProperty('visibility', 'visible', 'important');
+        if (s.willChange === 'transform' || s.opacity === '0' || parseFloat(s.opacity) < 0.5) {
+          lockContainer(el);
         }
         el = el.parentElement;
       }
     });
 
-    // Specifically target the YouTube component container (framer-ch5ikb-container)
-    document.querySelectorAll('[class*="ch5ikb"], [class*="container"]').forEach(function(el) {
-      if (el.querySelector && el.querySelector('img[src*="image5"]')) {
-        el.style.setProperty('opacity', '1', 'important');
-        el.style.setProperty('transform', 'none', 'important');
-      }
-    });
-
-    // Also inject a CSS rule to override opacity on the YouTube wrapper
+    // Inject CSS rule for known animation wrapper classes
     if (!document.getElementById('shine-force-css')) {
       var style = document.createElement('style');
       style.id = 'shine-force-css';
-      style.textContent = '.framer-ch5ikb-container { opacity: 1 !important; transform: none !important; }';
+      // Mark locked containers with a data attribute so CSS can target them
+      watchedContainers.forEach(function(c) { c.setAttribute('data-shine-locked', ''); });
+      style.textContent =
+        '[data-shine-locked] { opacity: 1 !important; transform: none !important; visibility: visible !important; will-change: auto !important; }';
       document.head.appendChild(style);
+    } else {
+      // Update: mark any new locked containers
+      watchedContainers.forEach(function(c) { c.setAttribute('data-shine-locked', ''); });
     }
   }
 
@@ -302,10 +327,21 @@
       }
 
       // Also catch attribute changes on img (React may update src after mount)
-      if (mutations[i].type === 'attributes' && mutations[i].target.tagName === 'IMG') {
-        var img = mutations[i].target;
-        img.dataset.shineProcessed = ''; // Reset so it gets re-processed
-        processImage(img);
+      if (mutations[i].type === 'attributes') {
+        var target = mutations[i].target;
+        if (target.tagName === 'IMG') {
+          target.dataset.shineProcessed = ''; // Reset so it gets re-processed
+          processImage(target);
+        }
+        // Re-lock containers if Framer Motion changes their style
+        if (mutations[i].attributeName === 'style' && target._shineLocked) {
+          var cs = getComputedStyle(target);
+          if (parseFloat(cs.opacity) < 0.5) {
+            target.style.setProperty('opacity', '1', 'important');
+            target.style.setProperty('transform', 'none', 'important');
+            target.style.setProperty('visibility', 'visible', 'important');
+          }
+        }
       }
     }
 
@@ -324,7 +360,7 @@
       childList: true,
       subtree: true,
       attributes: true,
-      attributeFilter: ['src', 'srcset']
+      attributeFilter: ['src', 'srcset', 'style']
     });
   }
 
