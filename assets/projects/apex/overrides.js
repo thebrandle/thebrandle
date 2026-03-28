@@ -5,15 +5,15 @@
   var SLUG = 'radiant-skincare-branding-copy';
 
   var IMAGE_MAP = {
-    'bPs9iY1xCdYs2KmVLN2FyaQJhk': '/assets/projects/apex/project2_04_img.webp',
+    'bPs9iY1xCdYs2KmVLN2FyaQJhk': '/assets/projects/apex/project2_02.gif',
     'mEUUzFINLTAMqcjxzWXrFUYzBPQ': '/assets/projects/apex/project2_03_img.webp',
-    'DoXq6u9izTQXkCnUIRkIihQFcLY': '/assets/projects/apex/project2_02.gif',
+    'DoXq6u9izTQXkCnUIRkIihQFcLY': '/assets/projects/apex/project2_04_img.webp',
     'pRB6gumPdQ4EjikDzF8GcKawEw': '/assets/projects/apex/project2_02_img.webp',
     'X5grbrA9rWxLkHxGkUrMU5hYvLM': '/assets/projects/apex/project2_03_img.webp',
   };
 
   // BpFSTQ appears twice: hero BG image vs full-width in Images section
-  var BP_HERO = '/assets/projects/apex/project2_04_img.webp';
+  var BP_HERO = '/assets/projects/apex/project2_02.gif';
   var BP_FULLWIDTH = '/assets/projects/apex/project2_01.gif';
 
   var TEXT_MAP = [
@@ -171,6 +171,40 @@
     }
   }
 
+  // ---- HIDE YOUTUBE SECTION ----
+  function hideYouTubeSection() {
+    // Hide the YouTube embed container and its play button
+    document.querySelectorAll('img').forEach(function(img) {
+      var src = img.getAttribute('src') || '';
+      if (src.indexOf('maxresdefault') !== -1 || src.indexOf('ytimg') !== -1) {
+        // Walk up to find the section-level container
+        var el = img;
+        for (var i = 0; i < 6; i++) {
+          el = el.parentElement;
+          if (!el) break;
+          var s = getComputedStyle(el);
+          // The YouTube wrapper is a direct child of [data-framer-name="Content"]
+          if (el.parentElement && el.parentElement.getAttribute('data-framer-name') === 'Content') {
+            el.style.setProperty('display', 'none', 'important');
+            return;
+          }
+        }
+        // Fallback: hide the clickable article wrapper
+        var article = img.closest('article');
+        if (article && article.parentElement) {
+          article.parentElement.style.setProperty('display', 'none', 'important');
+        }
+      }
+    });
+    // Also hide any YouTube iframes
+    document.querySelectorAll('iframe').forEach(function(iframe) {
+      if ((iframe.getAttribute('src') || '').indexOf('youtube') !== -1) {
+        var container = iframe.closest('[class*="container"]') || iframe.parentElement;
+        if (container) container.style.setProperty('display', 'none', 'important');
+      }
+    });
+  }
+
   // ---- FULL PASS ----
   function applyOverrides() {
     if (!isProjectPage()) return;
@@ -179,6 +213,7 @@
     replaceBackgroundImages();
     forceShowContainers();
     removeDevelopmentPill();
+    hideYouTubeSection();
   }
 
   // ---- MUTATION OBSERVER ----
