@@ -175,13 +175,13 @@
     });
   }
 
-  // ---- REMOVE DEVELOPMENT PILL ----
+  // ---- REMOVE UNWANTED PILLS (keep only Web design) ----
   function removeDevelopmentPill() {
     var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
     var node;
     while (node = walker.nextNode()) {
       var t = node.textContent.trim().toLowerCase();
-      if (t === 'development') {
+      if (t === 'development' || t === 'branding' || t === 'support') {
         var el = node.parentElement;
         for (var i = 0; i < 8; i++) {
           if (!el || el === document.body) break;
