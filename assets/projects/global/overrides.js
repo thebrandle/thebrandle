@@ -140,15 +140,14 @@
       var cfg = SLUGS[slug];
       if (!cfg.thumb) return;
       link.querySelectorAll('img').forEach(function(img) {
-        if (img.dataset.globalThumbPatched) return;
         var w = parseInt(img.getAttribute('width') || '0');
         if (w > 0 && w < 50) return;
-        var src = (img.getAttribute('src') || '') + ' ' + (img.getAttribute('srcset') || '');
-        if (src.indexOf('framerusercontent') !== -1 || src.indexOf('data:image') !== -1) {
+        var cur = (img.getAttribute('src') || '') + ' ' + (img.getAttribute('srcset') || '');
+        // Replace if src still points to framer CDN (catches React hydration resets)
+        if (cur.indexOf('framerusercontent') !== -1) {
           img.src = cfg.thumb;
           img.srcset = '';
           img.removeAttribute('srcset');
-          img.dataset.globalThumbPatched = '1';
         }
       });
     });
@@ -158,7 +157,6 @@
   // Called when any img gets its src/srcset set — checks for known hero keys
   function patchImgByKey(img) {
     if (isOnProjectDetail()) return;
-    if (img.dataset.globalThumbPatched) return;
     var src = (img.getAttribute('src') || '') + ' ' + (img.getAttribute('srcset') || '');
     for (var key in THUMB_MAP) {
       if (src.indexOf(key) !== -1) {
@@ -171,33 +169,38 @@
     }
   }
 
-  // ---- HIDE SUPPORT/DEVELOPMENT FILTER TABS & FIX COUNTS ----
+  // ---- HIDE ALL FILTER TABS ON /PROJECTS PAGE ----
   function patchFilterArea() {
+    // Only act on the /projects listing page
+    var path = window.location.pathname;
+    if (!(path === '/projects' || path === '/projects/')) return;
+
+    var filterLabels = ['All', 'All cases', 'Web design', 'Websites', 'Branding', 'Support', 'Development'];
     var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
     var node;
     while (node = walker.nextNode()) {
       var t = node.textContent.trim();
+      if (filterLabels.indexOf(t) === -1 && !/^\(\d+\)$/.test(t)) continue;
 
-      if (t === 'Support' || t === 'Development') {
-        var el = node.parentElement;
-        if (el && el.closest('a[href*="/projects/"]')) continue;
-        for (var i = 0; i < 8; i++) {
-          if (!el) break;
-          if (el.tagName === 'A' && (el.getAttribute('href') || '').indexOf('projects') !== -1) {
-            el.style.setProperty('display', 'none', 'important');
-            break;
-          }
-          if (el.classList && el.classList.toString().indexOf('container') !== -1 &&
-              !el.closest('a[href*="/projects/"]')) {
-            el.style.setProperty('display', 'none', 'important');
-            break;
-          }
-          el = el.parentElement;
+      var el = node.parentElement;
+      if (!el) continue;
+      // Skip text inside project card links (pill labels)
+      if (el.closest && el.closest('a[href*="/projects/"]')) continue;
+      // Skip navbar
+      if (el.closest && (el.closest('nav') || el.closest('header'))) continue;
+
+      // Walk up to find the filter tab's clickable container
+      for (var i = 0; i < 6; i++) {
+        if (!el) break;
+        if (el.tagName === 'A' && (el.getAttribute('href') || '').indexOf('projects') !== -1) {
+          el.style.setProperty('display', 'none', 'important');
+          break;
         }
-      }
-
-      if (/^\(\d+\)$/.test(t) && parseInt(t.replace(/[()]/g, '')) > 4) {
-        node.textContent = '(04)';
+        if (el.classList && el.classList.toString().indexOf('container') !== -1) {
+          el.style.setProperty('display', 'none', 'important');
+          break;
+        }
+        el = el.parentElement;
       }
     }
   }
