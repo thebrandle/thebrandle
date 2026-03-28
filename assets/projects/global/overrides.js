@@ -1,4 +1,4 @@
-// Global overrides — cards, thumbnails, filters, hide 5th project
+// Global overrides — cards, thumbnails, hide 5th project, hide filter tabs
 (function() {
   'use strict';
 
@@ -8,28 +8,24 @@
       title: 'Shine Skincare Branding',
       desc: 'High quality cosmetics brand created for independent and brave women.',
       pills: ['Branding'],
-      cat: 'branding',
       thumb: '/assets/projects/shine/bg.gif'
     },
     'radiant-skincare-branding-copy': {
       title: '\u201COh My Pasta.\u201D Branding',
       desc: 'A unique pasta bar branding project aimed to connect with customers.',
       pills: ['Branding'],
-      cat: 'branding',
       thumb: '/assets/projects/apex/project2_01.gif'
     },
     'vero-app-development': {
       title: 'DropX Website Design',
       desc: 'A sleek and stylish landing page design for high-conversion digital products.',
       pills: ['Web design'],
-      cat: 'webdesign',
       thumb: '/assets/projects/dropx/image3.webp'
     },
     'stoyo-branding': {
       title: 'ORBLEAD Website Design',
       desc: 'A simple minimalistic SaaS lead generation website design.',
       pills: ['Web design'],
-      cat: 'webdesign',
       thumb: '/assets/projects/orblead/image1.webp'
     }
   };
@@ -41,7 +37,7 @@
     'SDIyriYujLHtLJeg9tbQiqvoT4': '/assets/projects/orblead/image1.webp',
   };
 
-  // ---- INJECT CSS: hide 5th project link only ----
+  // ---- INJECT CSS ----
   var css = document.createElement('style');
   css.textContent = 'a[href*="stoyo-branding-copy"]{ display:none!important; }';
   (document.head || document.documentElement).appendChild(css);
@@ -61,12 +57,7 @@
     return p.indexOf('/projects/') !== -1 && p.split('/projects/')[1].length > 0;
   }
 
-  function isListing() {
-    var p = window.location.pathname;
-    return p === '/projects' || p === '/projects/';
-  }
-
-  // ---- HIDE 5TH PROJECT (JS fallback) ----
+  // ---- HIDE 5TH PROJECT ----
   function hideFifth() {
     document.querySelectorAll('a[href*="stoyo-branding-copy"]').forEach(function(a) {
       a.style.setProperty('display', 'none', 'important');
@@ -123,7 +114,6 @@
   }
 
   // ---- PATCH THUMBNAILS ----
-  // Re-patches even if previously patched (React hydration can reset src)
   function patchThumbnails() {
     if (isDetail()) return;
     document.querySelectorAll('a[href*="/projects/"]').forEach(function(link) {
@@ -135,12 +125,10 @@
         var w = parseInt(img.getAttribute('width') || '0');
         if (w > 0 && w < 50) return;
         var cur = (img.getAttribute('src') || '') + ' ' + (img.getAttribute('srcset') || '');
-        // Replace if it has a framer CDN URL (including after React hydration resets)
         if (cur.indexOf('framerusercontent') !== -1) {
           img.src = thumb;
           img.srcset = '';
           img.removeAttribute('srcset');
-          img.dataset.globalThumbPatched = '1';
         }
       });
     });
@@ -154,103 +142,59 @@
         img.src = THUMB_MAP[key];
         img.srcset = '';
         img.removeAttribute('srcset');
-        img.dataset.globalThumbPatched = '1';
         return;
       }
     }
   }
 
-  // ---- FILTER LOGIC ----
-  var activeFilter = 'all';
-
-  // Detect filter tab clicks via document-level capture listener
-  document.addEventListener('click', function(e) {
-    if (!isListing()) return;
-    // Ignore clicks inside project card links
-    if (e.target.closest && e.target.closest('a[href*="/projects/"]')) return;
-
-    var el = e.target;
-    for (var i = 0; i < 6; i++) {
-      if (!el) break;
-      var t = el.textContent.trim().toLowerCase();
-      // Only match short text (filter labels, not long paragraphs)
-      if (t.length > 30) { el = el.parentElement; continue; }
-      if (t === 'all' || t === 'all cases' || t.indexOf('all cases') !== -1) {
-        activeFilter = 'all'; scheduleEnforce(); break;
-      } else if (t === 'branding') {
-        activeFilter = 'branding'; scheduleEnforce(); break;
-      } else if (t === 'web design' || t === 'websites') {
-        activeFilter = 'webdesign'; scheduleEnforce(); break;
-      }
-      el = el.parentElement;
-    }
-  }, true);
-
-  function scheduleEnforce() {
-    setTimeout(enforceFilter, 50);
-    setTimeout(enforceFilter, 200);
-    setTimeout(enforceFilter, 500);
-    setTimeout(enforceFilter, 1000);
-    setTimeout(enforceFilter, 2000);
-  }
-
-  function enforceFilter() {
-    if (!isListing()) return;
-    document.querySelectorAll('a[href*="/projects/"]').forEach(function(link) {
-      var slug = getSlug(link);
-      if (!slug) return;
-      // Always hide 5th project
-      if (slug === 'stoyo-branding-copy') return;
-      var cfg = SLUGS[slug];
-      if (!cfg) return;
-
-      var show = (activeFilter === 'all') || (cfg.cat === activeFilter);
-
-      // Walk up from link to find the card wrapper div
-      var wrapper = link;
-      var el = link.parentElement;
-      while (el && el !== document.body) {
-        // Stop at the grid/list container (has many children)
-        if (el.children.length > 3) break;
-        wrapper = el;
-        el = el.parentElement;
-      }
-
-      if (show) {
-        wrapper.style.removeProperty('display');
-        // Also un-hide the link itself (in case React hid it)
-        link.style.removeProperty('display');
-      } else {
-        wrapper.style.setProperty('display', 'none', 'important');
-      }
-    });
-  }
-
-  // ---- HIDE SUPPORT/DEVELOPMENT TABS & FIX COUNTS ----
-  function patchFilterArea() {
+  // ---- HIDE ALL FILTER TABS ----
+  function hideFilterTabs() {
+    // Hide the entire filter row: find "All", "Web design", "Branding" etc.
+    // These are text nodes NOT inside project card links
+    var labels = ['All', 'All cases', 'Web design', 'Websites', 'Branding', 'Support', 'Development'];
     var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
     var node;
     while (node = walker.nextNode()) {
       var t = node.textContent.trim();
-      if (t === 'Support' || t === 'Development') {
+      // Hide filter tab labels (but not those inside project cards or navbar)
+      if (labels.indexOf(t) !== -1 || /^\(\d+\)$/.test(t)) {
         var el = node.parentElement;
-        if (el && el.closest && el.closest('a[href*="/projects/"]')) continue;
+        if (!el) continue;
+        // Skip if inside a project card link
+        if (el.closest && el.closest('a[href*="/projects/"]')) continue;
+        // Skip if inside the navbar (header area)
+        if (el.closest && (el.closest('nav') || el.closest('header'))) continue;
+        // Only hide filter-area elements: look for the tab container
+        // Filter tabs are typically in a section with large font sizes or specific framer names
+        var container = el;
         for (var i = 0; i < 8; i++) {
-          if (!el) break;
-          if (el.tagName === 'A' && (el.getAttribute('href') || '').indexOf('projects') !== -1) {
-            el.style.setProperty('display', 'none', 'important');
-            break;
+          if (!container) break;
+          var dfn = container.getAttribute('data-framer-name') || '';
+          // If this is the "All cases" data-framer-name or a tab link container
+          if (dfn === 'All cases' || dfn === 'Text') {
+            // Found a filter tab — walk up one more to find the row
+            var row = container;
+            while (row && row.parentElement) {
+              row = row.parentElement;
+              // The filter row container typically has a few tab children
+              if (row.children.length >= 2 && row.children.length <= 8) {
+                var hasFilterText = false;
+                for (var c = 0; c < row.children.length; c++) {
+                  var ct = row.children[c].textContent.trim();
+                  if (ct.indexOf('All') !== -1 || ct.indexOf('Branding') !== -1 || ct.indexOf('Web') !== -1) {
+                    hasFilterText = true;
+                    break;
+                  }
+                }
+                if (hasFilterText) {
+                  row.style.setProperty('display', 'none', 'important');
+                  return; // Done — hid the whole filter row
+                }
+              }
+            }
           }
-          if (el.classList && el.classList.toString().indexOf('container') !== -1 &&
-              !(el.closest && el.closest('a[href*="/projects/"]'))) {
-            el.style.setProperty('display', 'none', 'important');
-            break;
-          }
-          el = el.parentElement;
+          container = container.parentElement;
         }
-      }
-      if (/^\(\d+\)$/.test(t) && parseInt(t.replace(/[()]/g, '')) > 4) {
-        node.textContent = '(04)';
       }
     }
   }
@@ -260,8 +204,7 @@
     hideFifth();
     patchCards();
     patchThumbnails();
-    patchFilterArea();
-    enforceFilter();
+    hideFilterTabs();
   }
 
   // ---- INTERCEPTOR ----
@@ -270,7 +213,6 @@
     if (isDetail()) return val;
     for (var key in THUMB_MAP) {
       if (val.indexOf(key) !== -1) {
-        img.dataset.globalThumbPatched = '1';
         setTimeout(function() { img.removeAttribute('srcset'); }, 0);
         return THUMB_MAP[key];
       }
@@ -301,7 +243,7 @@
   (document.body || document.documentElement) &&
     observer.observe(document.body || document.documentElement, {
       childList: true, subtree: true, attributes: true,
-      attributeFilter: ['src', 'srcset', 'style']
+      attributeFilter: ['src', 'srcset']
     });
 
   // ---- BOOTSTRAP ----
@@ -311,7 +253,6 @@
     applyOverrides();
   }
 
-  // Repeated checks to catch React hydration and late renders
   var times = [100, 300, 500, 800, 1200, 1800, 2500, 3500, 5000, 7000, 10000];
   times.forEach(function(ms) { setTimeout(applyOverrides, ms); });
 
@@ -320,7 +261,6 @@
   setInterval(function() {
     if (window.location.href !== lastUrl) {
       lastUrl = window.location.href;
-      activeFilter = 'all';
       times.forEach(function(ms) { setTimeout(applyOverrides, ms); });
     }
   }, 200);
