@@ -135,12 +135,18 @@
       if (!cfg.thumb) return;
       link.querySelectorAll('img').forEach(function(img) {
         if (img.dataset.globalThumbPatched) return;
-        var rect = img.getBoundingClientRect();
-        if (rect.width < 50) return;
-        img.src = cfg.thumb;
-        img.srcset = '';
-        img.removeAttribute('srcset');
-        img.dataset.globalThumbPatched = '1';
+        // Only replace the main card image — skip tiny icons (width/height attrs)
+        var w = parseInt(img.getAttribute('width') || '0');
+        var h = parseInt(img.getAttribute('height') || '0');
+        if (w > 0 && w < 50) return;
+        // Also match by checking if current src contains a known Framer CDN key
+        var src = (img.getAttribute('src') || '') + ' ' + (img.getAttribute('srcset') || '');
+        if (src.indexOf('framerusercontent') !== -1 || src.indexOf('data:image') !== -1) {
+          img.src = cfg.thumb;
+          img.srcset = '';
+          img.removeAttribute('srcset');
+          img.dataset.globalThumbPatched = '1';
+        }
       });
     });
   }
