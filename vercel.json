@@ -1,5 +1,11 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/projects/project1", "destination": "/projects/radiant-skincare-branding", "statusCode": 301 },
+    { "source": "/projects/project2", "destination": "/projects/radiant-skincare-branding-copy", "statusCode": 301 },
+    { "source": "/projects/project3", "destination": "/projects/vero-app-development", "statusCode": 301 },
+    { "source": "/projects/project4", "destination": "/projects/stoyo-branding", "statusCode": 301 }
+  ],
   "rewrites": [
     { "source": "/api/contact", "destination": "/api/contact" },
     { "source": "/(.*)", "destination": "/thebrandle.framer.website/index.html" }

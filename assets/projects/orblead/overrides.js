@@ -47,6 +47,12 @@
   // ---- IMAGE PROCESSING ----
   function processImage(img) {
     if (!img || img.dataset.orbleadProcessed) return;
+    // Skip images inside "Latest Projects" card links to OTHER projects
+    var parentLink = img.closest('a');
+    if (parentLink) {
+      var h = parentLink.getAttribute('href') || '';
+      if (h.indexOf('radiant-skincare-branding') !== -1 || h.indexOf('vero-app') !== -1) return;
+    }
     var src = img.getAttribute('src') || '';
     var srcset = img.getAttribute('srcset') || '';
     var combined = src + ' ' + srcset;

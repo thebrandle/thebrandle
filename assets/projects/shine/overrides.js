@@ -50,6 +50,13 @@
   // Process a single image element
   function processImage(img) {
     if (!img || img.dataset.shineProcessed) return;
+    // Skip images inside "Latest Projects" card links to OTHER projects
+    var parentLink = img.closest('a');
+    if (parentLink) {
+      var h = parentLink.getAttribute('href') || '';
+      if (h.indexOf('vero-app') !== -1 || h.indexOf('stoyo-branding') !== -1 ||
+          h.indexOf('branding-copy') !== -1) return;
+    }
     var src = img.getAttribute('src') || '';
     var origSrc = img.getAttribute('data-framer-original-sizes') ? src : src;
 
