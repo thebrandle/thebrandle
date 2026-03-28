@@ -30,6 +30,14 @@
     }
   };
 
+  // Hero image keys → card thumbnails
+  var THUMB_MAP = {
+    'BpFSTQ5eQJd8x1t06THJsBy6mU': '/assets/projects/shine/bg.gif',
+    'bPs9iY1xCdYs2KmVLN2FyaQJhk': '/assets/projects/apex/project2_01.gif',
+    'T3l9K398sRcCWjbIM6rTgD8UILk': '/assets/projects/dropx/image3.webp',
+    'SDIyriYujLHtLJeg9tbQiqvoT4': '/assets/projects/orblead/image1.webp',
+  };
+
   // ---- HELPERS ----
   function getSlugFromLink(a) {
     var href = a.getAttribute('href') || '';
@@ -50,7 +58,6 @@
     document.querySelectorAll('a[href*="stoyo-branding-copy"]').forEach(function(link) {
       if (link.dataset.globalHidden) return;
       link.dataset.globalHidden = '1';
-      // Walk up to the card slot container
       var el = link;
       for (var i = 0; i < 8; i++) {
         if (!el.parentElement) break;
@@ -81,8 +88,7 @@
       // Description
       link.querySelectorAll('p').forEach(function(p) {
         var style = p.getAttribute('style') || '';
-        if (style.indexOf('text-transform') !== -1) return; // skip pills
-        // Skip large font sizes (filter tabs, section titles)
+        if (style.indexOf('text-transform') !== -1) return;
         if (/font-size:\s*(30|48|55|102)px/.test(style)) return;
         var text = p.textContent.trim();
         if (text.indexOf('Vero aimed') !== -1 ||
@@ -96,7 +102,7 @@
         }
       });
 
-      // Pills — find uppercase pill text elements
+      // Pills
       var pillEls = [];
       link.querySelectorAll('p').forEach(function(p) {
         var style = p.getAttribute('style') || '';
@@ -109,7 +115,6 @@
         if (pi < cfg.pills.length) {
           pillEls[pi].textContent = cfg.pills[pi];
         } else {
-          // Hide extra pills by walking up to border-radius container
           var el = pillEls[pi].parentElement;
           for (var k = 0; k < 6; k++) {
             if (!el) break;
@@ -126,8 +131,9 @@
   }
 
   // ---- PATCH CARD THUMBNAILS ----
+  // Replaces ALL card images whose src or srcset contains a Framer CDN path
   function patchThumbnails() {
-    if (isOnProjectDetail()) return; // Let project overrides handle detail pages
+    if (isOnProjectDetail()) return;
     document.querySelectorAll('a[href*="/projects/"]').forEach(function(link) {
       var slug = getSlugFromLink(link);
       if (!slug || !SLUGS[slug]) return;
@@ -135,11 +141,8 @@
       if (!cfg.thumb) return;
       link.querySelectorAll('img').forEach(function(img) {
         if (img.dataset.globalThumbPatched) return;
-        // Only replace the main card image — skip tiny icons (width/height attrs)
         var w = parseInt(img.getAttribute('width') || '0');
-        var h = parseInt(img.getAttribute('height') || '0');
         if (w > 0 && w < 50) return;
-        // Also match by checking if current src contains a known Framer CDN key
         var src = (img.getAttribute('src') || '') + ' ' + (img.getAttribute('srcset') || '');
         if (src.indexOf('framerusercontent') !== -1 || src.indexOf('data:image') !== -1) {
           img.src = cfg.thumb;
@@ -151,19 +154,33 @@
     });
   }
 
-  // ---- HIDE SUPPORT TEXT IN FILTER AREA & FIX COUNTS ----
+  // ---- PATCH INDIVIDUAL IMG BY KEY ----
+  // Called when any img gets its src/srcset set — checks for known hero keys
+  function patchImgByKey(img) {
+    if (isOnProjectDetail()) return;
+    if (img.dataset.globalThumbPatched) return;
+    var src = (img.getAttribute('src') || '') + ' ' + (img.getAttribute('srcset') || '');
+    for (var key in THUMB_MAP) {
+      if (src.indexOf(key) !== -1) {
+        img.src = THUMB_MAP[key];
+        img.srcset = '';
+        img.removeAttribute('srcset');
+        img.dataset.globalThumbPatched = '1';
+        return;
+      }
+    }
+  }
+
+  // ---- HIDE SUPPORT/DEVELOPMENT FILTER TABS & FIX COUNTS ----
   function patchFilterArea() {
     var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
     var node;
     while (node = walker.nextNode()) {
       var t = node.textContent.trim();
 
-      // Hide "Support" and "Development" filter tabs
       if (t === 'Support' || t === 'Development') {
         var el = node.parentElement;
-        // Check if this is inside a project card link — if so, skip (handled by pill logic)
         if (el && el.closest('a[href*="/projects/"]')) continue;
-        // Walk up to find the tab container
         for (var i = 0; i < 8; i++) {
           if (!el) break;
           if (el.tagName === 'A' && (el.getAttribute('href') || '').indexOf('projects') !== -1) {
@@ -179,7 +196,6 @@
         }
       }
 
-      // Fix project count
       if (/^\(\d+\)$/.test(t) && parseInt(t.replace(/[()]/g, '')) > 4) {
         node.textContent = '(04)';
       }
@@ -194,21 +210,17 @@
     patchFilterArea();
   }
 
-  // ---- REGISTER THUMBNAIL INTERCEPTOR ----
-  // Hero image keys → card thumbnails (intercepts dynamic img.src on /projects page)
-  var THUMB_MAP = {
-    'BpFSTQ5eQJd8x1t06THJsBy6mU': '/assets/projects/shine/bg.gif',
-    'bPs9iY1xCdYs2KmVLN2FyaQJhk': '/assets/projects/apex/project2_01.gif',
-    'T3l9K398sRcCWjbIM6rTgD8UILk': '/assets/projects/dropx/image3.webp',
-    'SDIyriYujLHtLJeg9tbQiqvoT4': '/assets/projects/orblead/image1.webp',
-  };
-
+  // ---- REGISTER THUMBNAIL INTERCEPTOR (catches dynamic img.src assignments) ----
   window.__projectOverrides = window.__projectOverrides || [];
   window.__projectOverrides.push(function(img, val) {
     if (isOnProjectDetail()) return val;
     for (var key in THUMB_MAP) {
       if (val.indexOf(key) !== -1) {
         img.dataset.globalThumbPatched = '1';
+        // Also clear srcset so browser uses our src
+        setTimeout(function() {
+          img.removeAttribute('srcset');
+        }, 0);
         return THUMB_MAP[key];
       }
     }
@@ -216,15 +228,40 @@
   });
 
   // ---- MUTATION OBSERVER ----
+  // Watch BOTH childList (new elements) AND attributes (src/srcset changes)
   var debounceTimer;
-  var observer = new MutationObserver(function() {
+  var observer = new MutationObserver(function(mutations) {
+    // Immediately patch any img whose src/srcset just changed
+    for (var i = 0; i < mutations.length; i++) {
+      var m = mutations[i];
+      if (m.type === 'attributes' && m.target.tagName === 'IMG') {
+        patchImgByKey(m.target);
+      }
+      // Also check newly added images
+      if (m.type === 'childList') {
+        var added = m.addedNodes;
+        for (var j = 0; j < added.length; j++) {
+          var node = added[j];
+          if (node.nodeType !== 1) continue;
+          if (node.tagName === 'IMG') patchImgByKey(node);
+          var imgs = node.querySelectorAll ? node.querySelectorAll('img') : [];
+          for (var k = 0; k < imgs.length; k++) patchImgByKey(imgs[k]);
+        }
+      }
+    }
+    // Debounced full pass for text, pills, filter tabs
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(applyOverrides, 150);
   });
 
   function startObserver() {
     var target = document.body || document.documentElement;
-    observer.observe(target, { childList: true, subtree: true });
+    observer.observe(target, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['src', 'srcset']
+    });
   }
 
   // ---- BOOTSTRAP ----
