@@ -37,6 +37,29 @@
     'SDIyriYujLHtLJeg9tbQiqvoT4': '/assets/projects/orblead/image1.webp',
   };
 
+  // ---- INJECT CSS THUMBNAIL OVERRIDES ----
+  // Pure CSS approach: hide old <img> and show our image as background on the wrapper.
+  // This is immune to React re-renders — CSS rules persist regardless of DOM changes.
+  var cssRules = ['a[href*="stoyo-branding-copy"]{ display:none!important; }'];
+  for (var imgKey in THUMB_MAP) {
+    var thumb = THUMB_MAP[imgKey];
+    // When wrapper contains an img whose src or srcset has this CDN key, show our thumb
+    cssRules.push(
+      '[data-framer-background-image-wrapper]:has(img[src*="' + imgKey + '"]),' +
+      '[data-framer-background-image-wrapper]:has(img[srcset*="' + imgKey + '"])' +
+      '{ background: url(' + thumb + ') center/cover no-repeat !important; }'
+    );
+    cssRules.push(
+      'img[src*="' + imgKey + '"],' +
+      'img[srcset*="' + imgKey + '"]' +
+      '{ opacity: 0 !important; }'
+    );
+  }
+  var cssEl = document.createElement('style');
+  cssEl.id = 'global-thumb-overrides';
+  cssEl.textContent = cssRules.join('\n');
+  (document.head || document.documentElement).appendChild(cssEl);
+
   // Build a CSS selector that matches ANY link containing a known slug
   // This catches both href="./projects/slug" AND href="./slug" formats
   var ALL_SLUGS = Object.keys(SLUGS).concat(['stoyo-branding-copy']);
