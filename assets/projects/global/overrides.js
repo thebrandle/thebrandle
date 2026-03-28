@@ -89,15 +89,13 @@
   }
 
   // ---- GLOBAL TEXT REPLACEMENTS (catches titles anywhere on page) ----
+  // Only TITLES here — descriptions are handled by patchCards() and project-specific overrides
   var TITLE_MAP = [
     ['Radiant skincare branding', 'Shine Skincare Branding'],
     ['Apex clothing Co. rebrand', '\u201COh My Pasta.\u201D Branding'],
     ['Vero app development', 'DropX Website Design'],
     ['Stoyo branding', 'ORBLEAD Website Design'],
-    ['Radiant skincare is offering a user-centric, ad-free platform.', 'High quality cosmetics brand created for independent and brave women.'],
-    ['Bold new look for an eco-conscious apparel brand.', 'A unique pasta bar branding project aimed to connect with customers.'],
-    ['Vero aimed to distinguish itself in a competitive social media landscape.', 'A sleek and stylish landing page design for high-conversion digital products.'],
-    ['Visual identity and packaging design for a Stoyo brand.', 'A simple minimalistic SaaS lead generation website design.'],
+    ['Timeless Impressions redesign', 'ORBLEAD Website Design'],
   ];
 
   function patchGlobalText() {
