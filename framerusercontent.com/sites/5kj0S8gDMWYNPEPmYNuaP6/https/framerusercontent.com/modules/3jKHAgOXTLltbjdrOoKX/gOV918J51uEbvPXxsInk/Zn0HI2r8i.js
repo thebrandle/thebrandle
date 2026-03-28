@@ -269,11 +269,11 @@ const Component = /*#__PURE__*/ React.forwardRef(function (props, ref) {
                         children: /*#__PURE__*/ _jsx(motion.h3, {
                           className: "framer-styles-preset-ddjjzx",
                           "data-styles-preset": "uQRBhygQf",
-                          children: "Radiant skincare branding",
+                          children: "Shine Skincare Branding",
                         }),
                       }),
                       className: "framer-fkagyj",
-                      "data-framer-name": "Radiant skincare branding",
+                      "data-framer-name": "Shine Skincare Branding",
                       fonts: ["Inter"],
                       layoutDependency: layoutDependency,
                       layoutId: "HDswsfHhp",
@@ -293,7 +293,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function (props, ref) {
                               "var(--extracted-r6o4lv, rgba(12, 12, 12, 0.6))",
                           },
                           children:
-                            "Visual identity and packaging design for a skincare line.",
+                            "High quality cosmetics brand created for independent and brave women.",
                         }),
                       }),
                       className: "framer-h5oag5",
