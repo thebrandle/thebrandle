@@ -370,21 +370,22 @@
     });
   }
 
-  // ---- ALSO INTERCEPT IMAGE LOADING VIA src SETTER ----
-  // This catches React setting img.src before the MutationObserver fires
+  // ---- SHARED img.src INTERCEPTOR ----
+  // This is the ONLY script that patches HTMLImageElement.prototype.src.
+  // Other project scripts register handlers via window.__projectOverrides.
+  window.__projectOverrides = window.__projectOverrides || [];
   var origSrcDescriptor = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, 'src');
   if (origSrcDescriptor && origSrcDescriptor.set) {
     Object.defineProperty(HTMLImageElement.prototype, 'src', {
       get: origSrcDescriptor.get,
       set: function(val) {
-        if (isProjectPage() && typeof val === 'string') {
-          // Check if this is a YouTube thumbnail
-          if (val.indexOf('ytimg.com') !== -1) {
-            val = IMAGE5_PATH;
-            this.dataset.shineProcessed = '1';
-          } else {
-            // Check BpFSTQ (hero/MacBook) - count occurrences
-            if (val.indexOf('BpFSTQ5eQJd8x1t06THJsBy6mU') !== -1 ||
+        if (typeof val === 'string') {
+          // Run Shine interceptor
+          if (isProjectPage()) {
+            if (val.indexOf('ytimg.com') !== -1) {
+              val = IMAGE5_PATH;
+              this.dataset.shineProcessed = '1';
+            } else if (val.indexOf('BpFSTQ5eQJd8x1t06THJsBy6mU') !== -1 ||
                 val.indexOf('Sl4ev11cuh935MExPXoGtMehHI') !== -1) {
               bpImageCount++;
               val = bpImageCount <= 1 ? '/assets/projects/shine/bg.gif' : MACBOOK_PATH;
@@ -398,6 +399,11 @@
                 }
               }
             }
+          }
+          // Run all registered project overrides (Apex, Vero, etc.)
+          var handlers = window.__projectOverrides;
+          for (var h = 0; h < handlers.length; h++) {
+            val = handlers[h](this, val);
           }
         }
         origSrcDescriptor.set.call(this, val);

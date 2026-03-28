@@ -47,13 +47,9 @@
     var combined = src + ' ' + srcset;
 
     // BpFSTQ appears in hero AND full-width — differentiate by parent container
-    if (combined.indexOf('BpFSTQ5eQJd8x1t06THJsBy6mU') !== -1 ||
-        src === BP_HERO || src === BP_FULLWIDTH) {
+    if (combined.indexOf('BpFSTQ5eQJd8x1t06THJsBy6mU') !== -1) {
       var isHero = !!img.closest('[data-framer-name="BG image"]');
-      var correctSrc = isHero ? BP_HERO : BP_FULLWIDTH;
-      if (img.src !== window.location.origin + correctSrc && img.getAttribute('src') !== correctSrc) {
-        img.src = correctSrc;
-      }
+      img.src = isHero ? BP_HERO : BP_FULLWIDTH;
       img.srcset = '';
       img.removeAttribute('srcset');
       img.dataset.apexProcessed = '1';
@@ -223,36 +219,25 @@
     observer.observe(target, { childList: true, subtree: true, attributes: true, attributeFilter: ['src', 'srcset', 'style'] });
   }
 
-  // ---- INTERCEPT img.src SETTER ----
-  var origSrcDescriptor = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, 'src');
-  if (origSrcDescriptor && origSrcDescriptor.set) {
-    var origSet = origSrcDescriptor.set;
-    // Check if Shine override already patched; chain if so
-    var currentSet = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, 'src').set;
-    Object.defineProperty(HTMLImageElement.prototype, 'src', {
-      get: origSrcDescriptor.get,
-      set: function(val) {
-        if (isProjectPage() && typeof val === 'string') {
-          if (val.indexOf('BpFSTQ5eQJd8x1t06THJsBy6mU') !== -1) {
-            // Try DOM context; if not yet mounted, default to hero (first set wins)
-            var isHero = this.parentElement ? !!this.closest('[data-framer-name="BG image"]') : true;
-            val = isHero ? BP_HERO : BP_FULLWIDTH;
-            this.dataset.apexProcessed = '1';
-          } else {
-            for (var key in IMAGE_MAP) {
-              if (val.indexOf(key) !== -1) {
-                val = IMAGE_MAP[key];
-                this.dataset.apexProcessed = '1';
-                break;
-              }
-            }
-          }
-        }
-        currentSet.call(this, val);
-      },
-      configurable: true
-    });
-  }
+  // ---- REGISTER WITH SHARED INTERCEPTOR ----
+  // Instead of patching img.src again (which conflicts with Shine's interceptor),
+  // register a handler that the shared interceptor will call.
+  window.__projectOverrides = window.__projectOverrides || [];
+  window.__projectOverrides.push(function(img, val) {
+    if (!isProjectPage()) return val;
+    if (val.indexOf('BpFSTQ5eQJd8x1t06THJsBy6mU') !== -1) {
+      var isHero = img.parentElement ? !!img.closest('[data-framer-name="BG image"]') : true;
+      img.dataset.apexProcessed = '1';
+      return isHero ? BP_HERO : BP_FULLWIDTH;
+    }
+    for (var key in IMAGE_MAP) {
+      if (val.indexOf(key) !== -1) {
+        img.dataset.apexProcessed = '1';
+        return IMAGE_MAP[key];
+      }
+    }
+    return val;
+  });
 
   // ---- BOOTSTRAP ----
   if (document.body) {
