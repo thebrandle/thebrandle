@@ -123,15 +123,18 @@
       var cfg = SLUGS[slug];
       if (!cfg || !cfg.thumb) return;
 
-      // Method 1: patch <img> elements
+      // Method 1: patch <img> elements — replace with fresh img to drop cached srcset
       link.querySelectorAll('img').forEach(function(img) {
+        if (img.dataset.globalPatched) return;
         var w = parseInt(img.getAttribute('width') || '0');
         if (w > 0 && w < 50) return;
         if (img.getAttribute('src') !== cfg.thumb) {
-          // Clear srcset/sizes FIRST, then set src via setAttribute
-          img.removeAttribute('srcset');
-          img.removeAttribute('sizes');
-          img.setAttribute('src', cfg.thumb);
+          var fresh = document.createElement('img');
+          fresh.setAttribute('src', cfg.thumb);
+          fresh.alt = '';
+          fresh.dataset.globalPatched = '1';
+          fresh.style.cssText = 'display:block;width:100%;height:100%;border-radius:inherit;object-position:center;object-fit:cover;';
+          if (img.parentNode) img.parentNode.replaceChild(fresh, img);
         }
       });
 
@@ -159,14 +162,17 @@
 
   function patchImgByKey(img) {
     if (isDetail()) return;
+    if (img.dataset.globalPatched) return;
     var src = (img.getAttribute('src') || '') + ' ' + (img.getAttribute('srcset') || '');
     for (var key in THUMB_MAP) {
       if (src.indexOf(key) !== -1) {
-        // Clear srcset and sizes FIRST so browser can't load from them
-        img.removeAttribute('srcset');
-        img.removeAttribute('sizes');
-        // Use setAttribute to bypass the interceptor and set directly
-        img.setAttribute('src', THUMB_MAP[key]);
+        // Replace the entire img element — only way to force browser to drop cached srcset
+        var fresh = document.createElement('img');
+        fresh.setAttribute('src', THUMB_MAP[key]);
+        fresh.alt = '';
+        fresh.dataset.globalPatched = '1';
+        fresh.style.cssText = 'display:block;width:100%;height:100%;border-radius:inherit;object-position:center;object-fit:cover;';
+        if (img.parentNode) img.parentNode.replaceChild(fresh, img);
         return;
       }
     }
