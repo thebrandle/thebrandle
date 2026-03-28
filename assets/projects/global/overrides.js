@@ -172,7 +172,9 @@
   }
 
   // ---- PATCH THUMBNAILS ----
+  // Only on homepage and /projects page — detail pages use project-specific overrides
   function patchThumbnails() {
+    if (isDetail()) return;
     document.querySelectorAll(LINK_SELECTOR).forEach(function(link) {
       var slug = getSlug(link);
       if (!slug || slug === 'stoyo-branding-copy') return;
@@ -217,6 +219,7 @@
   }
 
   function patchImgByKey(img) {
+    if (isDetail()) return;
     if (img.dataset.globalPatched) return;
     var src = (img.getAttribute('src') || '') + ' ' + (img.getAttribute('srcset') || '');
     for (var key in THUMB_MAP) {
