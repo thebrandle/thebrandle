@@ -80,24 +80,18 @@
       if (!cfg) return;
 
       // Title
+      // Title — always force correct value
       link.querySelectorAll('h3').forEach(function(h3) {
-        var t = h3.textContent.trim();
-        if (t !== cfg.title && t !== '') h3.textContent = cfg.title;
+        if (h3.textContent.trim() !== cfg.title) h3.textContent = cfg.title;
       });
 
-      // Description
+      // Description — replace any non-matching description paragraph
       link.querySelectorAll('p').forEach(function(p) {
         var style = p.getAttribute('style') || '';
-        if (style.indexOf('text-transform') !== -1) return;
-        if (/font-size:\s*(30|48|55|102)px/.test(style)) return;
+        if (style.indexOf('text-transform') !== -1) return; // skip pills
+        if (/font-size:\s*(30|48|55|102)px/.test(style)) return; // skip large headings
         var text = p.textContent.trim();
-        if (text.indexOf('Vero aimed') !== -1 ||
-            text.indexOf('Visual identity') !== -1 ||
-            text.indexOf('Bold new look') !== -1 ||
-            text.indexOf('Radiant skincare') !== -1 ||
-            text.indexOf('ad-free platform') !== -1 ||
-            text.indexOf('eco-conscious') !== -1 ||
-            text.indexOf('Stoyo brand') !== -1) {
+        if (text.length > 15 && text !== cfg.desc && text.indexOf('(') !== 0) {
           p.textContent = cfg.desc;
         }
       });
@@ -142,9 +136,9 @@
       link.querySelectorAll('img').forEach(function(img) {
         var w = parseInt(img.getAttribute('width') || '0');
         if (w > 0 && w < 50) return;
-        var cur = (img.getAttribute('src') || '') + ' ' + (img.getAttribute('srcset') || '');
-        // Replace if src still points to framer CDN (catches React hydration resets)
-        if (cur.indexOf('framerusercontent') !== -1) {
+        // Always force correct thumbnail — skip only if already correct
+        var cur = img.getAttribute('src') || '';
+        if (cur !== cfg.thumb) {
           img.src = cfg.thumb;
           img.srcset = '';
           img.removeAttribute('srcset');
