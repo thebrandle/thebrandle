@@ -24,6 +24,9 @@
     ['Radiant skincare is offering a user-centric, ad-free platform.', 'High quality cosmetics brand created for independent and brave women who take care of their skin health. Brand mission is to help every woman be confident about her unique beauty and SHINE from inside.'],
     ["We aimed to bring Vero\u2019s vision of authentic social interaction to life by focusing on seamless design and user privacy.", 'High quality cosmetics brand created for independent and brave women who take care of their skin health. Brand mission is to help every woman be confident about her unique beauty and SHINE from inside.'],
     ["This project reinforced the importance of building user-centered features that offer value beyond aesthetics, especially in social networking. The app\u2019s launch exceeded initial user growth targets, and the client received positive feedback on the app\u2019s intuitive design and ad-free experience.", ''],
+    ['Vero Labs Inc.', 'Shine Skincare'],
+    ['6 months', '2 weeks'],
+    ['Nov 13, 2024', 'Jun 22, 2024'],
     ['John Taylor', 'The Brandle Team'],
     ['Member of the team', 'Design Studio'],
     ['Designing an ad-free experience meant creating engaging content flows without traditional ads. We achieved this by focusing on rich, visual content and user-driven discovery options.', 'As the main concept for this package design we decided to create the minimalistic illustration of a smiling woman face. Together with the vibrant colors package design should cause a feeling of happiness, joy and satisfaction that reflects the main brand mission. SHINE...'],
@@ -286,6 +289,22 @@
     });
   }
 
+  // Hide the "Visit website" CTA below the hero
+  function hideVisitWebsiteCTA() {
+    document.querySelectorAll('a, button').forEach(function(el) {
+      var text = el.textContent.trim().toLowerCase();
+      if (text === 'visit website' || text === 'visit site') {
+        // Hide the CTA and its container
+        var container = el.closest('[data-framer-name]') || el.parentElement;
+        if (container) {
+          container.style.setProperty('display', 'none', 'important');
+        } else {
+          el.style.setProperty('display', 'none', 'important');
+        }
+      }
+    });
+  }
+
   // Full pass: process everything
   function applyOverrides() {
     if (!isProjectPage()) return;
@@ -294,6 +313,7 @@
     replaceYouTube();
     replaceBackgroundImages();
     forceShowContainers();
+    hideVisitWebsiteCTA();
     removeWebDesignPill();
   }
 
