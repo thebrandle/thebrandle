@@ -122,6 +122,8 @@
       if (!slug || slug === 'stoyo-branding-copy') return;
       var cfg = SLUGS[slug];
       if (!cfg || !cfg.thumb) return;
+
+      // Method 1: patch <img> elements
       link.querySelectorAll('img').forEach(function(img) {
         var w = parseInt(img.getAttribute('width') || '0');
         if (w > 0 && w < 50) return;
@@ -131,6 +133,26 @@
           img.removeAttribute('srcset');
         }
       });
+
+      // Method 2: patch background-image on divs (Framer sometimes uses this after hydration)
+      link.querySelectorAll('[data-framer-background-image-wrapper], [style*="background"]').forEach(function(div) {
+        var bg = div.style.backgroundImage || '';
+        if (bg && bg.indexOf('framerusercontent') !== -1) {
+          div.style.backgroundImage = 'url(' + cfg.thumb + ')';
+        }
+        // Also check child divs with background
+        div.querySelectorAll('div').forEach(function(child) {
+          var cbg = child.style.backgroundImage || '';
+          if (cbg && cbg.indexOf('framerusercontent') !== -1) {
+            child.style.backgroundImage = 'url(' + cfg.thumb + ')';
+          }
+        });
+      });
+    });
+
+    // Method 3: global sweep — patch ANY img on the page with a known Framer CDN key
+    document.querySelectorAll('img').forEach(function(img) {
+      patchImgByKey(img);
     });
   }
 
