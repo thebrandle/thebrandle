@@ -14,7 +14,7 @@
       title: '\u201COh My Pasta.\u201D Branding',
       desc: 'A unique pasta bar branding project aimed to connect with customers.',
       pills: ['Branding'],
-      thumb: '/assets/projects/apex/project2_02.gif'
+      thumb: '/assets/projects/apex/project2_01.gif'
     },
     'vero-app-development': {
       title: 'DropX Website Design',
@@ -158,8 +158,8 @@
     while (node = walker.nextNode()) {
       var t = node.textContent.trim();
 
-      // Hide "Support" only when it appears as a standalone filter tab label
-      if (t === 'Support') {
+      // Hide "Support" and "Development" filter tabs
+      if (t === 'Support' || t === 'Development') {
         var el = node.parentElement;
         // Check if this is inside a project card link — if so, skip (handled by pill logic)
         if (el && el.closest('a[href*="/projects/"]')) continue;
@@ -195,7 +195,10 @@
   }
 
   // ---- REGISTER THUMBNAIL INTERCEPTOR ----
+  // Hero image keys → card thumbnails (intercepts dynamic img.src on /projects page)
   var THUMB_MAP = {
+    'BpFSTQ5eQJd8x1t06THJsBy6mU': '/assets/projects/shine/bg.gif',
+    'bPs9iY1xCdYs2KmVLN2FyaQJhk': '/assets/projects/apex/project2_01.gif',
     'T3l9K398sRcCWjbIM6rTgD8UILk': '/assets/projects/dropx/image3.webp',
     'SDIyriYujLHtLJeg9tbQiqvoT4': '/assets/projects/orblead/image1.webp',
   };
