@@ -35,7 +35,13 @@
   var bpImageCount = 0;
 
   function isProjectPage() {
-    return window.location.pathname.indexOf('/projects/' + SLUG) !== -1;
+    var path = window.location.pathname;
+    var target = '/projects/' + SLUG;
+    var idx = path.indexOf(target);
+    if (idx === -1) return false;
+    // Ensure exact match — next char must be end-of-string, '/', or '?'
+    var next = path.charAt(idx + target.length);
+    return next === '' || next === '/' || next === '?';
   }
 
   // Process a single image element
