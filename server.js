@@ -62,7 +62,7 @@ const server = http.createServer((req, res) => {
   // Try serving the exact file first
   if (tryServe(filePath)) return;
 
-  // For SPA routes: detect if this is a "page" route (no extension) under the site folder
+  // For SPA routes: detect if this is a "page" route (no extension)
   const ext = path.extname(urlPath);
   if (!ext || ext === '') {
     // Try to find the site's index.html by going up to find the nearest one
@@ -77,6 +77,15 @@ const server = http.createServer((req, res) => {
         console.log(`200 (SPA fallback) ${req.url} -> ${indexPath}`);
         return;
       }
+    }
+
+    // Final fallback: serve the main SPA entry point (matches vercel.json rewrite)
+    const spaIndex = path.join(ROOT, 'thebrandle.framer.website', 'index.html');
+    if (fs.existsSync(spaIndex)) {
+      res.writeHead(200, { 'Content-Type': 'text/html' });
+      fs.createReadStream(spaIndex).pipe(res);
+      console.log(`200 (SPA fallback) ${req.url} -> ${spaIndex}`);
+      return;
     }
   }
 

@@ -15470,22 +15470,23 @@
   </style>
   <script>
     (function() {
+      var _applying = false;
       function applyAboutPageChanges() {
         if (window.location.pathname.indexOf('/about') === -1) return;
-        // Replace The Brandle Team with The Brandle Team loosely
-        document.querySelectorAll('p').forEach(function(p) {
-          if (p && p.textContent.trim() === 'The Brandle Team') { p.textContent = 'The Brandle Team'; }
-        });
-        // Replace Vero's vision - target all paragraphs broadly using indexOf Vero
-        document.querySelectorAll('p').forEach(function(p) {
-          if (p && p.textContent.indexOf("Vero") !== -1 && p.textContent.indexOf("vision") !== -1) {
-            p.textContent = "We aimed to bring Jobs\u2019 vision of radical simplicity to life \u2014 where every pixel has a purpose and nothing exists without intention.";
-          }
-        });
-        // Hide Meet the Team label in all paragraphs
-        document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span').forEach(function(p) {
-          if (p.textContent.trim() === 'Meet the Team') { p.textContent = ''; }
-        });
+        if (_applying) return;
+        _applying = true;
+        try {
+          // Replace Vero's vision
+          document.querySelectorAll('p').forEach(function(p) {
+            if (p && p.textContent.indexOf("Vero") !== -1 && p.textContent.indexOf("vision") !== -1) {
+              p.textContent = "We aimed to bring Jobs\u2019 vision of radical simplicity to life \u2014 where every pixel has a purpose and nothing exists without intention.";
+            }
+          });
+          // Hide Meet the Team label
+          document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span').forEach(function(p) {
+            if (p.textContent.trim() === 'Meet the Team') { p.textContent = ''; }
+          });
+        } finally { _applying = false; }
       }
       var observer = new MutationObserver(function() { applyAboutPageChanges(); });
       document.addEventListener('DOMContentLoaded', function() {
@@ -15532,6 +15533,14 @@
   img[src*="SDIyriYujLHtLJeg9tbQiqvoT4"],
   img[srcset*="SDIyriYujLHtLJeg9tbQiqvoT4"]
   { opacity: 0 !important; }
+
+  /* Hide Latest Insights / Blog section on home page */
+  section[data-framer-name="Blog"] { display: none !important; }
+
+  /* Replace bottle image on home page */
+  img[src*="GdqNUII0Rq3ISDD0FNEyWMVdWdQ"],
+  img[srcset*="GdqNUII0Rq3ISDD0FNEyWMVdWdQ"]
+  { content: url(/assets/images/bottle.png) !important; object-fit: cover !important; }
 </style>
 <link rel="preload" href="/assets/projects/apex/project2_01.gif" as="image">
 <link rel="preload" href="/assets/projects/dropx/image3.webp" as="image">
@@ -24545,22 +24554,23 @@
   </style>
   <script>
     (function() {
+      var _applying = false;
       function applyAboutPageChanges() {
         if (window.location.pathname.indexOf('/about') === -1) return;
-        // Replace The Brandle Team with The Brandle Team loosely
-        document.querySelectorAll('p').forEach(function(p) {
-          if (p && p.textContent.trim() === 'The Brandle Team') { p.textContent = 'The Brandle Team'; }
-        });
-        // Replace Vero's vision - target all paragraphs broadly using indexOf Vero
-        document.querySelectorAll('p').forEach(function(p) {
-          if (p && p.textContent.indexOf("Vero") !== -1 && p.textContent.indexOf("vision") !== -1) {
-            p.textContent = "We aimed to bring Jobs\u2019 vision of radical simplicity to life \u2014 where every pixel has a purpose and nothing exists without intention.";
-          }
-        });
-        // Hide Meet the Team label in all paragraphs
-        document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span').forEach(function(p) {
-          if (p.textContent.trim() === 'Meet the Team') { p.textContent = ''; }
-        });
+        if (_applying) return;
+        _applying = true;
+        try {
+          // Replace Vero's vision
+          document.querySelectorAll('p').forEach(function(p) {
+            if (p && p.textContent.indexOf("Vero") !== -1 && p.textContent.indexOf("vision") !== -1) {
+              p.textContent = "We aimed to bring Jobs\u2019 vision of radical simplicity to life \u2014 where every pixel has a purpose and nothing exists without intention.";
+            }
+          });
+          // Hide Meet the Team label
+          document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span').forEach(function(p) {
+            if (p.textContent.trim() === 'Meet the Team') { p.textContent = ''; }
+          });
+        } finally { _applying = false; }
       }
       var observer = new MutationObserver(function() { applyAboutPageChanges(); });
       document.addEventListener('DOMContentLoaded', function() {
@@ -24607,6 +24617,14 @@
   img[src*="SDIyriYujLHtLJeg9tbQiqvoT4"],
   img[srcset*="SDIyriYujLHtLJeg9tbQiqvoT4"]
   { opacity: 0 !important; }
+
+  /* Hide Latest Insights / Blog section on home page */
+  section[data-framer-name="Blog"] { display: none !important; }
+
+  /* Replace bottle image on home page */
+  img[src*="GdqNUII0Rq3ISDD0FNEyWMVdWdQ"],
+  img[srcset*="GdqNUII0Rq3ISDD0FNEyWMVdWdQ"]
+  { content: url(/assets/images/bottle.png) !important; object-fit: cover !important; }
 </style>
 <link rel="preload" href="/assets/projects/apex/project2_01.gif" as="image">
 <link rel="preload" href="/assets/projects/dropx/image3.webp" as="image">
@@ -33617,22 +33635,23 @@
   </style>
   <script>
     (function() {
+      var _applying = false;
       function applyAboutPageChanges() {
         if (window.location.pathname.indexOf('/about') === -1) return;
-        // Replace The Brandle Team with The Brandle Team loosely
-        document.querySelectorAll('p').forEach(function(p) {
-          if (p && p.textContent.trim() === 'The Brandle Team') { p.textContent = 'The Brandle Team'; }
-        });
-        // Replace Vero's vision - target all paragraphs broadly using indexOf Vero
-        document.querySelectorAll('p').forEach(function(p) {
-          if (p && p.textContent.indexOf("Vero") !== -1 && p.textContent.indexOf("vision") !== -1) {
-            p.textContent = "We aimed to bring Jobs\u2019 vision of radical simplicity to life \u2014 where every pixel has a purpose and nothing exists without intention.";
-          }
-        });
-        // Hide Meet the Team label in all paragraphs
-        document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span').forEach(function(p) {
-          if (p.textContent.trim() === 'Meet the Team') { p.textContent = ''; }
-        });
+        if (_applying) return;
+        _applying = true;
+        try {
+          // Replace Vero's vision
+          document.querySelectorAll('p').forEach(function(p) {
+            if (p && p.textContent.indexOf("Vero") !== -1 && p.textContent.indexOf("vision") !== -1) {
+              p.textContent = "We aimed to bring Jobs\u2019 vision of radical simplicity to life \u2014 where every pixel has a purpose and nothing exists without intention.";
+            }
+          });
+          // Hide Meet the Team label
+          document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span').forEach(function(p) {
+            if (p.textContent.trim() === 'Meet the Team') { p.textContent = ''; }
+          });
+        } finally { _applying = false; }
       }
       var observer = new MutationObserver(function() { applyAboutPageChanges(); });
       document.addEventListener('DOMContentLoaded', function() {
@@ -33679,6 +33698,14 @@
   img[src*="SDIyriYujLHtLJeg9tbQiqvoT4"],
   img[srcset*="SDIyriYujLHtLJeg9tbQiqvoT4"]
   { opacity: 0 !important; }
+
+  /* Hide Latest Insights / Blog section on home page */
+  section[data-framer-name="Blog"] { display: none !important; }
+
+  /* Replace bottle image on home page */
+  img[src*="GdqNUII0Rq3ISDD0FNEyWMVdWdQ"],
+  img[srcset*="GdqNUII0Rq3ISDD0FNEyWMVdWdQ"]
+  { content: url(/assets/images/bottle.png) !important; object-fit: cover !important; }
 </style>
 <link rel="preload" href="/assets/projects/apex/project2_01.gif" as="image">
 <link rel="preload" href="/assets/projects/dropx/image3.webp" as="image">
@@ -42685,22 +42712,23 @@
   </style>
   <script>
     (function() {
+      var _applying = false;
       function applyAboutPageChanges() {
         if (window.location.pathname.indexOf('/about') === -1) return;
-        // Replace The Brandle Team with The Brandle Team loosely
-        document.querySelectorAll('p').forEach(function(p) {
-          if (p && p.textContent.trim() === 'The Brandle Team') { p.textContent = 'The Brandle Team'; }
-        });
-        // Replace Vero's vision - target all paragraphs broadly using indexOf Vero
-        document.querySelectorAll('p').forEach(function(p) {
-          if (p && p.textContent.indexOf("Vero") !== -1 && p.textContent.indexOf("vision") !== -1) {
-            p.textContent = "We aimed to bring Jobs\u2019 vision of radical simplicity to life \u2014 where every pixel has a purpose and nothing exists without intention.";
-          }
-        });
-        // Hide Meet the Team label in all paragraphs
-        document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span').forEach(function(p) {
-          if (p.textContent.trim() === 'Meet the Team') { p.textContent = ''; }
-        });
+        if (_applying) return;
+        _applying = true;
+        try {
+          // Replace Vero's vision
+          document.querySelectorAll('p').forEach(function(p) {
+            if (p && p.textContent.indexOf("Vero") !== -1 && p.textContent.indexOf("vision") !== -1) {
+              p.textContent = "We aimed to bring Jobs\u2019 vision of radical simplicity to life \u2014 where every pixel has a purpose and nothing exists without intention.";
+            }
+          });
+          // Hide Meet the Team label
+          document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span').forEach(function(p) {
+            if (p.textContent.trim() === 'Meet the Team') { p.textContent = ''; }
+          });
+        } finally { _applying = false; }
       }
       var observer = new MutationObserver(function() { applyAboutPageChanges(); });
       document.addEventListener('DOMContentLoaded', function() {
@@ -42747,6 +42775,14 @@
   img[src*="SDIyriYujLHtLJeg9tbQiqvoT4"],
   img[srcset*="SDIyriYujLHtLJeg9tbQiqvoT4"]
   { opacity: 0 !important; }
+
+  /* Hide Latest Insights / Blog section on home page */
+  section[data-framer-name="Blog"] { display: none !important; }
+
+  /* Replace bottle image on home page */
+  img[src*="GdqNUII0Rq3ISDD0FNEyWMVdWdQ"],
+  img[srcset*="GdqNUII0Rq3ISDD0FNEyWMVdWdQ"]
+  { content: url(/assets/images/bottle.png) !important; object-fit: cover !important; }
 </style>
 <link rel="preload" href="/assets/projects/apex/project2_01.gif" as="image">
 <link rel="preload" href="/assets/projects/dropx/image3.webp" as="image">
