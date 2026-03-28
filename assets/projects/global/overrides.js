@@ -41,12 +41,9 @@
     'SDIyriYujLHtLJeg9tbQiqvoT4': '/assets/projects/orblead/image1.webp',
   };
 
-  // ---- INJECT CSS: always hide 5th project ----
+  // ---- INJECT CSS: hide 5th project link only ----
   var css = document.createElement('style');
-  css.textContent = [
-    'a[href*="stoyo-branding-copy"]{ display:none!important; }',
-    'a[href*="stoyo-branding-copy"] *{ display:none!important; }',
-  ].join('\n');
+  css.textContent = 'a[href*="stoyo-branding-copy"]{ display:none!important; }';
   (document.head || document.documentElement).appendChild(css);
 
   // ---- HELPERS ----
@@ -73,13 +70,6 @@
   function hideFifth() {
     document.querySelectorAll('a[href*="stoyo-branding-copy"]').forEach(function(a) {
       a.style.setProperty('display', 'none', 'important');
-      // Walk up and hide wrappers
-      var el = a.parentElement;
-      for (var i = 0; i < 4; i++) {
-        if (!el) break;
-        el.style.setProperty('display', 'none', 'important');
-        el = el.parentElement;
-      }
     });
   }
 
