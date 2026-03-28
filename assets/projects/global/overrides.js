@@ -1,4 +1,4 @@
-// Global overrides — patch card content and hide 5th project
+// Global overrides — patch card content, thumbnails, filters, hide 5th project
 (function() {
   'use strict';
 
@@ -8,24 +8,28 @@
       title: 'Shine Skincare Branding',
       desc: 'High quality cosmetics brand created for independent and brave women.',
       pills: ['Branding'],
+      cat: 'branding',
       thumb: '/assets/projects/shine/bg.gif'
     },
     'radiant-skincare-branding-copy': {
       title: '\u201COh My Pasta.\u201D Branding',
       desc: 'A unique pasta bar branding project aimed to connect with customers.',
       pills: ['Branding'],
+      cat: 'branding',
       thumb: '/assets/projects/apex/project2_01.gif'
     },
     'vero-app-development': {
       title: 'DropX Website Design',
       desc: 'A sleek and stylish landing page design for high-conversion digital products.',
       pills: ['Web design'],
+      cat: 'webdesign',
       thumb: '/assets/projects/dropx/image3.webp'
     },
     'stoyo-branding': {
       title: 'ORBLEAD Website Design',
       desc: 'A simple minimalistic SaaS lead generation website design.',
       pills: ['Web design'],
+      cat: 'webdesign',
       thumb: '/assets/projects/orblead/image1.webp'
     }
   };
@@ -51,6 +55,11 @@
   function isOnProjectDetail() {
     var p = window.location.pathname;
     return p.indexOf('/projects/') !== -1 && p.split('/projects/')[1].length > 0;
+  }
+
+  function isOnProjectsListing() {
+    var p = window.location.pathname;
+    return p === '/projects' || p === '/projects/';
   }
 
   // ---- HIDE 5TH PROJECT ----
@@ -131,7 +140,6 @@
   }
 
   // ---- PATCH CARD THUMBNAILS ----
-  // Replaces ALL card images whose src or srcset contains a Framer CDN path
   function patchThumbnails() {
     if (isOnProjectDetail()) return;
     document.querySelectorAll('a[href*="/projects/"]').forEach(function(link) {
@@ -155,7 +163,6 @@
   }
 
   // ---- PATCH INDIVIDUAL IMG BY KEY ----
-  // Called when any img gets its src/srcset set — checks for known hero keys
   function patchImgByKey(img) {
     if (isOnProjectDetail()) return;
     if (img.dataset.globalThumbPatched) return;
@@ -169,6 +176,88 @@
         return;
       }
     }
+  }
+
+  // ---- CATEGORY FILTER ENFORCEMENT ----
+  var activeFilter = 'all';
+
+  // Find the card's outermost wrapper that React shows/hides
+  function getCardWrapper(link) {
+    var el = link;
+    for (var i = 0; i < 8; i++) {
+      if (!el.parentElement) break;
+      var siblings = el.parentElement.children;
+      if (siblings.length >= 3) return el;
+      el = el.parentElement;
+    }
+    return link;
+  }
+
+  function enforceFilter() {
+    if (!isOnProjectsListing()) return;
+
+    document.querySelectorAll('a[href*="/projects/"]').forEach(function(link) {
+      var slug = getSlugFromLink(link);
+      if (!slug) return;
+
+      // Always hide the 5th project
+      if (slug === 'stoyo-branding-copy') return;
+
+      var cfg = SLUGS[slug];
+      if (!cfg) return;
+
+      var wrapper = getCardWrapper(link);
+      var shouldShow = (activeFilter === 'all') || (cfg.cat === activeFilter);
+
+      if (shouldShow) {
+        wrapper.style.removeProperty('display');
+      } else {
+        wrapper.style.setProperty('display', 'none', 'important');
+      }
+    });
+  }
+
+  // Detect which filter tab the user clicked and bind click handlers
+  function setupFilterListeners() {
+    if (!isOnProjectsListing()) return;
+
+    // Find filter tabs: they are links/elements with text "All", "Branding", "Web design"
+    // that are NOT inside project card links and NOT in the main navbar
+    var candidates = document.querySelectorAll('[data-framer-name="Text"] p, [data-framer-name="All cases"] p');
+    candidates.forEach(function(p) {
+      if (p.dataset.filterBound) return;
+      // Skip if inside a project card
+      if (p.closest('a[href*="/projects/"]')) return;
+      // Skip navbar items (they're usually in header/nav)
+      if (p.closest('nav') || p.closest('header')) return;
+
+      var text = p.textContent.trim().toLowerCase();
+      var filter = null;
+      if (text === 'all' || text === 'all cases') filter = 'all';
+      else if (text === 'branding') filter = 'branding';
+      else if (text === 'web design' || text === 'websites') filter = 'webdesign';
+
+      if (!filter) return;
+
+      // Find the clickable parent
+      var clickTarget = p.closest('a') || p.closest('[style*="cursor"]') || p.parentElement;
+      if (!clickTarget || clickTarget.dataset.filterBound) return;
+      clickTarget.dataset.filterBound = '1';
+      p.dataset.filterBound = '1';
+
+      clickTarget.addEventListener('click', function(e) {
+        // Don't prevent navigation for the "All cases" link on the homepage
+        if (!isOnProjectsListing()) return;
+        e.preventDefault();
+        e.stopPropagation();
+        activeFilter = filter;
+        // Let React do its thing, then override after a delay
+        setTimeout(enforceFilter, 50);
+        setTimeout(enforceFilter, 200);
+        setTimeout(enforceFilter, 500);
+        setTimeout(enforceFilter, 1000);
+      }, true);
+    });
   }
 
   // ---- HIDE SUPPORT/DEVELOPMENT FILTER TABS & FIX COUNTS ----
@@ -208,16 +297,17 @@
     patchCards();
     patchThumbnails();
     patchFilterArea();
+    setupFilterListeners();
+    enforceFilter();
   }
 
-  // ---- REGISTER THUMBNAIL INTERCEPTOR (catches dynamic img.src assignments) ----
+  // ---- REGISTER THUMBNAIL INTERCEPTOR ----
   window.__projectOverrides = window.__projectOverrides || [];
   window.__projectOverrides.push(function(img, val) {
     if (isOnProjectDetail()) return val;
     for (var key in THUMB_MAP) {
       if (val.indexOf(key) !== -1) {
         img.dataset.globalThumbPatched = '1';
-        // Also clear srcset so browser uses our src
         setTimeout(function() {
           img.removeAttribute('srcset');
         }, 0);
@@ -228,16 +318,13 @@
   });
 
   // ---- MUTATION OBSERVER ----
-  // Watch BOTH childList (new elements) AND attributes (src/srcset changes)
   var debounceTimer;
   var observer = new MutationObserver(function(mutations) {
-    // Immediately patch any img whose src/srcset just changed
     for (var i = 0; i < mutations.length; i++) {
       var m = mutations[i];
       if (m.type === 'attributes' && m.target.tagName === 'IMG') {
         patchImgByKey(m.target);
       }
-      // Also check newly added images
       if (m.type === 'childList') {
         var added = m.addedNodes;
         for (var j = 0; j < added.length; j++) {
@@ -249,7 +336,6 @@
         }
       }
     }
-    // Debounced full pass for text, pills, filter tabs
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(applyOverrides, 150);
   });
@@ -287,6 +373,7 @@
   setInterval(function() {
     if (window.location.href !== lastUrl) {
       lastUrl = window.location.href;
+      activeFilter = 'all';
       setTimeout(applyOverrides, 300);
       setTimeout(applyOverrides, 1000);
       setTimeout(applyOverrides, 3000);
