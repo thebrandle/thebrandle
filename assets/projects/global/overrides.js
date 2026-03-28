@@ -101,7 +101,7 @@
   ];
 
   function patchGlobalText() {
-    if (isDetail()) return; // project detail pages have their own overrides
+    // Runs on ALL pages including detail pages (to fix "Latest Projects" cards at bottom)
     var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
     var node;
     while (node = walker.nextNode()) {
@@ -128,13 +128,20 @@
         if (h3.textContent.trim() !== cfg.title) h3.textContent = cfg.title;
       });
 
-      // Description — replace any non-matching paragraph
+      // Description — only replace known old CMS descriptions (not any paragraph)
       link.querySelectorAll('p').forEach(function(p) {
         var st = p.getAttribute('style') || '';
         if (st.indexOf('text-transform') !== -1) return;
-        if (/font-size:\s*(30|48|55|102)px/.test(st)) return;
         var text = p.textContent.trim();
-        if (text.length > 15 && text !== cfg.desc && text.indexOf('(') !== 0) {
+        // Match specific old CMS description texts
+        if (text.indexOf('Radiant skincare is') !== -1 ||
+            text.indexOf('ad-free platform') !== -1 ||
+            text.indexOf('Bold new look') !== -1 ||
+            text.indexOf('eco-conscious apparel') !== -1 ||
+            text.indexOf('Vero aimed') !== -1 ||
+            text.indexOf('competitive social media') !== -1 ||
+            text.indexOf('Visual identity and packaging') !== -1 ||
+            text.indexOf('Stoyo brand') !== -1) {
           p.textContent = cfg.desc;
         }
       });
@@ -166,7 +173,6 @@
 
   // ---- PATCH THUMBNAILS ----
   function patchThumbnails() {
-    if (isDetail()) return;
     document.querySelectorAll(LINK_SELECTOR).forEach(function(link) {
       var slug = getSlug(link);
       if (!slug || slug === 'stoyo-branding-copy') return;
@@ -211,7 +217,6 @@
   }
 
   function patchImgByKey(img) {
-    if (isDetail()) return;
     if (img.dataset.globalPatched) return;
     var src = (img.getAttribute('src') || '') + ' ' + (img.getAttribute('srcset') || '');
     for (var key in THUMB_MAP) {
