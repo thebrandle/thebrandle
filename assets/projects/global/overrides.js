@@ -67,6 +67,22 @@
   var ALL_SLUGS = Object.keys(SLUGS).concat(['stoyo-branding-copy']);
   var LINK_SELECTOR = ALL_SLUGS.map(function(s) { return 'a[href*="' + s + '"]'; }).join(', ');
 
+  // ---- URL PRETTIFICATION ----
+  // Map old CMS slugs to clean project names (shown in browser URL bar)
+  var PRETTY_URLS = {
+    '/projects/radiant-skincare-branding': '/projects/shine-skincare-branding',
+    '/projects/radiant-skincare-branding-copy': '/projects/oh-my-pasta-branding',
+    '/projects/vero-app-development': '/projects/dropx-website-design',
+    '/projects/stoyo-branding': '/projects/orblead-website-design',
+  };
+
+  function prettifyUrl() {
+    var pretty = PRETTY_URLS[window.location.pathname];
+    if (pretty) {
+      history.replaceState(null, document.title, pretty + window.location.search + window.location.hash);
+    }
+  }
+
   // ---- HELPERS ----
   function getSlug(a) {
     var href = a.getAttribute('href') || '';
@@ -276,6 +292,7 @@
     patchGlobalText();
     patchCards();
     patchThumbnails();
+    prettifyUrl();
     patchFilterArea();
   }
 

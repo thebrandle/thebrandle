@@ -3,6 +3,7 @@
   'use strict';
 
   var SLUG = 'radiant-skincare-branding-copy';
+  var SLUG_ALT = 'oh-my-pasta-branding';
 
   var IMAGE_MAP = {
     'bPs9iY1xCdYs2KmVLN2FyaQJhk': '/assets/projects/apex/project2_02.gif',
@@ -35,11 +36,14 @@
 
   function isProjectPage() {
     var path = window.location.pathname;
-    var target = '/projects/' + SLUG;
-    var idx = path.indexOf(target);
-    if (idx === -1) return false;
-    var next = path.charAt(idx + target.length);
-    return next === '' || next === '/' || next === '?';
+    var targets = ['/projects/' + SLUG, '/projects/' + SLUG_ALT];
+    for (var ti = 0; ti < targets.length; ti++) {
+      var idx = path.indexOf(targets[ti]);
+      if (idx === -1) continue;
+      var next = path.charAt(idx + targets[ti].length);
+      if (next === '' || next === '/' || next === '?') return true;
+    }
+    return false;
   }
 
   // ---- IMAGE PROCESSING ----

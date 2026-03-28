@@ -3,6 +3,7 @@
   'use strict';
 
   var SLUG = 'vero-app-development';
+  var SLUG_ALT = 'dropx-website-design';
 
   // Video URLs (Vercel blob storage)
   var HERO_VIDEO = 'https://c6peyfq2m5t1hmsm.public.blob.vercel-storage.com/project3_video1.mp4';
@@ -48,11 +49,14 @@
 
   function isProjectPage() {
     var path = window.location.pathname;
-    var target = '/projects/' + SLUG;
-    var idx = path.indexOf(target);
-    if (idx === -1) return false;
-    var next = path.charAt(idx + target.length);
-    return next === '' || next === '/' || next === '?';
+    var targets = ['/projects/' + SLUG, '/projects/' + SLUG_ALT];
+    for (var ti = 0; ti < targets.length; ti++) {
+      var idx = path.indexOf(targets[ti]);
+      if (idx === -1) continue;
+      var next = path.charAt(idx + targets[ti].length);
+      if (next === '' || next === '/' || next === '?') return true;
+    }
+    return false;
   }
 
   // ---- VIDEO REPLACEMENT ----

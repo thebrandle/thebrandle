@@ -1,10 +1,10 @@
 {
   "cleanUrls": true,
   "redirects": [
-    { "source": "/projects/shine-skincare-branding", "destination": "/projects/radiant-skincare-branding", "statusCode": 301 },
-    { "source": "/projects/oh-my-pasta-branding", "destination": "/projects/radiant-skincare-branding-copy", "statusCode": 301 },
-    { "source": "/projects/dropx-website-design", "destination": "/projects/vero-app-development", "statusCode": 301 },
-    { "source": "/projects/orblead-website-design", "destination": "/projects/stoyo-branding", "statusCode": 301 }
+    { "source": "/projects/shine-skincare-branding", "destination": "/projects/radiant-skincare-branding", "statusCode": 302 },
+    { "source": "/projects/oh-my-pasta-branding", "destination": "/projects/radiant-skincare-branding-copy", "statusCode": 302 },
+    { "source": "/projects/dropx-website-design", "destination": "/projects/vero-app-development", "statusCode": 302 },
+    { "source": "/projects/orblead-website-design", "destination": "/projects/stoyo-branding", "statusCode": 302 }
   ],
   "rewrites": [
     { "source": "/api/contact", "destination": "/api/contact" },
