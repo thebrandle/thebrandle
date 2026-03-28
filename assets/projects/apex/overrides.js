@@ -47,9 +47,13 @@
     var combined = src + ' ' + srcset;
 
     // BpFSTQ appears in hero AND full-width — differentiate by parent container
-    if (combined.indexOf('BpFSTQ5eQJd8x1t06THJsBy6mU') !== -1) {
+    if (combined.indexOf('BpFSTQ5eQJd8x1t06THJsBy6mU') !== -1 ||
+        src === BP_HERO || src === BP_FULLWIDTH) {
       var isHero = !!img.closest('[data-framer-name="BG image"]');
-      img.src = isHero ? BP_HERO : BP_FULLWIDTH;
+      var correctSrc = isHero ? BP_HERO : BP_FULLWIDTH;
+      if (img.src !== window.location.origin + correctSrc && img.getAttribute('src') !== correctSrc) {
+        img.src = correctSrc;
+      }
       img.srcset = '';
       img.removeAttribute('srcset');
       img.dataset.apexProcessed = '1';
@@ -230,17 +234,10 @@
       set: function(val) {
         if (isProjectPage() && typeof val === 'string') {
           if (val.indexOf('BpFSTQ5eQJd8x1t06THJsBy6mU') !== -1) {
-            // Defer BpFSTQ resolution — needs DOM context to determine hero vs full-width
-            var self = this;
-            setTimeout(function() {
-              if (!self.dataset.apexProcessed) {
-                var isHero = !!self.closest('[data-framer-name="BG image"]');
-                self.src = isHero ? BP_HERO : BP_FULLWIDTH;
-                self.srcset = '';
-                self.removeAttribute('srcset');
-                self.dataset.apexProcessed = '1';
-              }
-            }, 0);
+            // Try DOM context; if not yet mounted, default to hero (first set wins)
+            var isHero = this.parentElement ? !!this.closest('[data-framer-name="BG image"]') : true;
+            val = isHero ? BP_HERO : BP_FULLWIDTH;
+            this.dataset.apexProcessed = '1';
           } else {
             for (var key in IMAGE_MAP) {
               if (val.indexOf(key) !== -1) {
