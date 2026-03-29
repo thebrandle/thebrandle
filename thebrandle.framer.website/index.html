@@ -87596,6 +87596,260 @@
 </script>
 
 
+<!-- ── Brandle Floating Booking CTA ───────────────────────────── -->
+<style>
+.brandle-cta {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px 10px 10px;
+  border-radius: 980px;
+  border: none;
+  overflow: hidden;
+  cursor: pointer;
+  background: #1d1d1f;
+  color: #f5f5f7;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+  animation: brandle-rise 0.7s cubic-bezier(0.34, 1.4, 0.64, 1) both;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18), 0 1px 3px rgba(0,0,0,0.12);
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+.brandle-cta:hover  { background: #2d2d2f; transform: scale(1.03); }
+.brandle-cta:active { transform: scale(0.97); }
+.brandle-cta:focus-visible { outline: 2px solid #F9442D; outline-offset: 3px; }
+@keyframes brandle-rise {
+  from { opacity: 0; transform: translateY(20px) scale(0.93); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+.brandle-cta__shimmer {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(249,68,45,0.7) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: brandle-shimmer 3.2s ease-in-out 1s infinite;
+}
+@keyframes brandle-shimmer {
+  0%   { background-position: -200% 0; opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { background-position: 200% 0; opacity: 0; }
+}
+.brandle-cta__dot-wrap {
+  position: relative;
+  width: 34px; height: 34px;
+  flex-shrink: 0;
+}
+.brandle-cta__dot-bg {
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  background: #F9442D;
+  animation: brandle-breathe 2.8s ease-in-out 1s infinite;
+  transition: background 0.18s;
+}
+.brandle-cta:hover .brandle-cta__dot-bg { background: #e03520; }
+@keyframes brandle-breathe {
+  0%, 100% { transform: scale(1);    opacity: 1;    }
+  50%       { transform: scale(1.1); opacity: 0.88; }
+}
+.brandle-cta__dot-ring {
+  position: absolute; inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(249,68,45,0.38);
+  animation: brandle-ring 2.8s ease-in-out 1s infinite;
+}
+@keyframes brandle-ring {
+  0%   { transform: scale(0.8); opacity: 0; }
+  25%  { opacity: 1; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+.brandle-cta__dot-icon {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.brandle-cta__text {
+  display: flex; flex-direction: column;
+  line-height: 1.2; flex: 1;
+}
+.brandle-cta__main {
+  font-size: 13.5px; font-weight: 500;
+  color: #f5f5f7; letter-spacing: -0.015em;
+}
+.brandle-cta__sub {
+  font-size: 11px;
+  color: rgba(245,245,247,0.5);
+  font-weight: 400; margin-top: 2px;
+  transition: opacity 0.3s;
+}
+.brandle-cta__sub--dim { opacity: 0.4; }
+.brandle-cta__arrow {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.18s, transform 0.18s;
+}
+.brandle-cta:hover .brandle-cta__arrow {
+  background: rgba(255,255,255,0.18);
+  transform: translateX(2px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .brandle-cta,
+  .brandle-cta__shimmer,
+  .brandle-cta__dot-bg,
+  .brandle-cta__dot-ring { animation: none; }
+}
+</style>
+
+<button
+  id="brandle-cta"
+  class="brandle-cta"
+  aria-label="Book a free 15-minute call"
+>
+  <span class="brandle-cta__shimmer" aria-hidden="true"></span>
+  <span class="brandle-cta__dot-wrap" aria-hidden="true">
+    <span class="brandle-cta__dot-bg"></span>
+    <span class="brandle-cta__dot-ring"></span>
+    <span class="brandle-cta__dot-icon">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+        stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="18" rx="2.5"/>
+        <line x1="16" y1="2" x2="16" y2="6"/>
+        <line x1="8"  y1="2" x2="8"  y2="6"/>
+        <line x1="3"  y1="10" x2="21" y2="10"/>
+      </svg>
+    </span>
+  </span>
+  <span class="brandle-cta__text">
+    <span class="brandle-cta__main">Book a free 15-min call</span>
+    <span class="brandle-cta__sub brandle-cta__sub--dim" id="brandle-cta-sub">Checking availability…</span>
+  </span>
+  <span class="brandle-cta__arrow" aria-hidden="true">
+    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
+      stroke="rgba(245,245,247,0.7)" stroke-width="1.5"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 5h6M5.5 2.5L8 5l-2.5 2.5"/>
+    </svg>
+  </span>
+</button>
+
+<!-- Cal.com embed loader -->
+<script>
+(function() {
+  // ── CONFIG — update these two values ──────────────────────────
+  var CAL_USERNAME   = 'thebrandle'; // ← your Cal.com username
+  var CAL_EVENT_SLUG = '15min';             // ← must match your event slug
+  var TIMEZONE       = 'Asia/Dubai';
+  // ──────────────────────────────────────────────────────────────
+
+  // 1. Load Cal.com embed script
+  (function (C, A, L) {
+    var p = function (a, ar) { a.q.push(ar); };
+    var d = C.document;
+    C.Cal = C.Cal || function () {
+      var cal = C.Cal;
+      var ar  = arguments;
+      if (!cal.loaded) {
+        cal.ns   = {};
+        cal.q    = cal.q || [];
+        d.head.appendChild(d.createElement('script')).src = A;
+        cal.loaded = true;
+      }
+      if (ar[0] === L) {
+        var api    = function () { p(api, arguments); };
+        var namespace = ar[1];
+        api.q  = []; api._n = namespace;
+        C.Cal.ns[namespace] = api;
+        p(api, ar);
+        return;
+      }
+      p(cal, ar);
+    };
+  })(window, 'https://app.cal.com/embed/embed.js', 'init');
+
+  Cal('init', CAL_EVENT_SLUG, { origin: 'https://app.cal.com' });
+  Cal.ns[CAL_EVENT_SLUG]('ui', { theme: 'light', hideEventTypeDetails: false, layout: 'month_view' });
+
+  // 2. Wire button click to open Cal overlay
+  var btn = document.getElementById('brandle-cta');
+  btn.addEventListener('click', function () {
+    Cal.ns[CAL_EVENT_SLUG]('modal', {
+      calLink: CAL_USERNAME + '/' + CAL_EVENT_SLUG,
+      config:  { layout: 'month_view' },
+    });
+  });
+
+  // 3. Fetch next available slot and update sub-label
+  function formatSlot(iso) {
+    var date    = new Date(iso);
+    var now     = new Date();
+    var todayD  = now.toDateString();
+    var tmrwD   = new Date(now.getTime() + 86400000).toDateString();
+    var slotD   = date.toDateString();
+    var time    = date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true, timeZone: TIMEZONE });
+    if (slotD === todayD) return 'Today at ' + time;
+    if (slotD === tmrwD)  return 'Tomorrow at ' + time;
+    var day = date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', timeZone: TIMEZONE });
+    return day + ' at ' + time;
+  }
+
+  function updateSubLabel() {
+    var now = new Date();
+    var end = new Date(now.getTime() + 7 * 86400000);
+    var params = new URLSearchParams({
+      eventTypeSlug: CAL_EVENT_SLUG,
+      username:      CAL_USERNAME,
+      start:         now.toISOString(),
+      end:           end.toISOString(),
+      timeZone:      TIMEZONE,
+    });
+
+    fetch('/api/cal-slots?' + params.toString())
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (json) {
+        var sub = document.getElementById('brandle-cta-sub');
+        if (!json || !json.data) {
+          sub.textContent = 'Book a time that works';
+          sub.classList.remove('brandle-cta__sub--dim');
+          return;
+        }
+        var allSlots = Object.values(json.data)
+          .flat()
+          .sort(function (a, b) { return new Date(a.start) - new Date(b.start); });
+
+        if (!allSlots.length) {
+          sub.textContent = 'Book a time that works';
+        } else {
+          sub.textContent = 'Next slot: ' + formatSlot(allSlots[0].start);
+        }
+        sub.classList.remove('brandle-cta__sub--dim');
+      })
+      .catch(function () {
+        var sub = document.getElementById('brandle-cta-sub');
+        sub.textContent = 'Book a time that works';
+        sub.classList.remove('brandle-cta__sub--dim');
+      });
+  }
+
+  // Run after page is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateSubLabel);
+  } else {
+    updateSubLabel();
+  }
+})();
+</script>
+<!-- ── End Brandle Booking CTA ────────────────────────────────── -->
+
+
 </body>
 
 </html>
