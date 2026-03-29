@@ -87625,6 +87625,8 @@
 .brandle-cta:hover{background:#2d2d2f;max-width:320px;gap:10px;padding:10px 16px 10px 10px}\
 .brandle-cta:active{transform:scale(.97)}\
 @keyframes brandle-rise{from{opacity:0;transform:translateY(20px) scale(.93)}to{opacity:1;transform:translateY(0) scale(1)}}\
+@keyframes brandle-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}\
+.brandle-cta:not(:hover){animation:brandle-rise .7s cubic-bezier(.34,1.4,.64,1) both,brandle-bob 2.5s ease-in-out 1.5s infinite}\
 .brandle-cta__shimmer{position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(249,68,45,.7) 50%,transparent 100%);background-size:200% 100%;animation:brandle-shimmer 3.2s ease-in-out 1s infinite}\
 @keyframes brandle-shimmer{0%{background-position:-200% 0;opacity:0}20%{opacity:1}80%{opacity:1}100%{background-position:200% 0;opacity:0}}\
 .brandle-cta__dot-wrap{position:relative;width:34px;height:34px;flex-shrink:0}\
