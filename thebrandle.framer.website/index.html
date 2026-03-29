@@ -15567,7 +15567,47 @@
   img[src*="GdqNUII0Rq3ISDD0FNEyWMVdWdQ"],
   img[srcset*="GdqNUII0Rq3ISDD0FNEyWMVdWdQ"]
   { content: url(/assets/images/bottle.png) !important; object-fit: cover !important; }
+
+  /* Hero video background — hide image only after video loads */
+  .hero-video-loaded [data-framer-name="BG"] img { opacity: 0 !important; transition: opacity 0.3s; }
+  [data-framer-name="BG"] video.hero-vid {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover; z-index: 0; opacity: 0; transition: opacity 0.5s;
+  }
+  .hero-video-loaded [data-framer-name="BG"] video.hero-vid { opacity: 1; }
 </style>
+<script>
+  (function() {
+    if (window.location.pathname !== '/' && window.location.pathname !== '') return;
+    function injectHeroVideo() {
+      var bgs = document.querySelectorAll('[data-framer-name="BG"]');
+      bgs.forEach(function(bg) {
+        if (bg.querySelector('video.hero-vid')) return;
+        var wrapper = bg.querySelector('[data-framer-background-image-wrapper]');
+        if (!wrapper) return;
+        var video = document.createElement('video');
+        video.className = 'hero-vid';
+        video.src = 'https://c6peyfq2m5t1hmsm.public.blob.vercel-storage.com/herovideo.mp4';
+        video.autoplay = true;
+        video.loop = true;
+        video.muted = true;
+        video.playsInline = true;
+        video.setAttribute('playsinline', '');
+        video.addEventListener('canplay', function() {
+          bg.closest('#main')?.classList.add('hero-video-loaded');
+        }, { once: true });
+        wrapper.appendChild(video);
+      });
+    }
+    var obs = new MutationObserver(injectHeroVideo);
+    document.addEventListener('DOMContentLoaded', function() {
+      obs.observe(document.body, { childList: true, subtree: true });
+      injectHeroVideo();
+    });
+    var gi = setInterval(injectHeroVideo, 500);
+    setTimeout(function() { clearInterval(gi); obs.disconnect(); }, 15000);
+  })();
+</script>
 <link rel="preload" href="/assets/projects/apex/project2_01.gif" as="image">
 <link rel="preload" href="/assets/projects/dropx/image3.webp" as="image">
 <link rel="preload" href="/assets/projects/orblead/image1.webp" as="image">
@@ -24677,7 +24717,47 @@
   img[src*="GdqNUII0Rq3ISDD0FNEyWMVdWdQ"],
   img[srcset*="GdqNUII0Rq3ISDD0FNEyWMVdWdQ"]
   { content: url(/assets/images/bottle.png) !important; object-fit: cover !important; }
+
+  /* Hero video background — hide image only after video loads */
+  .hero-video-loaded [data-framer-name="BG"] img { opacity: 0 !important; transition: opacity 0.3s; }
+  [data-framer-name="BG"] video.hero-vid {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover; z-index: 0; opacity: 0; transition: opacity 0.5s;
+  }
+  .hero-video-loaded [data-framer-name="BG"] video.hero-vid { opacity: 1; }
 </style>
+<script>
+  (function() {
+    if (window.location.pathname !== '/' && window.location.pathname !== '') return;
+    function injectHeroVideo() {
+      var bgs = document.querySelectorAll('[data-framer-name="BG"]');
+      bgs.forEach(function(bg) {
+        if (bg.querySelector('video.hero-vid')) return;
+        var wrapper = bg.querySelector('[data-framer-background-image-wrapper]');
+        if (!wrapper) return;
+        var video = document.createElement('video');
+        video.className = 'hero-vid';
+        video.src = 'https://c6peyfq2m5t1hmsm.public.blob.vercel-storage.com/herovideo.mp4';
+        video.autoplay = true;
+        video.loop = true;
+        video.muted = true;
+        video.playsInline = true;
+        video.setAttribute('playsinline', '');
+        video.addEventListener('canplay', function() {
+          bg.closest('#main')?.classList.add('hero-video-loaded');
+        }, { once: true });
+        wrapper.appendChild(video);
+      });
+    }
+    var obs = new MutationObserver(injectHeroVideo);
+    document.addEventListener('DOMContentLoaded', function() {
+      obs.observe(document.body, { childList: true, subtree: true });
+      injectHeroVideo();
+    });
+    var gi = setInterval(injectHeroVideo, 500);
+    setTimeout(function() { clearInterval(gi); obs.disconnect(); }, 15000);
+  })();
+</script>
 <link rel="preload" href="/assets/projects/apex/project2_01.gif" as="image">
 <link rel="preload" href="/assets/projects/dropx/image3.webp" as="image">
 <link rel="preload" href="/assets/projects/orblead/image1.webp" as="image">
@@ -33784,7 +33864,47 @@
   img[src*="GdqNUII0Rq3ISDD0FNEyWMVdWdQ"],
   img[srcset*="GdqNUII0Rq3ISDD0FNEyWMVdWdQ"]
   { content: url(/assets/images/bottle.png) !important; object-fit: cover !important; }
+
+  /* Hero video background — hide image only after video loads */
+  .hero-video-loaded [data-framer-name="BG"] img { opacity: 0 !important; transition: opacity 0.3s; }
+  [data-framer-name="BG"] video.hero-vid {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover; z-index: 0; opacity: 0; transition: opacity 0.5s;
+  }
+  .hero-video-loaded [data-framer-name="BG"] video.hero-vid { opacity: 1; }
 </style>
+<script>
+  (function() {
+    if (window.location.pathname !== '/' && window.location.pathname !== '') return;
+    function injectHeroVideo() {
+      var bgs = document.querySelectorAll('[data-framer-name="BG"]');
+      bgs.forEach(function(bg) {
+        if (bg.querySelector('video.hero-vid')) return;
+        var wrapper = bg.querySelector('[data-framer-background-image-wrapper]');
+        if (!wrapper) return;
+        var video = document.createElement('video');
+        video.className = 'hero-vid';
+        video.src = 'https://c6peyfq2m5t1hmsm.public.blob.vercel-storage.com/herovideo.mp4';
+        video.autoplay = true;
+        video.loop = true;
+        video.muted = true;
+        video.playsInline = true;
+        video.setAttribute('playsinline', '');
+        video.addEventListener('canplay', function() {
+          bg.closest('#main')?.classList.add('hero-video-loaded');
+        }, { once: true });
+        wrapper.appendChild(video);
+      });
+    }
+    var obs = new MutationObserver(injectHeroVideo);
+    document.addEventListener('DOMContentLoaded', function() {
+      obs.observe(document.body, { childList: true, subtree: true });
+      injectHeroVideo();
+    });
+    var gi = setInterval(injectHeroVideo, 500);
+    setTimeout(function() { clearInterval(gi); obs.disconnect(); }, 15000);
+  })();
+</script>
 <link rel="preload" href="/assets/projects/apex/project2_01.gif" as="image">
 <link rel="preload" href="/assets/projects/dropx/image3.webp" as="image">
 <link rel="preload" href="/assets/projects/orblead/image1.webp" as="image">
@@ -42887,7 +43007,47 @@
   img[src*="GdqNUII0Rq3ISDD0FNEyWMVdWdQ"],
   img[srcset*="GdqNUII0Rq3ISDD0FNEyWMVdWdQ"]
   { content: url(/assets/images/bottle.png) !important; object-fit: cover !important; }
+
+  /* Hero video background — hide image only after video loads */
+  .hero-video-loaded [data-framer-name="BG"] img { opacity: 0 !important; transition: opacity 0.3s; }
+  [data-framer-name="BG"] video.hero-vid {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover; z-index: 0; opacity: 0; transition: opacity 0.5s;
+  }
+  .hero-video-loaded [data-framer-name="BG"] video.hero-vid { opacity: 1; }
 </style>
+<script>
+  (function() {
+    if (window.location.pathname !== '/' && window.location.pathname !== '') return;
+    function injectHeroVideo() {
+      var bgs = document.querySelectorAll('[data-framer-name="BG"]');
+      bgs.forEach(function(bg) {
+        if (bg.querySelector('video.hero-vid')) return;
+        var wrapper = bg.querySelector('[data-framer-background-image-wrapper]');
+        if (!wrapper) return;
+        var video = document.createElement('video');
+        video.className = 'hero-vid';
+        video.src = 'https://c6peyfq2m5t1hmsm.public.blob.vercel-storage.com/herovideo.mp4';
+        video.autoplay = true;
+        video.loop = true;
+        video.muted = true;
+        video.playsInline = true;
+        video.setAttribute('playsinline', '');
+        video.addEventListener('canplay', function() {
+          bg.closest('#main')?.classList.add('hero-video-loaded');
+        }, { once: true });
+        wrapper.appendChild(video);
+      });
+    }
+    var obs = new MutationObserver(injectHeroVideo);
+    document.addEventListener('DOMContentLoaded', function() {
+      obs.observe(document.body, { childList: true, subtree: true });
+      injectHeroVideo();
+    });
+    var gi = setInterval(injectHeroVideo, 500);
+    setTimeout(function() { clearInterval(gi); obs.disconnect(); }, 15000);
+  })();
+</script>
 <link rel="preload" href="/assets/projects/apex/project2_01.gif" as="image">
 <link rel="preload" href="/assets/projects/dropx/image3.webp" as="image">
 <link rel="preload" href="/assets/projects/orblead/image1.webp" as="image">
