@@ -15568,19 +15568,19 @@
   img[srcset*="GdqNUII0Rq3ISDD0FNEyWMVdWdQ"]
   { content: url(/assets/images/bottle.png) !important; object-fit: cover !important; }
 
-  /* Hero video background — hide image only after video loads */
-  .hero-video-loaded [data-framer-name="BG"] img { opacity: 0 !important; transition: opacity 0.3s; }
-  [data-framer-name="BG"] video.hero-vid {
+  /* Hero video background — scoped to Hero section only */
+  .hero-video-loaded section[data-framer-name="Hero"] [data-framer-name="BG"] img { opacity: 0 !important; transition: opacity 0.3s; }
+  section[data-framer-name="Hero"] [data-framer-name="BG"] video.hero-vid {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     object-fit: cover; z-index: 0; opacity: 0; transition: opacity 0.5s;
   }
-  .hero-video-loaded [data-framer-name="BG"] video.hero-vid { opacity: 1; }
+  .hero-video-loaded section[data-framer-name="Hero"] [data-framer-name="BG"] video.hero-vid { opacity: 1; }
 </style>
 <script>
   (function() {
     if (window.location.pathname !== '/' && window.location.pathname !== '') return;
     function injectHeroVideo() {
-      var bgs = document.querySelectorAll('[data-framer-name="BG"]');
+      var bgs = document.querySelectorAll('section[data-framer-name="Hero"] [data-framer-name="BG"]');
       bgs.forEach(function(bg) {
         if (bg.querySelector('video.hero-vid')) return;
         var wrapper = bg.querySelector('[data-framer-background-image-wrapper]');
@@ -24718,19 +24718,19 @@
   img[srcset*="GdqNUII0Rq3ISDD0FNEyWMVdWdQ"]
   { content: url(/assets/images/bottle.png) !important; object-fit: cover !important; }
 
-  /* Hero video background — hide image only after video loads */
-  .hero-video-loaded [data-framer-name="BG"] img { opacity: 0 !important; transition: opacity 0.3s; }
-  [data-framer-name="BG"] video.hero-vid {
+  /* Hero video background — scoped to Hero section only */
+  .hero-video-loaded section[data-framer-name="Hero"] [data-framer-name="BG"] img { opacity: 0 !important; transition: opacity 0.3s; }
+  section[data-framer-name="Hero"] [data-framer-name="BG"] video.hero-vid {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     object-fit: cover; z-index: 0; opacity: 0; transition: opacity 0.5s;
   }
-  .hero-video-loaded [data-framer-name="BG"] video.hero-vid { opacity: 1; }
+  .hero-video-loaded section[data-framer-name="Hero"] [data-framer-name="BG"] video.hero-vid { opacity: 1; }
 </style>
 <script>
   (function() {
     if (window.location.pathname !== '/' && window.location.pathname !== '') return;
     function injectHeroVideo() {
-      var bgs = document.querySelectorAll('[data-framer-name="BG"]');
+      var bgs = document.querySelectorAll('section[data-framer-name="Hero"] [data-framer-name="BG"]');
       bgs.forEach(function(bg) {
         if (bg.querySelector('video.hero-vid')) return;
         var wrapper = bg.querySelector('[data-framer-background-image-wrapper]');
@@ -33865,19 +33865,19 @@
   img[srcset*="GdqNUII0Rq3ISDD0FNEyWMVdWdQ"]
   { content: url(/assets/images/bottle.png) !important; object-fit: cover !important; }
 
-  /* Hero video background — hide image only after video loads */
-  .hero-video-loaded [data-framer-name="BG"] img { opacity: 0 !important; transition: opacity 0.3s; }
-  [data-framer-name="BG"] video.hero-vid {
+  /* Hero video background — scoped to Hero section only */
+  .hero-video-loaded section[data-framer-name="Hero"] [data-framer-name="BG"] img { opacity: 0 !important; transition: opacity 0.3s; }
+  section[data-framer-name="Hero"] [data-framer-name="BG"] video.hero-vid {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     object-fit: cover; z-index: 0; opacity: 0; transition: opacity 0.5s;
   }
-  .hero-video-loaded [data-framer-name="BG"] video.hero-vid { opacity: 1; }
+  .hero-video-loaded section[data-framer-name="Hero"] [data-framer-name="BG"] video.hero-vid { opacity: 1; }
 </style>
 <script>
   (function() {
     if (window.location.pathname !== '/' && window.location.pathname !== '') return;
     function injectHeroVideo() {
-      var bgs = document.querySelectorAll('[data-framer-name="BG"]');
+      var bgs = document.querySelectorAll('section[data-framer-name="Hero"] [data-framer-name="BG"]');
       bgs.forEach(function(bg) {
         if (bg.querySelector('video.hero-vid')) return;
         var wrapper = bg.querySelector('[data-framer-background-image-wrapper]');
@@ -43008,19 +43008,19 @@
   img[srcset*="GdqNUII0Rq3ISDD0FNEyWMVdWdQ"]
   { content: url(/assets/images/bottle.png) !important; object-fit: cover !important; }
 
-  /* Hero video background — hide image only after video loads */
-  .hero-video-loaded [data-framer-name="BG"] img { opacity: 0 !important; transition: opacity 0.3s; }
-  [data-framer-name="BG"] video.hero-vid {
+  /* Hero video background — scoped to Hero section only */
+  .hero-video-loaded section[data-framer-name="Hero"] [data-framer-name="BG"] img { opacity: 0 !important; transition: opacity 0.3s; }
+  section[data-framer-name="Hero"] [data-framer-name="BG"] video.hero-vid {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     object-fit: cover; z-index: 0; opacity: 0; transition: opacity 0.5s;
   }
-  .hero-video-loaded [data-framer-name="BG"] video.hero-vid { opacity: 1; }
+  .hero-video-loaded section[data-framer-name="Hero"] [data-framer-name="BG"] video.hero-vid { opacity: 1; }
 </style>
 <script>
   (function() {
     if (window.location.pathname !== '/' && window.location.pathname !== '') return;
     function injectHeroVideo() {
-      var bgs = document.querySelectorAll('[data-framer-name="BG"]');
+      var bgs = document.querySelectorAll('section[data-framer-name="Hero"] [data-framer-name="BG"]');
       bgs.forEach(function(bg) {
         if (bg.querySelector('video.hero-vid')) return;
         var wrapper = bg.querySelector('[data-framer-background-image-wrapper]');
