@@ -79,6 +79,11 @@
     img.style.setProperty('display', 'none', 'important');
     img.parentNode.insertBefore(video, img);
 
+    video.addEventListener('error', function() {
+      // If video fails to load, show original image again
+      video.style.display = 'none';
+      img.style.removeProperty('display');
+    });
     video.play().catch(function() {});
   }
 
