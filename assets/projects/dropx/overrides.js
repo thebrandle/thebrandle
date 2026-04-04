@@ -6,8 +6,8 @@
   var SLUG_ALT = 'dropx-website-design';
 
   // Video URLs (Vercel blob storage)
-  var HERO_VIDEO = 'https://c6peyfq2m5t1hmsm.public.blob.vercel-storage.com/project3_video1.mp4';
-  var SECTION_VIDEO = 'https://c6peyfq2m5t1hmsm.public.blob.vercel-storage.com/project3_img02.mp4';
+  var HERO_VIDEO = 'https://assets.thebrandle.com/project3_video1.mp4';
+  var SECTION_VIDEO = 'https://assets.thebrandle.com/project3_img02.mp4';
 
   var TRANSPARENT_GIF = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
 
