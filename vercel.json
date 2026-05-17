@@ -1,5 +1,5 @@
 {
-  "cleanUrls": true,
+  "cleanUrls": false,
   "redirects": [
     { "source": "/projects/shine-skincare-branding", "destination": "/projects/radiant-skincare-branding", "statusCode": 302 },
     { "source": "/projects/oh-my-pasta-branding", "destination": "/projects/radiant-skincare-branding-copy", "statusCode": 302 },
