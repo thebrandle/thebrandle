@@ -847,6 +847,105 @@
       ]
     }
     </script>
+    <script>
+      /* Per-route title/description/canonical for the Framer SPA.
+         Runs on initial load AND on client-side navigation so each URL
+         appears unique to JS-aware crawlers (Google, Bing, Yandex). */
+      (function () {
+        var ROUTES = {
+          '/': {
+            title: 'TheBrandle | Branding, UI/UX & Web Design Studio — Framer, Webflow & App Design',
+            description: 'TheBrandle is a branding, UI/UX & web design studio. We build Framer, Webflow & HTML websites, landing pages, one-page sites, app design, motion design & brand identities for founders and businesses.',
+            canonical: 'https://www.thebrandle.com/'
+          },
+          '/projects': {
+            title: 'Selected Work — Brand, UI/UX & Web Design Case Studies | TheBrandle',
+            description: 'Selected projects from TheBrandle — brand identity, UI/UX, Framer and Webflow case studies for founders and growing businesses.',
+            canonical: 'https://www.thebrandle.com/projects'
+          },
+          '/projects/vero-app-development': {
+            title: 'Vero App Design & Development — Case Study | TheBrandle',
+            description: 'Case study: how TheBrandle designed and developed Vero — a brand-aligned UI/UX, fast build and a launch-ready digital product.',
+            canonical: 'https://www.thebrandle.com/projects/vero-app-development'
+          },
+          '/projects/radiant-skincare-branding': {
+            title: 'Radiant Skincare Branding — Brand Identity Case Study | TheBrandle',
+            description: 'Case study: brand identity, packaging direction and visual system for Radiant Skincare, an independent skincare brand.',
+            canonical: 'https://www.thebrandle.com/projects/radiant-skincare-branding'
+          },
+          '/projects/radiant-skincare-branding-copy': {
+            title: 'Oh My Pasta Branding — Brand Identity Case Study | TheBrandle',
+            description: 'Case study: a playful, distinctive branding system for Oh My Pasta — a pasta bar designed to connect with customers.',
+            canonical: 'https://www.thebrandle.com/projects/radiant-skincare-branding-copy'
+          },
+          '/projects/stoyo-branding': {
+            title: 'Stoyo Branding & Web Design — Case Study | TheBrandle',
+            description: 'Case study: minimalist branding and a high-conversion lead generation website for Stoyo, a SaaS product.',
+            canonical: 'https://www.thebrandle.com/projects/stoyo-branding'
+          },
+          '/about': {
+            title: 'About — A Branding, UI/UX & Web Design Studio | TheBrandle',
+            description: 'About TheBrandle. A design studio building brand identities, websites and digital products on Framer, Webflow, WordPress, Wix and HTML.',
+            canonical: 'https://www.thebrandle.com/about'
+          },
+          '/contact': {
+            title: 'Contact — Start Your Project With TheBrandle',
+            description: 'Get in touch with TheBrandle. Book a free 15-minute call or send a brief. Branding, UI/UX, web design, app design and motion — under one roof.',
+            canonical: 'https://www.thebrandle.com/contact'
+          },
+          '/blog': {
+            title: 'Blog — Articles on Branding, UI/UX & Web Design | TheBrandle',
+            description: 'Notes on branding, UI/UX, web design and the craft of building digital experiences.',
+            canonical: 'https://www.thebrandle.com/blog'
+          }
+        };
+
+        function getMeta() {
+          var path = window.location.pathname.replace(/\/+$/, '') || '/';
+          return ROUTES[path] || ROUTES['/'];
+        }
+
+        function applyMeta() {
+          var meta = getMeta();
+          if (document.title !== meta.title) document.title = meta.title;
+          var pairs = [
+            ['meta[name="description"]', 'content', meta.description],
+            ['link[rel="canonical"]', 'href', meta.canonical],
+            ['meta[property="og:url"]', 'content', meta.canonical],
+            ['meta[property="og:title"]', 'content', meta.title],
+            ['meta[property="og:description"]', 'content', meta.description],
+            ['meta[name="twitter:title"]', 'content', meta.title],
+            ['meta[name="twitter:description"]', 'content', meta.description]
+          ];
+          for (var i = 0; i < pairs.length; i++) {
+            var el = document.querySelector(pairs[i][0]);
+            if (el) el.setAttribute(pairs[i][1], pairs[i][2]);
+          }
+        }
+
+        applyMeta();
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', applyMeta);
+        }
+        window.addEventListener('load', applyMeta);
+
+        var origPush = history.pushState;
+        var origReplace = history.replaceState;
+        history.pushState = function () {
+          var ret = origPush.apply(this, arguments);
+          setTimeout(applyMeta, 0);
+          return ret;
+        };
+        history.replaceState = function () {
+          var ret = origReplace.apply(this, arguments);
+          setTimeout(applyMeta, 0);
+          return ret;
+        };
+        window.addEventListener('popstate', function () {
+          setTimeout(applyMeta, 0);
+        });
+      })();
+    </script>
     <style data-framer-breakpoint-css>
       @media (min-width: 1200px) {
         .hidden-72rtr7 {
