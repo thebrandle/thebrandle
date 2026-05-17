@@ -919,7 +919,9 @@
           ];
           for (var i = 0; i < pairs.length; i++) {
             var el = document.querySelector(pairs[i][0]);
-            if (el) el.setAttribute(pairs[i][1], pairs[i][2]);
+            if (el && el.getAttribute(pairs[i][1]) !== pairs[i][2]) {
+              el.setAttribute(pairs[i][1], pairs[i][2]);
+            }
           }
         }
 
@@ -928,6 +930,23 @@
           document.addEventListener('DOMContentLoaded', applyMeta);
         }
         window.addEventListener('load', applyMeta);
+
+        /* Keep meta correct against later overrides (Framer's SPA may
+           re-set <title> via react-helmet or similar after mount).
+           applyMeta is idempotent, so observing head doesn't loop. */
+        if (typeof MutationObserver === 'function') {
+          var obs = new MutationObserver(function () { applyMeta(); });
+          function startObserving() {
+            if (document.head) {
+              obs.observe(document.head, {
+                childList: true, subtree: true,
+                attributes: true, characterData: true
+              });
+            }
+          }
+          if (document.head) startObserving();
+          else document.addEventListener('DOMContentLoaded', startObserving);
+        }
 
         var origPush = history.pushState;
         var origReplace = history.replaceState;
