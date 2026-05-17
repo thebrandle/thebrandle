@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thebrandle.com/sitemap.xml
+Sitemap: https://www.thebrandle.com/sitemap.xml
