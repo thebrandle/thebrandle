@@ -9,6 +9,8 @@
   "rewrites": [
     { "source": "/api/contact", "destination": "/api/contact" },
     { "source": "/api/cal-slots", "destination": "/api/cal-slots" },
+    { "source": "/sitemap.xml", "destination": "/thebrandle.framer.website/sitemap.xml" },
+    { "source": "/robots.txt", "destination": "/robots.txt" },
     { "source": "/(.*)", "destination": "/thebrandle.framer.website/index.html" }
   ]
 }
