@@ -1,207 +1,147 @@
-# TheBrandle — SEO Strategy to Rank Top 10
-**Prepared:** May 2026 | **Domain:** thebrandle.com
+# TheBrandle — SEO Strategy
+**Updated:** 2026-05-18 | **Domain:** https://www.thebrandle.com
 
 ---
 
-## Executive Summary
+## TL;DR
 
-TheBrandle has a clean, fast Framer-built site with strong visual execution — but it's essentially invisible to Google right now. The site had **no sitemap, no robots.txt, a broken canonical URL pointing to the Framer staging domain, thin meta tags, and zero schema markup.** These are not minor issues — they actively prevent Google from correctly understanding and indexing the site.
+TheBrandle's site is a Framer-exported static SPA. We **do not have Framer source access** — only the deployed export. This is a hard constraint that rules out the "build dedicated service pages" approach from earlier strategy drafts.
 
-The good news: none of these are hard to fix. Several have already been patched in this session (see Quick Wins below). The strategic opportunity is also significant — the agency space for Framer, Webflow, and design-forward branding studios is high-volume and not yet dominated by established giants. TheBrandle can rank in the top 10 for multiple high-intent terms within 3–6 months with consistent execution.
-
-**Top 3 priorities:**
-1. Fix all technical SEO foundations (done in this session)
-2. Build dedicated service landing pages for each keyword cluster
-3. Start a consistent content engine (case studies + blog)
+**The realistic SEO play is homepage-first:** maximise on-page signals, schema markup, technical SEO, and off-site authority on the one URL that actually exists. Project case study pages and a /services page can be added later **only if** routing is fixed (see issue below) and either Framer access is restored or pages are pre-rendered.
 
 ---
 
-## Critical Issues Fixed (This Session)
+## Critical Finding — Routing is Broken
 
-| Issue | Status |
-|-------|--------|
-| Broken canonical URL (`/thebrandle.framer.website/` → `https://thebrandle.com/`) | ✅ Fixed |
-| Missing sitemap.xml | ✅ Created |
-| Missing robots.txt | ✅ Created |
-| Weak title tag — no keywords | ✅ Updated |
-| Weak meta description — no service keywords | ✅ Updated |
-| No schema markup (Organization/ProfessionalService) | ✅ Added |
-| Sitemap not linked in vercel.json routes | ✅ Fixed |
-| OG title/description not keyword-optimised | ✅ Updated |
+Tested 2026-05-18: only `/` returns HTTP 200. **Every other URL on the site returns 404**, including routes the Framer SPA is supposed to handle internally:
+
+| URL | Status |
+|---|---|
+| `/` | ✅ 200 |
+| `/projects` | ❌ 404 |
+| `/about` | ❌ 404 |
+| `/contact` | ❌ 404 |
+| `/blog` | ❌ 404 |
+| `/projects/dropx-website-design` | ⚠️ 302 → redirects to `/projects/vero-app-development` which also 404s |
+| `/projects/radiant-skincare-branding` | ❌ 404 |
+| `/projects/stoyo-branding` | ❌ 404 |
+
+**SEO consequence:** Google can only index the homepage. No project pages, no service pages, no internal pages will ever rank. The Framer SPA's React Router handles routing client-side but Vercel returns 404 before the SPA loads.
+
+**Likely root cause:** The catch-all rewrite `/(.*) → /thebrandle.framer.website/index.html` in `vercel.json` isn't applying to non-root paths. Possibly because `cleanUrls: true` is interfering, or the root `/index.html` static file resolution is short-circuiting only for `/`.
+
+**Priority:** Fix routing before any other SEO investment. Without working deep URLs the site cannot scale beyond one indexed page no matter what content we produce.
+
+---
+
+## Foundations (Done)
+
+| Item | Status | Commit |
+|---|---|---|
+| Canonical URL → `https://www.thebrandle.com/` | ✅ Live | `457fd66` |
+| Sitemap.xml at `/sitemap.xml` | ✅ Live (homepage only after 2026-05-18) | this commit |
+| robots.txt allowing all crawlers | ✅ Live | `cacf0d0` |
+| Keyword-rich title, meta, og/twitter | ✅ Live | `cacf0d0` |
+| ProfessionalService JSON-LD schema | ✅ Enhanced with OfferCatalog (6 services) | this commit |
+| FAQPage JSON-LD schema | ✅ Added with 5 homepage FAQs | this commit |
+| Domain verified in Google Search Console | ✅ Done (via Cloudflare OAuth) | 2026-05-18 |
+| Sitemap submitted to GSC | ✅ Success, 4 pages parsed (now reduced to 1 valid URL) | 2026-05-18 |
+| Homepage indexing requested | ✅ Queued | 2026-05-18 |
 
 ---
 
 ## Keyword Opportunity Table
 
-Sorted by opportunity score. Target these in priority order.
+Sorted by opportunity score. These keywords remain valid targets — but with the homepage-only constraint, we need to thread them into the homepage copy rather than building dedicated pages.
 
-| Keyword | Est. Difficulty | Opportunity | Intent | Recommended Page |
+| Keyword | Est. Difficulty | Opportunity | Intent | Where to target |
 |---------|----------------|-------------|--------|-----------------|
-| Framer design agency | Low–Medium | 🔥 High | Commercial | /services/framer-design |
-| Webflow design agency | Medium | 🔥 High | Commercial | /services/webflow-design |
-| branding studio for startups | Medium | 🔥 High | Commercial | Homepage / /services/branding |
-| landing page design service | Medium | 🔥 High | Transactional | /services/landing-pages |
-| UI UX design studio | Medium | 🔥 High | Commercial | /services/ui-ux-design |
-| one-page website design | Low | 🔥 High | Transactional | /services/one-page-websites |
-| brand identity designer for hire | Medium | 🔥 High | Transactional | /services/branding |
-| Framer developer for hire | Low–Medium | 🔥 High | Transactional | /services/framer-design |
-| app design studio | Medium | 🟡 Medium | Commercial | /services/app-design |
-| motion design agency | Medium | 🟡 Medium | Commercial | /services/motion-design |
-| HTML website design service | Low | 🟡 Medium | Transactional | /services/html-websites |
-| Webflow developer for hire | Medium | 🟡 Medium | Transactional | /services/webflow-design |
-| WordPress website design service | Medium | 🟡 Medium | Transactional | /services/wordpress |
-| Wix website designer | Low | 🟡 Medium | Transactional | /services/wix-design |
-| videography for brands | Medium | 🟡 Medium | Commercial | /services/videography |
-| logo and brand identity design | Medium | 🟡 Medium | Transactional | /services/branding |
-| SaaS UI design | High | 🟢 Long-term | Commercial | Blog / /services/app-design |
-| Framer vs Webflow for startups | Low | 🟢 Long-term | Informational | Blog post |
-| how to design a landing page that converts | Low | 🟢 Long-term | Informational | Blog post |
-| best Framer templates for agencies | Low | 🟢 Long-term | Informational | Blog post |
-| what is brand identity design | Low | 🟢 Long-term | Informational | Blog post |
-| one-page website examples | Low | 🟢 Long-term | Informational | Blog post |
-| how much does Webflow design cost | Low | 🟢 Long-term | Informational | Blog post |
-| Framer website design examples | Low | 🟢 Long-term | Informational | Blog post |
-| brand guidelines design service | Medium | 🟡 Medium | Transactional | /services/branding |
+| Framer design agency | Low–Medium | 🔥 High | Commercial | Homepage services section |
+| Webflow design agency | Medium | 🔥 High | Commercial | Homepage services section |
+| branding studio for startups | Medium | 🔥 High | Commercial | Homepage hero + services |
+| UI UX design studio | Medium | 🔥 High | Commercial | Homepage hero + services |
+| brand identity designer for hire | Medium | 🔥 High | Transactional | Homepage services + schema |
+| Framer developer for hire | Low–Medium | 🔥 High | Transactional | Homepage services + schema |
+| landing page design service | Medium | 🔥 High | Transactional | Homepage services |
+| one-page website design | Low | 🔥 High | Transactional | Homepage services |
+| app design studio | Medium | 🟡 Medium | Commercial | Homepage services |
+| motion design agency | Medium | 🟡 Medium | Commercial | Homepage services |
+| WordPress website design service | Medium | 🟡 Medium | Transactional | Homepage services |
+| Wix website designer | Low | 🟡 Medium | Transactional | Homepage services |
+| HTML website design service | Low | 🟡 Medium | Transactional | Homepage services |
+| logo and brand identity design | Medium | 🟡 Medium | Transactional | Homepage services + schema |
+| videography for brands | Medium | 🟡 Medium | Commercial | Homepage services (when added) |
+
+Long-tail informational keywords ("Framer vs Webflow", "what is brand identity design", etc.) are **on hold** until we can either (a) fix routing and add a blog, or (b) host content elsewhere (Medium, LinkedIn articles) that links back to the homepage.
 
 ---
 
-## On-Page Issues
+## On-Page Issues (Homepage)
 
-| Page | Issue | Severity | Fix |
-|------|-------|----------|-----|
-| All pages (SPA) | Single index.html — Google sees one page, not many | Critical | Build dedicated service pages (see Content Gaps) |
-| Homepage | Multiple H1 tags rendered by Framer JS components | High | Ensure only one visible H1 per route in Framer |
-| Homepage | No internal links to service sub-pages (they don't exist yet) | High | Create service pages + link from homepage |
-| All pages | No blog/content section — zero informational keyword coverage | High | Launch blog with case studies |
-| All pages | Image alt text dependent on Framer's auto-generation | Medium | Review and set descriptive alt text in Framer |
-| All pages | No FAQ schema markup | Medium | Add FAQ schema to key service pages |
-
----
-
-## Content Gap Analysis
-
-These are the pages that need to be created. Each is a standalone SEO opportunity.
-
-### Service Landing Pages (Build these first)
-
-| Page | Target Keywords | Priority | Effort |
-|------|----------------|----------|--------|
-| `/services/branding` | branding studio, brand identity designer, logo design service | 🔥 High | 1 day |
-| `/services/ui-ux-design` | UI UX design studio, UX designer for hire | 🔥 High | 1 day |
-| `/services/framer-design` | Framer design agency, Framer developer for hire | 🔥 High | Half day |
-| `/services/webflow-design` | Webflow design agency, Webflow developer for hire | 🔥 High | Half day |
-| `/services/landing-pages` | landing page design service, high-converting landing page | 🔥 High | Half day |
-| `/services/one-page-websites` | one-page website design, single page website | 🟡 Medium | Half day |
-| `/services/app-design` | app design studio, mobile app UI design | 🟡 Medium | Half day |
-| `/services/motion-design` | motion design agency, motion graphics for brands | 🟡 Medium | Half day |
-| `/services/html-websites` | HTML website design, custom HTML site | 🟡 Medium | Half day |
-| `/services/wordpress` | WordPress website design service | 🟡 Medium | Half day |
-| `/services/videography` | videography for brands, brand video production | 🟡 Medium | Half day |
-| `/services/wix-design` | Wix website designer, Wix expert | 🟢 Low | Half day |
-
-### Blog Posts (Content Engine — Start Month 2)
-
-| Post Title | Target Keyword | Funnel Stage | Priority |
-|-----------|---------------|--------------|----------|
-| "Framer vs Webflow in 2026: Which Should You Choose?" | framer vs webflow | Informational | 🔥 High |
-| "What Is Brand Identity Design? (And Why It Matters)" | what is brand identity design | Informational | 🔥 High |
-| "One-Page Website Examples That Actually Convert" | one-page website examples | Informational | 🔥 High |
-| "How Much Does a Framer Website Cost in 2026?" | framer website cost | Informational | 🟡 Medium |
-| "Landing Page Design: 10 Rules That Drive Conversions" | landing page design tips | Informational | 🟡 Medium |
-| "The Complete Guide to Building a Brand Identity" | brand identity guide | Informational | 🟡 Medium |
-| "UI/UX Design Process: How We Build Digital Products" | UI UX design process | Informational | 🟡 Medium |
-| "Webflow vs WordPress: Which Is Better for Your Business?" | webflow vs wordpress | Informational | 🟡 Medium |
-| Case study: [Client name] — From brief to launch | [client brand] + branding | Decision | 🔥 High |
+| Issue | Severity | Fix |
+|------|----------|-----|
+| **Routing 404s for all non-root URLs** | 🔴 Critical | Debug vercel.json rewrites and/or cleanUrls interaction. Could be: (a) `cleanUrls` short-circuiting, (b) static file resolution intercepting, (c) Vercel framework auto-detection. Test by temporarily disabling cleanUrls or adding explicit rewrites for /projects, /contact, /about. |
+| Multiple H1s rendered by Framer SPA on homepage | 🟡 Medium | Without Framer access, can't fix in source. Mitigate via schema markup that explicitly identifies the page hero. |
+| Image alt text dependent on Framer auto-generation | 🟡 Medium | Without Framer access, can't update. Future-fix when Framer access returns. |
+| No internal cross-linking (single-page) | 🟡 Medium | Same constraint. Anchor links (`/#services`, `/#pricing`) work and could be promoted via outbound posts. |
+| ProfessionalService schema enhanced with Service-per-offering | 🟢 Done | This commit |
+| FAQPage schema with homepage FAQs | 🟢 Done | This commit — eligible for FAQ rich results in search |
 
 ---
 
-## Technical SEO Checklist
+## Priorities (Realistic, Constraint-Aware)
 
-| Check | Status | Notes |
-|-------|--------|-------|
-| HTTPS | ✅ Pass | Vercel handles SSL |
-| Canonical URL | ✅ Fixed | Was pointing to framer staging domain |
-| sitemap.xml | ✅ Created | At `/sitemap.xml`, registered in vercel.json |
-| robots.txt | ✅ Created | Allows all crawlers, points to sitemap |
-| Schema markup | ✅ Added | ProfessionalService schema in index.html |
-| OG tags | ✅ Updated | Title and description now keyword-rich |
-| Mobile responsive | ✅ Pass | Framer exports are responsive by default |
-| Page speed | ⚠️ Warning | Framer exports are JS-heavy; monitor Core Web Vitals |
-| Multiple H1s | ⚠️ Warning | Framer renders H1s inside hidden route panels — check in Framer |
-| Blog / content section | ❌ Missing | Must be built |
-| Service sub-pages | ❌ Missing | Must be built — highest priority |
-| FAQ schema | ❌ Missing | Add to service pages once built |
-| Internal linking | ❌ Missing | No service pages to link to yet |
-| Image alt text | ⚠️ Warning | Review in Framer editor |
-| Google Search Console | ❌ Not set up | Submit sitemap immediately |
-| Google Analytics | ❌ Unknown | Verify GA4 is installed and tracking |
+### This Week — Quick Wins
+1. **Fix Vercel routing** so /projects, /contact, /about, /projects/* return 200. Without this, nothing else scales.
+2. Monitor GSC for the homepage indexing refresh (within 7 days)
+3. Test FAQ rich results in [Google's Rich Results Tester](https://search.google.com/test/rich-results) for the homepage URL
+4. Test the new ProfessionalService + OfferCatalog schema in the same tester
 
----
+### Next 30 Days — Homepage Optimisation
+5. **Enhance homepage services section copy** — currently brief, needs keyword-rich paragraphs per service. Requires Framer access OR a content overlay (e.g., adding hidden SEO-only text via Vercel edge middleware, though that's a black-hat risk and not recommended).
+6. **Recover Framer source access** if possible — single biggest unblocker. Worth a real attempt: check old emails, password recovery, etc.
+7. **Off-site backlinks** (don't need Framer access):
+   - Submit thebrandle.com to Framer Showcase
+   - Create Clutch.co agency profile
+   - Create DesignRush listing
+   - Add thebrandle.com to Dribbble + Behance profiles
+   - Google Business Profile
+8. **LinkedIn presence** — publish 1-2 articles per week from Muteeb's account linking back to thebrandle.com
 
-## Competitor Comparison
-
-| Dimension | TheBrandle | Wdesigna (Dubai) | South Digital (Framer) | Duck.Design |
-|-----------|-----------|-----------------|----------------------|-------------|
-| Keyword coverage | Very thin | Broad | Framer-focused | Broad |
-| Service pages | 0 dedicated | 10+ | 5+ | 8+ |
-| Blog / content | None | Active | Moderate | Active |
-| Backlink signals | Low | Medium | Low–Medium | Medium |
-| Schema markup | ✅ Now added | Yes | Partial | Yes |
-| Sitemap | ✅ Now added | Yes | Yes | Yes |
-| Niche positioning | General | Dubai enterprise | Framer marketing | Multi-service |
-| **Your edge** | — | More agile, faster turnaround | Broader service range | Stronger brand voice |
-
-**Key insight:** No single competitor owns the "Framer + branding + UI/UX" combo positioning. That's TheBrandle's gap to claim.
+### 60-90 Days — Scale (Depends on Routing Fix)
+9. If routing fixed: re-add /projects/[case-study] URLs to sitemap; request indexing for each
+10. If Framer access restored: build out service-specific anchor sections on homepage with full keyword targeting
+11. Long-tail blog content on external platforms (Medium, dev.to) linking back
 
 ---
 
-## Prioritised Action Plan
+## Off-Site SEO
 
-### Quick Wins — Do This Week
+This work doesn't require Framer access and is the highest-ROI channel given current constraints:
 
-| Action | Impact | Effort |
-|--------|--------|--------|
-| ✅ Fix canonical URL | High | Done |
-| ✅ Create sitemap.xml | High | Done |
-| ✅ Create robots.txt | High | Done |
-| ✅ Update title & meta description with keywords | High | Done |
-| ✅ Add schema markup | Medium | Done |
-| **Submit sitemap in Google Search Console** | High | 10 min |
-| **Verify Google Search Console ownership** | High | 15 min |
-| **Set up GA4 if not already done** | Medium | 30 min |
-| **Review and update all image alt text in Framer** | Medium | 1 hour |
-| **Ensure only one H1 per page in Framer** | Medium | 30 min |
-
-### Strategic Investments — This Quarter
-
-| Action | Impact | Effort | Month |
-|--------|--------|--------|-------|
-| Build 5 core service pages (Framer, Webflow, branding, landing pages, UI/UX) | 🔥 Very High | 3–5 days | Month 1 |
-| Build remaining 7 service pages | High | 3 days | Month 1–2 |
-| Launch blog with first 3 posts | High | 2–3 days | Month 2 |
-| Publish 2 case studies with project outcomes | 🔥 Very High | 2 days | Month 2 |
-| Publish 2 blog posts per month (ongoing) | High | Ongoing | Month 2+ |
-| List on Clutch, DesignRush, Dribbble with backlink | Medium | 2 hours | Month 1 |
-| List on Google Business Profile | Medium | 1 hour | Month 1 |
-| Get 2–3 backlinks from Framer/Webflow showcase directories | High | Ongoing | Month 2+ |
-| Add FAQ schema to all service pages | Medium | 2 hours | Month 2 |
-| Update sitemap.xml as pages are added | High | 10 min per batch | Ongoing |
-
----
-
-## Backlink Strategy
-
-The fastest path to top 10 for competitive terms is a combination of on-page optimisation (done) and backlinks from relevant directories. These are the highest-ROI link sources for a design studio:
-
-1. **Framer Showcase** — submit thebrandle.com to framer.com/showcase
-2. **Webflow Made in Webflow** — if any client sites are on Webflow, submit them
-3. **Clutch.co** — create a free agency profile with a link (high DA)
-4. **DesignRush** — free listing gets a dofollow link
-5. **Dribbble** — add thebrandle.com to your profile
+1. **Framer Showcase** — submit thebrandle.com (framer.com/showcase)
+2. **Webflow Made in Webflow** — if any client sites are on Webflow
+3. **Clutch.co** — free agency profile (high domain authority backlink)
+4. **DesignRush** — free dofollow link
+5. **Dribbble** — add thebrandle.com to profile
 6. **Behance** — case study posts with site link
 7. **ProductHunt** — launch the studio as a product
-8. **LinkedIn** — publish articles that link back to blog posts
-9. **Guest posts** — pitch 1 article/month to design blogs (UX Collective, Smashing Magazine, etc.)
+8. **LinkedIn articles** — publish weekly, link to homepage
+9. **Guest posts** — pitch to UX Collective, Smashing Magazine, A List Apart
+10. **Google Business Profile** — local SEO if targeting Dubai/UAE clients
+
+---
+
+## What's Not Going to Happen (And Why)
+
+These are explicit non-goals given current constraints:
+
+- ❌ **12 dedicated service pages** — Requires Framer access. Standalone HTML doesn't visually match the site.
+- ❌ **Service page in /services route** — Same constraint.
+- ❌ **Blog at /blog** — Same constraint. Also requires CMS or ongoing editing inside Framer.
+- ❌ **Service-specific landing pages for paid ads** — Same constraint.
+
+If/when Framer access is restored, all of these become viable and the strategy upgrades accordingly.
 
 ---
 
@@ -209,22 +149,20 @@ The fastest path to top 10 for competitive terms is a combination of on-page opt
 
 | Month | Goal | Key Actions |
 |-------|------|-------------|
-| May 2026 | Technical foundation complete | ✅ Canonical, sitemap, robots, schema, meta — done. Submit to GSC. |
-| June 2026 | First 5 service pages live | Build /services/branding, /framer-design, /webflow-design, /landing-pages, /ui-ux-design |
-| July 2026 | Blog launched, 3 posts live | Framer vs Webflow, brand identity guide, one-page examples |
-| August 2026 | All service pages live, 2 case studies | Remaining 7 service pages, 2 client case studies |
-| September 2026 | First rankings appearing | Monitor GSC, target featured snippets on informational posts |
-| October 2026 | Top 10 for long-tail terms | Scale content, pursue 2 new backlinks/month |
-| Q1 2027 | Top 10 for primary terms | Consistent content + backlinks paying off |
+| May 2026 | ✅ Foundations + GSC + schema upgrades | Done |
+| June 2026 | Fix routing + off-site backlinks | Debug vercel.json; submit to Clutch, DesignRush, Framer Showcase, Dribbble, Behance |
+| July 2026 | LinkedIn content engine | 2 articles/week from Muteeb's profile, link to homepage |
+| August 2026 | First rankings appearing | Monitor GSC; pursue 2 backlinks/month |
+| September 2026 | Local SEO + UAE targeting | Google Business Profile, UAE-specific directories |
+| Q4 2026 | Top 10 for long-tail terms | Compound effect of consistent content + backlinks |
+| Q1 2027 | Top 10 for primary terms | Depends on routing fix + Framer access |
 
 ---
 
-## Immediate Next Step for You
+## Immediate Next Steps
 
-**Right now, do these three things (30 minutes total):**
-
-1. Go to [search.google.com/search-console](https://search.google.com/search-console) → Add property → verify `thebrandle.com`
-2. Submit `https://thebrandle.com/sitemap.xml` in GSC → Sitemaps
-3. In Framer, start building the first service page: `/services/framer-design` — this is your lowest-competition, highest-intent keyword
-
-The service pages are the single biggest SEO lever. Each one is a new door for Google to find you.
+1. **Investigate routing** — try toggling `cleanUrls: false` in vercel.json temporarily; see if /projects starts returning 200
+2. **Test schema in Rich Results Tester** — confirm FAQPage and ProfessionalService validate cleanly
+3. **Submit homepage to Bing Webmaster Tools** (separate from Google) — broaden coverage
+4. **Off-site profile creation** — Clutch, DesignRush, Framer Showcase (~30 min total)
+5. **Email recovery for Framer account** — biggest unblocker if reachable
