@@ -87764,9 +87764,17 @@
     }, 4000);
   }
 
+  // Only intercept when the button is actually the contact-form submit
+  // (Framer reuses BTN_CLASS on nav CTAs like "See pricing", "Meet our team",
+  // etc. — those aren't inside a <form> and must fall through to their href.)
+  function submitBtnFor(target) {
+    var btn = target && target.closest && target.closest('.' + BTN_CLASS);
+    return btn && btn.closest('form') ? btn : null;
+  }
+
   // Use pointerdown in capture phase — fires before React's synthetic click
   document.addEventListener('pointerdown', function (e) {
-    var btn = e.target.closest('.' + BTN_CLASS);
+    var btn = submitBtnFor(e.target);
     if (!btn) return;
     e.preventDefault();
     e.stopImmediatePropagation();
@@ -87775,7 +87783,7 @@
 
   // Belt-and-suspenders: also intercept click in capture phase
   document.addEventListener('click', function (e) {
-    var btn = e.target.closest('.' + BTN_CLASS);
+    var btn = submitBtnFor(e.target);
     if (!btn) return;
     e.preventDefault();
     e.stopImmediatePropagation();
@@ -87784,7 +87792,7 @@
   // Intercept the <a> tag inside the button from navigating
   document.addEventListener('click', function (e) {
     var a = e.target.closest('.' + BTN_CLASS + ' a');
-    if (!a) return;
+    if (!a || !a.closest('form')) return;
     e.preventDefault();
     e.stopImmediatePropagation();
   }, true);
