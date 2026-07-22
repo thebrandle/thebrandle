@@ -87804,7 +87804,7 @@
 </script>
 
 
-<!-- ── Brandle Services nav/footer link (JS-injected; Framer nav is baked) ── -->
+<!-- Brandle Services nav/footer link (JS-injected; Framer nav is baked) -->
 <script>
 (function () {
   var HREF = '/services/';
@@ -87813,8 +87813,6 @@
     return orig === orig.toUpperCase() ? 'SERVICES' : 'Services';
   }
 
-  // find leaf elements that carry visible text (Framer duplicates labels for
-  // the hover-roll effect — rewrite every one of them)
   function rewriteText(root) {
     var leaves = [];
     (function walk(el) {
@@ -87834,48 +87832,31 @@
       var about = anchors[i];
       var parent = about.parentElement;
       if (!parent || parent.querySelector('[data-brandle-services]')) continue;
-      // skip the logo link block (it links home, not about) and tiny icons
       if (!(about.innerText || '').trim()) continue;
-      // only real nav groups: must also contain a Contact link, or live in
-      // the footer — otherwise this is a content CTA (e.g. "Meet our team")
       var hasContact = !!parent.querySelector('a[href="./contact"], a[href="/contact"]');
       if (!hasContact && !about.closest('footer')) continue;
-
       var clone = about.cloneNode(true);
       clone.setAttribute('data-brandle-services', '1');
       clone.setAttribute('href', HREF);
       clone.removeAttribute('data-framer-page-link-current');
       if (!rewriteText(clone)) continue;
-
-      // place before the CONTACT link in the same group when present,
-      // otherwise right after ABOUT
       var contact = null;
       var sibs = parent.querySelectorAll('a[href="./contact"], a[href="/contact"]');
       if (sibs.length) contact = sibs[sibs.length - 1];
-      if (contact && contact.parentElement === parent) {
-        parent.insertBefore(clone, contact);
-      } else if (about.nextSibling) {
-        parent.insertBefore(clone, about.nextSibling);
-      } else {
-        parent.appendChild(clone);
-      }
+      if (contact && contact.parentElement === parent) parent.insertBefore(clone, contact);
+      else if (about.nextSibling) parent.insertBefore(clone, about.nextSibling);
+      else parent.appendChild(clone);
     }
   }
 
-  var scheduled = false;
-  function schedule() {
-    if (scheduled) return;
-    scheduled = true;
-    requestAnimationFrame(function () { scheduled = false; inject(); });
+  function start() {
+    inject();
+    setInterval(inject, 900);
+    try { new MutationObserver(inject).observe(document.documentElement, { childList: true, subtree: true }); } catch (e) {}
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', schedule);
-  } else {
-    schedule();
-  }
-  window.addEventListener('load', schedule);
-  new MutationObserver(schedule).observe(document.documentElement, { childList: true, subtree: true });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
 })();
 </script>
 
