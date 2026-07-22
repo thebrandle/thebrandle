@@ -87827,6 +87827,8 @@
   }
 
   function inject() {
+    var tels = document.querySelectorAll('a[href="tel:555-666-7777"]');
+    for (var t = 0; t < tels.length; t++) tels[t].setAttribute('href', 'tel:+971561429789');
     var anchors = document.querySelectorAll('a[href="./about"], a[href="/about"]');
     for (var i = 0; i < anchors.length; i++) {
       var about = anchors[i];

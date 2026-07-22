@@ -26,14 +26,18 @@ const EMAIL = 'hello@thebrandle.com';
 
 const read = (f) => fs.readFileSync(path.join(COMP, f), 'utf8');
 const styles = read('styles.html');
-const navHtml = read('nav-live.html')
+// carved components carry Framer's relative hrefs (./, ./about). Those
+// resolve against the CURRENT path, so on /services/<slug>/ the logo links
+// to itself and nav links 404 into the SPA. Absolutize them.
+const absolutize = (h) => h.replace(/href="\.\//g, 'href="/').replace(/tel:555-666-7777/g, 'tel:+971561429789');
+const navHtml = absolutize(read('nav-live.html')
   // the container is captured in its pre-appear animation state — normalize
-  .replace(/style="opacity: 0\.001;[^"]*"/, 'style="opacity: 1;"');
+  .replace(/style="opacity: 0\.001;[^"]*"/, 'style="opacity: 1;"'));
 const navPhoneHtml = fs.existsSync(path.join(COMP, 'nav-phone.html'))
-  ? read('nav-phone.html').replace(/style="opacity: 0\.001;[^"]*"/, 'style="opacity: 1;"')
+  ? absolutize(read('nav-phone.html').replace(/style="opacity: 0\.001;[^"]*"/, 'style="opacity: 1;"'))
   : '';
-const footerHtml = read('footer-live.html')
-  .replace(/style="will-change: transform; opacity: 1; transform: translateY\([^)]+\);"/, 'style="opacity: 1;"');
+const footerHtml = absolutize(read('footer-live.html')
+  .replace(/style="will-change: transform; opacity: 1; transform: translateY\([^)]+\);"/, 'style="opacity: 1;"'));
 const ctaHtml = fs.existsSync(path.join(COMP, 'button-live.html'))
   ? read('button-live.html')            // hydrated red pill w/ real arrow icon
   : read('button.html');
@@ -140,8 +144,20 @@ const REVEAL_JS = `<script>
   }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
   els.forEach(function(e, i){ io.observe(e); });
   // static pages: burger MENU can't open the Framer menu — jump to footer nav
-  var mb = document.querySelector('.svc-nav-phone [data-framer-name="MENU"], .svc-nav-phone header');
-  if (mb) mb.addEventListener('click', function(ev){ ev.preventDefault(); var f = document.querySelector('.svc-footer'); if (f) f.scrollIntoView({behavior:'smooth'}); });
+  function toFooter(ev){ ev.preventDefault(); ev.stopPropagation(); var f = document.querySelector('.svc-footer'); if (!f) return; var y0 = window.scrollY; f.scrollIntoView({behavior:'smooth'}); setTimeout(function(){ if (Math.abs(window.scrollY - y0) < 100) f.scrollIntoView(); }, 700); }
+  var wraps = document.querySelectorAll('.svc-nav-wrap [data-framer-name="MENU"], .svc-nav-wrap [data-framer-name="Menu icon"], .svc-nav-wrap [data-framer-name="Burger"]');
+  for (var mi = 0; mi < wraps.length; mi++) { wraps[mi].style.cursor = 'pointer'; wraps[mi].addEventListener('click', toFooter); }
+  // fallback: any leaf element in the nav whose text is exactly MENU
+  var navEls = document.querySelectorAll('.svc-nav-wrap *');
+  for (var ni = 0; ni < navEls.length; ni++) {
+    var el = navEls[ni];
+    if (!el.children.length && (el.textContent || '').trim() === 'MENU' && !el.__menuBound) {
+      el.__menuBound = true;
+      var target = el.closest('[data-framer-name]') || el;
+      target.style.cursor = 'pointer';
+      target.addEventListener('click', toFooter);
+    }
+  }
 })();
 </script>`;
 
