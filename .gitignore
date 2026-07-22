@@ -1,2 +1,7 @@
 .vercel
 node_modules/
+_snapshot/index.html
+_snapshot/test-service/
+_snapshot/mobile-test/
+_snapshot/components/ping.txt
+.DS_Store

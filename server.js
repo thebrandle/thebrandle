@@ -28,11 +28,28 @@ const MIME_TYPES = {
 const server = http.createServer((req, res) => {
   // Add CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
 
   if (req.method === 'OPTIONS') {
     res.writeHead(204);
     res.end();
+    return;
+  }
+
+  // Dev-only: receive extracted component markup from the live site
+  // (used by the snapshot/carve pipeline; not deployed — server.js is local only)
+  if (req.method === 'POST' && req.url.startsWith('/__save')) {
+    const name = path.basename(new URL(req.url, 'http://x').searchParams.get('name') || 'blob.html');
+    const dir = path.join(ROOT, '_snapshot', 'components');
+    fs.mkdirSync(dir, { recursive: true });
+    const chunks = [];
+    req.on('data', (c) => chunks.push(c));
+    req.on('end', () => {
+      fs.writeFileSync(path.join(dir, name), Buffer.concat(chunks));
+      console.log(`saved ${name} (${Buffer.concat(chunks).length} bytes)`);
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ ok: true, name }));
+    });
     return;
   }
 

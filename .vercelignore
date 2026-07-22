@@ -1,0 +1,11 @@
+# build/extraction tooling — never deploy
+_snapshot
+scripts
+server.js
+fix_bracket.py
+fix_bracket2.py
+fix_bracket3.py
+fix_brackets.py
+thebrandle-seo-strategy.md
+HANDOFF.md
+TODO.md
