@@ -87726,7 +87726,10 @@
     // Wait a tick for React state to flush, then read inputs
     await new Promise(function(r){ setTimeout(r, 50); });
 
-    var inputs = document.querySelectorAll('input[name], textarea[name], select[name]');
+    // Scope to the submitted form only — the page has other same-named
+    // inputs (footer newsletter "E-mail") that would overwrite real values
+    var scope = btn.closest('form') || document;
+    var inputs = scope.querySelectorAll('input[name], textarea[name], select[name]');
     var data = {};
     inputs.forEach(function(el) { data[el.name] = el.value || ''; });
 
