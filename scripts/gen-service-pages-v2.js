@@ -30,14 +30,31 @@ const styles = read('styles.html');
 // resolve against the CURRENT path, so on /services/<slug>/ the logo links
 // to itself and nav links 404 into the SPA. Absolutize them.
 const absolutize = (h) => h.replace(/href="\.\//g, 'href="/').replace(/tel:555-666-7777/g, 'tel:+971561429789');
+/* bake a Services link into carved nav/footer markup: clone the About
+   anchor (native styling + hover-dup labels), relabel, insert before
+   Contact when present, else right after About */
+const addServices = (html) => {
+  const aboutM = html.match(/<a\b[^>]*href="\/about"[\s\S]*?<\/a>/);
+  if (!aboutM) return html;
+  const clone = aboutM[0]
+    .replace(/>(\s*)ABOUT(\s*)</g, '>$1SERVICES$2<')
+    .replace(/>(\s*)About(\s*)</g, '>$1Services$2<')
+    .replace(/href="\/about"/, 'href="/services/"')
+    .replace(/ data-framer-page-link-current(="[^"]*")?/, '');
+  if (clone === aboutM[0]) return html;
+  const contactM = html.match(/<a\b[^>]*href="\/contact"[\s\S]*?<\/a>/);
+  if (contactM) return html.replace(contactM[0], clone + contactM[0]);
+  return html.replace(aboutM[0], aboutM[0] + clone);
+};
 const navHtml = absolutize(read('nav-live.html')
   // the container is captured in its pre-appear animation state — normalize
   .replace(/style="opacity: 0\.001;[^"]*"/, 'style="opacity: 1;"'));
+const navHtmlFinal = addServices(navHtml);
 const navPhoneHtml = fs.existsSync(path.join(COMP, 'nav-phone.html'))
-  ? absolutize(read('nav-phone.html').replace(/style="opacity: 0\.001;[^"]*"/, 'style="opacity: 1;"'))
+  ? addServices(absolutize(read('nav-phone.html').replace(/style="opacity: 0\.001;[^"]*"/, 'style="opacity: 1;"')))
   : '';
-const footerHtml = absolutize(read('footer-live.html')
-  .replace(/style="will-change: transform; opacity: 1; transform: translateY\([^)]+\);"/, 'style="opacity: 1;"'));
+const footerHtml = addServices(absolutize(read('footer-live.html')
+  .replace(/style="will-change: transform; opacity: 1; transform: translateY\([^)]+\);"/, 'style="opacity: 1;"')));
 const ctaHtml = fs.existsSync(path.join(COMP, 'button-live.html'))
   ? read('button-live.html')            // hydrated red pill w/ real arrow icon
   : read('button.html');
@@ -203,7 +220,7 @@ function renderPage(d) {
 ${ROOT_OPEN}
 ${noiseHtml ? `<div class="svc-noise">${noiseHtml}</div>` : ``}
 <div class="svc-page">
-  <div class="svc-nav-wrap"><div class="svc-nav-desktop">${navHtml}</div><div class="svc-nav-phone">${navPhoneHtml}</div></div>
+  <div class="svc-nav-wrap"><div class="svc-nav-desktop">${navHtmlFinal}</div><div class="svc-nav-phone">${navPhoneHtml}</div></div>
 
   <section class="svc-section" style="padding-top:110px">
     <span class="svc-label" data-reveal>${esc(d.eyebrow)}</span>
@@ -274,7 +291,7 @@ function renderHub() {
 ${ROOT_OPEN}
 ${noiseHtml ? `<div class="svc-noise">${noiseHtml}</div>` : ``}
 <div class="svc-page">
-  <div class="svc-nav-wrap"><div class="svc-nav-desktop">${navHtml}</div><div class="svc-nav-phone">${navPhoneHtml}</div></div>
+  <div class="svc-nav-wrap"><div class="svc-nav-desktop">${navHtmlFinal}</div><div class="svc-nav-phone">${navPhoneHtml}</div></div>
   <section class="svc-section" style="padding-top:110px">
     <span class="svc-label">What we do</span>
     <h1 class="${P.display}" style="color:#fff;text-align:left;margin:0 0 26px">Design &amp; build, on your platform</h1>
