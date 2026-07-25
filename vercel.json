@@ -1,6 +1,10 @@
 {
   "cleanUrls": false,
-  "redirects": [],
+  "redirects": [
+    { "source": "/thebrandle.framer.website", "destination": "/", "permanent": true },
+    { "source": "/thebrandle.framer.website/", "destination": "/", "permanent": true },
+    { "source": "/thebrandle.framer.website/:path*", "destination": "/:path*", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/api/contact", "destination": "/api/contact" },
     { "source": "/api/cal-slots", "destination": "/api/cal-slots" },
