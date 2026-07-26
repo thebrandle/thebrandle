@@ -7,7 +7,9 @@
  * Env: OPINLY_API_KEY (required for any fetch)
  */
 const API_BASE = 'https://sdk.opinly.ai/v1';
-const CDN_BASE = 'https://cdn.opinly.ai/9JdIcU6-TreQDByyH1u-n/';
+// Namespace is workspace-specific and changes if the Opinly project is re-created.
+// Override with OPINLY_CDN_BASE rather than editing this line.
+const CDN_BASE = process.env.OPINLY_CDN_BASE || 'https://cdn.opinly.ai/GGupSvPhtQvtAHSbg6jFL/';
 
 /* ------------------------------------------------------------------ utils */
 const esc = (s) => String(s == null ? '' : s)

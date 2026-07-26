@@ -26,6 +26,7 @@ redeploy.
 | `OPINLY_API_KEY` | build + local | yes | Bearer token for `sdk.opinly.ai` |
 | `SVIX_WEBHOOK_SECRET` | Vercel env | yes (for webhook) | Verifies webhook signatures |
 | `VERCEL_DEPLOY_HOOK_URL` | Vercel env | yes (for webhook) | Deploy Hook the webhook POSTs to |
+| `OPINLY_CDN_BASE` | build | no | Overrides the image CDN namespace. Only needed if the Opinly project is re-created and the namespace changes. |
 
 Set these in **Vercel -> Project -> Settings -> Environment Variables**. None
 are committed. `OPINLY_API_KEY` is only ever read server-side / at build time,
