@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "resend": "^3.5.0"
+    "resend": "^3.5.0",
+    "svix": "^1.24.0"
+  },
+  "scripts": {
+    "opinly:build": "node scripts/gen-opinly-blog.js"
   }
 }
