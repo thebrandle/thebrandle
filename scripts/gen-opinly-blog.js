@@ -39,6 +39,36 @@ const RESERVED = new Set([
   'all',
 ]);
 
+/* Hero photography.
+   The Framer blog template overlays the post title on a photo. Opinly's
+   generated images are title cards with the headline already drawn into them,
+   so overlaying a second title makes both unreadable - we ignore Opinly's
+   image entirely and use the site's own photography.
+
+   To pin a specific photo to a post, add slug -> filename in HERO_OVERRIDES.
+   Everything else gets a stable pick from the pool (same slug, same photo on
+   every build). Files live in framerusercontent.com/images and are AVIF
+   despite the .jpg extension - that is how Framer ships them. */
+const HERO_DIR = '/framerusercontent.com/images/';
+const HERO_POOL = [
+  { file: 'YlEKlxLXS5eEKd4QlVitTh30A.jpg', alt: 'Three people working together in a studio' },
+  { file: 'eLsR49HoCXz2B9KTFAhtjD454Dw.jpg', alt: 'A studio lounge with green armchairs and plants' },
+  { file: 'bPs9iY1xCdYs2KmVLN2FyaQJhk.jpg', alt: 'A phone resting on a concrete surface' },
+  { file: 'T3l9K398sRcCWjbIM6rTgD8UILk.jpg', alt: 'A close-up of a tablet and fabric speaker' },
+  { file: 'mEUUzFINLTAMqcjxzWXrFUYzBPQ.jpg', alt: 'Two phones displaying a design mockup' },
+  { file: 'SDIyriYujLHtLJeg9tbQiqvoT4.jpg', alt: 'Dark product packaging on a marble tray' },
+];
+const HERO_OVERRIDES = {
+  'should-i-hire-a-web-designer-or-do-it-myself': 'YlEKlxLXS5eEKd4QlVitTh30A.jpg',
+};
+function pickHero(slug) {
+  const pinned = HERO_OVERRIDES[slug];
+  if (pinned) return HERO_POOL.find((h) => h.file === pinned) || { file: pinned, alt: '' };
+  let sum = 0;
+  for (let i = 0; i < slug.length; i++) sum = (sum * 31 + slug.charCodeAt(i)) >>> 0;
+  return HERO_POOL[sum % HERO_POOL.length];
+}
+
 /* Index lives at /blog/all/ so the Framer SPA keeps owning /blog.
    Change to '' to publish the index at /blog/ instead (destructive). */
 const INDEX_DIR = 'blog/all';
@@ -94,8 +124,34 @@ html,body{background:#0C0C0C;margin:0}
 .post-label{display:inline-flex;gap:10px;align-items:center;color:${ACCENT};letter-spacing:.14em;text-transform:uppercase;font-family:Inter,sans-serif;font-size:12.5px;font-weight:500;margin-bottom:20px}
 .post-meta{color:rgba(255,255,255,.4)!important;font-family:Inter,sans-serif;font-size:13.5px;margin-top:22px}
 .post-h1{color:#fff!important;text-align:left;margin:0;font-size:clamp(38px,5.6vw,64px)!important;line-height:1.02!important;letter-spacing:-0.045em!important}
-.post-hero{margin:44px 0 8px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
-.post-hero img{width:100%;height:auto;display:block}
+/* Full-bleed article hero - matches the Framer blog post template:
+   photo, author chip pinned left, oversized title, date + excerpt on the
+   bottom row. Offsets are proportional so it holds at any width. */
+.bp-hero{position:relative;margin:26px 30px 0;height:calc(100vh - 150px);min-height:560px;overflow:hidden;isolation:isolate}
+.bp-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+/* two scrims: vertical for the title/date rows, plus a left wash so the
+   author chip stays readable over a bright photo */
+.bp-hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,.24) 34%,rgba(0,0,0,.42) 72%,rgba(0,0,0,.68) 100%),linear-gradient(90deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,.10) 34%,rgba(0,0,0,0) 55%)}
+.bp-inner{position:relative;height:100%;display:grid;grid-template-rows:1fr auto;padding:44px 46px 40px;box-sizing:border-box}
+.bp-mid{display:flex;align-items:center;gap:0}
+.bp-author{display:flex;align-items:center;gap:16px;flex:0 0 26.8%}
+.bp-avatar{width:58px;height:58px;border-radius:50%;object-fit:cover;flex-shrink:0;background:rgba(255,255,255,.14)}
+.bp-author .n{color:#fff;font-family:Inter,sans-serif;font-size:22px;font-weight:500;line-height:1.25;text-shadow:0 1px 16px rgba(0,0,0,.6)}
+.bp-author .r{color:rgba(255,255,255,.82);font-family:Inter,sans-serif;font-size:18px;line-height:1.3;text-shadow:0 1px 16px rgba(0,0,0,.6)}
+.bp-title{color:#fff!important;text-align:left;margin:0;flex:1;font-size:clamp(40px,7vw,106px)!important;line-height:1.06!important;letter-spacing:-0.04em!important;text-shadow:0 2px 30px rgba(0,0,0,.45)}
+.bp-foot{display:flex;align-items:flex-start;gap:0;padding-left:26.8%}
+.bp-date{color:#fff;font-family:Inter,sans-serif;font-size:22px;flex:0 0 30%}
+.bp-desc{color:rgba(255,255,255,.92);font-family:Inter,sans-serif;font-size:19px;line-height:1.5;max-width:46ch;margin:0}
+@media(max-width:1024px){
+  .bp-hero{height:auto;min-height:0;margin:20px 20px 0}
+  .bp-inner{display:block;padding:32px 26px 34px}
+  .bp-mid{display:block}
+  .bp-author{flex:none;margin-bottom:30px}
+  .bp-title{margin:0 0 40px}
+  .bp-foot{display:block;padding-left:0}
+  .bp-date{margin-bottom:12px;font-size:18px}
+  .bp-desc{font-size:17px;max-width:none}
+}
 .post-hero figcaption,.post-body figcaption{color:rgba(255,255,255,.38);font-family:Inter,sans-serif;font-size:13px;padding:12px 2px 0}
 .post-body h2,.post-body h3,.post-body h4{color:#fff!important;text-align:left;margin:56px 0 18px;line-height:1.15!important;letter-spacing:-0.03em!important;font-family:Inter,sans-serif;font-weight:600}
 .post-body h2{font-size:clamp(24px,3.2vw,32px)!important}
@@ -201,16 +257,22 @@ ${JS}
 
 const OG_FALLBACK = SITE + '/framerusercontent.com/images/YNmypiM868x4WUMKO25HF3tDPN4.jpg';
 const fmtDate = (iso) => { try { return new Date(iso).toISOString().slice(0, 10); } catch { return ''; } };
+// "Nov 18, 2024" - the format the Framer blog template uses
+const fmtDateLong = (iso) => {
+  try {
+    return new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+  } catch { return ''; }
+};
 
 /* ------------------------------------------------------------- post page */
 function renderPostPage(post) {
   const url = `${SITE}/blog/${post.slug}/`;
-  const hero = imageUrl(post.titleFile && post.titleFile.fileKey);
-  // Opinly fills these with "AI-generated header image for: <title>" boilerplate.
-  // Drop it: the caption adds nothing, and it is not something to advertise.
-  const tf = post.titleFile || {};
-  const heroCap = L.isBoilerplate(tf.caption) ? '' : tf.caption;
-  const heroAlt = L.isBoilerplate(tf.altText) ? post.title : tf.altText;
+  // Opinly's title-card images bake the headline into the artwork, which
+  // collides with the title overlaid on the hero - so we ignore them and use
+  // the site's own photography instead. See HERO_POOL.
+  const heroPick = pickHero(post.slug);
+  const hero = HERO_DIR + heroPick.file;
+  const heroAlt = heroPick.alt || post.title;
   const bodyHtml = renderContent(post.content);
   const mins = readingMinutes(post.content);
   const desc = post.metaDescription || post.description || '';
@@ -222,7 +284,7 @@ function renderPostPage(post) {
       '@context': 'https://schema.org', '@type': 'BlogPosting',
       headline: L.copy(post.title), description: L.copy(desc), url, mainEntityOfPage: url,
       datePublished: post.firstPublishedAt, dateModified: post.modifiedAt || post.firstPublishedAt,
-      image: hero || OG_FALLBACK,
+      image: SITE + hero,
       author: a.name ? { '@type': 'Person', name: a.name, ...(a.slug ? { url: `${SITE}/blog/author/${a.slug}/` } : {}) }
                      : { '@type': 'Organization', name: 'TheBrandle', url: SITE },
       publisher: { '@type': 'Organization', name: 'TheBrandle', url: SITE, logo: { '@type': 'ImageObject', url: SITE + '/framerusercontent.com/assets/TheBrandle.svg' } },
@@ -238,16 +300,33 @@ function renderPostPage(post) {
     },
   ];
 
+  // The Framer blog template shows the studio, not a byline. index.html
+  // already rewrites the CMS author to these two strings on /blog pages.
+  const authorName = a.name || 'The Brandle Team';
+  const authorRole = a.bio || 'Design Studio';
+
   const main = `
+  <header class="bp-hero">
+    ${hero ? `<img src="${esc(hero)}" alt="${escCopy(heroAlt)}" fetchpriority="high" decoding="async">` : ''}
+    <div class="bp-inner">
+      <div class="bp-mid">
+        <div class="bp-author">
+          ${avatar ? `<img class="bp-avatar" src="${esc(avatar)}" alt="" width="58" height="58">` : ''}
+          <div><div class="n">${escCopy(authorName)}</div><div class="r">${escCopy(authorRole)}</div></div>
+        </div>
+        <h1 class="bp-title ${P.h2}">${escCopy(post.title)}</h1>
+      </div>
+      <div class="bp-foot">
+        <div class="bp-date">${esc(fmtDateLong(post.firstPublishedAt))}</div>
+        <p class="bp-desc">${escCopy(desc)}</p>
+      </div>
+    </div>
+  </header>
+
   <article class="post-wrap">
-    ${post.category && post.category.name ? `<span class="post-label" data-reveal>${escCopy(post.category.name)}</span>` : ''}
-    <h1 class="post-h1 ${P.h2}" data-reveal style="transition-delay:70ms">${escCopy(post.title)}</h1>
-    <div class="post-meta ${P.small}" data-reveal style="transition-delay:140ms">${esc(fmtDate(post.firstPublishedAt))} &middot; ${mins} min read${a.name ? ` &middot; ${escCopy(a.name)}` : ''}</div>
-    ${hero ? `<figure class="post-hero" data-reveal style="transition-delay:200ms"><img src="${esc(hero)}" alt="${escCopy(heroAlt)}" width="1200" height="630">${heroCap ? `<figcaption>${escCopy(heroCap)}</figcaption>` : ''}</figure>` : ''}
-    <div class="post-body" data-reveal style="transition-delay:260ms">
+    <div class="post-body" data-reveal>
 ${bodyHtml}
     </div>
-    ${a.name ? `<div class="post-author">${avatar ? `<img src="${esc(avatar)}" alt="${escCopy(a.name)}" width="46" height="46" loading="lazy">` : ''}<div><div class="n">${escCopy(a.name)}</div>${a.bio ? `<div class="b">${escCopy(a.bio)}</div>` : ''}</div></div>` : ''}
   </article>
 
   <div class="post-cta">
@@ -256,7 +335,7 @@ ${bodyHtml}
     <div class="actions">${cta('Book a free consultation', '/contact')}</div>
   </div>`;
 
-  return shell({ title: `${L.copy(post.metaTitle || post.title)} | TheBrandle`, description: desc, url, image: hero || OG_FALLBACK, schemas, main });
+  return shell({ title: `${L.copy(post.metaTitle || post.title)} | TheBrandle`, description: desc, url, image: SITE + hero, schemas, main });
 }
 
 /* ------------------------------------------------------------ index page */
