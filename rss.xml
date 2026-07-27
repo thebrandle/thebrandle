@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>TheBrandle - Articles</title>
+<link>https://www.thebrandle.com/blog</link>
+<description>Practical guidance on websites, ecommerce and brand.</description>
+<language>en</language>
+<atom:link href="https://www.thebrandle.com/rss.xml" rel="self" type="application/rss+xml"/>
+<item>
+<title>Should I Hire a Web Designer or Do It Myself? An Honest Answer for Founders</title>
+<link>https://www.thebrandle.com/blog/should-i-hire-a-web-designer-or-do-it-myself/</link>
+<guid isPermaLink="true">https://www.thebrandle.com/blog/should-i-hire-a-web-designer-or-do-it-myself/</guid>
+
+<description>Most guides tell early-stage founders to just DIY. We disagree. Here is a straight answer on when to build it yourself, when to hire, and what a poor site is actually costing you.</description>
+</item>
+</channel>
+</rss>

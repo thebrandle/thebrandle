@@ -148,13 +148,14 @@ html,body{background:#0C0C0C;margin:0}
 [data-reveal]{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.215,.61,.355,1),transform .7s cubic-bezier(.215,.61,.355,1)}
 [data-reveal].in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none;transition:none}}
-</style>`;
+</style>
+<noscript><style>[data-reveal]{opacity:1;transform:none;transition:none}</style></noscript>`;
 
 const JS = `<script>
 (function(){
   var els=document.querySelectorAll('[data-reveal]');
   if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
-  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.05});
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:0});
   els.forEach(function(e){io.observe(e)});
   function toFooter(ev){ev.preventDefault();ev.stopPropagation();var f=document.querySelector('.svc-footer');if(!f)return;var y=window.scrollY;f.scrollIntoView({behavior:'smooth'});setTimeout(function(){if(Math.abs(window.scrollY-y)<100)f.scrollIntoView()},700)}
   var n=document.querySelectorAll('.svc-nav-wrap *');
@@ -205,6 +206,11 @@ const fmtDate = (iso) => { try { return new Date(iso).toISOString().slice(0, 10)
 function renderPostPage(post) {
   const url = `${SITE}/blog/${post.slug}/`;
   const hero = imageUrl(post.titleFile && post.titleFile.fileKey);
+  // Opinly fills these with "AI-generated header image for: <title>" boilerplate.
+  // Drop it: the caption adds nothing, and it is not something to advertise.
+  const tf = post.titleFile || {};
+  const heroCap = L.isBoilerplate(tf.caption) ? '' : tf.caption;
+  const heroAlt = L.isBoilerplate(tf.altText) ? post.title : tf.altText;
   const bodyHtml = renderContent(post.content);
   const mins = readingMinutes(post.content);
   const desc = post.metaDescription || post.description || '';
@@ -237,7 +243,7 @@ function renderPostPage(post) {
     ${post.category && post.category.name ? `<span class="post-label" data-reveal>${escCopy(post.category.name)}</span>` : ''}
     <h1 class="post-h1 ${P.h2}" data-reveal style="transition-delay:70ms">${escCopy(post.title)}</h1>
     <div class="post-meta ${P.small}" data-reveal style="transition-delay:140ms">${esc(fmtDate(post.firstPublishedAt))} &middot; ${mins} min read${a.name ? ` &middot; ${escCopy(a.name)}` : ''}</div>
-    ${hero ? `<figure class="post-hero" data-reveal style="transition-delay:200ms"><img src="${esc(hero)}" alt="${escCopy((post.titleFile && post.titleFile.altText) || post.title)}" width="1200" height="630">${post.titleFile && post.titleFile.caption ? `<figcaption>${escCopy(post.titleFile.caption)}</figcaption>` : ''}</figure>` : ''}
+    ${hero ? `<figure class="post-hero" data-reveal style="transition-delay:200ms"><img src="${esc(hero)}" alt="${escCopy(heroAlt)}" width="1200" height="630">${heroCap ? `<figcaption>${escCopy(heroCap)}</figcaption>` : ''}</figure>` : ''}
     <div class="post-body" data-reveal style="transition-delay:260ms">
 ${bodyHtml}
     </div>

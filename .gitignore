@@ -5,3 +5,5 @@ _snapshot/test-service/
 _snapshot/mobile-test/
 _snapshot/components/ping.txt
 .DS_Store
+.env
+.env.local
