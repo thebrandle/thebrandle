@@ -3,7 +3,9 @@
   "redirects": [
     { "source": "/thebrandle.framer.website", "destination": "/", "permanent": true },
     { "source": "/thebrandle.framer.website/", "destination": "/", "permanent": true },
-    { "source": "/thebrandle.framer.website/:path*", "destination": "/:path*", "permanent": true }
+    { "source": "/thebrandle.framer.website/:path*", "destination": "/:path*", "permanent": true },
+    { "source": "/blog", "destination": "/blog/blog", "permanent": false },
+    { "source": "/blog/", "destination": "/blog/blog", "permanent": false }
   ],
   "rewrites": [
     { "source": "/api/contact", "destination": "/api/contact" },
