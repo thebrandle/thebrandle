@@ -91,10 +91,11 @@ function pickHero(slug) {
   return HERO_POOL[sum % HERO_POOL.length];
 }
 
-/* Where "Back to blogs" points. The Framer listing ("Latest Insights") lives at
-   /blog/blog, not /blog - /blog has no page and falls through to the homepage,
-   which is why the Blog link appeared to go home. */
-const BLOG_INDEX = '/blog/blog';
+/* Where "Back to blogs" points. /blog/all/ is our own static file, so it cold
+   loads reliably. The Framer export links its Blog nav item to "./blog", but a
+   direct load of /blog renders the homepage - unresolved, so do not point here
+   until that is understood. */
+const BLOG_INDEX = '/blog/all/';
 const BACK_ARROW = '<svg width="22" height="20" viewBox="0 0 22 20" fill="none" aria-hidden="true"><path d="M7 1L1.5 6.5L7 12" stroke="#f9452d" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M1.5 6.5H14a6.5 6.5 0 0 1 6.5 6.5v6" stroke="#f9452d" stroke-width="1.7" stroke-linecap="round"/></svg>';
 
 /* "More articles" rows: every real post except the one being rendered,
