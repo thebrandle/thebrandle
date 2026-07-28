@@ -48,17 +48,17 @@ const RESERVED = new Set([
    CMS, so they cannot be read at build time - titles and dates are mirrored
    here from the live listing. */
 const FRAMER_POSTS = [
-  { date: 'Nov 18, 2024', title: 'Why your website’s user experience is its greatest asset', slug: 'why-your-website-s-user-experience-is-its-greatest-asset' },
-  { date: 'Nov 12, 2024', title: 'Why Mobile-First Design is Crucial for Modern Websites', slug: 'why-mobile-first-design-is-crucial-for-modern-websites' },
-  { date: 'Nov 9, 2024', title: 'How to create a website that truly connects with your audience', slug: 'how-to-create-a-website-that-truly-connects-with-your-audience' },
-  { date: 'Nov 5, 2024', title: 'Top Web Design Trends to Watch in 2024', slug: 'top-web-design-trends-to-watch-in-2024' },
-  { date: 'Oct 23, 2024', title: 'Building trust online: the importance of testimonials', slug: 'building-trust-online-the-importance-of-testimonials' },
+  { iso: '2024-11-18', title: 'Why your website’s user experience is its greatest asset', slug: 'why-your-website-s-user-experience-is-its-greatest-asset' },
+  { iso: '2024-11-12', title: 'Why Mobile-First Design is Crucial for Modern Websites', slug: 'why-mobile-first-design-is-crucial-for-modern-websites' },
+  { iso: '2024-11-09', title: 'How to create a website that truly connects with your audience', slug: 'how-to-create-a-website-that-truly-connects-with-your-audience' },
+  { iso: '2024-11-05', title: 'Top Web Design Trends to Watch in 2024', slug: 'top-web-design-trends-to-watch-in-2024' },
+  { iso: '2024-10-23', title: 'Building trust online: the importance of testimonials', slug: 'building-trust-online-the-importance-of-testimonials' },
 ];
 const WRITTEN_POSTS = [
-  { date: 'Jul 22, 2026', title: 'How much does a website cost in Dubai?', slug: 'website-cost-dubai' },
-  { date: 'Jul 22, 2026', title: 'Shopify vs WooCommerce: which should you choose?', slug: 'shopify-vs-woocommerce' },
-  { date: 'Jul 22, 2026', title: 'Framer vs Webflow: an honest comparison', slug: 'framer-vs-webflow' },
-  { date: 'Jul 22, 2026', title: 'Migrating from Wix to Shopify', slug: 'wix-to-shopify-migration' },
+  { iso: '2026-07-22', title: 'How much does a website cost in Dubai?', slug: 'website-cost-dubai' },
+  { iso: '2026-07-22', title: 'Shopify vs WooCommerce: which should you choose?', slug: 'shopify-vs-woocommerce' },
+  { iso: '2026-07-22', title: 'Framer vs Webflow: an honest comparison', slug: 'framer-vs-webflow' },
+  { iso: '2026-07-22', title: 'Migrating from Wix to Shopify', slug: 'wix-to-shopify-migration' },
 ];
 
 /* Hero photography.
@@ -91,23 +91,29 @@ function pickHero(slug) {
   return HERO_POOL[sum % HERO_POOL.length];
 }
 
-/* Where "Back to blogs" and the nav point. /blog/all/ is the generated index,
-   which is verified to serve. Point this at '/blog' once the Framer listing is
-   confirmed working. */
-const BLOG_INDEX = '/blog/all/';
+/* Where "Back to blogs" points. The Framer listing ("Latest Insights") lives at
+   /blog/blog, not /blog - /blog has no page and falls through to the homepage,
+   which is why the Blog link appeared to go home. */
+const BLOG_INDEX = '/blog/blog';
 const BACK_ARROW = '<svg width="22" height="20" viewBox="0 0 22 20" fill="none" aria-hidden="true"><path d="M7 1L1.5 6.5L7 12" stroke="#f9452d" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M1.5 6.5H14a6.5 6.5 0 0 1 6.5 6.5v6" stroke="#f9452d" stroke-width="1.7" stroke-linecap="round"/></svg>';
 
-/* "More articles" rows: every real post except the one being rendered.
-   Opinly posts are passed in at generate time; the rest are static. */
+/* "More articles" rows: every real post except the one being rendered,
+   newest first so the most recent work leads. Sorting by date (not by source)
+   matters - ordering by list would bury every 2026 post under the 2024
+   Framer ones and the list would read as stale. Dates are used for ordering
+   only; they are not rendered. */
 let OPINLY_INDEX = [];
 function moreArticles(currentSlug, limit = 5) {
   const rows = [
     ...OPINLY_INDEX,
     ...FRAMER_POSTS.map((p) => ({ ...p, href: `/blog/${p.slug}` })),
     ...WRITTEN_POSTS.map((p) => ({ ...p, href: `/blog/${p.slug}/` })),
-  ].filter((p) => p.slug !== currentSlug).slice(0, limit);
+  ]
+    .filter((p) => p.slug !== currentSlug)
+    .sort((a, b) => String(b.iso || '').localeCompare(String(a.iso || '')))
+    .slice(0, limit);
   return rows.map((p) =>
-    `          <li><a href="${esc(p.href)}"><span class="d">${esc(p.date)}</span><span class="t">${escCopy(p.title)}</span></a></li>`
+    `          <li><a href="${esc(p.href)}"><span class="t">${escCopy(p.title)}</span></a></li>`
   ).join('\n');
 }
 
@@ -260,8 +266,7 @@ html,body{background:#0C0C0C;margin:0}
 .bp-more{background:${LIGHT};padding:70px 0 120px}
 .bp-more-h{color:#0c0c0c!important;text-align:left;margin:0 0 58px;font-size:clamp(52px,8vw,118px)!important;line-height:1!important;letter-spacing:-0.045em!important;font-weight:600}
 .bp-more-list{list-style:none;margin:0;padding:0;border-top:1px solid rgba(12,12,12,.14)}
-.bp-more-list a{display:grid;grid-template-columns:minmax(130px,27%) 1fr;gap:20px;align-items:center;padding:26px 0;border-bottom:1px solid rgba(12,12,12,.14);text-decoration:none;font-family:Inter,sans-serif}
-.bp-more-list .d{color:rgba(12,12,12,.45);font-size:19px}
+.bp-more-list a{display:block;padding:26px 0;border-bottom:1px solid rgba(12,12,12,.14);text-decoration:none;font-family:Inter,sans-serif}
 .bp-more-list .t{color:#0c0c0c;font-size:22px;letter-spacing:-0.01em}
 .bp-more-list a:hover .t{color:${ACCENT}}
 @media(max-width:900px){
@@ -270,7 +275,7 @@ html,body{background:#0C0C0C;margin:0}
   .bp-main{padding:52px 0 26px}
   .bp-more{padding:36px 0 84px}
   .bp-more-h{margin-bottom:34px}
-  .bp-more-list a{grid-template-columns:1fr;gap:6px;padding:20px 0}
+  .bp-more-list a{padding:20px 0}
   .post-body p,.post-body li{font-size:17px}
   .post-body>p:first-of-type{font-size:20px}
   .post-body h2{margin:48px 0 18px}
@@ -555,7 +560,7 @@ function mergeSitemap(entries) {
   OPINLY_INDEX = usable.map((s) => ({
     slug: s.slug,
     title: s.title || s.metaTitle || s.slug,
-    date: fmtDateLong(s.firstPublishedAt),
+    iso: fmtDate(s.firstPublishedAt),
     href: `/blog/${s.slug}/`,
   }));
 
