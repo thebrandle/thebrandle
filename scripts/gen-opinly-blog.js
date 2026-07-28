@@ -121,16 +121,23 @@ const { esc, escCopy, imageUrl, renderContent, flattenText, readingMinutes } = L
 const read = (f) => fs.readFileSync(path.join(COMP, f), 'utf8');
 const absolutize = (h) => h.replace(/href="\.\//g, 'href="/').replace(/tel:555-666-7777/g, 'tel:+971561429789');
 const addServices = (html) => {
-  const aboutM = html.match(/<a\b[^>]*href="\/about"[\s\S]*?<\/a>/);
-  if (!aboutM) return html;
-  const clone = aboutM[0]
+  // Footer links are each wrapped in their own <p>; nav links are bare <a>.
+  // Clone whichever unit the link actually lives in - cloning just the <a>
+  // drops Services inside Contact's <p>, rendering "ServicesContact".
+  const pAbout = html.match(/<p\b[^>]*>\s*<a\b[^>]*href="\/about"[\s\S]*?<\/a>\s*<\/p>/);
+  const aAbout = html.match(/<a\b[^>]*href="\/about"[\s\S]*?<\/a>/);
+  const unit = pAbout || aAbout;
+  if (!unit) return html;
+  const clone = unit[0]
     .replace(/>(\s*)ABOUT(\s*)</g, '>$1SERVICES$2<')
     .replace(/>(\s*)About(\s*)</g, '>$1Services$2<')
     .replace(/href="\/about"/, 'href="/services/"')
     .replace(/ data-framer-page-link-current(="[^"]*")?/, '');
-  if (clone === aboutM[0]) return html;
-  const contactM = html.match(/<a\b[^>]*href="\/contact"[\s\S]*?<\/a>/);
-  return contactM ? html.replace(contactM[0], clone + contactM[0]) : html.replace(aboutM[0], aboutM[0] + clone);
+  if (clone === unit[0]) return html;
+  const target = pAbout
+    ? html.match(/<p\b[^>]*>\s*<a\b[^>]*href="\/contact"[\s\S]*?<\/a>\s*<\/p>/)
+    : html.match(/<a\b[^>]*href="\/contact"[\s\S]*?<\/a>/);
+  return target ? html.replace(target[0], clone + target[0]) : html.replace(unit[0], unit[0] + clone);
 };
 
 const styles = read('styles.html');
@@ -163,6 +170,23 @@ html,body{background:#0C0C0C;margin:0}
 .svc-nav-wrap{position:sticky;top:0;z-index:40;background:rgba(12,12,12,.78);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px)}
 @media(max-width:760px){.svc-nav-desktop{display:none}}
 @media(min-width:761px){.svc-nav-phone{display:none}}
+/* Framer exported the footer desktop-only. Its outer container carries 90px
+   side padding and a 75px gap, so at 386px the content box is only 206px and
+   the inner row (children on flex-basis:0) crushes to ~21px columns - text
+   then wraps one character per line. Scale the padding and stack the rows. */
+@media(max-width:760px){
+  .svc-footer .framer-Q4FQe{padding-left:24px!important;padding-right:24px!important}
+  .svc-footer .framer-92x2s6{width:100%!important;max-width:100%!important;min-width:0!important;gap:42px!important}
+  .svc-footer .framer-11zhs3t{flex-direction:column!important;align-items:flex-start!important;gap:38px!important;width:100%!important}
+  .svc-footer .framer-11zhs3t>*{flex:0 0 auto!important;width:100%!important;min-width:0!important;flex-basis:auto!important}
+  .svc-footer .framer-e5ap8y,.svc-footer .framer-1bscsag,.svc-footer .framer-aj2el6{width:100%!important;min-width:0!important;flex-basis:auto!important;flex-grow:0!important}
+  .svc-footer .framer-aj2el6{flex-direction:column!important;gap:12px!important}
+  .svc-footer .framer-aj2el6>*{width:100%!important;min-width:0!important;flex:0 0 auto!important}
+  /* newsletter row: first child claimed the full width, pushing the submit
+     arrow outside the viewport - let both shrink instead */
+  .svc-footer .framer-e5ap8y{flex-wrap:wrap!important}
+  .svc-footer .framer-e5ap8y>*{min-width:0!important;max-width:100%!important}
+}
 .post-wrap{width:100%;max-width:820px;margin:0 auto;padding:96px 30px 0;box-sizing:border-box}
 .post-label{display:inline-flex;gap:10px;align-items:center;color:${ACCENT};letter-spacing:.14em;text-transform:uppercase;font-family:Inter,sans-serif;font-size:12.5px;font-weight:500;margin-bottom:20px}
 .post-meta{color:rgba(255,255,255,.4)!important;font-family:Inter,sans-serif;font-size:13.5px;margin-top:22px}
