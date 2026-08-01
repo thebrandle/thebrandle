@@ -45,3 +45,25 @@ No build step — the site is pre-built by Framer and committed as static files.
 ### What NOT to Edit
 - The `framerusercontent.com/` and `framer.com/` directories contain Framer-generated/cached assets. Most files should not be manually edited. The exception is the bundled form component (`.mjs` file) which has been patched in prior commits.
 - `thebrandle.framer.website/index.html` and `index.html` are Framer exports — re-exporting from Framer will overwrite manual edits.
+
+### Routing patch — re-apply after any Framer re-export
+
+`thebrandle.framer.website/index.html` has its `data-framer-hydrate-v2` attribute
+renamed to `data-framer-hydrate-v2-disabled-see-CLAUDE-md`.
+
+**Why:** Framer's bootstrap reads the routeId from that attribute and ignores the
+URL entirely (`script_main.*.mjs`: `if (hydrateAttr) routeId = attr.routeId; else
+routeId = resolveFromURL(...)`). The export baked in the homepage routeId
+(`augiA20Il`), and Vercel serves this one file for every non-static path — so
+`/about`, `/projects`, `/contact`, `/blog`, all case studies and all Framer blog
+posts rendered **homepage content** while showing the correct `<title>`. Ten
+sitemap URLs were duplicates of the homepage. Removing the attribute forces the
+URL-resolution branch.
+
+**Only the catch-all copy is patched.** The root `index.html` serves `/` via
+filesystem resolution and keeps its attribute, so the homepage still hydrates.
+Keep it that way — the two files are otherwise identical.
+
+Cost: non-homepage routes client-render instead of hydrating (slightly slower
+first paint). The proper fix is a Framer export that emits one HTML file per
+route; this patch is the workaround that needs no Framer access.
