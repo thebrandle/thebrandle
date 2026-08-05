@@ -124,6 +124,47 @@ const INDEX_DIR = 'blog/all';
 
 const { esc, escCopy, imageUrl, renderContent, flattenText, readingMinutes } = L;
 
+/* ------------------------------------------------------ content guardrails
+   Unattended, Opinly has produced outbound links to competitors, invented
+   statistics, and fabricated case studies - three times out of three. Dashboard
+   instructions are a request, not a guarantee, so enforce it at build time.
+
+   Outbound links are STRIPPED (link text is kept, so sentences still read).
+   Statistics and case-study language are FLAGGED, not stripped - rewriting a
+   claim automatically would be worse than surfacing it for a human. */
+const LINK_ALLOW = /(^|\.)thebrandle\.com$/i;
+
+function stripExternalLinks(html) {
+  let removed = 0;
+  const out = html.replace(/<a\b([^>]*)>([\s\S]*?)<\/a>/gi, (m, attrs, inner) => {
+    const href = (attrs.match(/href\s*=\s*["']([^"']*)["']/i) || [])[1] || '';
+    if (!/^https?:\/\//i.test(href)) return m;               // internal / relative - keep
+    let host = '';
+    try { host = new URL(href).hostname; } catch (e) { return m; }
+    if (LINK_ALLOW.test(host)) return m;                      // our own domain - keep
+    removed++;
+    return inner;                                             // drop the link, keep the words
+  });
+  return { html: out, removed };
+}
+
+function auditContent(text, slug) {
+  const warn = [];
+  const stat = text.match(/\b\d{1,3}(?:\.\d+)?\s?%|\b\d+x\b|\b\d{1,3}(,\d{3})+\b/g);
+  if (stat) warn.push('statistics (' + [...new Set(stat)].slice(0, 6).join(', ') + ')');
+  if (/\bcase study\b|\bone client\b|\ba client of ours\b|\bwe worked with\b/i.test(text)) {
+    warn.push('case-study / client claim');
+  }
+  if (/\baccording to\b|\bstudies show\b|\bresearch shows\b|\bsurvey found\b/i.test(text)) {
+    warn.push('cited claim without a source');
+  }
+  if (warn.length) {
+    console.warn('  [guardrail] ' + slug + ': ' + warn.join('; ') + ' - review before this stays live');
+  }
+  return warn;
+}
+
+
 /* --------------------------------------------------------------- brand shell */
 const read = (f) => fs.readFileSync(path.join(COMP, f), 'utf8');
 const absolutize = (h) => h.replace(/href="\.\//g, 'href="/').replace(/tel:555-666-7777/g, 'tel:+971561429789');
@@ -377,7 +418,11 @@ function renderPostPage(post) {
   const heroPick = pickHero(post.slug);
   const hero = HERO_DIR + heroPick.file;
   const heroAlt = heroPick.alt || post.title;
-  const bodyHtml = renderContent(post.content);
+  let bodyHtml = renderContent(post.content);
+  const linkGuard = stripExternalLinks(bodyHtml);
+  bodyHtml = linkGuard.html;
+  if (linkGuard.removed) console.warn('  [guardrail] ' + post.slug + ': stripped ' + linkGuard.removed + ' outbound link(s)');
+  auditContent(flattenText(post.content), post.slug);
   const mins = readingMinutes(post.content);
   const desc = post.metaDescription || post.description || '';
   const a = post.author || {};
