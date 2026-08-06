@@ -41,6 +41,18 @@ const RESERVED = new Set([
   'top-web-design-trends-to-watch-in-2024',
   'building-trust-online-the-importance-of-testimonials',
   'shopify-vs-woocommerce', 'website-cost-dubai', 'framer-vs-webflow', 'wix-to-shopify-migration',
+  // hand-written cluster (blog-posts-data.js) - never let Opinly shadow these
+  'headless-cms-guide',
+  'ai-in-web-design',
+  'arabic-rtl-website-design',
+  'website-redesign-without-losing-seo',
+  'website-maintenance-cost',
+  'wordpress-vs-webflow',
+  'website-total-cost-of-ownership',
+  'real-estate-website-design',
+  'core-web-vitals-guide',
+  'progressive-web-apps',
+  'website-security-checklist',
   'all',
 ]);
 
@@ -55,10 +67,21 @@ const FRAMER_POSTS = [
   { iso: '2024-10-23', title: 'Building trust online: the importance of testimonials', slug: 'building-trust-online-the-importance-of-testimonials' },
 ];
 const WRITTEN_POSTS = [
-  { iso: '2026-07-22', title: 'How much does a website cost in Dubai?', slug: 'website-cost-dubai' },
-  { iso: '2026-07-22', title: 'Shopify vs WooCommerce: which should you choose?', slug: 'shopify-vs-woocommerce' },
-  { iso: '2026-07-22', title: 'Framer vs Webflow: an honest comparison', slug: 'framer-vs-webflow' },
-  { iso: '2026-07-22', title: 'Migrating from Wix to Shopify', slug: 'wix-to-shopify-migration' },
+  { iso: '2026-07-22', title: "Shopify vs WooCommerce: which should you build your store on?", slug: 'shopify-vs-woocommerce' },
+  { iso: '2026-07-22', title: "How much does a website cost in Dubai?", slug: 'website-cost-dubai' },
+  { iso: '2026-07-22', title: "Framer vs Webflow: which builder fits your website?", slug: 'framer-vs-webflow' },
+  { iso: '2026-07-22', title: "Moving from Wix to Shopify: a practical guide", slug: 'wix-to-shopify-migration' },
+  { iso: '2026-07-28', title: "Headless CMS: what it is and when you actually need one", slug: 'headless-cms-guide' },
+  { iso: '2026-07-28', title: "AI in web design: what it does well and where it fails", slug: 'ai-in-web-design' },
+  { iso: '2026-07-28', title: "Arabic and RTL website design: doing it properly", slug: 'arabic-rtl-website-design' },
+  { iso: '2026-07-28', title: "How to redesign your website without losing SEO", slug: 'website-redesign-without-losing-seo' },
+  { iso: '2026-07-28', title: "Website maintenance: what you actually need to pay for", slug: 'website-maintenance-cost' },
+  { iso: '2026-07-28', title: "WordPress vs Webflow: an honest comparison", slug: 'wordpress-vs-webflow' },
+  { iso: '2026-07-28', title: "The real cost of a website over three years", slug: 'website-total-cost-of-ownership' },
+  { iso: '2026-07-28', title: "Real estate website design: what actually converts", slug: 'real-estate-website-design' },
+  { iso: '2026-07-28', title: "Core Web Vitals: what they are and how to fix them", slug: 'core-web-vitals-guide' },
+  { iso: '2026-07-28', title: "Progressive web apps: do you actually need one?", slug: 'progressive-web-apps' },
+  { iso: '2026-07-28', title: "Website security: a practical checklist for small businesses", slug: 'website-security-checklist' },
 ];
 
 /* Hero photography.
