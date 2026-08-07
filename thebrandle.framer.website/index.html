@@ -15814,6 +15814,15 @@
 <script src="/assets/projects/apex/overrides.js"></script>
 <script src="/assets/projects/dropx/overrides.js"></script>
 <script src="/assets/projects/orblead/overrides.js"></script>
+<style>
+/* brandle: nav bar links hidden - all navigation lives in the MENU overlay.
+   Hide by href, not by container: the logo is a sibling in the same wrapper.
+   The overlay's own copies live deeper and are re-shown. */
+.framer-1pl4r2c > a[href="/about"],
+.framer-1pl4r2c > a[href="/projects"],
+.framer-1pl4r2c > a[href="/services/"],
+.framer-1pl4r2c > a[href="/contact"]{display:none!important}
+</style>
 </head>
 
 

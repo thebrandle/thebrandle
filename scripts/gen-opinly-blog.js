@@ -241,6 +241,19 @@ html,body{background:#0C0C0C;margin:0}
 .svc-nav-wrap{position:sticky;top:0;z-index:40;background:rgba(12,12,12,.78);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px)}
 @media(max-width:760px){.svc-nav-desktop{display:none}}
 @media(min-width:761px){.svc-nav-phone{display:none}}
+/* All navigation lives in the MENU overlay. The duplicate text links in the bar
+   were redundant once Services was added and clashed with the overlay visually.
+   Target links by href rather than hiding the container - the logo is a sibling
+   in the same container and must stay. */
+.svc-nav-wrap a[href="/about"],
+.svc-nav-wrap a[href="/projects"],
+.svc-nav-wrap a[href="/services/"],
+.svc-nav-wrap a[href="/contact"]{display:none!important}
+.svc-nav-wrap .bm-open a[href="/about"],
+.svc-nav-wrap .bm-open a[href="/projects"],
+.svc-nav-wrap .bm-open a[href="/services/"],
+.svc-nav-wrap .bm-open a[href="/contact"]{display:revert!important}
+.bm-open{opacity:1!important;pointer-events:auto!important}
 /* Framer exported the footer desktop-only. Its outer container carries 90px
    side padding and a 75px gap, so at 386px the content box is only 206px and
    the inner row (children on flex-basis:0) crushes to ~21px columns - text
@@ -381,7 +394,33 @@ const JS = `<script>
   if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
   var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:0});
   els.forEach(function(e){io.observe(e)});
-  function toFooter(ev){ev.preventDefault();ev.stopPropagation();var f=document.querySelector('.svc-footer');if(!f)return;var y=window.scrollY;f.scrollIntoView({behavior:'smooth'});setTimeout(function(){if(Math.abs(window.scrollY-y)<100)f.scrollIntoView()},700)}
+  function overlayEl(){var as=document.querySelectorAll('.svc-nav-wrap a[href="/"]');for(var i=0;i<as.length;i++){var t=(as[i].textContent||'').trim();if(!/^home/i.test(t))continue;return as[i].parentElement&&as[i].parentElement.parentElement;}return null;}
+  /* The overlay wraps each link in its own container div, which the build-time
+     addServices() cannot match (it only handles <p> wrappers and bare <a>).
+     Clone the About container into it at runtime instead. */
+  function addServicesToOverlay(){
+    var o=overlayEl(); if(!o||o.querySelector('[data-bm-svc]')) return;
+    var about=null,contact=null,kids=o.children;
+    for(var i=0;i<kids.length;i++){
+      var a=kids[i].querySelector?kids[i].querySelector('a'):null; if(!a) continue;
+      var h=a.getAttribute('href');
+      if(h==='/about') about=kids[i];
+      if(h==='/contact') contact=kids[i];
+    }
+    if(!about||!contact) return;
+    var clone=about.cloneNode(true);
+    clone.setAttribute('data-bm-svc','1');
+    var link=clone.querySelector('a')||clone;
+    link.setAttribute('href','/services/');
+    link.removeAttribute('data-framer-page-link-current');
+    (function walk(el){var k=el.children;if(!k.length){if((el.textContent||'').trim())el.textContent=(el.textContent.trim()===el.textContent.trim().toUpperCase()?'SERVICES':'Services');return;}for(var j=0;j<k.length;j++)walk(k[j]);})(clone);
+    o.insertBefore(clone,contact);
+  }
+  /* The carved nav ships the overlay markup but not Framer's runtime, so MENU
+     had nothing to toggle and fell back to scrolling to the footer. */
+  function toFooter(ev){ev.preventDefault();ev.stopPropagation();var o=overlayEl();if(!o){var f=document.querySelector('.svc-footer');if(f)f.scrollIntoView({behavior:'smooth'});return;}o.classList.toggle('bm-open');}
+  addServicesToOverlay();
+  setTimeout(addServicesToOverlay, 600);
   var n=document.querySelectorAll('.svc-nav-wrap *');
   for(var i=0;i<n.length;i++){var el=n[i];if(!el.children.length&&(el.textContent||'').trim()==='MENU'&&!el.__mb){el.__mb=1;var t=el.closest('[data-framer-name]')||el;t.style.cursor='pointer';t.addEventListener('click',toFooter)}}
 })();
