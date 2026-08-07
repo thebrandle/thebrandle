@@ -87826,6 +87826,66 @@
     return leaves.length > 0;
   }
 
+  /* The three nav layouts put a link in a different wrapper each time:
+       top nav  - bare <a> siblings
+       overlay  - each <a> inside its own container <div>
+       footer   - each <a> inside its own <p>
+     Cloning the <a> alone works only for the top nav; in the other two it
+     drops Services inside Contact's wrapper (rendering "ServicesContact") or
+     skips it entirely. So clone whatever element is the direct child of the
+     common ancestor - that is the real repeatable unit in every layout. */
+  function unitUnder(node, ancestor) {
+    var el = node;
+    while (el && el.parentElement !== ancestor) el = el.parentElement;
+    return el;
+  }
+  function commonAncestor(a, b) {
+    var seen = [];
+    for (var el = a; el; el = el.parentElement) seen.push(el);
+    for (var el2 = b; el2; el2 = el2.parentElement) if (seen.indexOf(el2) !== -1) return el2;
+    return null;
+  }
+
+  /* The injected top-nav link is a plain clone, so Framer's motion system does
+     not animate it. When the menu overlay opens Framer fades the real nav links
+     out individually and the clone stays behind, showing through the overlay in
+     the wrong colour.
+
+     Rather than trying to detect "is the overlay open" - which is fragile,
+     since the closed overlay still occupies layout and is hidden by opacity on
+     an ancestor - just mirror the sibling we were cloned from. Whatever Framer
+     does to About, Services does too. No state detection, nothing to poll. */
+  function syncOverlay() {
+    var clones = document.querySelectorAll('[data-brandle-services][data-brandle-topnav]');
+    for (var i = 0; i < clones.length; i++) {
+      var clone = clones[i];
+      var src = null;
+      var sibs = clone.parentElement ? clone.parentElement.children : [];
+      for (var j = 0; j < sibs.length; j++) {
+        var h = sibs[j].getAttribute && sibs[j].getAttribute('href');
+        if ((h === '/about' || h === './about') && !sibs[j].hasAttribute('data-brandle-services')) { src = sibs[j]; break; }
+      }
+      if (!src) continue;
+      var cs = getComputedStyle(src);
+      clone.style.opacity = cs.opacity;
+      clone.style.visibility = cs.visibility;
+      clone.style.pointerEvents = cs.pointerEvents;
+    }
+  }
+
+  /* Mirror on every frame while anything is animating. rAF is throttled in
+     background tabs, but so is the animation it is mirroring, so they stay in
+     step - and an idle tab has nothing to mirror anyway. */
+  var rafOn = false;
+  function startMirror() {
+    if (rafOn) return;
+    rafOn = true;
+    (function loop() {
+      syncOverlay();
+      requestAnimationFrame(loop);
+    })();
+  }
+
   function inject() {
     var tels = document.querySelectorAll('a[href="tel:555-666-7777"]');
     for (var t = 0; t < tels.length; t++) tels[t].setAttribute('href', 'tel:+971561429789');
@@ -87837,28 +87897,55 @@
     var anchors = document.querySelectorAll('a[href="./about"], a[href="/about"]');
     for (var i = 0; i < anchors.length; i++) {
       var about = anchors[i];
-      var parent = about.parentElement;
-      if (!parent || parent.querySelector('[data-brandle-services]')) continue;
       if (!(about.innerText || '').trim()) continue;
-      var hasContact = !!parent.querySelector('a[href="./contact"], a[href="/contact"]');
-      if (!hasContact && !about.closest('footer')) continue;
-      var clone = about.cloneNode(true);
+
+      /* Pick the NEAREST Contact link, not the first in the document. Taking
+         the first lands on a common ancestor near the document root, whose
+         "unit" is a whole page section - and once one clone exists anywhere,
+         every later group sees it and gets skipped. Deepest ancestor wins. */
+      var contact = null, anc2 = null, bestDepth = -1;
+      var all = document.querySelectorAll('a[href="./contact"], a[href="/contact"]');
+      for (var c = 0; c < all.length; c++) {
+        var anc = commonAncestor(about, all[c]);
+        if (!anc || anc === document.body || anc === document.documentElement) continue;
+        var d = 0;
+        for (var e = anc; e; e = e.parentElement) d++;
+        if (d > bestDepth) { bestDepth = d; contact = all[c]; anc2 = anc; }
+      }
+      if (!contact || !anc2) continue;
+
+      // dedupe per group: only look at direct children of this ancestor
+      var dupe = false;
+      for (var k = 0; k < anc2.children.length; k++) {
+        if (anc2.children[k].querySelector
+            ? (anc2.children[k].hasAttribute('data-brandle-services') || anc2.children[k].querySelector('[data-brandle-services]'))
+            : false) { dupe = true; break; }
+      }
+      if (dupe) continue;
+
+      var aboutUnit = unitUnder(about, anc2);
+      var contactUnit = unitUnder(contact, anc2);
+      if (!aboutUnit || !contactUnit) continue;
+
+      var clone = aboutUnit.cloneNode(true);
       clone.setAttribute('data-brandle-services', '1');
-      clone.setAttribute('href', HREF);
+      if (aboutUnit === about) clone.setAttribute('data-brandle-topnav', '1');
+      var link = clone.matches('a') ? clone : clone.querySelector('a');
+      if (!link) continue;
+      link.setAttribute('href', HREF);
+      link.setAttribute('data-brandle-services', '1');
+      link.removeAttribute('data-framer-page-link-current');
       clone.removeAttribute('data-framer-page-link-current');
       if (!rewriteText(clone)) continue;
-      var contact = null;
-      var sibs = parent.querySelectorAll('a[href="./contact"], a[href="/contact"]');
-      if (sibs.length) contact = sibs[sibs.length - 1];
-      if (contact && contact.parentElement === parent) parent.insertBefore(clone, contact);
-      else if (about.nextSibling) parent.insertBefore(clone, about.nextSibling);
-      else parent.appendChild(clone);
+      anc2.insertBefore(clone, contactUnit);
     }
+    syncOverlay();
   }
 
   function start() {
     inject();
     setInterval(inject, 900);
+    startMirror();
     try { new MutationObserver(inject).observe(document.documentElement, { childList: true, subtree: true }); } catch (e) {}
     // Framer's router intercepts clicks but its static-export mappings for
     // the logo (home) and our injected Services link are dead - beat it in
