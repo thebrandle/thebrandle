@@ -12,3 +12,7 @@ TODO.md
 listings-drafts.md
 OPINLY.md
 .env
+
+# agent skills installed via `npx skills add` - local tooling, not site code
+.agents
+skills-lock.json
