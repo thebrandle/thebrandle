@@ -84,6 +84,24 @@ const WRITTEN_POSTS = [
   { iso: '2026-07-28', title: "Website security: a practical checklist for small businesses", slug: 'website-security-checklist' },
 ];
 
+const BLOG_BLURB = {
+  'shopify-vs-woocommerce': 'Hosted convenience against ownership and no platform fees.',
+  'website-cost-dubai': 'Three price bands, and what actually moves the number.',
+  'framer-vs-webflow': 'An honest comparison, from a studio that builds on both.',
+  'wix-to-shopify-migration': 'Products, customers and URLs carried across properly.',
+  'headless-cms-guide': 'What you gain, what it costs, and when a traditional CMS still wins.',
+  'ai-in-web-design': 'What it does well, where it fails, and what Google actually penalises.',
+  'arabic-rtl-website-design': 'Typography, mirroring and bilingual structure that reads native.',
+  'website-redesign-without-losing-seo': 'URL mapping, redirects and content parity - the checklist.',
+  'website-maintenance-cost': 'The work that matters, and the line items that are padding.',
+  'wordpress-vs-webflow': 'Cost, editing, SEO and maintenance compared honestly.',
+  'website-total-cost-of-ownership': 'Build, hosting, maintenance and the costs quotes leave out.',
+  'real-estate-website-design': 'Search, listings and the details that decide the enquiry.',
+  'core-web-vitals-guide': 'LCP, INP and CLS - what breaks them and how to fix it.',
+  'progressive-web-apps': 'Where it beats a native app, and where you need neither.',
+  'website-security-checklist': 'The realistic threats, and the fixes that stop most of them.',
+};
+
 /* Hero photography.
    The Framer blog template overlays the post title on a photo. Opinly's
    generated images are title cards with the headline already drawn into them,
@@ -114,11 +132,9 @@ function pickHero(slug) {
   return HERO_POOL[sum % HERO_POOL.length];
 }
 
-/* Where "Back to blogs" points. /blog/all/ is our own static file, so it cold
-   loads reliably. The Framer export links its Blog nav item to "./blog", but a
-   direct load of /blog renders the homepage - unresolved, so do not point here
-   until that is understood. */
-const BLOG_INDEX = '/blog/all/';
+/* "Back to blogs" points at /blog, which is now our own static listing served
+   ahead of the Framer route by filesystem resolution. */
+const BLOG_INDEX = '/blog';
 const BACK_ARROW = '<svg width="22" height="20" viewBox="0 0 22 20" fill="none" aria-hidden="true"><path d="M7 1L1.5 6.5L7 12" stroke="#f9452d" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M1.5 6.5H14a6.5 6.5 0 0 1 6.5 6.5v6" stroke="#f9452d" stroke-width="1.7" stroke-linecap="round"/></svg>';
 
 /* "More articles" rows: every real post except the one being rendered,
@@ -141,9 +157,11 @@ function moreArticles(currentSlug, limit = 5) {
   ).join('\n');
 }
 
-/* Index lives at /blog/all/ so the Framer SPA keeps owning /blog.
-   Change to '' to publish the index at /blog/ instead (destructive). */
-const INDEX_DIR = 'blog/all';
+/* The index is published at /blog. The footer and nav have always linked
+   there, and the Framer CMS listing it replaces could only ever show the three
+   2024 posts - it cannot list anything generated here. This index lists all of
+   them, the Framer ones included. */
+const INDEX_DIR = 'blog';
 
 const { esc, escCopy, imageUrl, renderContent, flattenText, readingMinutes } = L;
 
@@ -574,12 +592,35 @@ ${moreArticles(post.slug)}
 }
 
 /* ------------------------------------------------------------ index page */
+/* Every post that exists, newest first - Opinly, the hand-written cluster, and
+   the Framer CMS posts. Previously the index only received Opinly posts, so the
+   15 hand-written articles were listed nowhere on the site and were reachable
+   only by direct URL. */
+function allPostsForIndex(opinly) {
+  const own = WRITTEN_POSTS.map((w) => ({
+    slug: w.slug, title: w.title, iso: w.iso, href: '/blog/' + w.slug + '/',
+    img: '/assets/blog/' + w.slug + '.jpg',
+    description: BLOG_BLURB[w.slug] || '',
+  }));
+  const framer = FRAMER_POSTS.map((f) => ({
+    slug: f.slug, title: f.title, iso: f.iso, href: '/blog/' + f.slug, img: null, description: '',
+  }));
+  const fromOpinly = (opinly || []).map((o) => ({
+    slug: o.slug, title: o.title || o.slug, iso: fmtDate(o.firstPublishedAt),
+    href: '/blog/' + o.slug + '/', img: imageUrl(o.image && o.image.fileKey),
+    description: o.description || '',
+  }));
+  const seen = new Set();
+  return [...fromOpinly, ...own, ...framer]
+    .filter((x) => (seen.has(x.slug) ? false : seen.add(x.slug)))
+    .sort((a, b) => String(b.iso || '').localeCompare(String(a.iso || '')));
+}
+
 function renderIndexPage(posts) {
   const url = `${SITE}/${INDEX_DIR}/`;
-  const cards = posts.map((p) => {
-    const img = imageUrl(p.image && p.image.fileKey);
-    return `      <a class="idx-card" href="/blog/${esc(p.slug)}/">${img ? `<img src="${esc(img)}" alt="${escCopy((p.image && p.image.alt) || p.title)}" loading="lazy" decoding="async">` : ''}<div class="pad">${p.category && p.category.name ? `<span class="tag">${escCopy(p.category.name)}</span>` : ''}<h2>${escCopy(p.title)}</h2><p>${escCopy(p.description || '')}</p></div></a>`;
-  }).join('\n');
+  const cards = posts.map((p) =>
+    `      <a class="idx-card" href="${esc(p.href)}">${p.img ? `<img src="${esc(p.img)}" alt="${escCopy(p.title)}" loading="lazy" decoding="async">` : ''}<div class="pad"><h2>${escCopy(p.title)}</h2>${p.description ? `<p>${escCopy(p.description)}</p>` : ''}</div></a>`
+  ).join('\n');
 
   const main = `
   <section class="post-wrap">
@@ -692,7 +733,7 @@ function mergeSitemap(entries) {
 
   const idxDir = path.join(ROOT, INDEX_DIR);
   fs.mkdirSync(idxDir, { recursive: true });
-  fs.writeFileSync(path.join(idxDir, 'index.html'), renderIndexPage(usable));
+  fs.writeFileSync(path.join(idxDir, 'index.html'), renderIndexPage(allPostsForIndex(usable)));
   sitemapEntries.push({ loc: `${SITE}/${INDEX_DIR}/`, lastmod: fmtDate(Date.now()) });
   console.log(`  wrote ${INDEX_DIR}/index.html`);
 

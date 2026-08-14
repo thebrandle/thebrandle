@@ -1,17 +1,64 @@
 {
   "cleanUrls": false,
   "redirects": [
-    { "source": "/thebrandle.framer.website", "destination": "/", "permanent": true },
-    { "source": "/thebrandle.framer.website/", "destination": "/", "permanent": true },
-    { "source": "/thebrandle.framer.website/:path*", "destination": "/:path*", "permanent": true }
+    {
+      "source": "/thebrandle.framer.website",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/thebrandle.framer.website/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/thebrandle.framer.website/:path*",
+      "destination": "/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/blog/all",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/all/",
+      "destination": "/blog",
+      "permanent": true
+    }
   ],
   "rewrites": [
-    { "source": "/api/contact", "destination": "/api/contact" },
-    { "source": "/api/cal-slots", "destination": "/api/cal-slots" },
-    { "source": "/sitemap.xml", "destination": "/thebrandle.framer.website/sitemap.xml" },
-    { "source": "/robots.txt", "destination": "/robots.txt" },
-    { "source": "/services", "destination": "/services/index.html" },
-    { "source": "/services/:slug", "destination": "/services/:slug/index.html" },
-    { "source": "/(.*)", "destination": "/thebrandle.framer.website/index.html" }
+    {
+      "source": "/api/contact",
+      "destination": "/api/contact"
+    },
+    {
+      "source": "/api/cal-slots",
+      "destination": "/api/cal-slots"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/thebrandle.framer.website/sitemap.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "/robots.txt"
+    },
+    {
+      "source": "/services",
+      "destination": "/services/index.html"
+    },
+    {
+      "source": "/services/:slug",
+      "destination": "/services/:slug/index.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/thebrandle.framer.website/index.html"
+    }
   ]
 }
