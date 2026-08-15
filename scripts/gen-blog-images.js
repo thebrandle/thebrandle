@@ -104,6 +104,19 @@ const POSTS = [
     h1:'Hire a designer, or do it yourself?', sub:'An honest framework for founders weighing both' },
   { slug:'website-design', kind:'editorial', eyebrow:'FOUNDATIONS', motif:'split',
     h1:'What good website design actually does', sub:'Beyond looks - the decisions that decide whether it works' },
+  /* Framer CMS posts from 2024. Their art lives in Framer and cannot be read at
+     build time, so the listing showed no thumbnail for them at all. Generated
+     cards keep the index uniform. */
+  { slug:'why-your-website-s-user-experience-is-its-greatest-asset', kind:'editorial', eyebrow:'UX', motif:'nodes',
+    h1:'Your UX is your greatest asset', sub:'Why experience decides whether a visitor ever becomes a customer' },
+  { slug:'why-mobile-first-design-is-crucial-for-modern-websites', kind:'editorial', eyebrow:'MOBILE', motif:'phone',
+    h1:'Why mobile-first is not optional', sub:'Most of your traffic is on a phone - design for it first' },
+  { slug:'how-to-create-a-website-that-truly-connects-with-your-audience', kind:'editorial', eyebrow:'STRATEGY', motif:'mirror',
+    h1:'Websites that connect with people', sub:'Speaking to the visitor instead of about yourself' },
+  { slug:'top-web-design-trends-to-watch-in-2024', kind:'editorial', eyebrow:'TRENDS', motif:'layers',
+    h1:'Web design trends worth watching', sub:'Which ones matter, and which are just noise' },
+  { slug:'building-trust-online-the-importance-of-testimonials', kind:'editorial', eyebrow:'TRUST', motif:'shield',
+    h1:'Building trust online', sub:'Why testimonials and proof decide the enquiry' },
 ];
 
 function svgFor(p) {

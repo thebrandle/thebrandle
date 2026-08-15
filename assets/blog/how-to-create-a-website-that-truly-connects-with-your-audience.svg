@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs><radialGradient id="vig" cx="50%" cy="42%" r="72%"><stop offset="0%" stop-color="#171717"/><stop offset="100%" stop-color="#0C0C0C"/></radialGradient></defs>
+  <rect width="1600" height="900" fill="url(#vig)"/>
+  <text x="800" y="128" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="19" letter-spacing="6" font-weight="500" fill="#F9452D">STRATEGY</text><g transform="translate(800,410) scale(1.95) translate(-800,-410)" stroke="#FFFFFF" stroke-opacity="0.34" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M742 352l-58 56 58 56"/><path d="M858 352l58 56-58 56"/><path d="M778 408h44"/></g><text x="800" y="700" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="62" font-weight="700" letter-spacing="-2.2" fill="#FFFFFF">Websites that connect with people</text>
+  <text x="800" y="754" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="25" fill="#FFFFFF" fill-opacity="0.55">Speaking to the visitor instead of about yourself</text>
+  <line x1="700" y1="806" x2="900" y2="806" stroke="#FFFFFF" stroke-opacity="0.13"/>
+  <text x="800" y="850" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="20" letter-spacing="3.5" font-weight="500" fill="#FFFFFF" fill-opacity="0.45">THEBRANDLE.COM</text></svg>

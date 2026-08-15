@@ -11,3 +11,4 @@ _snapshot/components/ping.txt
 # agent skills installed via `npx skills add` - local tooling, not site code
 .agents/
 skills-lock.json
+.claude/

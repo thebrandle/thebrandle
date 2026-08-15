@@ -15811,6 +15811,101 @@ html,body{background:#0C0C0C;margin:0}
   .bp-date{margin-bottom:12px;font-size:18px}
   .bp-desc{font-size:17px;max-width:none}
 }
+/* Full-bleed article hero - matches the Framer blog post template:
+   photo, author chip pinned left, oversized title, date + excerpt on the
+   bottom row. Offsets are proportional so it holds at any width. */
+.bp-hero{position:relative;margin:26px 30px 0;height:calc(100vh - 150px);min-height:560px;overflow:hidden;isolation:isolate}
+.bp-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+/* two scrims: vertical for the title/date rows, plus a left wash so the
+   author chip stays readable over a bright photo */
+.bp-hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,.24) 34%,rgba(0,0,0,.42) 72%,rgba(0,0,0,.68) 100%),linear-gradient(90deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,.10) 34%,rgba(0,0,0,0) 55%)}
+.bp-inner{position:relative;height:100%;display:grid;grid-template-rows:1fr auto;padding:44px 46px 40px;box-sizing:border-box}
+.bp-mid{display:flex;align-items:center;gap:0}
+.bp-author{display:flex;align-items:center;gap:16px;flex:0 0 26.8%}
+.bp-avatar{width:58px;height:58px;border-radius:50%;object-fit:cover;flex-shrink:0;background:rgba(255,255,255,.14)}
+.bp-author .n{color:#fff;font-family:Inter,sans-serif;font-size:22px;font-weight:500;line-height:1.25;text-shadow:0 1px 16px rgba(0,0,0,.6)}
+.bp-author .r{color:rgba(255,255,255,.82);font-family:Inter,sans-serif;font-size:18px;line-height:1.3;text-shadow:0 1px 16px rgba(0,0,0,.6)}
+.bp-title{color:#fff!important;text-align:left;margin:0;flex:1;font-size:clamp(40px,7vw,106px)!important;line-height:1.06!important;letter-spacing:-0.04em!important;text-shadow:0 2px 30px rgba(0,0,0,.45)}
+.bp-foot{display:flex;align-items:flex-start;gap:0;padding-left:26.8%}
+.bp-date{color:#fff;font-family:Inter,sans-serif;font-size:22px;flex:0 0 30%}
+.bp-desc{color:rgba(255,255,255,.92);font-family:Inter,sans-serif;font-size:19px;line-height:1.5;max-width:46ch;margin:0}
+@media(max-width:1024px){
+.bp-hero{height:auto;min-height:0;margin:20px 20px 0}
+.bp-inner{display:block;padding:32px 26px 34px}
+.bp-mid{display:block}
+.bp-author{flex:none;margin-bottom:30px}
+.bp-title{margin:0 0 40px}
+.bp-foot{display:block;padding-left:0}
+.bp-date{margin-bottom:12px;font-size:18px}
+.bp-desc{font-size:17px;max-width:none}
+}
+/* ---- article body: light section with sticky sidebar, matching the
+   Framer blog template (dark hero, then everything below on #f5f5f5) ---- */
+.bp-main{background:var(--token-0fe6d6b7-818b-4083-a138-519768e5d126, #f5f5f5);padding:96px 0 40px}
+.bp-grid{max-width:1660px;margin:0 auto;padding:0 46px;display:grid;grid-template-columns:26.5% 1fr;box-sizing:border-box}
+.bp-side{position:sticky;top:104px;align-self:start;padding-right:30px}
+.bp-side-note{color:rgba(12,12,12,.5);font-family:Inter,sans-serif;font-size:17px;line-height:1.5;margin:0 0 30px}
+.bp-back{display:inline-flex;align-items:center;gap:14px;color:#0c0c0c;font-family:Inter,sans-serif;font-size:22px;text-decoration:none}
+.bp-back svg{flex-shrink:0}
+.bp-back:hover{color:var(--token-1662617d-fd18-4319-b3da-aa36e5415705, rgb(249, 69, 45))}
+.bp-col{max-width:1030px;min-width:0}
+.bp-main .post-body{font-family:Inter,sans-serif}
+.bp-main .post-body>p:first-of-type{color:#0c0c0c;font-size:clamp(21px,1.7vw,30px);line-height:1.42;letter-spacing:-0.01em;margin:0 0 30px}
+.bp-main .post-body p, .bp-main .post-body li{color:rgba(12,12,12,.6);text-align:left;line-height:1.62;font-family:Inter,sans-serif;font-size:20px}
+.bp-main .post-body p{margin:0 0 22px}
+.bp-main .post-body h2, .bp-main .post-body h3, .bp-main .post-body h4{color:#0c0c0c!important;text-align:left;line-height:1.16!important;letter-spacing:-0.025em!important;font-family:Inter,sans-serif;font-weight:600}
+.bp-main .post-body h2{font-size:clamp(28px,2.9vw,40px)!important;margin:64px 0 22px}
+.bp-main .post-body h3{font-size:clamp(21px,1.7vw,25px)!important;margin:48px 0 16px}
+.bp-main .post-body h4{font-size:20px!important;margin:38px 0 14px}
+.bp-main .post-body ul, .bp-main .post-body ol{margin:0 0 24px;padding-left:24px}
+.bp-main .post-body li{margin-bottom:10px}
+.bp-main .post-body li::marker{color:rgba(12,12,12,.45)}
+.bp-main .post-body a{color:#0c0c0c;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(12,12,12,.3)}
+.bp-main .post-body a:hover{color:var(--token-1662617d-fd18-4319-b3da-aa36e5415705, rgb(249, 69, 45));text-decoration-color:var(--token-1662617d-fd18-4319-b3da-aa36e5415705, rgb(249, 69, 45))}
+.bp-main .post-body strong{color:#0c0c0c;font-weight:600}
+.bp-main .post-body blockquote{margin:32px 0;padding:4px 0 4px 24px;border-left:2px solid var(--token-1662617d-fd18-4319-b3da-aa36e5415705, rgb(249, 69, 45))}
+.bp-main .post-body blockquote p{color:#0c0c0c;font-size:22px;line-height:1.5}
+.bp-main .post-body figure{margin:44px 0}
+.bp-main .post-body figure img{width:100%;height:auto;display:block}
+.bp-main .post-body figcaption{color:rgba(12,12,12,.45);font-family:Inter,sans-serif;font-size:14px;padding:12px 2px 0}
+.bp-main .post-body pre{background:#ececec;border:1px solid rgba(12,12,12,.12);border-radius:12px;padding:18px 20px;overflow-x:auto;margin:0 0 24px}
+.bp-main .post-body pre code{color:#0c0c0c;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;line-height:1.6}
+.bp-main .post-body :not(pre)>code{background:rgba(12,12,12,.08);border-radius:5px;padding:2px 6px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:15px;color:#0c0c0c}
+.bp-main .post-body hr{border:0;border-top:1px solid rgba(12,12,12,.14);margin:48px 0}
+.bp-main .post-table-wrap{overflow-x:auto;margin:0 0 26px}
+.bp-main .post-body table{border-collapse:collapse;width:100%;font-family:Inter,sans-serif;font-size:16px}
+.bp-main .post-body th, .bp-main .post-body td{border:1px solid rgba(12,12,12,.16);padding:11px 15px;text-align:left;color:rgba(12,12,12,.6)}
+.bp-main .post-body th{color:#0c0c0c;font-weight:600;background:rgba(12,12,12,.04)}
+/* ---- more articles ---- */
+.bp-more{background:var(--token-0fe6d6b7-818b-4083-a138-519768e5d126, #f5f5f5);padding:70px 0 120px}
+.bp-more-h{color:#0c0c0c!important;text-align:left;margin:0 0 58px;font-size:clamp(52px,8vw,118px)!important;line-height:1!important;letter-spacing:-0.045em!important;font-weight:600}
+.bp-more-list{list-style:none;margin:0;padding:0;border-top:1px solid rgba(12,12,12,.14)}
+.bp-more-list a{display:block;padding:26px 0;border-bottom:1px solid rgba(12,12,12,.14);text-decoration:none;font-family:Inter,sans-serif}
+.bp-more-list .t{color:#0c0c0c;font-size:22px;letter-spacing:-0.01em}
+.bp-more-list a:hover .t{color:var(--token-1662617d-fd18-4319-b3da-aa36e5415705, rgb(249, 69, 45))}
+@media(max-width:900px){
+.bp-grid{grid-template-columns:1fr;padding:0 24px}
+.bp-side{position:static;padding:0 0 38px}
+.bp-main{padding:52px 0 26px}
+.bp-more{padding:36px 0 84px}
+.bp-more-h{margin-bottom:34px}
+.bp-more-list a{padding:20px 0}
+.bp-main .post-body p, .bp-main .post-body li{font-size:17px}
+.bp-main .post-body>p:first-of-type{font-size:20px}
+.bp-main .post-body h2{margin:48px 0 18px}
+}
+.post-cta{background:#0c0c0c;padding:110px 46px 118px;text-align:left}
+.post-cta-inner{max-width:1660px;margin:0 auto}
+.post-cta h2{margin:0 0 26px;font-size:clamp(38px,6vw,86px)!important;line-height:1.02!important;letter-spacing:-0.045em!important}
+.post-cta p{max-width:52ch;margin:0;font-family:Inter,sans-serif;font-size:19px;line-height:1.6}
+.post-cta .actions{display:flex;justify-content:flex-start;margin-top:40px}
+@media(max-width:900px){.post-cta{padding:70px 24px 78px}}
+.post-cta .framer-text{color:#fff!important}
+.post-cta .framer-LqZE5{background:var(--token-1662617d-fd18-4319-b3da-aa36e5415705, rgb(249, 69, 45));border-radius:60px;transition:transform .18s ease,filter .2s ease}
+.post-cta .framer-LqZE5:hover{filter:brightness(1.08)}
+.post-cta .framer-LqZE5 .framer-13x93le{width:auto;min-width:200px;padding:20px 36px!important;justify-content:center!important;gap:0!important}
+.post-cta .framer-1m71lft-container{display:none}
+
 /* dark article layout - matches the hand-written cluster exactly, so the blog
    reads as one design. Replaces the light Framer-CMS-style section. */
 .post-hero{margin:40px 0 4px;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.10);background:#111;line-height:0}
@@ -15905,8 +16000,8 @@ html,body{background:#0C0C0C;margin:0}
     <h1 class="post-h1 framer-text framer-styles-preset-1t5qoig" data-reveal style="transition-delay:70ms">Articles</h1>
     <p class="framer-text framer-styles-preset-1dmjd5e" data-reveal style="color:rgba(255, 255, 255, 0.66);max-width:56ch;margin-top:20px;transition-delay:140ms">Practical guidance on websites, ecommerce and brand - written from real client work.</p>
     <div class="idx-grid" data-reveal style="transition-delay:200ms">
-      <a class="idx-card" href="/blog/branding-agency/"><img src="https://cdn.opinly.ai/GGupSvPhtQvtAHSbg6jFL/Dz4lfWhLl7Yi7nIhRS6yN.webp" alt="How to Choose a Branding Agency (Without Getting Burned)" loading="lazy" decoding="async"><div class="pad"><h2>How to Choose a Branding Agency (Without Getting Burned)</h2><p>Choosing the wrong branding agency is an expensive mistake. Here is a practical decision framework for founders - covering what to look for, what to avoid, and how to tell whether you even need an agency at all.</p></div></a>
-      <a class="idx-card" href="/blog/website-design/"><img src="https://cdn.opinly.ai/GGupSvPhtQvtAHSbg6jFL/j5HxTqZ-HHpOv3-1dHGpA.webp" alt="Website Design in 2026: What Founders Need to Know Before They Build" loading="lazy" decoding="async"><div class="pad"><h2>Website Design in 2026: What Founders Need to Know Before They Build</h2><p>First impressions form in 50 milliseconds - and in 2026, good website design means far more than looking polished. Here&#39;s what actually matters before you build.</p></div></a>
+      <a class="idx-card" href="/blog/branding-agency/"><img src="/assets/blog/branding-agency.jpg" alt="How to Choose a Branding Agency (Without Getting Burned)" loading="lazy" decoding="async"><div class="pad"><h2>How to Choose a Branding Agency (Without Getting Burned)</h2><p>Choosing the wrong branding agency is an expensive mistake. Here is a practical decision framework for founders - covering what to look for, what to avoid, and how to tell whether you even need an agency at all.</p></div></a>
+      <a class="idx-card" href="/blog/website-design/"><img src="/assets/blog/website-design.jpg" alt="Website Design in 2026: What Founders Need to Know Before They Build" loading="lazy" decoding="async"><div class="pad"><h2>Website Design in 2026: What Founders Need to Know Before They Build</h2><p>First impressions form in 50 milliseconds - and in 2026, good website design means far more than looking polished. Here&#39;s what actually matters before you build.</p></div></a>
       <a class="idx-card" href="/blog/headless-cms-guide/"><img src="/assets/blog/headless-cms-guide.jpg" alt="Headless CMS: what it is and when you actually need one" loading="lazy" decoding="async"><div class="pad"><h2>Headless CMS: what it is and when you actually need one</h2><p>What you gain, what it costs, and when a traditional CMS still wins.</p></div></a>
       <a class="idx-card" href="/blog/ai-in-web-design/"><img src="/assets/blog/ai-in-web-design.jpg" alt="AI in web design: what it does well and where it fails" loading="lazy" decoding="async"><div class="pad"><h2>AI in web design: what it does well and where it fails</h2><p>What it does well, where it fails, and what Google actually penalises.</p></div></a>
       <a class="idx-card" href="/blog/arabic-rtl-website-design/"><img src="/assets/blog/arabic-rtl-website-design.jpg" alt="Arabic and RTL website design: doing it properly" loading="lazy" decoding="async"><div class="pad"><h2>Arabic and RTL website design: doing it properly</h2><p>Typography, mirroring and bilingual structure that reads native.</p></div></a>
@@ -15918,16 +16013,16 @@ html,body{background:#0C0C0C;margin:0}
       <a class="idx-card" href="/blog/core-web-vitals-guide/"><img src="/assets/blog/core-web-vitals-guide.jpg" alt="Core Web Vitals: what they are and how to fix them" loading="lazy" decoding="async"><div class="pad"><h2>Core Web Vitals: what they are and how to fix them</h2><p>LCP, INP and CLS - what breaks them and how to fix it.</p></div></a>
       <a class="idx-card" href="/blog/progressive-web-apps/"><img src="/assets/blog/progressive-web-apps.jpg" alt="Progressive web apps: do you actually need one?" loading="lazy" decoding="async"><div class="pad"><h2>Progressive web apps: do you actually need one?</h2><p>Where it beats a native app, and where you need neither.</p></div></a>
       <a class="idx-card" href="/blog/website-security-checklist/"><img src="/assets/blog/website-security-checklist.jpg" alt="Website security: a practical checklist for small businesses" loading="lazy" decoding="async"><div class="pad"><h2>Website security: a practical checklist for small businesses</h2><p>The realistic threats, and the fixes that stop most of them.</p></div></a>
-      <a class="idx-card" href="/blog/should-i-hire-a-web-designer-or-do-it-myself/"><img src="https://cdn.opinly.ai/GGupSvPhtQvtAHSbg6jFL/fGJwSlTO-vfxgJy-QKHRS.webp" alt="Should I Hire a Web Designer or Do It Myself? An Honest Answer for Founders" loading="lazy" decoding="async"><div class="pad"><h2>Should I Hire a Web Designer or Do It Myself? An Honest Answer for Founders</h2><p>Most guides tell early-stage founders to just DIY. We disagree. Here is a straight answer on when to build it yourself, when to hire, and what a poor site is actually costing you.</p></div></a>
+      <a class="idx-card" href="/blog/should-i-hire-a-web-designer-or-do-it-myself/"><img src="/assets/blog/should-i-hire-a-web-designer-or-do-it-myself.jpg" alt="Should I Hire a Web Designer or Do It Myself? An Honest Answer for Founders" loading="lazy" decoding="async"><div class="pad"><h2>Should I Hire a Web Designer or Do It Myself? An Honest Answer for Founders</h2><p>Most guides tell early-stage founders to just DIY. We disagree. Here is a straight answer on when to build it yourself, when to hire, and what a poor site is actually costing you.</p></div></a>
       <a class="idx-card" href="/blog/shopify-vs-woocommerce/"><img src="/assets/blog/shopify-vs-woocommerce.jpg" alt="Shopify vs WooCommerce: which should you build your store on?" loading="lazy" decoding="async"><div class="pad"><h2>Shopify vs WooCommerce: which should you build your store on?</h2><p>Hosted convenience against ownership and no platform fees.</p></div></a>
       <a class="idx-card" href="/blog/website-cost-dubai/"><img src="/assets/blog/website-cost-dubai.jpg" alt="How much does a website cost in Dubai?" loading="lazy" decoding="async"><div class="pad"><h2>How much does a website cost in Dubai?</h2><p>Three price bands, and what actually moves the number.</p></div></a>
       <a class="idx-card" href="/blog/framer-vs-webflow/"><img src="/assets/blog/framer-vs-webflow.jpg" alt="Framer vs Webflow: which builder fits your website?" loading="lazy" decoding="async"><div class="pad"><h2>Framer vs Webflow: which builder fits your website?</h2><p>An honest comparison, from a studio that builds on both.</p></div></a>
       <a class="idx-card" href="/blog/wix-to-shopify-migration/"><img src="/assets/blog/wix-to-shopify-migration.jpg" alt="Moving from Wix to Shopify: a practical guide" loading="lazy" decoding="async"><div class="pad"><h2>Moving from Wix to Shopify: a practical guide</h2><p>Products, customers and URLs carried across properly.</p></div></a>
-      <a class="idx-card" href="/blog/why-your-website-s-user-experience-is-its-greatest-asset"><div class="pad"><h2>Why your website’s user experience is its greatest asset</h2></div></a>
-      <a class="idx-card" href="/blog/why-mobile-first-design-is-crucial-for-modern-websites"><div class="pad"><h2>Why Mobile-First Design is Crucial for Modern Websites</h2></div></a>
-      <a class="idx-card" href="/blog/how-to-create-a-website-that-truly-connects-with-your-audience"><div class="pad"><h2>How to create a website that truly connects with your audience</h2></div></a>
-      <a class="idx-card" href="/blog/top-web-design-trends-to-watch-in-2024"><div class="pad"><h2>Top Web Design Trends to Watch in 2024</h2></div></a>
-      <a class="idx-card" href="/blog/building-trust-online-the-importance-of-testimonials"><div class="pad"><h2>Building trust online: the importance of testimonials</h2></div></a>
+      <a class="idx-card" href="/blog/why-your-website-s-user-experience-is-its-greatest-asset"><img src="/assets/blog/why-your-website-s-user-experience-is-its-greatest-asset.jpg" alt="Why your website’s user experience is its greatest asset" loading="lazy" decoding="async"><div class="pad"><h2>Why your website’s user experience is its greatest asset</h2></div></a>
+      <a class="idx-card" href="/blog/why-mobile-first-design-is-crucial-for-modern-websites"><img src="/assets/blog/why-mobile-first-design-is-crucial-for-modern-websites.jpg" alt="Why Mobile-First Design is Crucial for Modern Websites" loading="lazy" decoding="async"><div class="pad"><h2>Why Mobile-First Design is Crucial for Modern Websites</h2></div></a>
+      <a class="idx-card" href="/blog/how-to-create-a-website-that-truly-connects-with-your-audience"><img src="/assets/blog/how-to-create-a-website-that-truly-connects-with-your-audience.jpg" alt="How to create a website that truly connects with your audience" loading="lazy" decoding="async"><div class="pad"><h2>How to create a website that truly connects with your audience</h2></div></a>
+      <a class="idx-card" href="/blog/top-web-design-trends-to-watch-in-2024"><img src="/assets/blog/top-web-design-trends-to-watch-in-2024.jpg" alt="Top Web Design Trends to Watch in 2024" loading="lazy" decoding="async"><div class="pad"><h2>Top Web Design Trends to Watch in 2024</h2></div></a>
+      <a class="idx-card" href="/blog/building-trust-online-the-importance-of-testimonials"><img src="/assets/blog/building-trust-online-the-importance-of-testimonials.jpg" alt="Building trust online: the importance of testimonials" loading="lazy" decoding="async"><div class="pad"><h2>Building trust online: the importance of testimonials</h2></div></a>
     </div>
   </section>
   <div class="svc-footer">

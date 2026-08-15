@@ -112,6 +112,11 @@ const BLOG_BLURB = {
    Everything else gets a stable pick from the pool (same slug, same photo on
    every build). Files live in framerusercontent.com/images and are AVIF
    despite the .jpg extension - that is how Framer ships them. */
+/* Posts rendered in the 2024 Framer CMS style rather than the dark card
+   layout: full-bleed photo hero with the title overlaid, light body with a
+   sticky sidebar. Add a slug to switch that post over. */
+const FRAMER_2024_LAYOUT = new Set(['branding-agency']);
+
 const HERO_DIR = '/framerusercontent.com/images/';
 const HERO_POOL = [
   { file: 'YlEKlxLXS5eEKd4QlVitTh30A.jpg', alt: 'Three people working together in a studio' },
@@ -403,6 +408,101 @@ html,body{background:#0C0C0C;margin:0}
   .bp-date{margin-bottom:12px;font-size:18px}
   .bp-desc{font-size:17px;max-width:none}
 }
+/* Full-bleed article hero - matches the Framer blog post template:
+   photo, author chip pinned left, oversized title, date + excerpt on the
+   bottom row. Offsets are proportional so it holds at any width. */
+.bp-hero{position:relative;margin:26px 30px 0;height:calc(100vh - 150px);min-height:560px;overflow:hidden;isolation:isolate}
+.bp-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+/* two scrims: vertical for the title/date rows, plus a left wash so the
+   author chip stays readable over a bright photo */
+.bp-hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,.24) 34%,rgba(0,0,0,.42) 72%,rgba(0,0,0,.68) 100%),linear-gradient(90deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,.10) 34%,rgba(0,0,0,0) 55%)}
+.bp-inner{position:relative;height:100%;display:grid;grid-template-rows:1fr auto;padding:44px 46px 40px;box-sizing:border-box}
+.bp-mid{display:flex;align-items:center;gap:0}
+.bp-author{display:flex;align-items:center;gap:16px;flex:0 0 26.8%}
+.bp-avatar{width:58px;height:58px;border-radius:50%;object-fit:cover;flex-shrink:0;background:rgba(255,255,255,.14)}
+.bp-author .n{color:#fff;font-family:Inter,sans-serif;font-size:22px;font-weight:500;line-height:1.25;text-shadow:0 1px 16px rgba(0,0,0,.6)}
+.bp-author .r{color:rgba(255,255,255,.82);font-family:Inter,sans-serif;font-size:18px;line-height:1.3;text-shadow:0 1px 16px rgba(0,0,0,.6)}
+.bp-title{color:#fff!important;text-align:left;margin:0;flex:1;font-size:clamp(40px,7vw,106px)!important;line-height:1.06!important;letter-spacing:-0.04em!important;text-shadow:0 2px 30px rgba(0,0,0,.45)}
+.bp-foot{display:flex;align-items:flex-start;gap:0;padding-left:26.8%}
+.bp-date{color:#fff;font-family:Inter,sans-serif;font-size:22px;flex:0 0 30%}
+.bp-desc{color:rgba(255,255,255,.92);font-family:Inter,sans-serif;font-size:19px;line-height:1.5;max-width:46ch;margin:0}
+@media(max-width:1024px){
+.bp-hero{height:auto;min-height:0;margin:20px 20px 0}
+.bp-inner{display:block;padding:32px 26px 34px}
+.bp-mid{display:block}
+.bp-author{flex:none;margin-bottom:30px}
+.bp-title{margin:0 0 40px}
+.bp-foot{display:block;padding-left:0}
+.bp-date{margin-bottom:12px;font-size:18px}
+.bp-desc{font-size:17px;max-width:none}
+}
+/* ---- article body: light section with sticky sidebar, matching the
+   Framer blog template (dark hero, then everything below on #f5f5f5) ---- */
+.bp-main{background:${LIGHT};padding:96px 0 40px}
+.bp-grid{max-width:1660px;margin:0 auto;padding:0 46px;display:grid;grid-template-columns:26.5% 1fr;box-sizing:border-box}
+.bp-side{position:sticky;top:104px;align-self:start;padding-right:30px}
+.bp-side-note{color:rgba(12,12,12,.5);font-family:Inter,sans-serif;font-size:17px;line-height:1.5;margin:0 0 30px}
+.bp-back{display:inline-flex;align-items:center;gap:14px;color:#0c0c0c;font-family:Inter,sans-serif;font-size:22px;text-decoration:none}
+.bp-back svg{flex-shrink:0}
+.bp-back:hover{color:${ACCENT}}
+.bp-col{max-width:1030px;min-width:0}
+.bp-main .post-body{font-family:Inter,sans-serif}
+.bp-main .post-body>p:first-of-type{color:#0c0c0c;font-size:clamp(21px,1.7vw,30px);line-height:1.42;letter-spacing:-0.01em;margin:0 0 30px}
+.bp-main .post-body p, .bp-main .post-body li{color:rgba(12,12,12,.6);text-align:left;line-height:1.62;font-family:Inter,sans-serif;font-size:20px}
+.bp-main .post-body p{margin:0 0 22px}
+.bp-main .post-body h2, .bp-main .post-body h3, .bp-main .post-body h4{color:#0c0c0c!important;text-align:left;line-height:1.16!important;letter-spacing:-0.025em!important;font-family:Inter,sans-serif;font-weight:600}
+.bp-main .post-body h2{font-size:clamp(28px,2.9vw,40px)!important;margin:64px 0 22px}
+.bp-main .post-body h3{font-size:clamp(21px,1.7vw,25px)!important;margin:48px 0 16px}
+.bp-main .post-body h4{font-size:20px!important;margin:38px 0 14px}
+.bp-main .post-body ul, .bp-main .post-body ol{margin:0 0 24px;padding-left:24px}
+.bp-main .post-body li{margin-bottom:10px}
+.bp-main .post-body li::marker{color:rgba(12,12,12,.45)}
+.bp-main .post-body a{color:#0c0c0c;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(12,12,12,.3)}
+.bp-main .post-body a:hover{color:${ACCENT};text-decoration-color:${ACCENT}}
+.bp-main .post-body strong{color:#0c0c0c;font-weight:600}
+.bp-main .post-body blockquote{margin:32px 0;padding:4px 0 4px 24px;border-left:2px solid ${ACCENT}}
+.bp-main .post-body blockquote p{color:#0c0c0c;font-size:22px;line-height:1.5}
+.bp-main .post-body figure{margin:44px 0}
+.bp-main .post-body figure img{width:100%;height:auto;display:block}
+.bp-main .post-body figcaption{color:rgba(12,12,12,.45);font-family:Inter,sans-serif;font-size:14px;padding:12px 2px 0}
+.bp-main .post-body pre{background:#ececec;border:1px solid rgba(12,12,12,.12);border-radius:12px;padding:18px 20px;overflow-x:auto;margin:0 0 24px}
+.bp-main .post-body pre code{color:#0c0c0c;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;line-height:1.6}
+.bp-main .post-body :not(pre)>code{background:rgba(12,12,12,.08);border-radius:5px;padding:2px 6px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:15px;color:#0c0c0c}
+.bp-main .post-body hr{border:0;border-top:1px solid rgba(12,12,12,.14);margin:48px 0}
+.bp-main .post-table-wrap{overflow-x:auto;margin:0 0 26px}
+.bp-main .post-body table{border-collapse:collapse;width:100%;font-family:Inter,sans-serif;font-size:16px}
+.bp-main .post-body th, .bp-main .post-body td{border:1px solid rgba(12,12,12,.16);padding:11px 15px;text-align:left;color:rgba(12,12,12,.6)}
+.bp-main .post-body th{color:#0c0c0c;font-weight:600;background:rgba(12,12,12,.04)}
+/* ---- more articles ---- */
+.bp-more{background:${LIGHT};padding:70px 0 120px}
+.bp-more-h{color:#0c0c0c!important;text-align:left;margin:0 0 58px;font-size:clamp(52px,8vw,118px)!important;line-height:1!important;letter-spacing:-0.045em!important;font-weight:600}
+.bp-more-list{list-style:none;margin:0;padding:0;border-top:1px solid rgba(12,12,12,.14)}
+.bp-more-list a{display:block;padding:26px 0;border-bottom:1px solid rgba(12,12,12,.14);text-decoration:none;font-family:Inter,sans-serif}
+.bp-more-list .t{color:#0c0c0c;font-size:22px;letter-spacing:-0.01em}
+.bp-more-list a:hover .t{color:${ACCENT}}
+@media(max-width:900px){
+.bp-grid{grid-template-columns:1fr;padding:0 24px}
+.bp-side{position:static;padding:0 0 38px}
+.bp-main{padding:52px 0 26px}
+.bp-more{padding:36px 0 84px}
+.bp-more-h{margin-bottom:34px}
+.bp-more-list a{padding:20px 0}
+.bp-main .post-body p, .bp-main .post-body li{font-size:17px}
+.bp-main .post-body>p:first-of-type{font-size:20px}
+.bp-main .post-body h2{margin:48px 0 18px}
+}
+.post-cta{background:#0c0c0c;padding:110px 46px 118px;text-align:left}
+.post-cta-inner{max-width:1660px;margin:0 auto}
+.post-cta h2{margin:0 0 26px;font-size:clamp(38px,6vw,86px)!important;line-height:1.02!important;letter-spacing:-0.045em!important}
+.post-cta p{max-width:52ch;margin:0;font-family:Inter,sans-serif;font-size:19px;line-height:1.6}
+.post-cta .actions{display:flex;justify-content:flex-start;margin-top:40px}
+@media(max-width:900px){.post-cta{padding:70px 24px 78px}}
+.post-cta .framer-text{color:#fff!important}
+.post-cta .framer-LqZE5{background:${ACCENT};border-radius:60px;transition:transform .18s ease,filter .2s ease}
+.post-cta .framer-LqZE5:hover{filter:brightness(1.08)}
+.post-cta .framer-LqZE5 .framer-13x93le{width:auto;min-width:200px;padding:20px 36px!important;justify-content:center!important;gap:0!important}
+.post-cta .framer-1m71lft-container{display:none}
+
 /* dark article layout - matches the hand-written cluster exactly, so the blog
    reads as one design. Replaces the light Framer-CMS-style section. */
 .post-hero{margin:40px 0 4px;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.10);background:#111;line-height:0}
@@ -565,6 +665,30 @@ const fmtDateLong = (iso) => {
 };
 
 /* ------------------------------------------------------------- post page */
+
+/* Built as a function, not an inline template - nesting this markup inside the
+   main literal breaks on its own backticks. */
+function framer2024Hero(o) {
+  const img = o.hero
+    ? '<img src="' + esc(o.hero) + '" alt="' + escCopy(o.heroAlt) + '" fetchpriority="high" decoding="async">'
+    : '';
+  const avatar = o.avatar
+    ? '<img class="bp-avatar" src="' + esc(o.avatar) + '" alt="" width="58" height="58">'
+    : '';
+  return [
+    '<header class="bp-hero">', img,
+    '<div class="bp-inner"><div class="bp-mid"><div class="bp-author">', avatar,
+    '<div><div class="n">' + escCopy(o.authorName) + '</div><div class="r">' + escCopy(o.authorRole) + '</div></div>',
+    '</div><h1 class="bp-title ' + P.h2 + '">' + escCopy(o.title) + '</h1></div>',
+    '<div class="bp-foot"><div class="bp-date">' + esc(o.date) + '</div>',
+    '<p class="bp-desc">' + escCopy(o.desc) + '</p></div></div></header>',
+    '<section class="bp-main"><div class="bp-grid">',
+    '<aside class="bp-side"><p class="bp-side-note">Continue exploring ideas<br>in web design and beyond.</p>',
+    '<a class="bp-back" href="' + BLOG_INDEX + '">' + BACK_ARROW + 'Back to blogs</a></aside>',
+    '<div class="bp-col"><div class="post-body">', o.body, '</div></div></div></section>'
+  ].join('');
+}
+
 function renderPostPage(post) {
   const url = `${SITE}/blog/${post.slug}/`;
   // Opinly's title-card images bake the headline into the artwork, which
@@ -622,6 +746,12 @@ function renderPostPage(post) {
   const authorRole = a.bio || 'Design Studio';
 
   const main = `
+  ${FRAMER_2024_LAYOUT.has(post.slug) ? framer2024Hero({
+    hero: HERO_DIR + pickHero(post.slug).file,
+    heroAlt: pickHero(post.slug).alt || post.title,
+    avatar, authorName, authorRole, title: post.title,
+    date: fmtDateLong(post.firstPublishedAt), desc, body: bodyHtml,
+  }) : `
   <article class="post-wrap">
     <span class="post-label" data-reveal>${escCopy(p_eyebrow)}</span>
     <h1 class="post-h1 ${P.h2}" data-reveal style="transition-delay:70ms">${escCopy(post.title)}</h1>
@@ -631,6 +761,7 @@ function renderPostPage(post) {
 ${bodyHtml}
     </div>
   </article>
+  `}
 
   <section class="bp-more">
     <div class="bp-grid">
@@ -662,18 +793,25 @@ ${moreArticles(post.slug)}
    the Framer CMS posts. Previously the index only received Opinly posts, so the
    15 hand-written articles were listed nowhere on the site and were reachable
    only by direct URL. */
+/* Listing thumbnail. A generated card in /assets/blog always wins over the
+   Opinly CDN art - Opinly's stock renders looked nothing like the site. */
+function cardFor(slug, fallback) {
+  const rel = '/assets/blog/' + slug + '.jpg';
+  return fs.existsSync(path.join(ROOT, 'assets', 'blog', slug + '.jpg')) ? rel : (fallback || null);
+}
+
 function allPostsForIndex(opinly) {
   const own = WRITTEN_POSTS.map((w) => ({
     slug: w.slug, title: w.title, iso: w.iso, href: '/blog/' + w.slug + '/',
-    img: '/assets/blog/' + w.slug + '.jpg',
+    img: cardFor(w.slug),
     description: BLOG_BLURB[w.slug] || '',
   }));
   const framer = FRAMER_POSTS.map((f) => ({
-    slug: f.slug, title: f.title, iso: f.iso, href: '/blog/' + f.slug, img: null, description: '',
+    slug: f.slug, title: f.title, iso: f.iso, href: '/blog/' + f.slug, img: cardFor(f.slug), description: '',
   }));
   const fromOpinly = (opinly || []).map((o) => ({
     slug: o.slug, title: o.title || o.slug, iso: fmtDate(o.firstPublishedAt),
-    href: '/blog/' + o.slug + '/', img: imageUrl(o.image && o.image.fileKey),
+    href: '/blog/' + o.slug + '/', img: cardFor(o.slug, imageUrl(o.image && o.image.fileKey)),
     description: o.description || '',
   }));
   const seen = new Set();
