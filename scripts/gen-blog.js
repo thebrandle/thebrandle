@@ -12,6 +12,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const L2024 = require('./blog-layout-2024');
 const { posts } = require('./blog-posts-data');
 
 const ROOT = path.join(__dirname, '..');
@@ -82,7 +83,9 @@ html,body{background:#0C0C0C;margin:0}
    the CTA button. Neutralise the default here; every rule below is at least as
    specific and still wins, so intended colours are unaffected. */
 .svc-page a,.svc-page a:link,.svc-page a:visited{color:inherit;text-decoration:none}
-.svc-page{display:flex;flex-direction:column;align-items:stretch;overflow-x:hidden}
+/* clip, not hidden: hidden makes this a scroll container and every sticky
+   descendant (the nav, the article rail) then pins to nothing. */
+.svc-page{display:flex;flex-direction:column;align-items:stretch;overflow-x:clip}
 .svc-nav-wrap{position:sticky;top:0;z-index:40;background:rgba(12,12,12,.78);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px)}
 @media(max-width:760px){.svc-nav-desktop{display:none}}
 @media(min-width:761px){.svc-nav-phone{display:none}}
@@ -151,6 +154,7 @@ html,body{background:#0C0C0C;margin:0}
 [data-reveal]{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.215,.61,.355,1),transform .7s cubic-bezier(.215,.61,.355,1)}
 [data-reveal].in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none;transition:none}}
+${L2024.css({ LIGHT: "#f5f5f5", ACCENT, MUTED })}
 </style>`;
 
 const JS = `<script>
@@ -254,7 +258,11 @@ function renderPost(d) {
     const ps = sec.p.map(p => `    <p class="${P.body}">${linkify(p)}</p>`).join('\n');
     return h + ps;
   }).join('\n');
-  const faq = d.faq.map(f => `      <details><summary><span class="${P.h3}" style="color:#fff;text-align:left;font-size:19px!important">${esc(f.q)}</span><span class="pm" aria-hidden="true"></span></summary><div class="ans ${P.body}">${esc(f.a)}</div></details>`).join('\n');
+  const faq = d.faq.map(f => `      <details><summary><span class="${P.h3}" style="text-align:left;font-size:19px!important">${esc(f.q)}</span><span class="pm" aria-hidden="true"></span></summary><div class="ans ${P.body}">${esc(f.a)}</div></details>`).join('\n');
+  /* "2026-07-22" reads as "Jul 22, 2026" in this layout, matching the
+     Framer posts. */
+  const dateLong = new Date(d.date + 'T00:00:00Z').toLocaleDateString('en-US',
+    { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
   const related = d.related.map(r => `      <a href="${r.href}">${esc(r.label)} &rarr;</a>`).join('\n');
 
   const articleSchema = {
@@ -265,6 +273,15 @@ function renderPost(d) {
     image: OG_IMAGE, mainEntityOfPage: url,
   };
   const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: d.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+  const faqAndRelated = `
+    <div class="post-faq">
+${faq}
+    </div>
+    <aside class="post-related">
+      <h3 class="${P.h3}">Related services</h3>
+${related}
+    </aside>`;
+
   const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: SITE + '/' },
     { '@type': 'ListItem', position: 2, name: 'Blog', item: SITE + '/blog' },
@@ -291,28 +308,22 @@ ${GLUE}
 <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>
 <script type="application/ld+json">${JSON.stringify(breadcrumb)}</script>
 </head>
-<body>
+<body class="bp2024">
 ${ROOT_OPEN}
 ${noiseHtml ? `<div class="svc-noise">${noiseHtml}</div>` : ''}
 <div class="svc-page">
   <div class="svc-nav-wrap"><div class="svc-nav-desktop">${navHtml}</div><div class="svc-nav-phone">${navPhoneHtml}</div></div>
 
-  <article class="post-wrap">
-    <span class="post-label" data-reveal>${esc(d.tag)}</span>
-    <h1 class="post-h1 ${P.h2}" data-reveal style="transition-delay:70ms">${esc(d.h1)}</h1>
-    <div class="post-meta ${P.small}" data-reveal style="transition-delay:140ms">${esc(d.date)} &middot; ${d.readMins} min read &middot; TheBrandle</div>
-    ${heroImg}
-    <div class="post-body" data-reveal style="transition-delay:260ms">
-${body}
-    </div>
-    <div class="post-faq">
-${faq}
-    </div>
-    <aside class="post-related">
-      <h3 class="${P.h3}">Related services</h3>
-${related}
-    </aside>
-  </article>
+  ${L2024.renderArticle({
+    esc, escCopy: esc, h2Preset: P.h2, backHref: '/blog',
+    hero: L2024.heroFor(d.slug).src,
+    heroAlt: L2024.heroFor(d.slug).alt || d.h1,
+    avatar: L2024.AVATAR,
+    authorName: 'The Brandle Team', authorRole: 'Design Studio',
+    title: d.h1, date: dateLong, desc: d.metaDescription,
+    body,
+    after: faqAndRelated,
+  })}
 
   <div class="post-cta">
     <h2 class="${P.h2}" style="color:#fff;margin:0 0 18px">Ready to build it right?</h2>

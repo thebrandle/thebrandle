@@ -15745,7 +15745,9 @@ html,body{background:#0C0C0C;margin:0}
    the CTA button. Neutralise the default here; every rule below is at least as
    specific and still wins, so intended colours are unaffected. */
 .svc-page a,.svc-page a:link,.svc-page a:visited{color:inherit;text-decoration:none}
-.svc-page{display:flex;flex-direction:column;align-items:stretch;overflow-x:hidden}
+/* clip, not hidden: hidden makes this a scroll container and every sticky
+   descendant (the nav, the article rail) then pins to nothing. */
+.svc-page{display:flex;flex-direction:column;align-items:stretch;overflow-x:clip}
 .svc-nav-wrap{position:sticky;top:0;z-index:40;background:rgba(12,12,12,.78);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px)}
 @media(max-width:760px){.svc-nav-desktop{display:none}}
 @media(min-width:761px){.svc-nav-phone{display:none}}
@@ -15786,6 +15788,9 @@ html,body{background:#0C0C0C;margin:0}
 /* Full-bleed article hero - matches the Framer blog post template:
    photo, author chip pinned left, oversized title, date + excerpt on the
    bottom row. Offsets are proportional so it holds at any width. */
+/* Full-bleed article hero - matches the Framer blog post template:
+   photo, author chip pinned left, oversized title, date + excerpt on the
+   bottom row. Offsets are proportional so it holds at any width. */
 .bp-hero{position:relative;margin:26px 30px 0;height:calc(100vh - 150px);min-height:560px;overflow:hidden;isolation:isolate}
 .bp-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
 /* two scrims: vertical for the title/date rows, plus a left wash so the
@@ -15810,34 +15815,6 @@ html,body{background:#0C0C0C;margin:0}
   .bp-foot{display:block;padding-left:0}
   .bp-date{margin-bottom:12px;font-size:18px}
   .bp-desc{font-size:17px;max-width:none}
-}
-/* Full-bleed article hero - matches the Framer blog post template:
-   photo, author chip pinned left, oversized title, date + excerpt on the
-   bottom row. Offsets are proportional so it holds at any width. */
-.bp-hero{position:relative;margin:26px 30px 0;height:calc(100vh - 150px);min-height:560px;overflow:hidden;isolation:isolate}
-.bp-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-/* two scrims: vertical for the title/date rows, plus a left wash so the
-   author chip stays readable over a bright photo */
-.bp-hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,.24) 34%,rgba(0,0,0,.42) 72%,rgba(0,0,0,.68) 100%),linear-gradient(90deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,.10) 34%,rgba(0,0,0,0) 55%)}
-.bp-inner{position:relative;height:100%;display:grid;grid-template-rows:1fr auto;padding:44px 46px 40px;box-sizing:border-box}
-.bp-mid{display:flex;align-items:center;gap:0}
-.bp-author{display:flex;align-items:center;gap:16px;flex:0 0 26.8%}
-.bp-avatar{width:58px;height:58px;border-radius:50%;object-fit:cover;flex-shrink:0;background:rgba(255,255,255,.14)}
-.bp-author .n{color:#fff;font-family:Inter,sans-serif;font-size:22px;font-weight:500;line-height:1.25;text-shadow:0 1px 16px rgba(0,0,0,.6)}
-.bp-author .r{color:rgba(255,255,255,.82);font-family:Inter,sans-serif;font-size:18px;line-height:1.3;text-shadow:0 1px 16px rgba(0,0,0,.6)}
-.bp-title{color:#fff!important;text-align:left;margin:0;flex:1;font-size:clamp(40px,7vw,106px)!important;line-height:1.06!important;letter-spacing:-0.04em!important;text-shadow:0 2px 30px rgba(0,0,0,.45)}
-.bp-foot{display:flex;align-items:flex-start;gap:0;padding-left:26.8%}
-.bp-date{color:#fff;font-family:Inter,sans-serif;font-size:22px;flex:0 0 30%}
-.bp-desc{color:rgba(255,255,255,.92);font-family:Inter,sans-serif;font-size:19px;line-height:1.5;max-width:46ch;margin:0}
-@media(max-width:1024px){
-.bp-hero{height:auto;min-height:0;margin:20px 20px 0}
-.bp-inner{display:block;padding:32px 26px 34px}
-.bp-mid{display:block}
-.bp-author{flex:none;margin-bottom:30px}
-.bp-title{margin:0 0 40px}
-.bp-foot{display:block;padding-left:0}
-.bp-date{margin-bottom:12px;font-size:18px}
-.bp-desc{font-size:17px;max-width:none}
 }
 /* ---- article body: light section with sticky sidebar, matching the
    Framer blog template (dark hero, then everything below on #f5f5f5) ---- */
@@ -15884,15 +15861,15 @@ html,body{background:#0C0C0C;margin:0}
 .bp-more-list .t{color:#0c0c0c;font-size:22px;letter-spacing:-0.01em}
 .bp-more-list a:hover .t{color:var(--token-1662617d-fd18-4319-b3da-aa36e5415705, rgb(249, 69, 45))}
 @media(max-width:900px){
-.bp-grid{grid-template-columns:1fr;padding:0 24px}
-.bp-side{position:static;padding:0 0 38px}
-.bp-main{padding:52px 0 26px}
-.bp-more{padding:36px 0 84px}
-.bp-more-h{margin-bottom:34px}
-.bp-more-list a{padding:20px 0}
-.bp-main .post-body p, .bp-main .post-body li{font-size:17px}
-.bp-main .post-body>p:first-of-type{font-size:20px}
-.bp-main .post-body h2{margin:48px 0 18px}
+  .bp-grid{grid-template-columns:1fr;padding:0 24px}
+  .bp-side{position:static;padding:0 0 38px}
+  .bp-main{padding:52px 0 26px}
+  .bp-more{padding:36px 0 84px}
+  .bp-more-h{margin-bottom:34px}
+  .bp-more-list a{padding:20px 0}
+  .bp-main .post-body p, .bp-main .post-body li{font-size:17px}
+  .bp-main .post-body>p:first-of-type{font-size:20px}
+  .bp-main .post-body h2{margin:48px 0 18px}
 }
 .post-cta{background:#0c0c0c;padding:110px 46px 118px;text-align:left}
 .post-cta-inner{max-width:1660px;margin:0 auto}
@@ -15905,6 +15882,39 @@ html,body{background:#0C0C0C;margin:0}
 .post-cta .framer-LqZE5:hover{filter:brightness(1.08)}
 .post-cta .framer-LqZE5 .framer-13x93le{width:auto;min-width:200px;padding:20px 36px!important;justify-content:center!important;gap:0!important}
 .post-cta .framer-1m71lft-container{display:none}
+
+/* ---- 2024 layout page chrome -------------------------------------------
+   The original Framer posts sit on a white page: white surround around the
+   photo hero, #f5f5f5 article band, dark footer. The dark grain and the
+   white nav text belong to the dark layout and have to be turned off here. */
+body.bp2024 .svc-noise{display:none}
+body.bp2024,body.bp2024 .svc-page{background:#fff}
+/* Framer's nav container is position:absolute, so the wrapper collapses to
+   ~1px: no white band paints and the bar lands on top of the photo hero.
+   Give the wrapper the band height the original has. */
+body.bp2024 .svc-nav-wrap{min-height:104px;background:rgba(255,255,255,.9);border-bottom:1px solid rgba(12,12,12,.07)}
+body.bp2024 .svc-nav-wrap .framer-fyydzk-container{top:50%!important;transform:translateY(-50%)}
+/* the logo is an <img> painted white by a filter - invert that over white */
+body.bp2024 .svc-nav-wrap img[src*="TheBrandle"]{filter:brightness(0)!important}
+body.bp2024 .svc-nav-wrap,body.bp2024 .svc-nav-wrap *{color:#0c0c0c!important}
+body.bp2024 .svc-nav-wrap svg [fill="#fff"],body.bp2024 .svc-nav-wrap svg [fill="#FFF"],
+body.bp2024 .svc-nav-wrap svg [fill="white"]{fill:#0c0c0c!important}
+body.bp2024 .svc-nav-wrap svg [stroke="#fff"],body.bp2024 .svc-nav-wrap svg [stroke="#FFF"],
+body.bp2024 .svc-nav-wrap svg [stroke="white"]{stroke:#0c0c0c!important}
+/* FAQ and related-services blocks sit inside the light column on this
+   layout, so their dark-layout borders and white text need inverting. */
+.bp-main .post-faq{border-top-color:rgba(12,12,12,.14)}
+.bp-main .post-faq details{border-bottom-color:rgba(12,12,12,.14)}
+.bp-main .post-faq summary,.bp-main .post-faq summary span{color:#0c0c0c}
+.bp-main .post-faq .ans{color:rgba(12,12,12,.62)}
+.bp-main .post-related{border-color:rgba(12,12,12,.16)}
+.bp-main .post-related h3{color:#0c0c0c}
+/* The MENU overlay is white text with no background of its own - it relied on
+   the dark page behind it. On this white page it would be invisible, so give
+   the open menu its own dark panel (the live site opens a dark overlay too). */
+body.bp2024 .svc-nav-wrap .bm-open,body.bp2024 .svc-nav-wrap .bm-open *{color:#fff!important}
+body.bp2024 .svc-nav-wrap .bm-open{background:#0c0c0c;border-radius:16px;padding:26px 32px;box-shadow:0 26px 70px rgba(0,0,0,.30)}
+body.bp2024 .svc-nav-wrap .bm-open img[src*="TheBrandle"]{filter:brightness(0) invert(1)!important}
 
 /* dark article layout - matches the hand-written cluster exactly, so the blog
    reads as one design. Replaces the light Framer-CMS-style section. */
@@ -15985,7 +15995,7 @@ html,body{background:#0C0C0C;margin:0}
 <noscript><style>[data-reveal]{opacity:1;transform:none;transition:none}</style></noscript>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","url":"https://www.thebrandle.com/blog/","name":"TheBrandle Articles","blogPost":[{"@type":"BlogPosting","headline":"How to Choose a Branding Agency (Without Getting Burned)","url":"https://www.thebrandle.com/blog/branding-agency/"},{"@type":"BlogPosting","headline":"Website Design in 2026: What Founders Need to Know Before They Build","url":"https://www.thebrandle.com/blog/website-design/"},{"@type":"BlogPosting","headline":"Headless CMS: what it is and when you actually need one","url":"https://www.thebrandle.com/blog/headless-cms-guide/"},{"@type":"BlogPosting","headline":"AI in web design: what it does well and where it fails","url":"https://www.thebrandle.com/blog/ai-in-web-design/"},{"@type":"BlogPosting","headline":"Arabic and RTL website design: doing it properly","url":"https://www.thebrandle.com/blog/arabic-rtl-website-design/"},{"@type":"BlogPosting","headline":"How to redesign your website without losing SEO","url":"https://www.thebrandle.com/blog/website-redesign-without-losing-seo/"},{"@type":"BlogPosting","headline":"Website maintenance: what you actually need to pay for","url":"https://www.thebrandle.com/blog/website-maintenance-cost/"},{"@type":"BlogPosting","headline":"WordPress vs Webflow: an honest comparison","url":"https://www.thebrandle.com/blog/wordpress-vs-webflow/"},{"@type":"BlogPosting","headline":"The real cost of a website over three years","url":"https://www.thebrandle.com/blog/website-total-cost-of-ownership/"},{"@type":"BlogPosting","headline":"Real estate website design: what actually converts","url":"https://www.thebrandle.com/blog/real-estate-website-design/"},{"@type":"BlogPosting","headline":"Core Web Vitals: what they are and how to fix them","url":"https://www.thebrandle.com/blog/core-web-vitals-guide/"},{"@type":"BlogPosting","headline":"Progressive web apps: do you actually need one?","url":"https://www.thebrandle.com/blog/progressive-web-apps/"},{"@type":"BlogPosting","headline":"Website security: a practical checklist for small businesses","url":"https://www.thebrandle.com/blog/website-security-checklist/"},{"@type":"BlogPosting","headline":"Should I Hire a Web Designer or Do It Myself? An Honest Answer for Founders","url":"https://www.thebrandle.com/blog/should-i-hire-a-web-designer-or-do-it-myself/"},{"@type":"BlogPosting","headline":"Shopify vs WooCommerce: which should you build your store on?","url":"https://www.thebrandle.com/blog/shopify-vs-woocommerce/"},{"@type":"BlogPosting","headline":"How much does a website cost in Dubai?","url":"https://www.thebrandle.com/blog/website-cost-dubai/"},{"@type":"BlogPosting","headline":"Framer vs Webflow: which builder fits your website?","url":"https://www.thebrandle.com/blog/framer-vs-webflow/"},{"@type":"BlogPosting","headline":"Moving from Wix to Shopify: a practical guide","url":"https://www.thebrandle.com/blog/wix-to-shopify-migration/"},{"@type":"BlogPosting","headline":"Why your website’s user experience is its greatest asset","url":"https://www.thebrandle.com/blog/why-your-website-s-user-experience-is-its-greatest-asset/"},{"@type":"BlogPosting","headline":"Why Mobile-First Design is Crucial for Modern Websites","url":"https://www.thebrandle.com/blog/why-mobile-first-design-is-crucial-for-modern-websites/"}]}</script>
 </head>
-<body>
+<body class="bp2024">
 <div
           data-framer-root
           class="framer-XEwcd framer-Y9OAu framer-YSAxe framer-RhHCy framer-fzGCR framer-nNZda framer-tQrMV framer-aRH0t framer-wOGvT framer-PJOjX framer-7flX5 framer-72rtr7"

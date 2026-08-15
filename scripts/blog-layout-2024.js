@@ -1,0 +1,198 @@
+/**
+ * The 2024 Framer CMS post layout: full-bleed photo hero with the title
+ * overlaid, white surround, #f5f5f5 article band with a sticky "Back to
+ * blogs" rail, dark footer.
+ *
+ * Shared by both post generators (gen-blog.js and gen-opinly-blog.js) so the
+ * two stay in step - they used to carry separate copies of the article CSS.
+ */
+
+// The author avatar the Framer posts use, pulled from the live site.
+const AVATAR = '/framerusercontent.com/images/A0LPOEdkaRkfMcS2EWs1My620fA.jpg';
+
+const BACK_ARROW = '<svg width="22" height="20" viewBox="0 0 22 20" fill="none" aria-hidden="true"><path d="M7 1L1.5 6.5L7 12" stroke="#f9452d" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M1.5 6.5H14a6.5 6.5 0 0 1 6.5 6.5v6" stroke="#f9452d" stroke-width="1.7" stroke-linecap="round"/></svg>';
+
+/** Layout CSS. Pass the site tokens so both generators render identically. */
+function css({ LIGHT, ACCENT, MUTED }) {
+  return `/* Full-bleed article hero - matches the Framer blog post template:
+   photo, author chip pinned left, oversized title, date + excerpt on the
+   bottom row. Offsets are proportional so it holds at any width. */
+.bp-hero{position:relative;margin:26px 30px 0;height:calc(100vh - 150px);min-height:560px;overflow:hidden;isolation:isolate}
+.bp-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+/* two scrims: vertical for the title/date rows, plus a left wash so the
+   author chip stays readable over a bright photo */
+.bp-hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,.24) 34%,rgba(0,0,0,.42) 72%,rgba(0,0,0,.68) 100%),linear-gradient(90deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,.10) 34%,rgba(0,0,0,0) 55%)}
+.bp-inner{position:relative;height:100%;display:grid;grid-template-rows:1fr auto;padding:44px 46px 40px;box-sizing:border-box}
+.bp-mid{display:flex;align-items:center;gap:0}
+.bp-author{display:flex;align-items:center;gap:16px;flex:0 0 26.8%}
+.bp-avatar{width:58px;height:58px;border-radius:50%;object-fit:cover;flex-shrink:0;background:rgba(255,255,255,.14)}
+.bp-author .n{color:#fff;font-family:Inter,sans-serif;font-size:22px;font-weight:500;line-height:1.25;text-shadow:0 1px 16px rgba(0,0,0,.6)}
+.bp-author .r{color:rgba(255,255,255,.82);font-family:Inter,sans-serif;font-size:18px;line-height:1.3;text-shadow:0 1px 16px rgba(0,0,0,.6)}
+.bp-title{color:#fff!important;text-align:left;margin:0;flex:1;font-size:clamp(40px,7vw,106px)!important;line-height:1.06!important;letter-spacing:-0.04em!important;text-shadow:0 2px 30px rgba(0,0,0,.45)}
+.bp-foot{display:flex;align-items:flex-start;gap:0;padding-left:26.8%}
+.bp-date{color:#fff;font-family:Inter,sans-serif;font-size:22px;flex:0 0 30%}
+.bp-desc{color:rgba(255,255,255,.92);font-family:Inter,sans-serif;font-size:19px;line-height:1.5;max-width:46ch;margin:0}
+@media(max-width:1024px){
+  .bp-hero{height:auto;min-height:0;margin:20px 20px 0}
+  .bp-inner{display:block;padding:32px 26px 34px}
+  .bp-mid{display:block}
+  .bp-author{flex:none;margin-bottom:30px}
+  .bp-title{margin:0 0 40px}
+  .bp-foot{display:block;padding-left:0}
+  .bp-date{margin-bottom:12px;font-size:18px}
+  .bp-desc{font-size:17px;max-width:none}
+}
+/* ---- article body: light section with sticky sidebar, matching the
+   Framer blog template (dark hero, then everything below on #f5f5f5) ---- */
+.bp-main{background:${LIGHT};padding:96px 0 40px}
+.bp-grid{max-width:1660px;margin:0 auto;padding:0 46px;display:grid;grid-template-columns:26.5% 1fr;box-sizing:border-box}
+.bp-side{position:sticky;top:104px;align-self:start;padding-right:30px}
+.bp-side-note{color:rgba(12,12,12,.5);font-family:Inter,sans-serif;font-size:17px;line-height:1.5;margin:0 0 30px}
+.bp-back{display:inline-flex;align-items:center;gap:14px;color:#0c0c0c;font-family:Inter,sans-serif;font-size:22px;text-decoration:none}
+.bp-back svg{flex-shrink:0}
+.bp-back:hover{color:${ACCENT}}
+.bp-col{max-width:1030px;min-width:0}
+.bp-main .post-body{font-family:Inter,sans-serif}
+.bp-main .post-body>p:first-of-type{color:#0c0c0c;font-size:clamp(21px,1.7vw,30px);line-height:1.42;letter-spacing:-0.01em;margin:0 0 30px}
+.bp-main .post-body p, .bp-main .post-body li{color:rgba(12,12,12,.6);text-align:left;line-height:1.62;font-family:Inter,sans-serif;font-size:20px}
+.bp-main .post-body p{margin:0 0 22px}
+.bp-main .post-body h2, .bp-main .post-body h3, .bp-main .post-body h4{color:#0c0c0c!important;text-align:left;line-height:1.16!important;letter-spacing:-0.025em!important;font-family:Inter,sans-serif;font-weight:600}
+.bp-main .post-body h2{font-size:clamp(28px,2.9vw,40px)!important;margin:64px 0 22px}
+.bp-main .post-body h3{font-size:clamp(21px,1.7vw,25px)!important;margin:48px 0 16px}
+.bp-main .post-body h4{font-size:20px!important;margin:38px 0 14px}
+.bp-main .post-body ul, .bp-main .post-body ol{margin:0 0 24px;padding-left:24px}
+.bp-main .post-body li{margin-bottom:10px}
+.bp-main .post-body li::marker{color:rgba(12,12,12,.45)}
+.bp-main .post-body a{color:#0c0c0c;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(12,12,12,.3)}
+.bp-main .post-body a:hover{color:${ACCENT};text-decoration-color:${ACCENT}}
+.bp-main .post-body strong{color:#0c0c0c;font-weight:600}
+.bp-main .post-body blockquote{margin:32px 0;padding:4px 0 4px 24px;border-left:2px solid ${ACCENT}}
+.bp-main .post-body blockquote p{color:#0c0c0c;font-size:22px;line-height:1.5}
+.bp-main .post-body figure{margin:44px 0}
+.bp-main .post-body figure img{width:100%;height:auto;display:block}
+.bp-main .post-body figcaption{color:rgba(12,12,12,.45);font-family:Inter,sans-serif;font-size:14px;padding:12px 2px 0}
+.bp-main .post-body pre{background:#ececec;border:1px solid rgba(12,12,12,.12);border-radius:12px;padding:18px 20px;overflow-x:auto;margin:0 0 24px}
+.bp-main .post-body pre code{color:#0c0c0c;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;line-height:1.6}
+.bp-main .post-body :not(pre)>code{background:rgba(12,12,12,.08);border-radius:5px;padding:2px 6px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:15px;color:#0c0c0c}
+.bp-main .post-body hr{border:0;border-top:1px solid rgba(12,12,12,.14);margin:48px 0}
+.bp-main .post-table-wrap{overflow-x:auto;margin:0 0 26px}
+.bp-main .post-body table{border-collapse:collapse;width:100%;font-family:Inter,sans-serif;font-size:16px}
+.bp-main .post-body th, .bp-main .post-body td{border:1px solid rgba(12,12,12,.16);padding:11px 15px;text-align:left;color:rgba(12,12,12,.6)}
+.bp-main .post-body th{color:#0c0c0c;font-weight:600;background:rgba(12,12,12,.04)}
+/* ---- more articles ---- */
+.bp-more{background:${LIGHT};padding:70px 0 120px}
+.bp-more-h{color:#0c0c0c!important;text-align:left;margin:0 0 58px;font-size:clamp(52px,8vw,118px)!important;line-height:1!important;letter-spacing:-0.045em!important;font-weight:600}
+.bp-more-list{list-style:none;margin:0;padding:0;border-top:1px solid rgba(12,12,12,.14)}
+.bp-more-list a{display:block;padding:26px 0;border-bottom:1px solid rgba(12,12,12,.14);text-decoration:none;font-family:Inter,sans-serif}
+.bp-more-list .t{color:#0c0c0c;font-size:22px;letter-spacing:-0.01em}
+.bp-more-list a:hover .t{color:${ACCENT}}
+@media(max-width:900px){
+  .bp-grid{grid-template-columns:1fr;padding:0 24px}
+  .bp-side{position:static;padding:0 0 38px}
+  .bp-main{padding:52px 0 26px}
+  .bp-more{padding:36px 0 84px}
+  .bp-more-h{margin-bottom:34px}
+  .bp-more-list a{padding:20px 0}
+  .bp-main .post-body p, .bp-main .post-body li{font-size:17px}
+  .bp-main .post-body>p:first-of-type{font-size:20px}
+  .bp-main .post-body h2{margin:48px 0 18px}
+}
+.post-cta{background:#0c0c0c;padding:110px 46px 118px;text-align:left}
+.post-cta-inner{max-width:1660px;margin:0 auto}
+.post-cta h2{margin:0 0 26px;font-size:clamp(38px,6vw,86px)!important;line-height:1.02!important;letter-spacing:-0.045em!important}
+.post-cta p{max-width:52ch;margin:0;font-family:Inter,sans-serif;font-size:19px;line-height:1.6}
+.post-cta .actions{display:flex;justify-content:flex-start;margin-top:40px}
+@media(max-width:900px){.post-cta{padding:70px 24px 78px}}
+.post-cta .framer-text{color:#fff!important}
+.post-cta .framer-LqZE5{background:${ACCENT};border-radius:60px;transition:transform .18s ease,filter .2s ease}
+.post-cta .framer-LqZE5:hover{filter:brightness(1.08)}
+.post-cta .framer-LqZE5 .framer-13x93le{width:auto;min-width:200px;padding:20px 36px!important;justify-content:center!important;gap:0!important}
+.post-cta .framer-1m71lft-container{display:none}
+
+/* ---- 2024 layout page chrome -------------------------------------------
+   The original Framer posts sit on a white page: white surround around the
+   photo hero, #f5f5f5 article band, dark footer. The dark grain and the
+   white nav text belong to the dark layout and have to be turned off here. */
+body.bp2024 .svc-noise{display:none}
+body.bp2024,body.bp2024 .svc-page{background:#fff}
+/* Framer's nav container is position:absolute, so the wrapper collapses to
+   ~1px: no white band paints and the bar lands on top of the photo hero.
+   Give the wrapper the band height the original has. */
+body.bp2024 .svc-nav-wrap{min-height:104px;background:rgba(255,255,255,.9);border-bottom:1px solid rgba(12,12,12,.07)}
+body.bp2024 .svc-nav-wrap .framer-fyydzk-container{top:50%!important;transform:translateY(-50%)}
+/* the logo is an <img> painted white by a filter - invert that over white */
+body.bp2024 .svc-nav-wrap img[src*="TheBrandle"]{filter:brightness(0)!important}
+body.bp2024 .svc-nav-wrap,body.bp2024 .svc-nav-wrap *{color:#0c0c0c!important}
+body.bp2024 .svc-nav-wrap svg [fill="#fff"],body.bp2024 .svc-nav-wrap svg [fill="#FFF"],
+body.bp2024 .svc-nav-wrap svg [fill="white"]{fill:#0c0c0c!important}
+body.bp2024 .svc-nav-wrap svg [stroke="#fff"],body.bp2024 .svc-nav-wrap svg [stroke="#FFF"],
+body.bp2024 .svc-nav-wrap svg [stroke="white"]{stroke:#0c0c0c!important}
+/* FAQ and related-services blocks sit inside the light column on this
+   layout, so their dark-layout borders and white text need inverting. */
+.bp-main .post-faq{border-top-color:rgba(12,12,12,.14)}
+.bp-main .post-faq details{border-bottom-color:rgba(12,12,12,.14)}
+.bp-main .post-faq summary,.bp-main .post-faq summary span{color:#0c0c0c}
+.bp-main .post-faq .ans{color:rgba(12,12,12,.62)}
+.bp-main .post-related{border-color:rgba(12,12,12,.16)}
+.bp-main .post-related h3{color:#0c0c0c}
+/* The MENU overlay is white text with no background of its own - it relied on
+   the dark page behind it. On this white page it would be invisible, so give
+   the open menu its own dark panel (the live site opens a dark overlay too). */
+body.bp2024 .svc-nav-wrap .bm-open,body.bp2024 .svc-nav-wrap .bm-open *{color:#fff!important}
+body.bp2024 .svc-nav-wrap .bm-open{background:#0c0c0c;border-radius:16px;padding:26px 32px;box-shadow:0 26px 70px rgba(0,0,0,.30)}
+body.bp2024 .svc-nav-wrap .bm-open img[src*="TheBrandle"]{filter:brightness(0) invert(1)!important}
+`;
+}
+
+/**
+ * The article markup: hero + light body with the sticky rail.
+ * Built by concatenation on purpose - nesting this inside a generator's own
+ * template literal breaks on its own backticks.
+ */
+function renderArticle(o) {
+  const img = o.hero
+    ? '<img src="' + o.esc(o.hero) + '" alt="' + o.escCopy(o.heroAlt || o.title) + '" fetchpriority="high" decoding="async">'
+    : '';
+  const avatar = o.avatar
+    ? '<img class="bp-avatar" src="' + o.esc(o.avatar) + '" alt="" width="58" height="58" loading="eager" decoding="async">'
+    : '';
+  return [
+    '<header class="bp-hero">', img,
+    '<div class="bp-inner"><div class="bp-mid"><div class="bp-author">', avatar,
+    '<div><div class="n">' + o.escCopy(o.authorName) + '</div><div class="r">' + o.escCopy(o.authorRole) + '</div></div>',
+    '</div><h1 class="bp-title ' + o.h2Preset + '">' + o.escCopy(o.title) + '</h1></div>',
+    '<div class="bp-foot"><div class="bp-date">' + o.esc(o.date) + '</div>',
+    '<p class="bp-desc">' + o.escCopy(o.desc || '') + '</p></div></div></header>',
+    '<section class="bp-main"><div class="bp-grid">',
+    '<aside class="bp-side"><p class="bp-side-note">Continue exploring ideas<br>in web design and beyond.</p>',
+    '<a class="bp-back" href="' + o.backHref + '">' + BACK_ARROW + 'Back to blogs</a></aside>',
+    '<div class="bp-col"><div class="post-body">', o.body, '</div>', o.after || '', '</div></div></section>',
+  ].join('');
+}
+
+/* Hero photos. The 2024 layout overlays its own title on the photo, so a
+   post must NOT use its generated listing card here - that art already has
+   the title baked in. Pin a photo to a slug via HERO_OVERRIDES. */
+const HERO_DIR = '/framerusercontent.com/images/';
+const HERO_POOL = [
+  { file: 'YlEKlxLXS5eEKd4QlVitTh30A.jpg', alt: 'Three people working together in a studio' },
+  { file: 'eLsR49HoCXz2B9KTFAhtjD454Dw.jpg', alt: 'A studio lounge with green armchairs and plants' },
+  { file: 'bPs9iY1xCdYs2KmVLN2FyaQJhk.jpg', alt: 'A phone resting on a concrete surface' },
+  { file: 'T3l9K398sRcCWjbIM6rTgD8UILk.jpg', alt: 'A close-up of a tablet and fabric speaker' },
+  { file: 'mEUUzFINLTAMqcjxzWXrFUYzBPQ.jpg', alt: 'Two phones displaying a design mockup' },
+  { file: 'SDIyriYujLHtLJeg9tbQiqvoT4.jpg', alt: 'Dark product packaging on a marble tray' },
+];
+const HERO_OVERRIDES = {
+  'should-i-hire-a-web-designer-or-do-it-myself': 'YlEKlxLXS5eEKd4QlVitTh30A.jpg',
+};
+/** Deterministic per slug, so a post keeps the same photo across rebuilds. */
+function pickHero(slug) {
+  const pinned = HERO_OVERRIDES[slug];
+  if (pinned) return HERO_POOL.find((h) => h.file === pinned) || { file: pinned, alt: '' };
+  let sum = 0;
+  for (let i = 0; i < slug.length; i++) sum = (sum * 31 + slug.charCodeAt(i)) >>> 0;
+  return HERO_POOL[sum % HERO_POOL.length];
+}
+const heroFor = (slug) => { const h = pickHero(slug); return { src: HERO_DIR + h.file, alt: h.alt }; };
+
+module.exports = { AVATAR, BACK_ARROW, css, renderArticle, HERO_DIR, HERO_POOL, HERO_OVERRIDES, pickHero, heroFor };
