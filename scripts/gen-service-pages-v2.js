@@ -100,6 +100,11 @@ const cta = (text, href) => ctaHtml
 /* glue CSS: layout frame only — all type/color/component styling is Framer's */
 const GLUE = `<style>
 html,body{background:#0C0C0C;margin:0}
+/* Any anchor without an explicit colour falls back to the browser default -
+   blue, and purple once visited. That hit the logo, the overlay menu links and
+   the CTA button. Neutralise the default here; every rule below is at least as
+   specific and still wins, so intended colours are unaffected. */
+.svc-page a,.svc-page a:link,.svc-page a:visited{color:inherit;text-decoration:none}
 .svc-page{display:flex;flex-direction:column;align-items:stretch;overflow-x:hidden}
 .svc-nav-wrap{position:sticky;top:0;z-index:40;background:rgba(12,12,12,.78);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px)}
 @media(max-width:760px){.svc-nav-desktop{display:none}}

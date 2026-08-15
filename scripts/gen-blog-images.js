@@ -96,6 +96,14 @@ const POSTS = [
     h1:'Do you actually need a PWA?', sub:'Where it beats a native app, and where you need neither' },
   { slug:'website-security-checklist', kind:'editorial', eyebrow:'SECURITY', motif:'shield',
     h1:'A security checklist that fits a small business', sub:'The realistic threats, and the fixes that stop most of them' },
+  /* Opinly posts - same treatment as the hand-written cluster so the blog is
+     visually consistent. Opinly's own title-card images are ignored. */
+  { slug:'branding-agency', kind:'editorial', eyebrow:'BRANDING', motif:'layers',
+    h1:'Choosing a branding agency', sub:'What to look for, the red flags, and when you need one at all' },
+  { slug:'should-i-hire-a-web-designer-or-do-it-myself', kind:'editorial', eyebrow:'DECISION', motif:'mirror',
+    h1:'Hire a designer, or do it yourself?', sub:'An honest framework for founders weighing both' },
+  { slug:'website-design', kind:'editorial', eyebrow:'FOUNDATIONS', motif:'split',
+    h1:'What good website design actually does', sub:'Beyond looks - the decisions that decide whether it works' },
 ];
 
 function svgFor(p) {

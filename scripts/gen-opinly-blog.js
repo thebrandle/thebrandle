@@ -332,6 +332,11 @@ const cta = (text, href) => ctaHtml.replace(/Let’s talk/g, escCopy(text)).repl
 
 const GLUE = `<style>
 html,body{background:#0C0C0C;margin:0}
+/* Any anchor without an explicit colour falls back to the browser default -
+   blue, and purple once visited. That hit the logo, the overlay menu links and
+   the CTA button. Neutralise the default here; every rule below is at least as
+   specific and still wins, so intended colours are unaffected. */
+.svc-page a,.svc-page a:link,.svc-page a:visited{color:inherit;text-decoration:none}
 .svc-page{display:flex;flex-direction:column;align-items:stretch;overflow-x:hidden}
 .svc-nav-wrap{position:sticky;top:0;z-index:40;background:rgba(12,12,12,.78);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px)}
 @media(max-width:760px){.svc-nav-desktop{display:none}}
@@ -398,43 +403,36 @@ html,body{background:#0C0C0C;margin:0}
   .bp-date{margin-bottom:12px;font-size:18px}
   .bp-desc{font-size:17px;max-width:none}
 }
-/* ---- article body: light section with sticky sidebar, matching the
-   Framer blog template (dark hero, then everything below on #f5f5f5) ---- */
-.bp-main{background:${LIGHT};padding:96px 0 40px}
-.bp-grid{max-width:1660px;margin:0 auto;padding:0 46px;display:grid;grid-template-columns:26.5% 1fr;box-sizing:border-box}
-.bp-side{position:sticky;top:104px;align-self:start;padding-right:30px}
-.bp-side-note{color:rgba(12,12,12,.5);font-family:Inter,sans-serif;font-size:17px;line-height:1.5;margin:0 0 30px}
-.bp-back{display:inline-flex;align-items:center;gap:14px;color:#0c0c0c;font-family:Inter,sans-serif;font-size:22px;text-decoration:none}
-.bp-back svg{flex-shrink:0}
-.bp-back:hover{color:${ACCENT}}
-.bp-col{max-width:1030px;min-width:0}
+/* dark article layout - matches the hand-written cluster exactly, so the blog
+   reads as one design. Replaces the light Framer-CMS-style section. */
+.post-hero{margin:40px 0 4px;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.10);background:#111;line-height:0}
+.post-hero img{width:100%;height:auto;display:block}
 .post-body{font-family:Inter,sans-serif}
-.post-body>p:first-of-type{color:#0c0c0c;font-size:clamp(21px,1.7vw,30px);line-height:1.42;letter-spacing:-0.01em;margin:0 0 30px}
-.post-body p,.post-body li{color:rgba(12,12,12,.6);text-align:left;line-height:1.62;font-family:Inter,sans-serif;font-size:20px}
-.post-body p{margin:0 0 22px}
-.post-body h2,.post-body h3,.post-body h4{color:#0c0c0c!important;text-align:left;line-height:1.16!important;letter-spacing:-0.025em!important;font-family:Inter,sans-serif;font-weight:600}
-.post-body h2{font-size:clamp(28px,2.9vw,40px)!important;margin:64px 0 22px}
-.post-body h3{font-size:clamp(21px,1.7vw,25px)!important;margin:48px 0 16px}
-.post-body h4{font-size:20px!important;margin:38px 0 14px}
-.post-body ul,.post-body ol{margin:0 0 24px;padding-left:24px}
+.post-body h2,.post-body h3,.post-body h4{color:#fff!important;text-align:left;line-height:1.15!important;letter-spacing:-0.03em!important;font-family:Inter,sans-serif;font-weight:600}
+.post-body h2{font-size:clamp(24px,3.2vw,32px)!important;margin:56px 0 18px}
+.post-body h3{font-size:22px!important;margin:44px 0 16px}
+.post-body h4{font-size:19px!important;margin:36px 0 14px}
+.post-body p,.post-body li{color:${MUTED};text-align:left;line-height:1.65;font-family:Inter,sans-serif;font-size:16px}
+.post-body p{margin:0 0 18px}
+.post-body ul,.post-body ol{margin:0 0 20px;padding-left:22px}
 .post-body li{margin-bottom:10px}
-.post-body li::marker{color:rgba(12,12,12,.45)}
-.post-body a{color:#0c0c0c;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(12,12,12,.3)}
-.post-body a:hover{color:${ACCENT};text-decoration-color:${ACCENT}}
-.post-body strong{color:#0c0c0c;font-weight:600}
-.post-body blockquote{margin:32px 0;padding:4px 0 4px 24px;border-left:2px solid ${ACCENT}}
-.post-body blockquote p{color:#0c0c0c;font-size:22px;line-height:1.5}
-.post-body figure{margin:44px 0}
-.post-body figure img{width:100%;height:auto;display:block}
-.post-body figcaption{color:rgba(12,12,12,.45);font-family:Inter,sans-serif;font-size:14px;padding:12px 2px 0}
-.post-body pre{background:#ececec;border:1px solid rgba(12,12,12,.12);border-radius:12px;padding:18px 20px;overflow-x:auto;margin:0 0 24px}
-.post-body pre code{color:#0c0c0c;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;line-height:1.6}
-.post-body :not(pre)>code{background:rgba(12,12,12,.08);border-radius:5px;padding:2px 6px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:15px;color:#0c0c0c}
-.post-body hr{border:0;border-top:1px solid rgba(12,12,12,.14);margin:48px 0}
-.post-table-wrap{overflow-x:auto;margin:0 0 26px}
-.post-body table{border-collapse:collapse;width:100%;font-family:Inter,sans-serif;font-size:16px}
-.post-body th,.post-body td{border:1px solid rgba(12,12,12,.16);padding:11px 15px;text-align:left;color:rgba(12,12,12,.6)}
-.post-body th{color:#0c0c0c;font-weight:600;background:rgba(12,12,12,.04)}
+.post-body li::marker{color:${ACCENT}}
+.post-body a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.post-body a:hover{color:${ACCENT}}
+.post-body strong{color:#fff;font-weight:600}
+.post-body blockquote{margin:28px 0;padding:4px 0 4px 22px;border-left:2px solid ${ACCENT}}
+.post-body blockquote p{color:#fff;font-size:19px;line-height:1.5}
+.post-body figure{margin:32px 0}
+.post-body figure img{width:100%;height:auto;border-radius:14px;display:block}
+.post-body figcaption{color:rgba(255,255,255,.38);font-family:Inter,sans-serif;font-size:13px;padding:12px 2px 0}
+.post-body pre{background:#151515;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:18px 20px;overflow-x:auto;margin:0 0 22px}
+.post-body pre code{color:#e6e6e6;font-family:ui-monospace,Menlo,monospace;font-size:13.5px;line-height:1.6}
+.post-body :not(pre)>code{background:rgba(255,255,255,.09);border-radius:5px;padding:2px 6px;font-family:ui-monospace,Menlo,monospace;font-size:14px;color:#fff}
+.post-body hr{border:0;border-top:1px solid rgba(255,255,255,.14);margin:44px 0}
+.post-table-wrap{overflow-x:auto;margin:0 0 24px}
+.post-body table{border-collapse:collapse;width:100%;font-family:Inter,sans-serif;font-size:15px}
+.post-body th,.post-body td{border:1px solid rgba(255,255,255,.14);padding:10px 14px;text-align:left;color:${MUTED}}
+.post-body th{color:#fff;font-weight:600;background:rgba(255,255,255,.04)}
 /* ---- more articles ---- */
 .bp-more{background:${LIGHT};padding:70px 0 120px}
 .bp-more-h{color:#0c0c0c!important;text-align:left;margin:0 0 58px;font-size:clamp(52px,8vw,118px)!important;line-height:1!important;letter-spacing:-0.045em!important;font-weight:600}
@@ -572,9 +570,15 @@ function renderPostPage(post) {
   // Opinly's title-card images bake the headline into the artwork, which
   // collides with the title overlaid on the hero - so we ignore them and use
   // the site's own photography instead. See HERO_POOL.
-  const heroPick = pickHero(post.slug);
-  const hero = HERO_DIR + heroPick.file;
-  const heroAlt = heroPick.alt || post.title;
+  /* Generated header card (scripts/gen-blog-images.js), same as the
+     hand-written cluster. Opinly's own title-card art is ignored. */
+  const heroRel = '/assets/blog/' + post.slug + '.jpg';
+  const hasHero = fs.existsSync(path.join(ROOT, 'assets', 'blog', post.slug + '.jpg'));
+  const hero = hasHero ? heroRel : HERO_DIR + pickHero(post.slug).file;
+  const heroImg = hasHero
+    ? `<figure class="post-hero" data-reveal style="transition-delay:210ms"><img src="${esc(heroRel)}" alt="${escCopy(post.title)}" width="1600" height="900" fetchpriority="high" decoding="async"></figure>`
+    : '';
+  const p_eyebrow = (post.category && post.category.name) || 'Insights';
   let bodyHtml = renderContent(post.content);
   const linkGuard = stripExternalLinks(bodyHtml);
   bodyHtml = linkGuard.html;
@@ -618,36 +622,15 @@ function renderPostPage(post) {
   const authorRole = a.bio || 'Design Studio';
 
   const main = `
-  <header class="bp-hero">
-    ${hero ? `<img src="${esc(hero)}" alt="${escCopy(heroAlt)}" fetchpriority="high" decoding="async">` : ''}
-    <div class="bp-inner">
-      <div class="bp-mid">
-        <div class="bp-author">
-          ${avatar ? `<img class="bp-avatar" src="${esc(avatar)}" alt="" width="58" height="58">` : ''}
-          <div><div class="n">${escCopy(authorName)}</div><div class="r">${escCopy(authorRole)}</div></div>
-        </div>
-        <h1 class="bp-title ${P.h2}">${escCopy(post.title)}</h1>
-      </div>
-      <div class="bp-foot">
-        <div class="bp-date">${esc(fmtDateLong(post.firstPublishedAt))}</div>
-        <p class="bp-desc">${escCopy(desc)}</p>
-      </div>
-    </div>
-  </header>
-
-  <section class="bp-main">
-    <div class="bp-grid">
-      <aside class="bp-side">
-        <p class="bp-side-note">Continue exploring ideas<br>in web design and beyond.</p>
-        <a class="bp-back" href="${BLOG_INDEX}">${BACK_ARROW}Back to blogs</a>
-      </aside>
-      <div class="bp-col">
-        <div class="post-body">
+  <article class="post-wrap">
+    <span class="post-label" data-reveal>${escCopy(p_eyebrow)}</span>
+    <h1 class="post-h1 ${P.h2}" data-reveal style="transition-delay:70ms">${escCopy(post.title)}</h1>
+    <div class="post-meta ${P.small}" data-reveal style="transition-delay:140ms">${esc(fmtDate(post.firstPublishedAt))} &middot; ${mins} min read &middot; TheBrandle</div>
+    ${heroImg}
+    <div class="post-body" data-reveal style="transition-delay:260ms">
 ${bodyHtml}
-        </div>
-      </div>
     </div>
-  </section>
+  </article>
 
   <section class="bp-more">
     <div class="bp-grid">
