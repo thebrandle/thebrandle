@@ -189,6 +189,83 @@ function stripExternalLinks(html) {
   return { html: out, removed };
 }
 
+/* Market-size padding.
+   Generated posts reach for TAM figures from low-tier report vendors
+   ("projected to reach $10.7 billion by 2034", "According to <vendor> market
+   research") to sound authoritative. The numbers are unverifiable, the vendors
+   sell paywalled PDFs, and a founder choosing who to hire does not care what a
+   market is worth in 2034. Worse than an obvious invention, because a real
+   citation format makes it look checked.
+
+   Removes whole sentences, not phrases, so the prose still reads. Deliberately
+   narrow: it will not touch a citation naming a university or a real
+   institution, e.g. the Carleton first-impressions study, or a widely-verified
+   figure like WordPress's share of the web. */
+const MARKET_SIZE = [
+  /[^.<>]*\b(?:market|industry|sector)\b[^.<>]*\b(?:projected|expected|forecast|estimated|valued|worth|reach|grow)\b[^.<>]*\$[\d.,]+\s*(?:billion|million|bn|m)\b[^.<>]*\./gi,
+  /[^.<>]*\baccording to\b[^.<>]{0,60}\b(?:market research|market report|industry report|pricing research|research report)\b[^.<>]*\./gi,
+  /[^.<>]*\b(?:Dataintelo|360iResearch|Grand View Research|MarketsandMarkets|IBISWorld|Statista)\b[^.<>]*\./gi,
+];
+function stripMarketSize(html) {
+  let removed = 0;
+  let out = html;
+  for (const re of MARKET_SIZE) {
+    out = out.replace(re, (m) => { removed++; return ''; });
+  }
+  // drop paragraphs left empty or with only stray whitespace
+  out = out.replace(/<p>\s*<\/p>/g, '');
+  return { html: out, removed };
+}
+
+/* Internal linking. Opinly posts ship with almost none - the branding post had
+   3 service links across 6,300 words, against 6-8 in a third the length on the
+   hand-written cluster. Link the first occurrence of each phrase only, never
+   inside an existing anchor or a heading. */
+const AUTOLINK = [
+  ['brand identity', '/services/brand-identity-design/'],
+  ['branding agency', '/services/brand-identity-design/'],
+  ['logo design', '/services/brand-identity-design/'],
+  ['Shopify', '/services/shopify-website-design/'],
+  ['WooCommerce', '/services/woocommerce-website-design/'],
+  ['WordPress', '/services/wordpress-website-design/'],
+  ['Webflow', '/services/webflow-website-design/'],
+  ['Framer', '/services/framer-website-design/'],
+  ['Squarespace', '/services/squarespace-website-design/'],
+  ['Wix', '/services/wix-website-design/'],
+  ['UI/UX', '/services/ui-ux-design/'],
+  ['website maintenance', '/services/website-maintenance/'],
+  ['SEO', '/services/seo-services/'],
+  ['ecommerce', '/services/ecommerce-website-design/'],
+];
+function autolink(html) {
+  const used = new Set();   // per post: module scope would link only the first
+  let added = 0;
+  // split on tags so we only ever touch text nodes
+  const parts = html.split(/(<[^>]+>)/);
+  let inAnchor = 0, inHeading = 0;
+  for (let i = 0; i < parts.length; i++) {
+    const tok = parts[i];
+    if (tok.startsWith('<')) {
+      if (/^<a\b/i.test(tok)) inAnchor++;
+      else if (/^<\/a>/i.test(tok)) inAnchor = Math.max(0, inAnchor - 1);
+      else if (/^<h[1-6]\b/i.test(tok)) inHeading++;
+      else if (/^<\/h[1-6]>/i.test(tok)) inHeading = Math.max(0, inHeading - 1);
+      continue;
+    }
+    if (inAnchor || inHeading || !tok.trim()) continue;
+    for (const [phrase, href] of AUTOLINK) {
+      if (used.has(phrase)) continue;
+      const re = new RegExp('\\b(' + phrase.replace(/[.*+?^${}()|[\]\\/]/g, '\\function auditContent(text, slug) {') + ')\\b');
+      if (!re.test(parts[i])) continue;
+      parts[i] = parts[i].replace(re, '<a href="' + href + '">$1</a>');
+      used.add(phrase);
+      added++;
+      break; // one link per text node keeps it from clustering
+    }
+  }
+  return { html: parts.join(''), added };
+}
+
 function auditContent(text, slug) {
   const warn = [];
   const stat = text.match(/\b\d{1,3}(?:\.\d+)?\s?%|\b\d+x\b|\b\d{1,3}(,\d{3})+\b/g);
@@ -501,6 +578,12 @@ function renderPostPage(post) {
   let bodyHtml = renderContent(post.content);
   const linkGuard = stripExternalLinks(bodyHtml);
   bodyHtml = linkGuard.html;
+  const mkt = stripMarketSize(bodyHtml);
+  bodyHtml = mkt.html;
+  if (mkt.removed) console.warn('  [guardrail] ' + post.slug + ': stripped ' + mkt.removed + ' market-size claim(s)');
+  const al = autolink(bodyHtml);
+  bodyHtml = al.html;
+  if (al.added) console.log('  [autolink] ' + post.slug + ': added ' + al.added + ' internal link(s)');
   if (linkGuard.removed) console.warn('  [guardrail] ' + post.slug + ': stripped ' + linkGuard.removed + ' outbound link(s)');
   auditContent(flattenText(post.content), post.slug);
   const mins = readingMinutes(post.content);
