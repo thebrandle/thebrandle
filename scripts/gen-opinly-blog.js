@@ -109,29 +109,8 @@ const BLOG_BLURB = {
    so overlaying a second title makes both unreadable - we ignore Opinly's
    image entirely and use the site's own photography.
 
-   To pin a specific photo to a post, add slug -> filename in HERO_OVERRIDES.
-   Everything else gets a stable pick from the pool (same slug, same photo on
-   every build). Files live in framerusercontent.com/images and are AVIF
-   despite the .jpg extension - that is how Framer ships them. */
-const HERO_DIR = '/framerusercontent.com/images/';
-const HERO_POOL = [
-  { file: 'YlEKlxLXS5eEKd4QlVitTh30A.jpg', alt: 'Three people working together in a studio' },
-  { file: 'eLsR49HoCXz2B9KTFAhtjD454Dw.jpg', alt: 'A studio lounge with green armchairs and plants' },
-  { file: 'bPs9iY1xCdYs2KmVLN2FyaQJhk.jpg', alt: 'A phone resting on a concrete surface' },
-  { file: 'T3l9K398sRcCWjbIM6rTgD8UILk.jpg', alt: 'A close-up of a tablet and fabric speaker' },
-  { file: 'mEUUzFINLTAMqcjxzWXrFUYzBPQ.jpg', alt: 'Two phones displaying a design mockup' },
-  { file: 'SDIyriYujLHtLJeg9tbQiqvoT4.jpg', alt: 'Dark product packaging on a marble tray' },
-];
-const HERO_OVERRIDES = {
-  'should-i-hire-a-web-designer-or-do-it-myself': 'YlEKlxLXS5eEKd4QlVitTh30A.jpg',
-};
-function pickHero(slug) {
-  const pinned = HERO_OVERRIDES[slug];
-  if (pinned) return HERO_POOL.find((h) => h.file === pinned) || { file: pinned, alt: '' };
-  let sum = 0;
-  for (let i = 0; i < slug.length; i++) sum = (sum * 31 + slug.charCodeAt(i)) >>> 0;
-  return HERO_POOL[sum % HERO_POOL.length];
-}
+   The pool, the per-slug pins and the visibility guard all live in
+   blog-layout-2024.js so both generators share one set. */
 
 /* "Back to blogs" points at /blog, which is now our own static listing served
    ahead of the Framer route by filesystem resolution. */
@@ -454,9 +433,9 @@ ${L2024.css({ LIGHT, ACCENT, MUTED })}
 .svc-footer{width:100%;margin-top:90px}
 .svc-noise{position:fixed;inset:0;z-index:30;pointer-events:none}
 .svc-noise .framer-22mi0a{position:absolute;inset:0}
-[data-reveal]{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.215,.61,.355,1),transform .7s cubic-bezier(.215,.61,.355,1)}
+[data-reveal]{opacity:0;transform:translateY(16px);transition:opacity .56s var(--bp-ease-out,cubic-bezier(0.23,1,0.32,1)),transform .56s var(--bp-ease-out,cubic-bezier(0.23,1,0.32,1))}
 [data-reveal].in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none;transition:none}}
+@media(prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none;transition:none;animation:none}}
 </style>
 <noscript><style>[data-reveal]{opacity:1;transform:none;transition:none}</style></noscript>`;
 
@@ -549,12 +528,12 @@ function renderPostPage(post) {
   const url = `${SITE}/blog/${post.slug}/`;
   // Opinly's title-card images bake the headline into the artwork, which
   // collides with the title overlaid on the hero - so we ignore them and use
-  // the site's own photography instead. See HERO_POOL.
+  // the site's own photography instead. See L2024.HERO_POOL.
   /* Generated header card (scripts/gen-blog-images.js), same as the
      hand-written cluster. Opinly's own title-card art is ignored. */
   const heroRel = '/assets/blog/' + post.slug + '.jpg';
   const hasHero = fs.existsSync(path.join(ROOT, 'assets', 'blog', post.slug + '.jpg'));
-  const hero = hasHero ? heroRel : HERO_DIR + pickHero(post.slug).file;
+  const hero = hasHero ? heroRel : L2024.heroFor(post.slug).src;
   const heroImg = hasHero
     ? `<figure class="post-hero" data-reveal style="transition-delay:210ms"><img src="${esc(heroRel)}" alt="${escCopy(post.title)}" width="1600" height="900" fetchpriority="high" decoding="async"></figure>`
     : '';
@@ -604,8 +583,8 @@ function renderPostPage(post) {
   const main = `
   ${L2024.renderArticle({
     esc, escCopy, h2Preset: P.h2, backHref: BLOG_INDEX,
-    hero: HERO_DIR + pickHero(post.slug).file,
-    heroAlt: pickHero(post.slug).alt || post.title,
+    hero: L2024.heroFor(post.slug).src,
+    heroAlt: L2024.heroFor(post.slug).alt || post.title,
     avatar: avatar || L2024.AVATAR,
     authorName, authorRole, title: post.title,
     date: fmtDateLong(post.firstPublishedAt), desc, body: bodyHtml,

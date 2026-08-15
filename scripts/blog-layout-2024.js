@@ -109,6 +109,65 @@ function css({ LIGHT, ACCENT, MUTED }) {
 .post-cta .framer-LqZE5 .framer-13x93le{width:auto;min-width:200px;padding:20px 36px!important;justify-content:center!important;gap:0!important}
 .post-cta .framer-1m71lft-container{display:none}
 
+
+/* ---- motion -------------------------------------------------------------
+   Curves and durations live here so both generators share one set.
+   0.23,1,0.32,1 is the strong ease-out: fast off the mark, long settle. The
+   built-in CSS easings are too weak to read as deliberate. */
+:root{--bp-ease-out:cubic-bezier(0.23,1,0.32,1);--bp-ease-in-out:cubic-bezier(0.77,0,0.175,1)}
+
+/* Hero entrance. Pure CSS animation, not a JS-toggled class: fill "both"
+   holds the end state, and the un-animated base state is fully visible, so a
+   script that never runs cannot leave the title invisible. */
+@media(prefers-reduced-motion:no-preference){
+  .bp-hero .bp-author{animation:bpRise .66s var(--bp-ease-out) .10s both}
+  .bp-hero .bp-title{animation:bpRise .66s var(--bp-ease-out) .16s both}
+  .bp-hero .bp-date{animation:bpRise .66s var(--bp-ease-out) .26s both}
+  .bp-hero .bp-desc{animation:bpRise .66s var(--bp-ease-out) .32s both}
+  .bp-hero>img{animation:bpSettle 1.1s var(--bp-ease-out) both}
+}
+@keyframes bpRise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes bpSettle{from{transform:scale(1.06)}to{transform:scale(1)}}
+
+/* Hero parallax, driven by the scroll position itself rather than a rAF loop,
+   so it runs on the compositor and cannot fall behind the scroll. Chrome and
+   Safari 26 support it; everywhere else the @supports block is skipped and the
+   hero simply does not drift. scale stays above 1 so the drift never exposes
+   an edge. */
+@supports (animation-timeline:view()){
+  @media(prefers-reduced-motion:no-preference){
+    .bp-hero>img{animation:bpPan linear both;animation-timeline:view();animation-range:entry 0% exit 100%}
+    @keyframes bpPan{from{transform:scale(1.14) translateY(-2.4%)}to{transform:scale(1.14) translateY(2.4%)}}
+  }
+}
+
+/* Article copy eases in as it arrives, driven by scroll position rather than
+   an IntersectionObserver toggling a class.
+   Two reasons. It tracks the scroll exactly instead of firing once at a
+   threshold, which is what makes it feel smooth rather than snappy. And it
+   fails safe: the hidden state lives inside @supports, so a browser without
+   scroll timelines never hides the copy at all, and there is no script whose
+   failure could strand a paragraph at opacity 0.
+   12px, not 36 - on running copy a long travel reads as a lurch. */
+@supports (animation-timeline:view()){
+  @media(prefers-reduced-motion:no-preference){
+    .bp-main .post-body>*,
+    .bp-main .post-faq details,
+    .bp-main .post-related{
+      animation:bpIn 1s linear both;
+      animation-timeline:view();
+      animation-range:entry 0% entry 46%;
+    }
+  }
+}
+@keyframes bpIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* the rail's arrow leans toward where it takes you */
+@media(hover:hover) and (pointer:fine){
+  .bp-back svg{transition:transform .22s var(--bp-ease-out)}
+  .bp-back:hover svg{transform:translateX(-4px)}
+}
+
 /* ---- 2024 layout page chrome -------------------------------------------
    The original Framer posts sit on a white page: white surround around the
    photo hero, #f5f5f5 article band, dark footer. The dark grain and the

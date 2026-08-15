@@ -15883,6 +15883,65 @@ html,body{background:#0C0C0C;margin:0}
 .post-cta .framer-LqZE5 .framer-13x93le{width:auto;min-width:200px;padding:20px 36px!important;justify-content:center!important;gap:0!important}
 .post-cta .framer-1m71lft-container{display:none}
 
+
+/* ---- motion -------------------------------------------------------------
+   Curves and durations live here so both generators share one set.
+   0.23,1,0.32,1 is the strong ease-out: fast off the mark, long settle. The
+   built-in CSS easings are too weak to read as deliberate. */
+:root{--bp-ease-out:cubic-bezier(0.23,1,0.32,1);--bp-ease-in-out:cubic-bezier(0.77,0,0.175,1)}
+
+/* Hero entrance. Pure CSS animation, not a JS-toggled class: fill "both"
+   holds the end state, and the un-animated base state is fully visible, so a
+   script that never runs cannot leave the title invisible. */
+@media(prefers-reduced-motion:no-preference){
+  .bp-hero .bp-author{animation:bpRise .66s var(--bp-ease-out) .10s both}
+  .bp-hero .bp-title{animation:bpRise .66s var(--bp-ease-out) .16s both}
+  .bp-hero .bp-date{animation:bpRise .66s var(--bp-ease-out) .26s both}
+  .bp-hero .bp-desc{animation:bpRise .66s var(--bp-ease-out) .32s both}
+  .bp-hero>img{animation:bpSettle 1.1s var(--bp-ease-out) both}
+}
+@keyframes bpRise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes bpSettle{from{transform:scale(1.06)}to{transform:scale(1)}}
+
+/* Hero parallax, driven by the scroll position itself rather than a rAF loop,
+   so it runs on the compositor and cannot fall behind the scroll. Chrome and
+   Safari 26 support it; everywhere else the @supports block is skipped and the
+   hero simply does not drift. scale stays above 1 so the drift never exposes
+   an edge. */
+@supports (animation-timeline:view()){
+  @media(prefers-reduced-motion:no-preference){
+    .bp-hero>img{animation:bpPan linear both;animation-timeline:view();animation-range:entry 0% exit 100%}
+    @keyframes bpPan{from{transform:scale(1.14) translateY(-2.4%)}to{transform:scale(1.14) translateY(2.4%)}}
+  }
+}
+
+/* Article copy eases in as it arrives, driven by scroll position rather than
+   an IntersectionObserver toggling a class.
+   Two reasons. It tracks the scroll exactly instead of firing once at a
+   threshold, which is what makes it feel smooth rather than snappy. And it
+   fails safe: the hidden state lives inside @supports, so a browser without
+   scroll timelines never hides the copy at all, and there is no script whose
+   failure could strand a paragraph at opacity 0.
+   12px, not 36 - on running copy a long travel reads as a lurch. */
+@supports (animation-timeline:view()){
+  @media(prefers-reduced-motion:no-preference){
+    .bp-main .post-body>*,
+    .bp-main .post-faq details,
+    .bp-main .post-related{
+      animation:bpIn 1s linear both;
+      animation-timeline:view();
+      animation-range:entry 0% entry 46%;
+    }
+  }
+}
+@keyframes bpIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* the rail's arrow leans toward where it takes you */
+@media(hover:hover) and (pointer:fine){
+  .bp-back svg{transition:transform .22s var(--bp-ease-out)}
+  .bp-back:hover svg{transform:translateX(-4px)}
+}
+
 /* ---- 2024 layout page chrome -------------------------------------------
    The original Framer posts sit on a white page: white surround around the
    photo hero, #f5f5f5 article band, dark footer. The dark grain and the
@@ -15988,9 +16047,9 @@ body.bp2024 .svc-nav-wrap .bm-open img[src*="TheBrandle"]{filter:brightness(0) i
 .svc-footer{width:100%;margin-top:90px}
 .svc-noise{position:fixed;inset:0;z-index:30;pointer-events:none}
 .svc-noise .framer-22mi0a{position:absolute;inset:0}
-[data-reveal]{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.215,.61,.355,1),transform .7s cubic-bezier(.215,.61,.355,1)}
+[data-reveal]{opacity:0;transform:translateY(16px);transition:opacity .56s var(--bp-ease-out,cubic-bezier(0.23,1,0.32,1)),transform .56s var(--bp-ease-out,cubic-bezier(0.23,1,0.32,1))}
 [data-reveal].in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none;transition:none}}
+@media(prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none;transition:none;animation:none}}
 </style>
 <noscript><style>[data-reveal]{opacity:1;transform:none;transition:none}</style></noscript>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","url":"https://www.thebrandle.com/blog/","name":"TheBrandle Articles","blogPost":[{"@type":"BlogPosting","headline":"How to Choose a Branding Agency (Without Getting Burned)","url":"https://www.thebrandle.com/blog/branding-agency/"},{"@type":"BlogPosting","headline":"Website Design in 2026: What Founders Need to Know Before They Build","url":"https://www.thebrandle.com/blog/website-design/"},{"@type":"BlogPosting","headline":"Headless CMS: what it is and when you actually need one","url":"https://www.thebrandle.com/blog/headless-cms-guide/"},{"@type":"BlogPosting","headline":"AI in web design: what it does well and where it fails","url":"https://www.thebrandle.com/blog/ai-in-web-design/"},{"@type":"BlogPosting","headline":"Arabic and RTL website design: doing it properly","url":"https://www.thebrandle.com/blog/arabic-rtl-website-design/"},{"@type":"BlogPosting","headline":"How to redesign your website without losing SEO","url":"https://www.thebrandle.com/blog/website-redesign-without-losing-seo/"},{"@type":"BlogPosting","headline":"Website maintenance: what you actually need to pay for","url":"https://www.thebrandle.com/blog/website-maintenance-cost/"},{"@type":"BlogPosting","headline":"WordPress vs Webflow: an honest comparison","url":"https://www.thebrandle.com/blog/wordpress-vs-webflow/"},{"@type":"BlogPosting","headline":"The real cost of a website over three years","url":"https://www.thebrandle.com/blog/website-total-cost-of-ownership/"},{"@type":"BlogPosting","headline":"Real estate website design: what actually converts","url":"https://www.thebrandle.com/blog/real-estate-website-design/"},{"@type":"BlogPosting","headline":"Core Web Vitals: what they are and how to fix them","url":"https://www.thebrandle.com/blog/core-web-vitals-guide/"},{"@type":"BlogPosting","headline":"Progressive web apps: do you actually need one?","url":"https://www.thebrandle.com/blog/progressive-web-apps/"},{"@type":"BlogPosting","headline":"Website security: a practical checklist for small businesses","url":"https://www.thebrandle.com/blog/website-security-checklist/"},{"@type":"BlogPosting","headline":"Should I Hire a Web Designer or Do It Myself? An Honest Answer for Founders","url":"https://www.thebrandle.com/blog/should-i-hire-a-web-designer-or-do-it-myself/"},{"@type":"BlogPosting","headline":"Shopify vs WooCommerce: which should you build your store on?","url":"https://www.thebrandle.com/blog/shopify-vs-woocommerce/"},{"@type":"BlogPosting","headline":"How much does a website cost in Dubai?","url":"https://www.thebrandle.com/blog/website-cost-dubai/"},{"@type":"BlogPosting","headline":"Framer vs Webflow: which builder fits your website?","url":"https://www.thebrandle.com/blog/framer-vs-webflow/"},{"@type":"BlogPosting","headline":"Moving from Wix to Shopify: a practical guide","url":"https://www.thebrandle.com/blog/wix-to-shopify-migration/"},{"@type":"BlogPosting","headline":"Why your website’s user experience is its greatest asset","url":"https://www.thebrandle.com/blog/why-your-website-s-user-experience-is-its-greatest-asset/"},{"@type":"BlogPosting","headline":"Why Mobile-First Design is Crucial for Modern Websites","url":"https://www.thebrandle.com/blog/why-mobile-first-design-is-crucial-for-modern-websites/"}]}</script>

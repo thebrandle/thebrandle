@@ -151,9 +151,9 @@ html,body{background:#0C0C0C;margin:0}
 .svc-footer{width:100%;margin-top:90px}
 .svc-noise{position:fixed;inset:0;z-index:30;pointer-events:none}
 .svc-noise .framer-22mi0a{position:absolute;inset:0}
-[data-reveal]{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.215,.61,.355,1),transform .7s cubic-bezier(.215,.61,.355,1)}
+[data-reveal]{opacity:0;transform:translateY(16px);transition:opacity .56s var(--bp-ease-out,cubic-bezier(0.23,1,0.32,1)),transform .56s var(--bp-ease-out,cubic-bezier(0.23,1,0.32,1))}
 [data-reveal].in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none;transition:none}}
+@media(prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none;transition:none;animation:none}}
 ${L2024.css({ LIGHT: "#f5f5f5", ACCENT, MUTED })}
 </style>`;
 
