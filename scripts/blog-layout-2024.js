@@ -21,17 +21,17 @@ function css({ LIGHT, ACCENT, MUTED }) {
 .bp-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
 /* two scrims: vertical for the title/date rows, plus a left wash so the
    author chip stays readable over a bright photo */
-.bp-hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,.24) 34%,rgba(0,0,0,.42) 72%,rgba(0,0,0,.68) 100%),linear-gradient(90deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,.10) 34%,rgba(0,0,0,0) 55%)}
+.bp-hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.54) 0%,rgba(0,0,0,.38) 34%,rgba(0,0,0,.52) 72%,rgba(0,0,0,.74) 100%),linear-gradient(90deg,rgba(0,0,0,.52) 0%,rgba(0,0,0,.18) 34%,rgba(0,0,0,.06) 55%)}
 .bp-inner{position:relative;height:100%;display:grid;grid-template-rows:1fr auto;padding:44px 46px 40px;box-sizing:border-box}
 .bp-mid{display:flex;align-items:center;gap:0}
 .bp-author{display:flex;align-items:center;gap:16px;flex:0 0 26.8%}
 .bp-avatar{width:58px;height:58px;border-radius:50%;object-fit:cover;flex-shrink:0;background:rgba(255,255,255,.14)}
 .bp-author .n{color:#fff;font-family:Inter,sans-serif;font-size:22px;font-weight:500;line-height:1.25;text-shadow:0 1px 16px rgba(0,0,0,.6)}
 .bp-author .r{color:rgba(255,255,255,.82);font-family:Inter,sans-serif;font-size:18px;line-height:1.3;text-shadow:0 1px 16px rgba(0,0,0,.6)}
-.bp-title{color:#fff!important;text-align:left;margin:0;flex:1;font-size:clamp(40px,7vw,106px)!important;line-height:1.06!important;letter-spacing:-0.04em!important;text-shadow:0 2px 30px rgba(0,0,0,.45)}
+.bp-title{text-shadow:0 2px 28px rgba(0,0,0,.42);color:#fff!important;text-align:left;margin:0;flex:1;font-size:clamp(40px,7vw,106px)!important;line-height:1.06!important;letter-spacing:-0.04em!important;text-shadow:0 2px 30px rgba(0,0,0,.45)}
 .bp-foot{display:flex;align-items:flex-start;gap:0;padding-left:26.8%}
-.bp-date{color:#fff;font-family:Inter,sans-serif;font-size:22px;flex:0 0 30%}
-.bp-desc{color:rgba(255,255,255,.92);font-family:Inter,sans-serif;font-size:19px;line-height:1.5;max-width:46ch;margin:0}
+.bp-date{text-shadow:0 1px 16px rgba(0,0,0,.5);color:#fff;font-family:Inter,sans-serif;font-size:22px;flex:0 0 30%}
+.bp-desc{text-shadow:0 1px 16px rgba(0,0,0,.5);color:rgba(255,255,255,.96);font-family:Inter,sans-serif;font-size:19px;line-height:1.5;max-width:46ch;margin:0}
 @media(max-width:1024px){
   .bp-hero{height:auto;min-height:0;margin:20px 20px 0}
   .bp-inner{display:block;padding:32px 26px 34px}
@@ -170,20 +170,60 @@ function renderArticle(o) {
   ].join('');
 }
 
-/* Hero photos. The 2024 layout overlays its own title on the photo, so a
-   post must NOT use its generated listing card here - that art already has
-   the title baked in. Pin a photo to a slug via HERO_OVERRIDES. */
-const HERO_DIR = '/framerusercontent.com/images/';
+/* Hero photos.
+   These are the studio's own project photographs, not Framer's template
+   stock. That matters: the site ships an override stylesheet
+   (_snapshot/components/styles.html) that swaps several Framer placeholder
+   images for real project work and hides the originals with
+   "opacity: 0 !important". Three of the photos this pool used to carry were
+   on that list, so seven posts rendered a grey scrim and no image at all.
+   assertHeroVisible() below fails the build rather than let that recur.
+
+   The 2024 layout overlays its own title on the photo, so a post must NOT use
+   its generated listing card here - that art already has the title baked in. */
+const HERO_DIR = '';
 const HERO_POOL = [
-  { file: 'YlEKlxLXS5eEKd4QlVitTh30A.jpg', alt: 'Three people working together in a studio' },
-  { file: 'eLsR49HoCXz2B9KTFAhtjD454Dw.jpg', alt: 'A studio lounge with green armchairs and plants' },
-  { file: 'bPs9iY1xCdYs2KmVLN2FyaQJhk.jpg', alt: 'A phone resting on a concrete surface' },
-  { file: 'T3l9K398sRcCWjbIM6rTgD8UILk.jpg', alt: 'A close-up of a tablet and fabric speaker' },
-  { file: 'mEUUzFINLTAMqcjxzWXrFUYzBPQ.jpg', alt: 'Two phones displaying a design mockup' },
-  { file: 'SDIyriYujLHtLJeg9tbQiqvoT4.jpg', alt: 'Dark product packaging on a marble tray' },
+  { file: '/assets/projects/apex/project2_02_img.webp', alt: 'Branded takeaway cups from an Apex identity project' },
+  { file: '/assets/projects/apex/project2_03_img.webp', alt: 'Branded deck chairs from an Apex identity project' },
+  { file: '/assets/projects/apex/project2_04_img.webp', alt: 'A branded t-shirt from an Apex identity project' },
+  { file: '/assets/projects/dropx/image3.webp', alt: 'A DropX sneaker photographed on a dark set' },
+  { file: '/assets/projects/dropx/image4.webp', alt: 'A DropX tote bag held against a dark backdrop' },
+  { file: '/assets/projects/dropx/image5.webp', alt: 'A printed DropX t-shirt' },
+  { file: '/assets/projects/orblead/image1.webp', alt: 'The Orblead web app open on a laptop' },
+  { file: '/assets/projects/orblead/image2.webp', alt: 'An Orblead pricing page on a desktop display' },
+  { file: '/assets/projects/orblead/image3.webp', alt: 'Orblead interface screens' },
+  { file: '/assets/projects/orblead/image4.webp', alt: 'Orblead pricing and comparison screens' },
+  { file: '/assets/projects/orblead/image5.png', alt: 'An Orblead analytics dashboard' },
+  { file: '/assets/projects/shine/image2.webp', alt: 'Printed brand collateral from the Shine identity' },
+  { file: '/assets/projects/shine/image4.webp', alt: 'A repeating pattern from the Shine identity' },
+  { file: '/assets/projects/shine/image5.webp', alt: 'The Shine app on a phone with brand cards' },
+  { file: '/assets/projects/shine/pallete.webp', alt: 'The Shine colour palette' },
+  { file: '/framerusercontent.com/images/YlEKlxLXS5eEKd4QlVitTh30A.jpg', alt: 'Three people working together in a studio' },
+  { file: '/framerusercontent.com/images/eLsR49HoCXz2B9KTFAhtjD454Dw.jpg', alt: 'A studio lounge with green armchairs and plants' },
+  { file: '/framerusercontent.com/images/mEUUzFINLTAMqcjxzWXrFUYzBPQ.jpg', alt: 'Two phones displaying a design mockup' },
 ];
+
+/* One cover per post, chosen to suit the subject. 18 posts, 18 photos, so no
+   two posts share a cover. Anything not listed falls back to the hash pick. */
 const HERO_OVERRIDES = {
-  'should-i-hire-a-web-designer-or-do-it-myself': 'YlEKlxLXS5eEKd4QlVitTh30A.jpg',
+  'ai-in-web-design': '/assets/projects/orblead/image5.png',
+  'arabic-rtl-website-design': '/assets/projects/shine/image2.webp',
+  'branding-agency': '/assets/projects/apex/project2_02_img.webp',
+  'core-web-vitals-guide': '/assets/projects/orblead/image1.webp',
+  'framer-vs-webflow': '/framerusercontent.com/images/YlEKlxLXS5eEKd4QlVitTh30A.jpg',
+  'headless-cms-guide': '/assets/projects/orblead/image3.webp',
+  'progressive-web-apps': '/framerusercontent.com/images/mEUUzFINLTAMqcjxzWXrFUYzBPQ.jpg',
+  'real-estate-website-design': '/framerusercontent.com/images/eLsR49HoCXz2B9KTFAhtjD454Dw.jpg',
+  'shopify-vs-woocommerce': '/assets/projects/dropx/image3.webp',
+  'should-i-hire-a-web-designer-or-do-it-myself': '/assets/projects/apex/project2_03_img.webp',
+  'website-cost-dubai': '/assets/projects/orblead/image2.webp',
+  'website-design': '/assets/projects/shine/image4.webp',
+  'website-maintenance-cost': '/assets/projects/orblead/image4.webp',
+  'website-redesign-without-losing-seo': '/assets/projects/shine/pallete.webp',
+  'website-security-checklist': '/assets/projects/dropx/image4.webp',
+  'website-total-cost-of-ownership': '/assets/projects/shine/image5.webp',
+  'wix-to-shopify-migration': '/assets/projects/dropx/image5.webp',
+  'wordpress-vs-webflow': '/assets/projects/apex/project2_04_img.webp',
 };
 /** Deterministic per slug, so a post keeps the same photo across rebuilds. */
 function pickHero(slug) {
@@ -193,6 +233,34 @@ function pickHero(slug) {
   for (let i = 0; i < slug.length; i++) sum = (sum * 31 + slug.charCodeAt(i)) >>> 0;
   return HERO_POOL[sum % HERO_POOL.length];
 }
-const heroFor = (slug) => { const h = pickHero(slug); return { src: HERO_DIR + h.file, alt: h.alt }; };
 
-module.exports = { AVATAR, BACK_ARROW, css, renderArticle, HERO_DIR, HERO_POOL, HERO_OVERRIDES, pickHero, heroFor };
+/* The override stylesheet hides specific Framer images outright. A hero on
+   that list loads fine and reports naturalWidth, so nothing looks wrong at
+   build time - it just paints nothing. Read the list and refuse to build. */
+let _hidden = null;
+function hiddenImageHashes() {
+  if (_hidden) return _hidden;
+  _hidden = new Set();
+  try {
+    const css = require('fs').readFileSync(
+      require('path').join(__dirname, '..', '_snapshot', 'components', 'styles.html'), 'utf8');
+    for (const m of css.matchAll(/img\[src\*="([A-Za-z0-9]+)"\][^{]*\{[^}]*opacity:\s*0/g)) _hidden.add(m[1]);
+  } catch (_) { /* snapshot missing - guard simply cannot run */ }
+  return _hidden;
+}
+function assertHeroVisible(slug, src) {
+  for (const hash of hiddenImageHashes()) {
+    if (src.includes(hash)) {
+      throw new Error('hero for "' + slug + '" is ' + src + ', which the project-image override ' +
+        'hides with opacity:0 - it would render as an empty scrim. Pick another photo.');
+    }
+  }
+}
+const heroFor = (slug) => {
+  const h = pickHero(slug);
+  const src = HERO_DIR + h.file;
+  assertHeroVisible(slug, src);
+  return { src, alt: h.alt };
+};
+
+module.exports = { AVATAR, BACK_ARROW, css, renderArticle, HERO_DIR, HERO_POOL, HERO_OVERRIDES, pickHero, heroFor, assertHeroVisible, hiddenImageHashes };
