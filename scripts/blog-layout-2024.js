@@ -194,12 +194,12 @@ body.bp2024 .svc-nav-wrap svg [stroke="white"]{stroke:#0c0c0c!important}
 .bp-main .post-faq .ans{color:rgba(12,12,12,.62)}
 .bp-main .post-related{border-color:rgba(12,12,12,.16)}
 .bp-main .post-related h3{color:#0c0c0c}
-/* The MENU overlay is white text with no background of its own - it relied on
-   the dark page behind it. On this white page it would be invisible, so give
-   the open menu its own dark panel (the live site opens a dark overlay too). */
-body.bp2024 .svc-nav-wrap .bm-open,body.bp2024 .svc-nav-wrap .bm-open *{color:#fff!important}
-body.bp2024 .svc-nav-wrap .bm-open{background:#0c0c0c;border-radius:16px;padding:26px 32px;box-shadow:0 26px 70px rgba(0,0,0,.30)}
-body.bp2024 .svc-nav-wrap .bm-open img[src*="TheBrandle"]{filter:brightness(0) invert(1)!important}
+/* The menu is Framer's own component and opens the same on every page, so it
+   needs no styling of its own here. It does paint over the white article
+   header, so the bar's dark-on-white treatment has to step aside while open. */
+body.bp2024 .svc-nav-wrap:has(.bm-open),body.bp2024 .svc-nav-wrap:has(.bm-open) *{color:#fff!important}
+body.bp2024 .svc-nav-wrap:has(.bm-open){background:transparent;border-bottom-color:transparent}
+body.bp2024 .svc-nav-wrap:has(.bm-open) img[src*="TheBrandle"]{filter:brightness(0) invert(1)!important}
 `;
 }
 

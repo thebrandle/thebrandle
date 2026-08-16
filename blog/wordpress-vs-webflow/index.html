@@ -15761,43 +15761,19 @@ html,body{background:#0C0C0C;margin:0}
 .svc-nav-wrap .bm-open a[href="/services/"],
 .svc-nav-wrap .bm-open a[href="/contact"]{display:revert!important}
 .bm-open{opacity:1!important;pointer-events:auto!important}
-/* Framer builds the open menu at runtime with inline styles, so the export
-   contains no open-state CSS - only "Desktop closed" and "Phone closed"
-   variants. Toggling opacity on the carved markup therefore changed nothing
-   visible: the link list stays inside a 50px-tall header and never paints.
-   Lift it out into a real panel of our own when open. Same markup, same
-   links, styles we control. */
-.svc-nav-wrap .bm-open{
-  position:fixed!important;top:88px;right:26px;z-index:60;
-  display:flex!important;flex-direction:column;align-items:flex-start;gap:2px;
-  width:auto!important;min-width:230px;height:auto!important;flex:none!important;
-  background:#141414;border:1px solid rgba(255,255,255,.13);border-radius:16px;
-  padding:16px 10px;box-shadow:0 30px 80px rgba(0,0,0,.55);
-  opacity:1!important;pointer-events:auto!important}
-.svc-nav-wrap .bm-open>*{width:100%!important;flex:none!important}
-.svc-nav-wrap .bm-open a{display:block;width:100%;padding:11px 16px;border-radius:9px;
-  font-family:Inter,sans-serif;font-size:17px;line-height:1.2;white-space:nowrap}
-.svc-nav-wrap .bm-open a:hover{background:rgba(255,255,255,.07)}
-/* Each link carries its label twice: a relative copy and an absolutely
-   positioned duplicate that Framer's runtime slides in on hover. With no
-   runtime both paint at once and the labels overlap. Keep the first. */
-.svc-nav-wrap .bm-open a>*:nth-child(n+2){display:none!important}
-.svc-nav-wrap .bm-open a,.svc-nav-wrap .bm-open a *{text-align:left!important;text-indent:0!important}
-.svc-nav-wrap .bm-open a *{padding:0!important;margin:0!important}
-.svc-nav-wrap .bm-open a>*{position:static!important;width:100%!important;transform:none!important;
-  display:block!important;text-align:left!important;padding:0!important;margin:0!important;
-  justify-content:flex-start!important;align-items:flex-start!important}
-@media(max-width:760px){
-  .svc-nav-wrap .bm-open{top:76px;right:16px;left:16px;min-width:0}
-}
+/* Framer ships each nav label twice and swaps the copies on hover at runtime.
+   The homepage hides the spare by clipping it (link is 36px, overflow hidden,
+   spare sits at top:-38px). Our markup and CSS match that exactly, yet the
+   spare still paints here - and with no Framer runtime there is no hover swap
+   for it to serve. Hide it outright, only inside the open menu. */
+.svc-nav-wrap .bm-open a>.framer-7xhv9u{display:none!important}
+/* The open menu is Framer's own component state, not something we style.
+   Its closed variant pins the header to height:50px; the open variant simply
+   does not, so the header falls back to height:min-content and grows around
+   the link list. Cloning it is therefore just the class swap Framer does,
+   plus the inline opacity it sets on the list. See the JS below. */
 
-/* The carved overlay ships without Framer's runtime styles, so once it is
-   open its links fall back to inherit (black) on the blog listing and to the
-   browser default (blue) on the service pages - on a dark page that is an
-   invisible or wrong-coloured menu. Colour them explicitly.
-   The white article layout overrides this in the body.bp2024 block. */
-.svc-nav-wrap .bm-open a,.svc-nav-wrap .bm-open a:link,.svc-nav-wrap .bm-open a:visited{color:#fff}
-.svc-nav-wrap .bm-open a:hover{color:var(--token-1662617d-fd18-4319-b3da-aa36e5415705, rgb(249, 69, 45))}
+
 /* Framer exported the footer desktop-only. Its outer container carries 90px
    side padding and a 75px gap, so at 386px the content box is only 206px and
    the inner row (children on flex-basis:0) crushes to ~21px columns - text
@@ -16032,12 +16008,12 @@ body.bp2024 .svc-nav-wrap svg [stroke="white"]{stroke:#0c0c0c!important}
 .bp-main .post-faq .ans{color:rgba(12,12,12,.62)}
 .bp-main .post-related{border-color:rgba(12,12,12,.16)}
 .bp-main .post-related h3{color:#0c0c0c}
-/* The MENU overlay is white text with no background of its own - it relied on
-   the dark page behind it. On this white page it would be invisible, so give
-   the open menu its own dark panel (the live site opens a dark overlay too). */
-body.bp2024 .svc-nav-wrap .bm-open,body.bp2024 .svc-nav-wrap .bm-open *{color:#fff!important}
-body.bp2024 .svc-nav-wrap .bm-open{background:#0c0c0c;border-radius:16px;padding:26px 32px;box-shadow:0 26px 70px rgba(0,0,0,.30)}
-body.bp2024 .svc-nav-wrap .bm-open img[src*="TheBrandle"]{filter:brightness(0) invert(1)!important}
+/* The menu is Framer's own component and opens the same on every page, so it
+   needs no styling of its own here. It does paint over the white article
+   header, so the bar's dark-on-white treatment has to step aside while open. */
+body.bp2024 .svc-nav-wrap:has(.bm-open),body.bp2024 .svc-nav-wrap:has(.bm-open) *{color:#fff!important}
+body.bp2024 .svc-nav-wrap:has(.bm-open){background:transparent;border-bottom-color:transparent}
+body.bp2024 .svc-nav-wrap:has(.bm-open) img[src*="TheBrandle"]{filter:brightness(0) invert(1)!important}
 
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"WordPress vs Webflow: An Honest Comparison | TheBrandle","description":"WordPress vs Webflow compared honestly - cost, editing, SEO, ecommerce and maintenance, with a clear view of which suits which kind of business.","datePublished":"2026-07-28","dateModified":"2026-07-28","author":{"@type":"Organization","name":"TheBrandle","url":"https://www.thebrandle.com"},"publisher":{"@type":"Organization","name":"TheBrandle","url":"https://www.thebrandle.com","logo":{"@type":"ImageObject","url":"https://www.thebrandle.com/framerusercontent.com/assets/TheBrandle.svg"}},"image":"https://www.thebrandle.com/framerusercontent.com/images/YNmypiM868x4WUMKO25HF3tDPN4.jpg","mainEntityOfPage":"https://www.thebrandle.com/blog/wordpress-vs-webflow/"}</script>
@@ -16140,10 +16116,33 @@ body.bp2024 .svc-nav-wrap .bm-open img[src*="TheBrandle"]{filter:brightness(0) i
     (function walk(el){var k=el.children;if(!k.length){if((el.textContent||'').trim())el.textContent=(el.textContent.trim()===el.textContent.trim().toUpperCase()?'SERVICES':'Services');return;}for(var j=0;j<k.length;j++)walk(k[j]);})(clone);
     o.insertBefore(clone,contact);
   }
-  function toFooter(ev){ ev.preventDefault(); ev.stopPropagation();
-    var o = overlayEl();
-    if (!o) { var f = document.querySelector('.svc-footer'); if (f) f.scrollIntoView({behavior:'smooth'}); return; }
-    o.classList.toggle('bm-open');
+  /* Clone of the homepage menu. Framer opens it by swapping the header's
+     variant class and setting the link list's inline opacity - nothing more.
+     Captured from the live homepage:
+       desktop  framer-v-m5ha19  (h 50px)  ->  framer-v-185cz0f  (h 414px)
+       phone    framer-v-19vil5u (h 70px)  ->  framer-v-7tbwy4   (h 524px)
+     The open variants carry no rules of their own; dropping the closed one
+     releases its fixed height and the header grows around the list. */
+  var VARIANTS = [['framer-v-m5ha19','framer-v-185cz0f'],['framer-v-19vil5u','framer-v-7tbwy4']];
+  function toFooter(ev){
+    ev.preventDefault(); ev.stopPropagation();
+    var hdr = ev.currentTarget.closest('header') ||
+              (ev.currentTarget.closest('.svc-nav-wrap')||document).querySelector('header');
+    if (!hdr) { var f = document.querySelector('.svc-footer'); if (f) f.scrollIntoView({behavior:'smooth'}); return; }
+    var list = hdr.querySelector('.framer-1w3jqcb');
+    for (var i=0;i<VARIANTS.length;i++){
+      var closed=VARIANTS[i][0], open=VARIANTS[i][1];
+      if (hdr.classList.contains(closed)) {
+        hdr.classList.remove(closed); hdr.classList.add(open);
+        if(list){list.style.opacity='1';list.classList.add('bm-open');}
+        return;
+      }
+      if (hdr.classList.contains(open)) {
+        hdr.classList.remove(open); hdr.classList.add(closed);
+        if(list){list.style.opacity=(closed==='framer-v-19vil5u'?'1':'0');list.classList.remove('bm-open');}
+        return;
+      }
+    }
   }
   addServicesToOverlay();
   setTimeout(addServicesToOverlay, 500);
