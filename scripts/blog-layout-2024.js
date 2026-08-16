@@ -230,8 +230,9 @@ function renderArticle(o) {
 }
 
 /* Post covers.
-   Generated per post with Magnific (Seedream 5 Pro, 16:9) from the article's
-   subject, deliberately text-free: the layout paints the headline over the
+   Generated per post with Magnific (Seedream 5 Pro, 16:9). Abstract rather
+   than literal - each one renders the article's idea as form, light and
+   material instead of photographing the subject. Deliberately text-free: the layout paints the headline over the
    photo, so any lettering in the image collides with it. Dark and low-key for
    the same reason - white type has to hold.
 
@@ -244,24 +245,24 @@ function renderArticle(o) {
    HERO_POOL below is only a fallback for a slug with no cover yet. */
 const COVER_DIR = '/assets/blog/covers/';
 const COVER_ALT = {
-  'ai-in-web-design': 'A glass sphere resting on dark rippled sand',
-  'arabic-rtl-website-design': 'Light falling through a carved geometric screen',
-  'branding-agency': 'A group of matte ceramic vessels, one in terracotta',
-  'core-web-vitals-guide': 'Light trails streaking through a dark tunnel',
-  'framer-vs-webflow': 'Two smooth stone forms side by side, lit warm and cool',
-  'headless-cms-guide': 'Dark modular blocks separating apart in mid air',
-  'progressive-web-apps': 'A pebble in still water with ripples spreading out',
-  'real-estate-website-design': 'An empty modern interior at dusk',
-  'shopify-vs-woocommerce': 'Two plain boxes on a dark floor, lit warm and cool',
-  'should-i-hire-a-web-designer-or-do-it-myself': 'A hand plane resting on a worn workbench',
-  'website-cost-dubai': 'The Dubai skyline at dusk through haze',
-  'website-design': 'Dark silk folded into architectural shapes',
-  'website-maintenance-cost': "A watchmaker's gears and tools on dark leather",
-  'website-redesign-without-losing-seo': 'Scaffolding in a room mid renovation',
-  'website-security-checklist': 'A machined steel latch mechanism',
-  'website-total-cost-of-ownership': 'Stacked stones balanced into a cairn',
-  'wix-to-shopify-migration': 'Birds crossing a dusk sky over open water',
-  'wordpress-vs-webflow': 'Raw concrete meeting polished dark glass',
+  'ai-in-web-design': 'Abstract glowing filaments resolving into an ordered lattice',
+  'arabic-rtl-website-design': 'An abstract interlaced arabesque pattern in relief',
+  'branding-agency': 'Abstract translucent planes resolving into one form',
+  'core-web-vitals-guide': 'Abstract ribbons of light accelerating into streaks',
+  'framer-vs-webflow': 'Two abstract forms, one fluid and one faceted',
+  'headless-cms-guide': 'An abstract slab separating into floating layers',
+  'progressive-web-apps': 'Abstract concentric waves spreading from a point',
+  'real-estate-website-design': 'Abstract architectural volumes cut by a shaft of light',
+  'shopify-vs-woocommerce': 'A closed abstract monolith beside an open modular frame',
+  'should-i-hire-a-web-designer-or-do-it-myself': 'A rough abstract mass beside a polished one',
+  'website-cost-dubai': 'Abstract translucent planes stacking into ascending tiers',
+  'website-design': 'An abstract ribbon of light folded into a smooth form',
+  'website-maintenance-cost': 'Abstract interlocking rings in continuous motion',
+  'website-redesign-without-losing-seo': 'An abstract form dissolving and re-forming, one thread unbroken',
+  'website-security-checklist': 'Abstract nested shells enclosing a glowing core',
+  'website-total-cost-of-ownership': 'Abstract strata accumulating in layers',
+  'wix-to-shopify-migration': 'Abstract particles streaming from one form into another',
+  'wordpress-vs-webflow': 'A dense abstract texture meeting a smooth surface',
 };
 const coverFor = (slug) => {
   const rel = COVER_DIR + slug + '.jpg';
