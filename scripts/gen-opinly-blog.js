@@ -60,7 +60,12 @@ const RESERVED = new Set([
 /* Real posts for the "More articles" list. The Framer ones live in Framer's
    CMS, so they cannot be read at build time - titles and dates are mirrored
    here from the live listing. */
-const FRAMER_POSTS = [
+/* The 2024 Framer CMS posts. They are rendered by Framer, not by us, so
+   their "Back to blogs" and related list are Framer's and point at the old
+   blog section - which does not contain any of the current articles. Linking
+   to them from our listing walked readers straight into that dead end, so
+   they are no longer surfaced anywhere. Kept here as the redirect list. */
+const RETIRED_2024_POSTS = [
   { iso: '2024-11-18', title: 'Why your website’s user experience is its greatest asset', slug: 'why-your-website-s-user-experience-is-its-greatest-asset' },
   { iso: '2024-11-12', title: 'Why Mobile-First Design is Crucial for Modern Websites', slug: 'why-mobile-first-design-is-crucial-for-modern-websites' },
   { iso: '2024-11-09', title: 'How to create a website that truly connects with your audience', slug: 'how-to-create-a-website-that-truly-connects-with-your-audience' },
@@ -118,15 +123,12 @@ const BLOG_INDEX = '/blog';
 const BACK_ARROW = '<svg width="22" height="20" viewBox="0 0 22 20" fill="none" aria-hidden="true"><path d="M7 1L1.5 6.5L7 12" stroke="#f9452d" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M1.5 6.5H14a6.5 6.5 0 0 1 6.5 6.5v6" stroke="#f9452d" stroke-width="1.7" stroke-linecap="round"/></svg>';
 
 /* "More articles" rows: every real post except the one being rendered,
-   newest first so the most recent work leads. Sorting by date (not by source)
-   matters - ordering by list would bury every 2026 post under the 2024
-   Framer ones and the list would read as stale. Dates are used for ordering
-   only; they are not rendered. */
+   newest first so the most recent work leads. Dates are used for ordering
+   only; they are not rendered. The retired 2024 posts are excluded. */
 let OPINLY_INDEX = [];
 function moreArticles(currentSlug, limit = 5) {
   const rows = [
     ...OPINLY_INDEX,
-    ...FRAMER_POSTS.map((p) => ({ ...p, href: `/blog/${p.slug}` })),
     ...WRITTEN_POSTS.map((p) => ({ ...p, href: `/blog/${p.slug}/` })),
   ]
     .filter((p) => p.slug !== currentSlug)
@@ -633,16 +635,13 @@ function allPostsForIndex(opinly) {
     img: cardFor(w.slug),
     description: BLOG_BLURB[w.slug] || '',
   }));
-  const framer = FRAMER_POSTS.map((f) => ({
-    slug: f.slug, title: f.title, iso: f.iso, href: '/blog/' + f.slug, img: cardFor(f.slug), description: '',
-  }));
   const fromOpinly = (opinly || []).map((o) => ({
     slug: o.slug, title: o.title || o.slug, iso: fmtDate(o.firstPublishedAt),
     href: '/blog/' + o.slug + '/', img: cardFor(o.slug, imageUrl(o.image && o.image.fileKey)),
     description: o.description || '',
   }));
   const seen = new Set();
-  return [...fromOpinly, ...own, ...framer]
+  return [...fromOpinly, ...own]
     .filter((x) => (seen.has(x.slug) ? false : seen.add(x.slug)))
     .sort((a, b) => String(b.iso || '').localeCompare(String(a.iso || '')));
 }

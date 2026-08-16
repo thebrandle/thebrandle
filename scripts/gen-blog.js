@@ -273,6 +273,17 @@ function renderPost(d) {
     image: OG_IMAGE, mainEntityOfPage: url,
   };
   const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: d.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+  /* "More articles" - the same block the Opinly posts carry, so every post
+     ends the same way. Newest first; the retired 2024 Framer posts are not in
+     this list, so nothing here can walk a reader into the old blog section. */
+  const more = posts
+    .filter((x) => x.slug !== d.slug)
+    .sort((a, b) => String(b.date).localeCompare(String(a.date)))
+    .slice(0, 5)
+    .map((x) => '          <li><a href="/blog/' + x.slug + '/"><span class="t">' +
+      esc(x.h1 || x.title) + '</span></a></li>')
+    .join('\n');
+
   const faqAndRelated = `
     <div class="post-faq">
 ${faq}
@@ -324,6 +335,20 @@ ${noiseHtml ? `<div class="svc-noise">${noiseHtml}</div>` : ''}
     body,
     after: faqAndRelated,
   })}
+
+  <section class="bp-more">
+    <div class="bp-grid">
+      <aside class="bp-side">
+        <p class="bp-side-note">Explore our full library of<br>insights, stories, and ideas.</p>
+      </aside>
+      <div class="bp-col">
+        <h2 class="bp-more-h">More articles</h2>
+        <ul class="bp-more-list">
+${more}
+        </ul>
+      </div>
+    </div>
+  </section>
 
   <div class="post-cta">
     <h2 class="${P.h2}" style="color:#fff;margin:0 0 18px">Ready to build it right?</h2>

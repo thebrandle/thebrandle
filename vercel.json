@@ -25,6 +25,56 @@
       "source": "/blog/all/",
       "destination": "/blog",
       "permanent": true
+    },
+    {
+      "source": "/blog/why-your-website-s-user-experience-is-its-greatest-asset",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/why-your-website-s-user-experience-is-its-greatest-asset/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/why-mobile-first-design-is-crucial-for-modern-websites",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/why-mobile-first-design-is-crucial-for-modern-websites/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/how-to-create-a-website-that-truly-connects-with-your-audience",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/how-to-create-a-website-that-truly-connects-with-your-audience/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/top-web-design-trends-to-watch-in-2024",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/top-web-design-trends-to-watch-in-2024/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/building-trust-online-the-importance-of-testimonials",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/building-trust-online-the-importance-of-testimonials/",
+      "destination": "/blog",
+      "permanent": true
     }
   ],
   "rewrites": [
