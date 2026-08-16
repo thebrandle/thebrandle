@@ -701,6 +701,27 @@ ${it.pubDate || it.firstPublishedAt ? `<pubDate>${esc(new Date(it.pubDate || it.
   fs.writeFileSync(path.join(ROOT, 'rss.xml'), xml);
 }
 
+/* lastmod should say when the *page* last changed, not when the CMS entry
+   was edited. These pages are regenerated from a shared template, so a layout
+   or cover change rewrites them even though the article text is untouched -
+   and Google has no reason to recrawl if the date still reads weeks old.
+   Compare the rendered output with what is on disk: changed means today,
+   unchanged keeps whatever the sitemap already claims. */
+function priorLastmod(loc) {
+  try {
+    const xml = fs.readFileSync(SITEMAP, 'utf8');
+    const re = new RegExp('<loc>' + loc.replace(/[.*+?^${}()|[\]\\]/g, '\\/** Merge Opinly URLs into sitemap.xml inside a marked, idempotent block. */') + '<\\/loc>\\s*<lastmod>([^<]*)<\\/lastmod>');
+    const m = xml.match(re);
+    return m ? m[1] : null;
+  } catch (_) { return null; }
+}
+function pageLastmod(file, html, loc, fallback) {
+  let changed = true;
+  try { changed = fs.readFileSync(file, 'utf8') !== html; } catch (_) { changed = true; }
+  if (changed) return fmtDate(Date.now());
+  return priorLastmod(loc) || fallback;
+}
+
 /** Merge Opinly URLs into sitemap.xml inside a marked, idempotent block. */
 function mergeSitemap(entries) {
   if (!fs.existsSync(SITEMAP)) return;
@@ -755,16 +776,25 @@ function mergeSitemap(entries) {
     const post = { ...full, slug: full.slug || s.slug, category: full.category || s.category, author: full.author || s.author };
     const dir = path.join(ROOT, 'blog', post.slug);
     fs.mkdirSync(dir, { recursive: true });
-    fs.writeFileSync(path.join(dir, 'index.html'), renderPostPage(post));
-    sitemapEntries.push({ loc: `${SITE}/blog/${post.slug}/`, lastmod: fmtDate(post.modifiedAt || post.firstPublishedAt) || fmtDate(Date.now()) });
+    const postFile = path.join(dir, 'index.html');
+    const postHtml = renderPostPage(post);
+    const postLoc = `${SITE}/blog/${post.slug}/`;
+    const postMod = pageLastmod(postFile, postHtml, postLoc,
+      fmtDate(post.modifiedAt || post.firstPublishedAt) || fmtDate(Date.now()));
+    fs.writeFileSync(postFile, postHtml);
+    sitemapEntries.push({ loc: postLoc, lastmod: postMod });
     written++;
     console.log(`  wrote blog/${post.slug}/index.html`);
   }
 
   const idxDir = path.join(ROOT, INDEX_DIR);
   fs.mkdirSync(idxDir, { recursive: true });
-  fs.writeFileSync(path.join(idxDir, 'index.html'), renderIndexPage(allPostsForIndex(usable)));
-  sitemapEntries.push({ loc: `${SITE}/${INDEX_DIR}`, lastmod: fmtDate(Date.now()) });
+  const idxFile = path.join(idxDir, 'index.html');
+  const idxHtml = renderIndexPage(allPostsForIndex(usable));
+  const idxLoc = `${SITE}/${INDEX_DIR}`;
+  const idxMod = pageLastmod(idxFile, idxHtml, idxLoc, fmtDate(Date.now()));
+  fs.writeFileSync(idxFile, idxHtml);
+  sitemapEntries.push({ loc: idxLoc, lastmod: idxMod });
   console.log(`  wrote ${INDEX_DIR}/index.html`);
 
   try {
