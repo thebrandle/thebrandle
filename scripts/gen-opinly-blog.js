@@ -710,15 +710,20 @@ ${it.pubDate || it.firstPublishedAt ? `<pubDate>${esc(new Date(it.pubDate || it.
 function priorLastmod(loc) {
   try {
     const xml = fs.readFileSync(SITEMAP, 'utf8');
-    const re = new RegExp('<loc>' + loc.replace(/[.*+?^${}()|[\]\\]/g, '\\/** Merge Opinly URLs into sitemap.xml inside a marked, idempotent block. */') + '<\\/loc>\\s*<lastmod>([^<]*)<\\/lastmod>');
-    const m = xml.match(re);
-    return m ? m[1] : null;
+    const at = xml.indexOf('<loc>' + loc + '</loc>');
+    if (at < 0) return null;
+    const a = xml.indexOf('<lastmod>', at);
+    const b = xml.indexOf('</lastmod>', a);
+    if (a < 0 || b < 0) return null;
+    return xml.slice(a + 9, b).trim() || null;
   } catch (_) { return null; }
 }
 function pageLastmod(file, html, loc, fallback) {
   let changed = true;
   try { changed = fs.readFileSync(file, 'utf8') !== html; } catch (_) { changed = true; }
   if (changed) return fmtDate(Date.now());
+  // unchanged: keep what the sitemap already claims. Never fall back to the
+  // CMS date - that is what kept dragging these three entries backwards.
   return priorLastmod(loc) || fallback;
 }
 
