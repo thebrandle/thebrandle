@@ -15764,12 +15764,21 @@ html,body{background:#0C0C0C;margin:0}
    Framer drives that with Motion; these two transitions reproduce it. */
 .svc-nav-wrap header{transition:height .48s cubic-bezier(0.23,1,0.32,1)}
 .svc-nav-wrap .framer-1w3jqcb{transition:opacity .22s cubic-bezier(0.23,1,0.32,1)}
-/* Framer ships each nav label twice and swaps the copies on hover at runtime.
-   The homepage hides the spare by clipping it (link is 36px, overflow hidden,
-   spare sits at top:-38px). Our markup and CSS match that exactly, yet the
-   spare still paints here - and with no Framer runtime there is no hover swap
-   for it to serve. Hide it outright, only inside the open menu. */
-.svc-nav-wrap .bm-open a>.framer-7xhv9u{display:none!important}
+/* The link label roll, cloned from the homepage.
+   Each link carries the label twice: one in flow, a spare pinned 38px above.
+   On hover Framer swaps which copy is in flow, so the word rolls downward and
+   the spare arrives from above, the link's 36px box clipping both.
+   That clip does not hold on these pages - the spare bleeds through, which is
+   what produced the doubled labels - so the spare is carried at opacity 0 and
+   the same 38px move is done with transforms. Identical motion, no reliance
+   on clipping. */
+.svc-nav-wrap .bm-open a>.framer-7xhv9u{opacity:0}
+.svc-nav-wrap .bm-open a>.framer-1vowgdm,
+.svc-nav-wrap .bm-open a>.framer-7xhv9u{transition:transform .42s cubic-bezier(0.23,1,0.32,1),opacity .26s linear}
+@media(hover:hover) and (pointer:fine){
+  .svc-nav-wrap .bm-open a:hover>.framer-1vowgdm{transform:translateY(38px);opacity:0}
+  .svc-nav-wrap .bm-open a:hover>.framer-7xhv9u{transform:translateY(38px);opacity:1}
+}
 /* The open menu is Framer's own component state, not something we style.
    Its closed variant pins the header to height:50px; the open variant simply
    does not, so the header falls back to height:min-content and grows around
