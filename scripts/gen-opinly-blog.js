@@ -647,7 +647,7 @@ function allPostsForIndex(opinly) {
 }
 
 function renderIndexPage(posts) {
-  const url = `${SITE}/${INDEX_DIR}/`;
+  const url = `${SITE}/${INDEX_DIR}`;
   const cards = posts.map((p) =>
     `      <a class="idx-card" href="${esc(p.href)}">${p.img ? `<img src="${esc(p.img)}" alt="${escCopy(p.title)}" loading="lazy" decoding="async">` : ''}<div class="pad"><h2>${escCopy(p.title)}</h2>${p.description ? `<p>${escCopy(p.description)}</p>` : ''}</div></a>`
   ).join('\n');
@@ -764,7 +764,7 @@ function mergeSitemap(entries) {
   const idxDir = path.join(ROOT, INDEX_DIR);
   fs.mkdirSync(idxDir, { recursive: true });
   fs.writeFileSync(path.join(idxDir, 'index.html'), renderIndexPage(allPostsForIndex(usable)));
-  sitemapEntries.push({ loc: `${SITE}/${INDEX_DIR}/`, lastmod: fmtDate(Date.now()) });
+  sitemapEntries.push({ loc: `${SITE}/${INDEX_DIR}`, lastmod: fmtDate(Date.now()) });
   console.log(`  wrote ${INDEX_DIR}/index.html`);
 
   try {
