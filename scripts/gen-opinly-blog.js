@@ -338,6 +338,11 @@ html,body{background:#0C0C0C;margin:0}
 .svc-nav-wrap .bm-open a[href="/services/"],
 .svc-nav-wrap .bm-open a[href="/contact"]{display:revert!important}
 .bm-open{opacity:1!important;pointer-events:auto!important}
+/* Timed off the homepage: clicking MENU takes the header from 50px to 414px,
+   settling around 480ms, with the link list fading in over the first ~130ms.
+   Framer drives that with Motion; these two transitions reproduce it. */
+.svc-nav-wrap header{transition:height .48s cubic-bezier(0.23,1,0.32,1)}
+.svc-nav-wrap .framer-1w3jqcb{transition:opacity .22s cubic-bezier(0.23,1,0.32,1)}
 /* Framer ships each nav label twice and swaps the copies on hover at runtime.
    The homepage hides the spare by clipping it (link is 36px, overflow hidden,
    spare sits at top:-38px). Our markup and CSS match that exactly, yet the
@@ -498,24 +503,35 @@ const JS = `<script>
               (ev.currentTarget.closest('.svc-nav-wrap')||document).querySelector('header');
     if(!hdr){var f=document.querySelector('.svc-footer');if(f)f.scrollIntoView({behavior:'smooth'});return;}
     var list = hdr.querySelector('.framer-1w3jqcb');
+    /* The variant swap changes the header to height:min-content, and CSS
+       cannot transition to an intrinsic height - it would snap. Framer's
+       Motion animates the pixel value, so do the same: measure the target,
+       animate between explicit px, then hand height back to CSS. */
+    function swap(from, to, openTo) {
+      var start = hdr.getBoundingClientRect().height;
+      hdr.style.transition = 'none';
+      hdr.style.height = '';
+      hdr.classList.remove(from); hdr.classList.add(to);
+      if (list) { list.style.opacity = openTo ? '1' : (to === 'framer-v-19vil5u' ? '1' : '0');
+                  list.classList[openTo ? 'add' : 'remove']('bm-open'); }
+      var target = hdr.getBoundingClientRect().height;
+      hdr.style.height = start + 'px';
+      void hdr.offsetHeight;                       // force the start frame
+      hdr.style.transition = 'height .48s cubic-bezier(0.23,1,0.32,1)';
+      hdr.style.height = target + 'px';
+      clearTimeout(hdr.__t);
+      hdr.__t = setTimeout(function(){ hdr.style.height=''; hdr.style.transition=''; }, 520);
+    }
     for (var i=0;i<VARIANTS.length;i++){
       var closed=VARIANTS[i][0], open=VARIANTS[i][1];
-      if (hdr.classList.contains(closed)) {
-        hdr.classList.remove(closed); hdr.classList.add(open);
-        if(list){list.style.opacity='1';list.classList.add('bm-open');}
-        return;
-      }
-      if (hdr.classList.contains(open)) {
-        hdr.classList.remove(open); hdr.classList.add(closed);
-        if(list){list.style.opacity=(closed==='framer-v-19vil5u'?'1':'0');list.classList.remove('bm-open');}
-        return;
-      }
+      if (hdr.classList.contains(closed)) { swap(closed, open, true); return; }
+      if (hdr.classList.contains(open))   { swap(open, closed, false); return; }
     }
   }
   addServicesToOverlay();
   setTimeout(addServicesToOverlay, 600);
   var n=document.querySelectorAll('.svc-nav-wrap *');
-  for(var i=0;i<n.length;i++){var el=n[i];if(!el.children.length&&(el.textContent||'').trim()==='MENU'&&!el.__mb){el.__mb=1;var t=el.closest('[data-framer-name]')||el;t.style.cursor='pointer';t.addEventListener('click',toFooter)}}
+  for(var i=0;i<n.length;i++){var el=n[i];if(!el.children.length&&(el.textContent||'').trim()==='MENU'&&!el.__mb){el.__mb=1;var t=el.closest('[data-framer-name="Header / Burger menu"]')||el.closest('[data-framer-name]')||el;t.style.cursor='pointer';t.addEventListener('click',toFooter)}}
 })();
 </script>`;
 
