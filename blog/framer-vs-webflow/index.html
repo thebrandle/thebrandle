@@ -15761,6 +15761,36 @@ html,body{background:#0C0C0C;margin:0}
 .svc-nav-wrap .bm-open a[href="/services/"],
 .svc-nav-wrap .bm-open a[href="/contact"]{display:revert!important}
 .bm-open{opacity:1!important;pointer-events:auto!important}
+/* Framer builds the open menu at runtime with inline styles, so the export
+   contains no open-state CSS - only "Desktop closed" and "Phone closed"
+   variants. Toggling opacity on the carved markup therefore changed nothing
+   visible: the link list stays inside a 50px-tall header and never paints.
+   Lift it out into a real panel of our own when open. Same markup, same
+   links, styles we control. */
+.svc-nav-wrap .bm-open{
+  position:fixed!important;top:88px;right:26px;z-index:60;
+  display:flex!important;flex-direction:column;align-items:flex-start;gap:2px;
+  width:auto!important;min-width:230px;height:auto!important;flex:none!important;
+  background:#141414;border:1px solid rgba(255,255,255,.13);border-radius:16px;
+  padding:16px 10px;box-shadow:0 30px 80px rgba(0,0,0,.55);
+  opacity:1!important;pointer-events:auto!important}
+.svc-nav-wrap .bm-open>*{width:100%!important;flex:none!important}
+.svc-nav-wrap .bm-open a{display:block;width:100%;padding:11px 16px;border-radius:9px;
+  font-family:Inter,sans-serif;font-size:17px;line-height:1.2;white-space:nowrap}
+.svc-nav-wrap .bm-open a:hover{background:rgba(255,255,255,.07)}
+/* Each link carries its label twice: a relative copy and an absolutely
+   positioned duplicate that Framer's runtime slides in on hover. With no
+   runtime both paint at once and the labels overlap. Keep the first. */
+.svc-nav-wrap .bm-open a>*:nth-child(n+2){display:none!important}
+.svc-nav-wrap .bm-open a,.svc-nav-wrap .bm-open a *{text-align:left!important;text-indent:0!important}
+.svc-nav-wrap .bm-open a *{padding:0!important;margin:0!important}
+.svc-nav-wrap .bm-open a>*{position:static!important;width:100%!important;transform:none!important;
+  display:block!important;text-align:left!important;padding:0!important;margin:0!important;
+  justify-content:flex-start!important;align-items:flex-start!important}
+@media(max-width:760px){
+  .svc-nav-wrap .bm-open{top:76px;right:16px;left:16px;min-width:0}
+}
+
 /* The carved overlay ships without Framer's runtime styles, so once it is
    open its links fall back to inherit (black) on the blog listing and to the
    browser default (blue) on the service pages - on a dark page that is an
