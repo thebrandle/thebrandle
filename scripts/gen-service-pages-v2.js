@@ -120,6 +120,13 @@ html,body{background:#0C0C0C;margin:0}
 .svc-nav-wrap .bm-open a[href="/services/"],
 .svc-nav-wrap .bm-open a[href="/contact"]{display:revert!important}
 .bm-open{opacity:1!important;pointer-events:auto!important}
+/* The carved overlay ships without Framer's runtime styles, so once it is
+   open its links fall back to inherit (black) on the blog listing and to the
+   browser default (blue) on the service pages - on a dark page that is an
+   invisible or wrong-coloured menu. Colour them explicitly.
+   The white article layout overrides this in the body.bp2024 block. */
+.svc-nav-wrap .bm-open a,.svc-nav-wrap .bm-open a:link,.svc-nav-wrap .bm-open a:visited{color:#fff}
+.svc-nav-wrap .bm-open a:hover{color:var(--token-1662617d-fd18-4319-b3da-aa36e5415705, rgb(249, 69, 45))}
 /* Framer exported the footer desktop-only. Its outer container carries 90px
    side padding and a 75px gap, so at 386px the content box is only 206px and
    the inner row (children on flex-basis:0) crushes to ~21px columns - text
