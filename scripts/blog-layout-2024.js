@@ -229,6 +229,47 @@ function renderArticle(o) {
   ].join('');
 }
 
+/* Post covers.
+   Generated per post with Magnific (Seedream 5 Pro, 16:9) from the article's
+   subject, deliberately text-free: the layout paints the headline over the
+   photo, so any lettering in the image collides with it. Dark and low-key for
+   the same reason - white type has to hold.
+
+   These replaced the studio's project photography, which was wrong for the
+   job twice over: it is client work rather than editorial art, and several of
+   those shots contain their own headlines and UI copy (the Orblead pricing
+   page put "Flexible plans built to scale your leads" directly behind an
+   article title).
+
+   HERO_POOL below is only a fallback for a slug with no cover yet. */
+const COVER_DIR = '/assets/blog/covers/';
+const COVER_ALT = {
+  'ai-in-web-design': 'A glass sphere resting on dark rippled sand',
+  'arabic-rtl-website-design': 'Light falling through a carved geometric screen',
+  'branding-agency': 'A group of matte ceramic vessels, one in terracotta',
+  'core-web-vitals-guide': 'Light trails streaking through a dark tunnel',
+  'framer-vs-webflow': 'Two smooth stone forms side by side, lit warm and cool',
+  'headless-cms-guide': 'Dark modular blocks separating apart in mid air',
+  'progressive-web-apps': 'A pebble in still water with ripples spreading out',
+  'real-estate-website-design': 'An empty modern interior at dusk',
+  'shopify-vs-woocommerce': 'Two plain boxes on a dark floor, lit warm and cool',
+  'should-i-hire-a-web-designer-or-do-it-myself': 'A hand plane resting on a worn workbench',
+  'website-cost-dubai': 'The Dubai skyline at dusk through haze',
+  'website-design': 'Dark silk folded into architectural shapes',
+  'website-maintenance-cost': "A watchmaker's gears and tools on dark leather",
+  'website-redesign-without-losing-seo': 'Scaffolding in a room mid renovation',
+  'website-security-checklist': 'A machined steel latch mechanism',
+  'website-total-cost-of-ownership': 'Stacked stones balanced into a cairn',
+  'wix-to-shopify-migration': 'Birds crossing a dusk sky over open water',
+  'wordpress-vs-webflow': 'Raw concrete meeting polished dark glass',
+};
+const coverFor = (slug) => {
+  const rel = COVER_DIR + slug + '.jpg';
+  return require('fs').existsSync(require('path').join(__dirname, '..', 'assets', 'blog', 'covers', slug + '.jpg'))
+    ? { src: rel, alt: COVER_ALT[slug] || '' }
+    : null;
+};
+
 /* Hero photos.
    These are the studio's own project photographs, not Framer's template
    stock. That matters: the site ships an override stylesheet
@@ -316,10 +357,12 @@ function assertHeroVisible(slug, src) {
   }
 }
 const heroFor = (slug) => {
+  const cover = coverFor(slug);
+  if (cover) return cover;
   const h = pickHero(slug);
   const src = HERO_DIR + h.file;
   assertHeroVisible(slug, src);
   return { src, alt: h.alt };
 };
 
-module.exports = { AVATAR, BACK_ARROW, css, renderArticle, HERO_DIR, HERO_POOL, HERO_OVERRIDES, pickHero, heroFor, assertHeroVisible, hiddenImageHashes };
+module.exports = { AVATAR, BACK_ARROW, css, renderArticle, COVER_DIR, COVER_ALT, coverFor, HERO_DIR, HERO_POOL, HERO_OVERRIDES, pickHero, heroFor, assertHeroVisible, hiddenImageHashes };
