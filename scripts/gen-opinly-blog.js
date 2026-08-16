@@ -479,7 +479,7 @@ const JS = `<script>
 })();
 </script>`;
 
-const shell = ({ title, description, url, image, schemas, main }) => `<!DOCTYPE html>
+const shell = ({ title, description, url, image, schemas, main, bodyClass = '' }) => `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -499,7 +499,7 @@ ${styles}
 ${GLUE}
 ${schemas.map(s => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join('\n')}
 </head>
-<body class="bp2024">
+<body${bodyClass ? ` class="${bodyClass}"` : ''}>
 ${ROOT_OPEN}
 ${noiseHtml ? `<div class="svc-noise">${noiseHtml}</div>` : ''}
 <div class="svc-page">
@@ -614,7 +614,8 @@ ${moreArticles(post.slug)}
     </div>
   </div>`;
 
-  return shell({ title: `${L.copy(post.metaTitle || post.title)} | TheBrandle`, description: desc, url, image: SITE + hero, schemas, main });
+  return shell({
+    bodyClass: 'bp2024', title: `${L.copy(post.metaTitle || post.title)} | TheBrandle`, description: desc, url, image: SITE + hero, schemas, main });
 }
 
 /* ------------------------------------------------------------ index page */
