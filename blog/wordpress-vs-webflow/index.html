@@ -16161,8 +16161,18 @@ body.bp2024 .svc-nav-wrap:has(.bm-open) .framer-fyydzk-container{top:0!important
       hdr.style.transition = 'none';
       hdr.style.height = '';
       hdr.classList.remove(from); hdr.classList.add(to);
-      if (list) { list.style.opacity = openTo ? '1' : (to === 'framer-v-19vil5u' ? '1' : '0');
-                  list.classList[openTo ? 'add' : 'remove']('bm-open'); }
+      /* Framer fades in more than the link list itself: on the phone variant
+         its parent .framer-1oywgs7 is baked at opacity 0 and the runtime
+         animates it up. Raising only the list left the links inside an
+         invisible ancestor - an empty panel. Remember each element's resting
+         opacity on first open and restore it on close. */
+      var fade = [list, hdr.querySelector('.framer-1oywgs7')].filter(Boolean);
+      for (var f = 0; f < fade.length; f++) {
+        var el = fade[f];
+        if (el.__op0 === undefined) el.__op0 = el.style.opacity || getComputedStyle(el).opacity;
+        el.style.opacity = openTo ? '1' : el.__op0;
+      }
+      if (list) list.classList[openTo ? 'add' : 'remove']('bm-open');
       var target = hdr.getBoundingClientRect().height;
       hdr.style.height = start + 'px';
       void hdr.offsetHeight;                       // force the start frame
