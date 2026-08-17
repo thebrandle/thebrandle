@@ -16030,6 +16030,12 @@ body.bp2024 .svc-nav-wrap svg [stroke="white"]{stroke:#0c0c0c!important}
 body.bp2024 .svc-nav-wrap:has(.bm-open),body.bp2024 .svc-nav-wrap:has(.bm-open) *{color:#fff!important}
 body.bp2024 .svc-nav-wrap:has(.bm-open){background:transparent;border-bottom-color:transparent}
 body.bp2024 .svc-nav-wrap:has(.bm-open) img[src*="TheBrandle"]{filter:brightness(0) invert(1)!important}
+/* The bar is centred inside a fixed 104px band on this layout. Once the menu
+   opens the header grows to 414px, and centring a 414px box in a 104px band
+   puts its top at -155 - the logo, the label and every link end up above the
+   viewport, leaving an empty red panel. Drop the centring while it is open. */
+body.bp2024 .svc-nav-wrap:has(.bm-open){min-height:0}
+body.bp2024 .svc-nav-wrap:has(.bm-open) .framer-fyydzk-container{top:0!important;transform:none!important}
 
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Moving from Wix to Shopify: A Practical Migration Guide","description":"Outgrown Wix ecommerce? How to migrate to Shopify without losing sales or SEO - what moves across, what does not, timelines, and when migration is worth it.","datePublished":"2026-07-22","dateModified":"2026-07-22","author":{"@type":"Organization","name":"TheBrandle","url":"https://www.thebrandle.com"},"publisher":{"@type":"Organization","name":"TheBrandle","url":"https://www.thebrandle.com","logo":{"@type":"ImageObject","url":"https://www.thebrandle.com/framerusercontent.com/assets/TheBrandle.svg"}},"image":"https://www.thebrandle.com/framerusercontent.com/images/YNmypiM868x4WUMKO25HF3tDPN4.jpg","mainEntityOfPage":"https://www.thebrandle.com/blog/wix-to-shopify-migration/"}</script>
