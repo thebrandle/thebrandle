@@ -15774,7 +15774,11 @@ html,body{background:#0C0C0C;margin:0}
 /* Contact's container is wider than its word (it shares the container the
    Services clone came from), so the box was right-aligned but the text inside
    was not. Align the content, not just the box. */
+/* Contact's box is wider than its word - it shares a container with the
+   Services clone - so aligning the box was not enough: the glyphs still sat
+   left inside it, ending ~10px short of the others. Align the text too. */
 .svc-nav-wrap .bm-open a{justify-content:flex-end}
+.svc-nav-wrap .bm-open a,.svc-nav-wrap .bm-open a *{text-align:right!important}
 /* The burger animates on the homepage: the two bars converge onto one line
    and rotate to +/-12deg, making a shallow cross. Captured from the live
    header - closed they sit 10px apart with no transform; open they share a
