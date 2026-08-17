@@ -15760,7 +15760,31 @@ html,body{background:#0C0C0C;margin:0}
 .svc-nav-wrap .bm-open a[href="/projects"],
 .svc-nav-wrap .bm-open a[href="/services/"],
 .svc-nav-wrap .bm-open a[href="/contact"]{display:revert!important}
-.bm-open{opacity:1!important;pointer-events:auto!important}
+/* No opacity here: the handler sets it inline on open and animates it back
+   down on close, and an !important rule would win over that and freeze the
+   list visible for the whole close. Pointer events still need forcing. */
+.bm-open{pointer-events:auto!important}
+/* Closing fade, driven by a class so nothing inline or !important can win. */
+.svc-nav-wrap .framer-1w3jqcb,.svc-nav-wrap .framer-1oywgs7{transition:opacity .28s cubic-bezier(0.23,1,0.32,1)}
+.svc-nav-wrap header.bm-closing .framer-1w3jqcb,
+.svc-nav-wrap header.bm-closing .framer-1oywgs7{opacity:0!important}
+/* Contact's container is wider than its word (it shares the container the
+   Services clone came from), so the box was right-aligned but the text inside
+   was not. Align the content, not just the box. */
+.svc-nav-wrap .bm-open a{justify-content:flex-end}
+/* The burger animates on the homepage: the two bars converge onto one line
+   and rotate to +/-12deg, making a shallow cross. Captured from the live
+   header - closed they sit 10px apart with no transform; open they share a
+   centre with matrix(0.978,+/-0.208,...), which is 12 degrees.
+   Framer sets transform inline, so these have to outrank it. */
+.svc-nav-wrap header .framer-1v2q1i2,
+.svc-nav-wrap header .framer-6vcmxr{transition:transform .42s cubic-bezier(0.23,1,0.32,1)}
+.svc-nav-wrap header.framer-v-185cz0f .framer-1v2q1i2,
+.svc-nav-wrap header.framer-v-7tbwy4 .framer-1v2q1i2{transform:translateY(5px) rotate(12deg)!important}
+.svc-nav-wrap header.framer-v-185cz0f .framer-6vcmxr,
+.svc-nav-wrap header.framer-v-7tbwy4 .framer-6vcmxr{transform:translateY(-5px) rotate(-12deg)!important}
+/* the link list's parent is faded too, so it needs the same transition */
+.svc-nav-wrap .framer-1oywgs7{transition:opacity .3s cubic-bezier(0.23,1,0.32,1)}
 /* Timed off the homepage: clicking MENU takes the header from 50px to 414px,
    settling around 480ms, with the link list fading in over the first ~130ms.
    Framer drives that with Motion; these two transitions reproduce it. */
@@ -16156,7 +16180,34 @@ body.bp2024 .svc-nav-wrap:has(.bm-open) .framer-fyydzk-container{top:0!important
        cannot transition to an intrinsic height - it would snap. Framer's
        Motion animates the pixel value, so do the same: measure the target,
        animate between explicit px, then hand height back to CSS. */
+    function collapse(from, to) {
+      /* Closing is not the open animation reversed. The homepage fades the
+         links out first and only then collapses the header - and animating
+         height back down here does not work anyway: the inline height is
+         applied but the header keeps measuring its open size, so it sat open
+         for half a second and then snapped. Fade, then swap. */
+      var closing = fadeEls();
+      hdr.classList.add('bm-closing');
+      clearTimeout(hdr.__c);
+      hdr.__c = setTimeout(function () {
+        hdr.style.transition = 'none';
+        hdr.style.height = '';
+        hdr.classList.remove(from); hdr.classList.add(to);
+        hdr.classList.remove('bm-closing');
+        for (var f = 0; f < closing.length; f++) closing[f].style.opacity = closing[f].__op0;
+        if (list) list.classList.remove('bm-open');
+      }, 300);
+    }
+    function fadeEls() {
+      var a = [list, hdr.querySelector('.framer-1oywgs7')].filter(Boolean);
+      for (var f = 0; f < a.length; f++) {
+        if (a[f].__op0 === undefined) a[f].__op0 = a[f].style.opacity || getComputedStyle(a[f]).opacity;
+      }
+      return a;
+    }
     function swap(from, to, openTo) {
+      if (!openTo) { collapse(from, to); return; }
+      clearTimeout(hdr.__c);
       var start = hdr.getBoundingClientRect().height;
       hdr.style.transition = 'none';
       hdr.style.height = '';
@@ -16164,15 +16215,10 @@ body.bp2024 .svc-nav-wrap:has(.bm-open) .framer-fyydzk-container{top:0!important
       /* Framer fades in more than the link list itself: on the phone variant
          its parent .framer-1oywgs7 is baked at opacity 0 and the runtime
          animates it up. Raising only the list left the links inside an
-         invisible ancestor - an empty panel. Remember each element's resting
-         opacity on first open and restore it on close. */
-      var fade = [list, hdr.querySelector('.framer-1oywgs7')].filter(Boolean);
-      for (var f = 0; f < fade.length; f++) {
-        var el = fade[f];
-        if (el.__op0 === undefined) el.__op0 = el.style.opacity || getComputedStyle(el).opacity;
-        el.style.opacity = openTo ? '1' : el.__op0;
-      }
-      if (list) list.classList[openTo ? 'add' : 'remove']('bm-open');
+         invisible ancestor - an empty panel. */
+      var fade = fadeEls();
+      for (var f = 0; f < fade.length; f++) fade[f].style.opacity = '1';
+      if (list) list.classList.add('bm-open');
       var target = hdr.getBoundingClientRect().height;
       hdr.style.height = start + 'px';
       void hdr.offsetHeight;                       // force the start frame
