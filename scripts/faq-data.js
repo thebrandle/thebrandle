@@ -53,7 +53,7 @@ const FAQ_GROUPS = [
     heading: 'Process and communication',
     items: [
       { q: 'How will we communicate during the project?',
-        a: 'You get one point of contact rather than being passed around, and updates at each stage of the project rather than silence until delivery.' },
+        a: 'A weekly call, and a shared WhatsApp group for anything between calls so you are not waiting on email. One point of contact rather than being passed around, and updates at each stage rather than silence until delivery.' },
       { q: 'Will I see progress before the final delivery?',
         a: 'Yes. Work is shown at defined stages rather than held back for a single final reveal, and those stages are where your revision rounds sit - so feedback lands while it is still cheap to act on.' },
       { q: 'Do you use templates, or is everything custom-built?',
