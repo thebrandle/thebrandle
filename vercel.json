@@ -107,6 +107,10 @@
       "destination": "/blog/index.html"
     },
     {
+      "source": "/faq",
+      "destination": "/faq/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/thebrandle.framer.website/index.html"
     }

@@ -16,6 +16,7 @@
 const fs = require('fs');
 const path = require('path');
 const { pages, PROCESS } = require('./service-pages-data');
+const { FAQ_GROUPS } = require('./faq-data');
 
 const ROOT = path.join(__dirname, '..');
 const COMP = path.join(ROOT, '_snapshot', 'components');
@@ -473,6 +474,58 @@ ${REVEAL_JS}
 `;
 }
 
+
+/* Standalone /faq page. Reuses this generator's shell so it inherits the nav,
+   the footer and every menu fix, and cannot drift from the service pages. */
+function renderFaq() {
+  const url = `${SITE}/faq`;
+  const title = 'Frequently Asked Questions - Pricing, Timelines & Support | TheBrandle';
+  const desc = 'Straight answers on what a website costs in Dubai, how long a project takes, what revisions and post-launch support cover, and who owns the code.';
+  const flat = FAQ_GROUPS.flatMap((g) => g.items);
+  const groups = FAQ_GROUPS.map((g, gi) => `
+  <section class="svc-section"${gi === 0 ? ' style="padding-top:20px"' : ''}>
+    <h2 class="${P.h2}" data-reveal style="color:#fff;text-align:left;margin:0">${esc(g.heading)}</h2>
+    <div class="svc-faq" style="margin:34px 0 0">
+${g.items.map((f, i) => `      <details data-reveal style="transition-delay:${i * 60}ms"><summary><span class="${P.h3}" style="color:#fff;text-align:left">${esc(f.q)}</span><span class="pm" aria-hidden="true"></span></summary><div class="ans ${P.body}" style="color:${MUTED}">${esc(f.a)}</div></details>`).join('\n')}
+    </div>
+  </section>`).join('\n');
+
+  const schemas = [
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: flat.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+    { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: SITE + '/' }, { '@type': 'ListItem', position: 2, name: 'FAQ', item: url }] },
+  ];
+
+  return `${head(title, desc, url, schemas)}
+<body>
+${ROOT_OPEN}
+${noiseHtml ? `<div class="svc-noise">${noiseHtml}</div>` : ``}
+<div class="svc-page">
+  <div class="svc-nav-wrap"><div class="svc-nav-desktop">${navHtmlFinal}</div><div class="svc-nav-phone">${navPhoneHtml}</div></div>
+
+  <section class="svc-section" style="padding-top:110px">
+    <span class="svc-label" data-reveal>Questions</span>
+    <h1 class="${P.display}" data-reveal style="color:#fff;text-align:left;margin:0 0 26px;transition-delay:70ms">Frequently asked questions</h1>
+    <p class="${P.lead}" data-reveal style="color:${MUTED};max-width:60ch;margin:0;transition-delay:140ms">What things cost, how long they take, what is covered after launch, and who owns what. If your question is not here, ask us directly.</p>
+  </section>
+${groups}
+
+  <div class="svc-cta">
+    <h2 class="${P.display}" style="color:#fff;margin:0 0 22px">Still have a question?</h2>
+    <p class="${P.lead}" style="color:${MUTED};max-width:52ch;margin:0 auto">Tell us what you are building and we will come back with a clear scope, a timeline and a fixed quote.</p>
+    <div class="svc-hero-actions">${cta('Book a free consultation', '/contact')}</div>
+  </div>
+
+  <div class="svc-footer">
+${footerHtml}
+  </div>
+</div>
+</div>
+${REVEAL_JS}
+</body>
+</html>
+`;
+}
+
 function renderHub() {
   const url = `${SITE}/services/`;
   const title = 'Services - Branding, Web, Ecommerce & UI/UX Design | TheBrandle';
@@ -518,4 +571,9 @@ for (const d of pages) {
   n++;
 }
 fs.writeFileSync(path.join(OUT, 'index.html'), renderHub());
+
+const faqDir = path.join(__dirname, '..', 'faq');
+fs.mkdirSync(faqDir, { recursive: true });
+fs.writeFileSync(path.join(faqDir, 'index.html'), renderFaq());
+console.log('  wrote faq/index.html');
 console.log(`v2: generated ${n} service pages + hub from carved real components`);
