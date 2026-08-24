@@ -93,6 +93,8 @@ const FAQ_GROUPS = [
         a: 'The things that usually go wrong are agreed in writing before work starts rather than negotiated after something breaks: a written scope and fixed quote, two revision rounds per stage, 30 days of post-launch fixes at no cost, and a response within one business day. If you are mid-project or unhappy with an existing site, we can take over an existing build rather than starting from zero.' },
       { q: 'Can I see examples of past work?',
         a: 'Yes - recent projects are on the projects page, and the blog covers how we approach platform choice, cost and redesigns in more detail.' },
+      { q: 'Do you work with businesses in my specific industry?',
+        a: 'Recent work spans food and beverage branding, apparel, SaaS and beauty - Apex, DropX, Orblead and Shine respectively - alongside ecommerce across Shopify and WooCommerce. Every project starts by understanding your business and audience rather than assuming we already know your category, so an unfamiliar sector is not a barrier.' },
     ],
   },
 ];
