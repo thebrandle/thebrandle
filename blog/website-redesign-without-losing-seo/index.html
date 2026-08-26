@@ -16020,6 +16020,14 @@ html,body{background:#0C0C0C;margin:0}
 }
 @keyframes bpIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 
+/* "Preferred source" prompt. Deep link rather than Google's official button:
+   the button pulls news.google.com/swg/js/v1/publisher.js onto every page and
+   renders in Google blue. This is a plain link in our own type, zero JS. */
+.bp-main .bp-prefsrc{margin-top:54px;padding-top:26px;border-top:1px solid rgba(12,12,12,.14)}
+.bp-main .bp-prefsrc p{margin:0;color:rgba(12,12,12,.6);font-family:Inter,sans-serif;font-size:16px;line-height:1.6}
+.bp-main .bp-prefsrc a{color:#0c0c0c;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(12,12,12,.3)}
+.bp-main .bp-prefsrc a:hover{color:var(--token-1662617d-fd18-4319-b3da-aa36e5415705, rgb(249, 69, 45));text-decoration-color:var(--token-1662617d-fd18-4319-b3da-aa36e5415705, rgb(249, 69, 45))}
+
 /* the rail's arrow leans toward where it takes you */
 @media(hover:hover) and (pointer:fine){
   .bp-back svg{transition:transform .22s var(--bp-ease-out)}
@@ -16108,7 +16116,7 @@ body.bp2024 .svc-nav-wrap:has(.bm-open) .framer-fyydzk-container{top:0!important
       <a href="/services/seo-services/">SEO Services &rarr;</a>
       <a href="/services/website-maintenance/">Website Maintenance &rarr;</a>
       <a href="/services/">All Services &rarr;</a>
-    </aside></div></div></section>
+    </aside><aside class="bp-prefsrc"><p>Found this useful? <a href="https://www.google.com/preferences/source?q=thebrandle.com" target="_blank" rel="noopener">Add TheBrandle as a preferred source on Google</a> so our guides show up first for you in Search and AI Overviews.</p></aside></div></div></section>
 
   <section class="bp-more">
     <div class="bp-grid">

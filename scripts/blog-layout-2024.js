@@ -10,6 +10,14 @@
 // The author avatar the Framer posts use, pulled from the live site.
 const AVATAR = '/framerusercontent.com/images/A0LPOEdkaRkfMcS2EWs1My620fA.jpg';
 
+/* Placed at the end of the article: readers opt in right after finishing
+   something they found useful, not before. Domain-level only - Google does not
+   accept subdirectories for this. */
+const PREFERRED_SOURCE = '<aside class="bp-prefsrc"><p>Found this useful? ' +
+  '<a href="https://www.google.com/preferences/source?q=thebrandle.com" target="_blank" rel="noopener">' +
+  'Add TheBrandle as a preferred source on Google</a>' +
+  ' so our guides show up first for you in Search and AI Overviews.</p></aside>';
+
 const BACK_ARROW = '<svg width="22" height="20" viewBox="0 0 22 20" fill="none" aria-hidden="true"><path d="M7 1L1.5 6.5L7 12" stroke="#f9452d" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M1.5 6.5H14a6.5 6.5 0 0 1 6.5 6.5v6" stroke="#f9452d" stroke-width="1.7" stroke-linecap="round"/></svg>';
 
 /** Layout CSS. Pass the site tokens so both generators render identically. */
@@ -162,6 +170,14 @@ function css({ LIGHT, ACCENT, MUTED }) {
 }
 @keyframes bpIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 
+/* "Preferred source" prompt. Deep link rather than Google's official button:
+   the button pulls news.google.com/swg/js/v1/publisher.js onto every page and
+   renders in Google blue. This is a plain link in our own type, zero JS. */
+.bp-main .bp-prefsrc{margin-top:54px;padding-top:26px;border-top:1px solid rgba(12,12,12,.14)}
+.bp-main .bp-prefsrc p{margin:0;color:rgba(12,12,12,.6);font-family:Inter,sans-serif;font-size:16px;line-height:1.6}
+.bp-main .bp-prefsrc a{color:#0c0c0c;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(12,12,12,.3)}
+.bp-main .bp-prefsrc a:hover{color:${ACCENT};text-decoration-color:${ACCENT}}
+
 /* the rail's arrow leans toward where it takes you */
 @media(hover:hover) and (pointer:fine){
   .bp-back svg{transition:transform .22s var(--bp-ease-out)}
@@ -231,7 +247,7 @@ function renderArticle(o) {
     '<section class="bp-main"><div class="bp-grid">',
     '<aside class="bp-side"><p class="bp-side-note">Continue exploring ideas<br>in web design and beyond.</p>',
     '<a class="bp-back" href="' + o.backHref + '">' + BACK_ARROW + 'Back to blogs</a></aside>',
-    '<div class="bp-col"><div class="post-body">', o.body, '</div>', o.after || '', '</div></div></section>',
+    '<div class="bp-col"><div class="post-body">', o.body, '</div>', o.after || '', PREFERRED_SOURCE, '</div></div></section>',
   ].join('');
 }
 
