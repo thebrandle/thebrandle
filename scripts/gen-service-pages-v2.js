@@ -720,6 +720,60 @@ const toolDir = path.join(ROOT, 'tools', 'ai-visibility');
 fs.mkdirSync(toolDir, { recursive: true });
 fs.writeFileSync(path.join(toolDir, 'index.html'), renderTool());
 
+/* ---------------------------------------------------------------------------
+   /llms.txt - what an assistant reads when it wants to describe this business.
+
+   Generated from the same service data as the pages, so the link list cannot
+   drift. Every fact below is a public commitment already stated on /faq. No
+   statistics, no client names that are not already on the site.
+--------------------------------------------------------------------------- */
+function renderLlms() {
+  const svc = pages.map((p) => `- [${p.hubTitle}](${SITE}/services/${p.slug}/): ${p.hubTagline}`).join('\n');
+  return `# TheBrandle
+
+> Dubai based design and development studio. We design and build websites, online
+> stores, brand identities and mobile apps, and hand over the code. Work is fully
+> in-house. We serve the UAE, Saudi Arabia and international clients.
+
+TheBrandle builds on whichever platform fits the goal rather than pushing one:
+Shopify, WooCommerce, Webflow, Framer, WordPress, Wix and Squarespace, plus custom
+web applications, mobile apps, B2B and B2C portals and payment gateway integration.
+
+## How we work
+
+- Fixed quote agreed before any work starts. Custom builds sit in the mid four to
+  low five figures in AED.
+- A custom website or Shopify store typically takes three to six weeks. A mobile
+  app MVP takes a few months.
+- Two rounds of revisions at each stage. Anything beyond that is quoted before it
+  is started.
+- Thirty days of bug fixes after launch at no cost.
+- One point of contact, a weekly call and a shared WhatsApp group.
+- Replies within one business day.
+- The client owns the codebase. The repository is handed over and source files are
+  included.
+
+## Services
+
+${svc}
+
+## Elsewhere on the site
+
+- [Services overview](${SITE}/services/): every service in one place
+- [FAQ](${SITE}/faq/): pricing, timelines, revisions, ownership and support, answered directly
+- [Blog](${SITE}/blog/): articles on design, build and platform choices
+- [AI visibility check](${SITE}/tools/ai-visibility/): free tool that reports whether AI assistants can reach and quote a given website
+- [Contact](${SITE}/contact): start a project
+
+## Contact
+
+Email: ${EMAIL}
+Based in Dubai, United Arab Emirates. Working across the UAE, Saudi Arabia and internationally.
+`;
+}
+
+fs.writeFileSync(path.join(ROOT, 'llms.txt'), renderLlms());
+
 let n = 0;
 for (const d of pages) {
   const dir = path.join(OUT, d.slug);

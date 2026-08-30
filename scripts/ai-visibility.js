@@ -208,6 +208,61 @@ function tag(html, re) {
   return m ? m[1].trim() : null;
 }
 
+/**
+ * schema.org subtype -> its ancestors.
+ *
+ * A site declaring `Dentist` or `AutoRepair` has done a BETTER job than one
+ * declaring bare `Organization`, and must not be marked down for it. Literal
+ * string matching punishes precision, which is backwards.
+ *
+ * Only the business branch is modelled - that is all this audit asks about.
+ */
+const SCHEMA_PARENTS = {
+  localbusiness: ['Organization', 'Place'],
+  professionalservice: ['LocalBusiness'],
+  legalservice: ['LocalBusiness'],
+  financialservice: ['LocalBusiness'],
+  homeandconstructionbusiness: ['LocalBusiness'],
+  generalcontractor: ['HomeAndConstructionBusiness'],
+  automotivebusiness: ['LocalBusiness'],
+  autorepair: ['AutomotiveBusiness'],
+  healthandbeautybusiness: ['LocalBusiness'],
+  medicalbusiness: ['LocalBusiness'],
+  dentist: ['MedicalBusiness', 'MedicalOrganization'],
+  physician: ['MedicalBusiness', 'MedicalOrganization'],
+  medicalorganization: ['Organization'],
+  medicalclinic: ['MedicalBusiness', 'MedicalOrganization'],
+  foodestablishment: ['LocalBusiness'],
+  restaurant: ['FoodEstablishment'],
+  cafeorcoffeeshop: ['FoodEstablishment'],
+  store: ['LocalBusiness'],
+  onlinestore: ['Organization'],
+  realestateagent: ['LocalBusiness'],
+  childcare: ['LocalBusiness'],
+  preschool: ['EducationalOrganization'],
+  school: ['EducationalOrganization'],
+  educationalorganization: ['Organization'],
+  corporation: ['Organization'],
+  ngo: ['Organization'],
+  sportsactivitylocation: ['LocalBusiness'],
+  healthclub: ['SportsActivityLocation'],
+  lodgingbusiness: ['LocalBusiness'],
+  hotel: ['LodgingBusiness'],
+};
+
+/** Every type a declared @type satisfies, itself included. */
+function expandSchemaTypes(types) {
+  const seen = new Set();
+  const walk = (t) => {
+    const k = String(t).toLowerCase().replace(/[^a-z]/g, '');
+    if (!k || seen.has(k)) return;
+    seen.add(k);
+    (SCHEMA_PARENTS[k] || []).forEach(walk);
+  };
+  types.forEach(walk);
+  return seen;
+}
+
 async function audit(input) {
   const domain = String(input).trim().replace(/^https?:\/\//i, '').replace(/\/.*$/, '');
   if (!/^[a-z0-9.-]+\.[a-z]{2,}$/i.test(domain)) throw new Error(`Not a domain: ${input}`);
@@ -279,7 +334,8 @@ async function audit(input) {
     if (!h1) findings.push({ id: 'no-h1', severity: 'low', title: 'No <h1> in the served HTML', detail: 'Common on client-rendered sites; crawlers that do not run JavaScript see nothing.' });
 
     const wants = ['Organization', 'LocalBusiness', 'FAQPage'];
-    const missing = wants.filter((w) => !schemas.some((s) => String(s).toLowerCase() === w.toLowerCase()));
+    const satisfied = expandSchemaTypes(schemas);
+    const missing = wants.filter((w) => !satisfied.has(w.toLowerCase()));
     if (!schemas.length) {
       findings.push({ id: 'no-schema', severity: 'high', title: 'No structured data',
         detail: 'Nothing machine-readable states who you are, where you are, or what you answer. This is the most reliable way to be quoted correctly.' });

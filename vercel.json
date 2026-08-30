@@ -123,6 +123,10 @@
       "destination": "/tools/ai-visibility/index.html"
     },
     {
+      "source": "/llms.txt",
+      "destination": "/llms.txt"
+    },
+    {
       "source": "/(.*)",
       "destination": "/thebrandle.framer.website/index.html"
     }

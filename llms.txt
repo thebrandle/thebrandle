@@ -1,0 +1,60 @@
+# TheBrandle
+
+> Dubai based design and development studio. We design and build websites, online
+> stores, brand identities and mobile apps, and hand over the code. Work is fully
+> in-house. We serve the UAE, Saudi Arabia and international clients.
+
+TheBrandle builds on whichever platform fits the goal rather than pushing one:
+Shopify, WooCommerce, Webflow, Framer, WordPress, Wix and Squarespace, plus custom
+web applications, mobile apps, B2B and B2C portals and payment gateway integration.
+
+## How we work
+
+- Fixed quote agreed before any work starts. Custom builds sit in the mid four to
+  low five figures in AED.
+- A custom website or Shopify store typically takes three to six weeks. A mobile
+  app MVP takes a few months.
+- Two rounds of revisions at each stage. Anything beyond that is quoted before it
+  is started.
+- Thirty days of bug fixes after launch at no cost.
+- One point of contact, a weekly call and a shared WhatsApp group.
+- Replies within one business day.
+- The client owns the codebase. The repository is handed over and source files are
+  included.
+
+## Services
+
+- [Shopify Design](https://www.thebrandle.com/services/shopify-website-design/): High-converting custom Shopify stores, built to scale.
+- [Ecommerce Design](https://www.thebrandle.com/services/ecommerce-website-design/): Online stores that convert, on the right platform for you.
+- [Webflow Design](https://www.thebrandle.com/services/webflow-website-design/): Custom, CMS-powered Webflow sites you can manage yourself.
+- [Framer Design](https://www.thebrandle.com/services/framer-website-design/): Beautiful, fast Framer sites - ideal for startups and launches.
+- [WordPress Design](https://www.thebrandle.com/services/wordpress-website-design/): Flexible, content-rich WordPress sites you fully own.
+- [Wix Design](https://www.thebrandle.com/services/wix-website-design/): Polished, easy-to-run Wix sites for small businesses.
+- [Squarespace Design](https://www.thebrandle.com/services/squarespace-website-design/): Elegant Squarespace sites for creatives and brands.
+- [UI/UX Design](https://www.thebrandle.com/services/ui-ux-design/): Intuitive, beautiful interfaces for products and apps.
+- [Brand Identity Design](https://www.thebrandle.com/services/brand-identity-design/): Logos, identity systems and guidelines that hold up everywhere.
+- [Website Maintenance](https://www.thebrandle.com/services/website-maintenance/): Updates, backups, monitoring and design tweaks - handled.
+- [SEO Services](https://www.thebrandle.com/services/seo-services/): Technical and on-page SEO, done by the people who build the site.
+- [WooCommerce Website Design](https://www.thebrandle.com/services/woocommerce-website-design/): Custom WordPress stores you own outright, with no monthly platform fee.
+- [Digital Marketing](https://www.thebrandle.com/services/digital-marketing/): Paid, email and analytics - joined up with the site itself.
+- [Social Media Marketing](https://www.thebrandle.com/services/social-media-marketing/): On-brand content and paid social, designed not templated.
+- [Mobile App Development](https://www.thebrandle.com/services/mobile-app-development/): iOS and Android apps, designed and built end to end.
+- [Web Application Development](https://www.thebrandle.com/services/web-application-development/): Dashboards, portals and internal tools built around how you work.
+- [B2B & B2C Portals](https://www.thebrandle.com/services/b2b-b2c-portal-development/): Wholesale ordering, dealer networks and customer self-service.
+- [Payment & API Integration](https://www.thebrandle.com/services/payment-gateway-integration/): Checkout, shipping and systems wired up and tested properly.
+- [Web Design Dubai](https://www.thebrandle.com/services/web-design-dubai/): For Dubai businesses that need the site to actually sell.
+- [Web Design Abu Dhabi](https://www.thebrandle.com/services/web-design-abu-dhabi/): Corporate and institutional sites built to survive review.
+- [Web Design Riyadh](https://www.thebrandle.com/services/web-design-riyadh/): Arabic-first websites built for the Saudi market.
+
+## Elsewhere on the site
+
+- [Services overview](https://www.thebrandle.com/services/): every service in one place
+- [FAQ](https://www.thebrandle.com/faq/): pricing, timelines, revisions, ownership and support, answered directly
+- [Blog](https://www.thebrandle.com/blog/): articles on design, build and platform choices
+- [AI visibility check](https://www.thebrandle.com/tools/ai-visibility/): free tool that reports whether AI assistants can reach and quote a given website
+- [Contact](https://www.thebrandle.com/contact): start a project
+
+## Contact
+
+Email: hello@thebrandle.com
+Based in Dubai, United Arab Emirates. Working across the UAE, Saudi Arabia and internationally.
