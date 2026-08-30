@@ -721,6 +721,165 @@ fs.mkdirSync(toolDir, { recursive: true });
 fs.writeFileSync(path.join(toolDir, 'index.html'), renderTool());
 
 /* ---------------------------------------------------------------------------
+   /projects - the work listing, and a page per non-CMS project.
+
+   /projects used to be the Framer page, which lists only what is in the CMS
+   collection. Newer work cannot be added there without Framer editor access, so
+   the hub is generated here instead and covers everything. The four CMS case
+   studies keep their own Framer-rendered pages; this page just links to them.
+--------------------------------------------------------------------------- */
+const projects = require('./projects-data.js');
+
+const PRJ_CSS = `<style>
+.prj-meta{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}
+.prj-tag{font-size:12px;letter-spacing:.07em;text-transform:uppercase;font-weight:600;color:${MUTED};
+  border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 13px}
+/* !important for the same reason .svc-num carries it: Framer's stylesheet sets
+   anchor colour at a higher specificity, and without it this link computes to
+   rgb(0,0,0) on a rgb(12,12,12) background - invisible. */
+.prj-visit{display:inline-block;margin:26px 0 0;font-size:15px;color:${ACCENT}!important;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
+.prj-note{margin:34px 0 0;padding:16px 18px;border-left:2px solid rgba(255,255,255,.18);color:${MUTED2};font-size:14px;line-height:1.6;max-width:64ch}
+.svc-row .prj-plat{display:inline-block;margin:8px 0 0;font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:${MUTED2};font-weight:600}
+</style>`;
+
+function renderProjectsHub() {
+  const url = `${SITE}/projects/`;
+  const title = 'Selected Work - Web, Ecommerce & Brand Projects | TheBrandle';
+  const desc = 'Selected projects from TheBrandle across Shopify, Webflow, Wix and Framer - ecommerce stores, agency sites, brand identities and landing pages.';
+  const rows = projects.map((p, i) => {
+    const href = p.framer ? `/projects/${p.slug}/` : `/projects/${p.slug}/`;
+    return `      <a class="svc-row" style="display:block" href="${href}"><span class="svc-num ${P.small}">${pad2(i + 1)}</span><h3 class="svc-row-title ${P.h2}" style="text-align:left">${esc(p.title)}</h3><p class="svc-row-body ${P.body}" style="color:${MUTED2};text-align:left">${esc(p.tagline)}</p><span class="prj-plat">${esc(p.platform)} &middot; ${esc(p.sector)}</span></a>`;
+  }).join('\n');
+  const schemas = [{
+    '@context': 'https://schema.org', '@type': 'ItemList',
+    itemListElement: projects.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.title, url: `${SITE}/projects/${p.slug}/` })),
+  }];
+  return `${head(title, desc, url, schemas)}
+<body>
+${ROOT_OPEN}
+${noiseHtml ? `<div class="svc-noise">${noiseHtml}</div>` : ``}
+${PRJ_CSS}
+<div class="svc-page">
+  <div class="svc-nav-wrap"><div class="svc-nav-desktop">${navHtmlFinal}</div><div class="svc-nav-phone">${navPhoneHtml}</div></div>
+  <section class="svc-section" style="padding-top:110px">
+    <span class="svc-label">Selected work</span>
+    <h1 class="${P.display}" style="color:#fff;text-align:left;margin:0 0 26px">Work we have shipped</h1>
+    <p class="${P.lead}" style="color:${MUTED};text-align:left;max-width:58ch">Stores, sites and brand systems across Shopify, Webflow, Wix and Framer. We build on whichever platform fits the goal, then hand over the code.</p>
+    <div class="svc-hero-actions">${cta('Start your project', '/contact')}</div>
+    <div class="svc-rows">
+${rows}
+    </div>
+  </section>
+  <div class="svc-band">
+    <h2 class="${P.display}" style="color:#fff;margin:0 0 22px">Want something like this?</h2>
+    <p class="${P.lead}" style="color:${MUTED};max-width:52ch;margin:0 auto">Tell us the goal and we will recommend the platform, then design and build it end to end. Fixed quote before any work starts.</p>
+    <div class="svc-hero-actions">${cta('Book a free consultation', '/contact')}</div>
+  </div>
+  <div class="svc-footer">
+${footerHtml}
+  </div>
+</div>
+</div>
+${REVEAL_JS}
+</body>
+</html>
+`;
+}
+
+function renderProjectPage(p) {
+  const url = `${SITE}/projects/${p.slug}/`;
+  const title = `${p.title} - ${p.platform} ${p.sector === 'Marketing agency' ? 'Website' : 'Project'} | TheBrandle`;
+  const desc = `${p.tagline} Built by TheBrandle, a Dubai design and development studio.`;
+  const schemas = [
+    {
+      '@context': 'https://schema.org', '@type': 'CreativeWork',
+      name: p.title, url, about: p.sector,
+      creator: { '@type': 'Organization', name: 'TheBrandle', url: SITE },
+      ...(p.url ? { sameAs: [p.url] } : {}),
+    },
+    {
+      '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE + '/' },
+        { '@type': 'ListItem', position: 2, name: 'Work', item: SITE + '/projects/' },
+        { '@type': 'ListItem', position: 3, name: p.title, item: url },
+      ],
+    },
+  ];
+  return `${head(title, desc, url, schemas)}
+<body>
+${ROOT_OPEN}
+${noiseHtml ? `<div class="svc-noise">${noiseHtml}</div>` : ``}
+${PRJ_CSS}
+<div class="svc-page">
+  <div class="svc-nav-wrap"><div class="svc-nav-desktop">${navHtmlFinal}</div><div class="svc-nav-phone">${navPhoneHtml}</div></div>
+  <section class="svc-section" style="padding-top:110px">
+    <span class="svc-label">Selected work</span>
+    <h1 class="${P.display}" style="color:#fff;text-align:left;margin:0 0 22px">${esc(p.title)}</h1>
+    <div class="prj-meta"><span class="prj-tag">${esc(p.platform)}</span><span class="prj-tag">${esc(p.sector)}</span></div>
+    <p class="${P.lead}" style="color:${MUTED};text-align:left;max-width:62ch">${esc(p.summary)}</p>
+    <h2 class="${P.h2}" style="color:#fff;text-align:left;margin:44px 0 14px">What we built</h2>
+    <p class="${P.body}" style="color:${MUTED};text-align:left;max-width:62ch">${esc(p.build)}</p>
+    ${p.url ? `<a class="prj-visit" href="${p.url}" target="_blank" rel="noopener">Visit ${esc(p.client)}</a>` : ''}
+    <p class="prj-note">This page describes the client and the platform. The scope, timeline and outcome are not published here yet.</p>
+  </section>
+  <div class="svc-band">
+    <h2 class="${P.display}" style="color:#fff;margin:0 0 22px">Want something like this?</h2>
+    <p class="${P.lead}" style="color:${MUTED};max-width:52ch;margin:0 auto">Fixed quote before any work starts, and you own the code at the end.</p>
+    <div class="svc-hero-actions">${cta('Start your project', '/contact')}</div>
+  </div>
+  <div class="svc-footer">
+${footerHtml}
+  </div>
+</div>
+</div>
+${REVEAL_JS}
+</body>
+</html>
+`;
+}
+
+const prjDir = path.join(ROOT, 'projects');
+fs.mkdirSync(prjDir, { recursive: true });
+fs.writeFileSync(path.join(prjDir, 'index.html'), renderProjectsHub());
+let prjN = 0;
+for (const p of projects.filter((x) => !x.framer)) {
+  const d = path.join(prjDir, p.slug);
+  fs.mkdirSync(d, { recursive: true });
+  fs.writeFileSync(path.join(d, 'index.html'), renderProjectPage(p));
+  prjN++;
+}
+console.log(`projects: hub with ${projects.length} entries + ${prjN} static project pages`);
+
+/* Merge the pages this generator owns but that Framer never knew about into the
+   sitemap, inside a marked block - same idempotent pattern gen-opinly-blog.js
+   uses for its posts, so repeated runs replace rather than accumulate. The four
+   CMS case studies are already in the Framer-exported part and are not touched. */
+function mergeSitemap(entries) {
+  const SITEMAP = path.join(ROOT, 'thebrandle.framer.website', 'sitemap.xml');
+  if (!fs.existsSync(SITEMAP)) { console.warn('sitemap: not found, skipped'); return; }
+  const START = '  <!-- generated:start -->';
+  const END = '  <!-- generated:end -->';
+  const today = new Date().toISOString().slice(0, 10);
+  const block = [START,
+    ...entries.map((e) => `  <url>\n    <loc>${esc(e.loc)}</loc>\n    <lastmod>${e.lastmod || today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>${e.priority}</priority>\n  </url>`),
+    END].join('\n');
+  let xml = fs.readFileSync(SITEMAP, 'utf8');
+  const already = new Set((xml.match(/<loc>([^<]*)<\/loc>/g) || []).map((m) => m.slice(5, -6)));
+  xml = xml.includes(START)
+    ? xml.replace(new RegExp(`${START}[\\s\\S]*?${END}`), block)
+    : xml.replace('</urlset>', block + '\n</urlset>');
+  fs.writeFileSync(SITEMAP, xml);
+  const added = entries.filter((e) => !already.has(e.loc)).length;
+  console.log(`sitemap: ${entries.length} generated URLs in the marked block (${added} new)`);
+}
+
+mergeSitemap([
+  ...projects.filter((p) => !p.framer).map((p) => ({ loc: `${SITE}/projects/${p.slug}/`, priority: '0.7' })),
+  { loc: `${SITE}/tools/ai-visibility/`, priority: '0.7' },
+]);
+
+/* ---------------------------------------------------------------------------
    /llms.txt - what an assistant reads when it wants to describe this business.
 
    Generated from the same service data as the pages, so the link list cannot

@@ -183,6 +183,38 @@
       "destination": "/projects/oh-my-pasta-branding/index.html"
     },
     {
+      "source": "/projects/voice-and-data-resale",
+      "destination": "/projects/voice-and-data-resale/index.html"
+    },
+    {
+      "source": "/projects/voice-and-data-resale/",
+      "destination": "/projects/voice-and-data-resale/index.html"
+    },
+    {
+      "source": "/projects/cyb3r-media",
+      "destination": "/projects/cyb3r-media/index.html"
+    },
+    {
+      "source": "/projects/cyb3r-media/",
+      "destination": "/projects/cyb3r-media/index.html"
+    },
+    {
+      "source": "/projects/soznikar",
+      "destination": "/projects/soznikar/index.html"
+    },
+    {
+      "source": "/projects/soznikar/",
+      "destination": "/projects/soznikar/index.html"
+    },
+    {
+      "source": "/projects/storage-hire",
+      "destination": "/projects/storage-hire/index.html"
+    },
+    {
+      "source": "/projects/storage-hire/",
+      "destination": "/projects/storage-hire/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/thebrandle.framer.website/index.html"
     }

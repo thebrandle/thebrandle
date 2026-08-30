@@ -302,4 +302,36 @@
     <priority>0.6</priority>
   </url>
   <!-- opinly:end -->
+  <!-- generated:start -->
+  <url>
+    <loc>https://www.thebrandle.com/projects/voice-and-data-resale/</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thebrandle.com/projects/cyb3r-media/</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thebrandle.com/projects/soznikar/</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thebrandle.com/projects/storage-hire/</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thebrandle.com/tools/ai-visibility/</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- generated:end -->
 </urlset>
