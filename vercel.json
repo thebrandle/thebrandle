@@ -111,6 +111,18 @@
       "destination": "/faq/index.html"
     },
     {
+      "source": "/api/visibility-check",
+      "destination": "/api/visibility-check"
+    },
+    {
+      "source": "/tools/ai-visibility",
+      "destination": "/tools/ai-visibility/index.html"
+    },
+    {
+      "source": "/tools/ai-visibility/",
+      "destination": "/tools/ai-visibility/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/thebrandle.framer.website/index.html"
     }

@@ -563,6 +563,163 @@ ${REVEAL_JS}
 `;
 }
 
+/* ---------------------------------------------------------------------------
+   /tools/ai-visibility - the free checker.
+
+   Lives in THIS generator rather than a fourth one on purpose: nav, footer and
+   menu JS are already duplicated across three files and every fix has to be
+   applied to all of them. Another copy makes that worse.
+
+   Results are shown in full, free, before any email is asked for. A gate in
+   front of an unevaluated tool kills the usage that makes it worth having.
+--------------------------------------------------------------------------- */
+const AIV_CSS = `<style>
+.aiv-form{display:flex;gap:10px;flex-wrap:wrap;margin:30px 0 0;max-width:560px}
+.aiv-form input{flex:1 1 260px;min-width:0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);
+  border-radius:10px;padding:15px 17px;color:#fff;font:inherit;font-size:16px;outline:none}
+.aiv-form input::placeholder{color:rgba(255,255,255,.36)}
+.aiv-form input:focus{border-color:${ACCENT}}
+.aiv-btn{background:${ACCENT};color:#fff;border:0;border-radius:10px;padding:15px 26px;font:inherit;
+  font-size:16px;font-weight:600;cursor:pointer;white-space:nowrap}
+.aiv-btn[disabled]{opacity:.55;cursor:progress}
+.aiv-note{margin:12px 0 0;font-size:14px;color:${MUTED2}}
+.aiv-out{margin:44px 0 0;display:none}
+.aiv-out.on{display:block}
+.aiv-score{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;padding:0 0 22px;border-bottom:1px solid rgba(255,255,255,.12)}
+.aiv-num{font-size:64px;line-height:1;font-weight:700;color:#fff}
+.aiv-verdict{font-size:19px;color:${MUTED}}
+.aiv-dom{font-size:14px;color:${MUTED2};margin-left:auto}
+.aiv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:26px 0 0}
+.aiv-cell{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px 18px}
+.aiv-cell b{display:block;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:${MUTED2};margin:0 0 8px;font-weight:600}
+.aiv-cell span{font-size:15px;color:#fff;line-height:1.5}
+.aiv-find{margin:30px 0 0;padding:0;list-style:none}
+.aiv-find li{padding:17px 0;border-top:1px solid rgba(255,255,255,.1)}
+.aiv-sev{display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;
+  padding:3px 9px;border-radius:5px;margin:0 10px 0 0;vertical-align:2px}
+.aiv-sev.critical{background:#f9452d;color:#fff}
+.aiv-sev.high{background:#ff8a3d;color:#221100}
+.aiv-sev.medium{background:rgba(255,255,255,.2);color:#fff}
+.aiv-sev.low{background:rgba(255,255,255,.1);color:${MUTED}}
+.aiv-find h4{display:inline;font-size:17px;color:#fff;font-weight:600;margin:0}
+.aiv-find p{margin:9px 0 0;font-size:15px;color:${MUTED};line-height:1.62;max-width:70ch}
+.aiv-err{color:#ff8a3d;margin:22px 0 0;font-size:15px}
+.aiv-pass{margin:26px 0 0;font-size:16px;color:${MUTED}}
+@media (max-width:600px){.aiv-num{font-size:48px}.aiv-dom{margin-left:0;width:100%}}
+</style>`;
+
+function renderTool() {
+  const url = `${SITE}/tools/ai-visibility/`;
+  const title = 'Free AI Visibility Check - Can ChatGPT See Your Business? | TheBrandle';
+  const desc = 'Check in seconds whether ChatGPT, Claude, Perplexity and Google AI can reach your website and find anything worth quoting. Free, no signup, results on screen.';
+  const schemas = [
+    {
+      '@context': 'https://schema.org', '@type': 'WebApplication',
+      name: 'AI Visibility Check', url,
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Any', browserRequirements: 'Requires JavaScript',
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'AED' },
+      provider: { '@type': 'Organization', name: 'TheBrandle', url: SITE },
+    },
+    {
+      '@context': 'https://schema.org', '@type': 'FAQPage',
+      mainEntity: [
+        ['What does this check?', 'Whether AI assistants can reach your site, and whether there is anything machine readable for them to quote. It reads your robots.txt, llms.txt, sitemap, page metadata and structured data directly.'],
+        ['Why do indexers and fetchers get scored separately?', 'They are different failures. Blocking an indexing crawler such as GPTBot or ClaudeBot keeps you out of the data behind unprompted recommendations. Blocking a live fetcher such as OAI-SearchBot or PerplexityBot stops an assistant reading your page when somebody asks about you directly.'],
+        ['Is the score an opinion?', 'No. Every finding traces to a file fetched from your domain at the moment you run it, so the same site scores the same each time. No AI model is involved in producing the result.'],
+      ].map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+    },
+  ];
+
+  return `${head(title, desc, url, schemas)}
+<body>
+${ROOT_OPEN}
+${noiseHtml ? `<div class="svc-noise">${noiseHtml}</div>` : ``}
+${AIV_CSS}
+<div class="svc-page">
+  <div class="svc-nav-wrap"><div class="svc-nav-desktop">${navHtmlFinal}</div><div class="svc-nav-phone">${navPhoneHtml}</div></div>
+  <section class="svc-section" style="padding-top:110px">
+    <span class="svc-label">Free tool</span>
+    <h1 class="${P.display}" style="color:#fff;text-align:left;margin:0 0 26px">Can ChatGPT see your business?</h1>
+    <p class="${P.lead}" style="color:${MUTED};text-align:left;max-width:60ch">Most sites are optimised for Google and invisible to the assistants people now ask instead. This reads your domain live and tells you which AI crawlers you allow, whether there is anything quotable when they arrive, and what is missing.</p>
+
+    <form class="aiv-form" id="aivForm" autocomplete="off">
+      <input id="aivDomain" type="text" inputmode="url" placeholder="yourcompany.com" aria-label="Your domain" required>
+      <button class="aiv-btn" id="aivGo" type="submit">Check my site</button>
+    </form>
+    <p class="aiv-note">Free, no signup, results on this page. Takes about five seconds.</p>
+    <p class="aiv-err" id="aivErr" style="display:none"></p>
+
+    <div class="aiv-out" id="aivOut" aria-live="polite"></div>
+  </section>
+
+  <div class="svc-band">
+    <h2 class="${P.display}" style="color:#fff;margin:0 0 22px">Want this fixed rather than measured?</h2>
+    <p class="${P.lead}" style="color:${MUTED};max-width:52ch;margin:0 auto">Send us the result and we will tell you exactly what to change, in order, and what it costs. Fixed quote before any work starts.</p>
+    <div class="svc-hero-actions">${cta('Get the fix list', '/contact')}</div>
+  </div>
+
+  <div class="svc-footer">
+${footerHtml}
+  </div>
+</div>
+</div>
+<script>
+(function () {
+  var f = document.getElementById('aivForm'), out = document.getElementById('aivOut'),
+      err = document.getElementById('aivErr'), btn = document.getElementById('aivGo'),
+      inp = document.getElementById('aivDomain');
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function cell(label, val) {
+    return '<div class="aiv-cell"><b>' + esc(label) + '</b><span>' + esc(val) + '</span></div>';
+  }
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var d = (inp.value || '').trim();
+    if (!d) return;
+    err.style.display = 'none'; out.className = 'aiv-out'; btn.disabled = true; btn.textContent = 'Checking...';
+    fetch('/api/visibility-check?domain=' + encodeURIComponent(d))
+      .then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || 'Check failed'); return j; }); })
+      .then(function (r) {
+        var bi = r.crawlers.blockedIndexers, bf = r.crawlers.blockedFetchers;
+        var html =
+          '<div class="aiv-score"><span class="aiv-num">' + r.score + '</span>' +
+          '<span class="aiv-verdict">' + esc(r.verdict) + '</span>' +
+          '<span class="aiv-dom">' + esc(r.domain) + '</span></div>' +
+          '<div class="aiv-grid">' +
+            cell('Live AI fetchers', bf.length ? bf.length + ' blocked: ' + bf.join(', ') : 'All allowed') +
+            cell('AI indexing crawlers', bi.length ? bi.length + ' blocked: ' + bi.join(', ') : 'All allowed') +
+            cell('llms.txt', r.files.llmsTxt ? 'Present' : 'Missing') +
+            cell('sitemap.xml', r.files.sitemapXml ? 'Present' : 'Missing') +
+            cell('Structured data', r.page.schemas.length ? r.page.schemas.join(', ') : 'None found') +
+            cell('Meta description', r.page.description ? 'Present' : 'Missing') +
+          '</div>';
+        if (r.findings.length) {
+          html += '<ul class="aiv-find">' + r.findings.map(function (x) {
+            return '<li><span class="aiv-sev ' + esc(x.severity) + '">' + esc(x.severity) + '</span>' +
+                   '<h4>' + esc(x.title) + '</h4><p>' + esc(x.detail) + '</p></li>';
+          }).join('') + '</ul>';
+        } else {
+          html += '<p class="aiv-pass">Nothing to flag. Every check passed.</p>';
+        }
+        out.innerHTML = html; out.className = 'aiv-out on';
+      })
+      .catch(function (e) { err.textContent = e.message || 'Something went wrong. Try again.'; err.style.display = 'block'; })
+      .then(function () { btn.disabled = false; btn.textContent = 'Check my site'; });
+  });
+})();
+</script>
+${REVEAL_JS}
+</body>
+</html>
+`;
+}
+
+const toolDir = path.join(ROOT, 'tools', 'ai-visibility');
+fs.mkdirSync(toolDir, { recursive: true });
+fs.writeFileSync(path.join(toolDir, 'index.html'), renderTool());
+
 let n = 0;
 for (const d of pages) {
   const dir = path.join(OUT, d.slug);
