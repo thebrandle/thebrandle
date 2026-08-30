@@ -53,6 +53,52 @@ const EMIT = [
   'projects/oh-my-pasta-branding',
 ];
 
+/**
+ * The four case studies are CMS collection items, and they rendered blank -
+ * scrollHeight 0, no images, 54 characters of booking widget - on every path:
+ * direct load, and client-side navigation from /projects.
+ *
+ * Cause, from script_main's bootstrap: when the hydrate attribute is absent it
+ * resolves the route from location.pathname, which yields routeId and
+ * pathVariables but NEVER a collectionItemId. It then calls the renderer with
+ * `collectionItemId: undefined`, so the collection template mounts with no item
+ * bound and produces nothing. Top-level pages (/about, /contact, /projects) are
+ * unaffected because they are not collection items - which is exactly the split
+ * observed.
+ *
+ * So these four get the attribute back, carrying the item explicitly. Values are
+ * not invented: routeId and the path-variable name come from the route table in
+ * script_main (`v75Tpw1Yr: {collectionId:'RwM1qgENQ', path:'/projects/:EvxErjRB0'}`),
+ * the breakpoint hashes from that route's own case in the breakpoint switch, and
+ * the item ids and slugs from the collection index at
+ * framerusercontent.com/cms/.../RwM1qgENQ-indexes-default-0.framercms.
+ *
+ * Note the slugs: the CMS still holds the ORIGINAL names. The published URLs were
+ * renamed without the collection being renamed with them, which is why
+ * /projects/stoyo-branding client-redirects to /projects/orblead-website-design.
+ * The pathVariable must therefore be the CMS slug, not the URL.
+ *
+ * This is a workaround. The clean fix is re-exporting from Framer with the
+ * collection slugs matching the published URLs; then the URL-resolution branch
+ * finds the item on its own and none of this is needed.
+ */
+const COLLECTION_ROUTE_ID = 'v75Tpw1Yr';
+const PATH_VARIABLE = 'EvxErjRB0';
+const COLLECTION_BREAKPOINTS = [
+  { hash: '193bvef', mediaQuery: '(min-width: 1200px)' },
+  { hash: '1dc2pdl', mediaQuery: '(min-width: 810px) and (max-width: 1199.98px)' },
+  { hash: '17ruhlu', mediaQuery: '(max-width: 809.98px)' },
+];
+
+const COLLECTION_ITEMS = {
+  'projects/dropx-website-design': { id: 'LSltSvV9x', cmsSlug: 'vero-app-development' },
+  'projects/orblead-website-design': { id: 'GJfwiogTb', cmsSlug: 'stoyo-branding' },
+  'projects/shine-skincare-branding': { id: 'NW8CjJtnW', cmsSlug: 'radiant-skincare-branding' },
+  'projects/oh-my-pasta-branding': { id: 'nj0vxPXZK', cmsSlug: 'radiant-skincare-branding-copy' },
+};
+
+const DISABLED_ATTR = 'data-framer-hydrate-v2-disabled-see-CLAUDE-md';
+
 const attr = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const text = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -116,11 +162,31 @@ for (const dir of EMIT) {
     `\n<meta name="twitter:title" content="${attr(meta.title)}"/>` +
     `\n<meta name="twitter:description" content="${attr(meta.description)}"/>`);
 
+  // Collection items: re-enable hydration, carrying the item explicitly.
+  const item = COLLECTION_ITEMS[dir];
+  if (item) {
+    const payload = JSON.stringify({
+      routeId: COLLECTION_ROUTE_ID,
+      localeId: 'default',
+      pathVariables: { [PATH_VARIABLE]: item.cmsSlug },
+      collectionItemId: item.id,
+      breakpoints: COLLECTION_BREAKPOINTS,
+    }).replace(/'/g, '&#39;');
+
+    const before = (html.match(new RegExp(DISABLED_ATTR, 'g')) || []).length;
+    if (before === 0) throw new Error(`${key}: expected the disabled hydrate attribute, found none.`);
+    html = html.replace(new RegExp(DISABLED_ATTR + "='[^']*'", 'g'), `data-framer-hydrate-v2='${payload}'`);
+    const after = (html.match(/data-framer-hydrate-v2='/g) || []).length;
+    if (after !== before) {
+      throw new Error(`${key}: rewrote ${after} hydrate attributes but found ${before}. Refusing to emit a half-patched page.`);
+    }
+  }
+
   const outDir = path.join(ROOT, dir);
   fs.mkdirSync(outDir, { recursive: true });
   fs.writeFileSync(path.join(outDir, 'index.html'), html);
   written++;
-  console.log(`  ${dir}/index.html  ${(html.length / 1048576).toFixed(2)}MB  ${meta.canonical}`);
+  console.log(`  ${dir}/index.html  ${(html.length / 1048576).toFixed(2)}MB  ${item ? 'hydrated item ' + item.id : 'url-resolved'}`);
 }
 
 console.log(`framer-routes: wrote ${written} pages, meta taken from applyMeta's own ROUTES table`);
