@@ -58,10 +58,62 @@ async function get(url) {
       body,
     };
   } catch (err) {
-    return { ok: false, status: 0, url, type: '', body: '', error: String(err.message || err) };
+    // node's fetch wraps the real reason in .cause. Without it every failure
+    // looks like "fetch failed", and a broken certificate reads as a dead site.
+    const cause = err.cause || {};
+    return {
+      ok: false, status: 0, url, type: '', body: '',
+      error: String(cause.message || err.message || err),
+      errCode: err.name === 'AbortError' ? 'ETIMEDOUT' : cause.code || err.code || 'EFETCH',
+    };
   } finally {
     clearTimeout(t);
   }
+}
+
+const TLS_CODES = new Set([
+  'UNABLE_TO_VERIFY_LEAF_SIGNATURE',
+  'UNABLE_TO_GET_ISSUER_CERT_LOCALLY',
+  'SELF_SIGNED_CERT_IN_CHAIN',
+  'DEPTH_ZERO_SELF_SIGNED_CERT',
+  'CERT_HAS_EXPIRED',
+  'ERR_TLS_CERT_ALTNAME_INVALID',
+  'ERR_SSL_WRONG_VERSION_NUMBER',
+]);
+
+/** Say what actually went wrong. "Did not respond" covers four different bugs. */
+function reachabilityFinding(res, origin) {
+  const c = res.errCode;
+  if (TLS_CODES.has(c)) {
+    return {
+      id: 'tls-broken', severity: 'critical',
+      title: 'The HTTPS certificate does not validate',
+      detail:
+        `Fetching ${origin} fails with ${c}. Browsers often hide this by going and finding the ` +
+        `missing intermediate certificate themselves. Crawlers and API clients do not - they just ` +
+        `fail. Your site can look perfectly fine to you and be unreachable to every assistant.`,
+    };
+  }
+  if (c === 'ENOTFOUND' || c === 'EAI_AGAIN') {
+    return { id: 'dns', severity: 'critical', title: 'The domain does not resolve',
+      detail: `DNS returned nothing for ${origin}. Check the spelling, or the domain is not pointed anywhere.` };
+  }
+  if (c === 'ETIMEDOUT') {
+    return { id: 'timeout', severity: 'critical', title: 'The site timed out',
+      detail: `${origin} did not answer within ${TIMEOUT_MS / 1000} seconds. Assistants give up far sooner than people do.` };
+  }
+  if (c === 'ECONNREFUSED' || c === 'ECONNRESET') {
+    return { id: 'refused', severity: 'critical', title: 'The connection was refused',
+      detail: `${origin} actively rejected the request. This is often a firewall or bot filter turned up too high.` };
+  }
+  if (res.status >= 400) {
+    return { id: 'http-error', severity: 'critical', title: `The homepage returns HTTP ${res.status}`,
+      detail: res.status === 403
+        ? `A ${res.status} to a normal browser user agent usually means a bot filter is blocking non-human traffic, assistants included.`
+        : `Anything other than a 200 means there is nothing to read.` };
+  }
+  return { id: 'unreachable', severity: 'critical', title: 'The homepage did not respond',
+    detail: `${origin} returned ${res.error || 'no response'}.` };
 }
 
 /**
@@ -176,10 +228,11 @@ async function audit(input) {
   const blockedIndexers = indexers.filter((x) => x.blocked);
   const blockedFetchers = fetchers.filter((x) => x.blocked);
 
-  if (!home.ok) {
-    findings.push({ id: 'unreachable', severity: 'critical', title: 'The homepage did not respond',
-      detail: `${origin}/ returned ${home.status || home.error}.` });
-  }
+  // If the homepage never loaded, everything downstream is a consequence of that,
+  // not an independent fault. Reporting six findings for one cause overstates the
+  // damage and buries the thing they actually need to fix.
+  const reachable = home.ok;
+  if (!reachable) findings.push(reachabilityFinding(home, origin));
 
   if (blockedFetchers.length) {
     findings.push({ id: 'fetchers-blocked', severity: 'critical',
@@ -220,18 +273,20 @@ async function audit(input) {
   const h1 = tag(html, /<h1[^>]*>([\s\S]*?)<\/h1>/i);
   const schemas = extractJsonLd(html);
 
-  if (!title) findings.push({ id: 'no-title', severity: 'high', title: 'No <title>', detail: 'The single strongest signal of what a page is about.' });
-  if (!desc) findings.push({ id: 'no-desc', severity: 'medium', title: 'No meta description', detail: 'Often quoted verbatim in AI answers.' });
-  if (!h1) findings.push({ id: 'no-h1', severity: 'low', title: 'No <h1> in the served HTML', detail: 'Common on client-rendered sites; crawlers that do not run JavaScript see nothing.' });
+  if (reachable) {
+    if (!title) findings.push({ id: 'no-title', severity: 'high', title: 'No <title>', detail: 'The single strongest signal of what a page is about.' });
+    if (!desc) findings.push({ id: 'no-desc', severity: 'medium', title: 'No meta description', detail: 'Often quoted verbatim in AI answers.' });
+    if (!h1) findings.push({ id: 'no-h1', severity: 'low', title: 'No <h1> in the served HTML', detail: 'Common on client-rendered sites; crawlers that do not run JavaScript see nothing.' });
 
-  const wants = ['Organization', 'LocalBusiness', 'FAQPage'];
-  const missing = wants.filter((w) => !schemas.some((s) => String(s).toLowerCase() === w.toLowerCase()));
-  if (!schemas.length) {
-    findings.push({ id: 'no-schema', severity: 'high', title: 'No structured data',
-      detail: 'Nothing machine-readable states who you are, where you are, or what you answer. This is the most reliable way to be quoted correctly.' });
-  } else if (missing.length) {
-    findings.push({ id: 'partial-schema', severity: 'low', title: `Structured data present, missing ${missing.join(', ')}`,
-      detail: `Found: ${schemas.join(', ')}.` });
+    const wants = ['Organization', 'LocalBusiness', 'FAQPage'];
+    const missing = wants.filter((w) => !schemas.some((s) => String(s).toLowerCase() === w.toLowerCase()));
+    if (!schemas.length) {
+      findings.push({ id: 'no-schema', severity: 'high', title: 'No structured data',
+        detail: 'Nothing machine-readable states who you are, where you are, or what you answer. This is the most reliable way to be quoted correctly.' });
+    } else if (missing.length) {
+      findings.push({ id: 'partial-schema', severity: 'low', title: `Structured data present, missing ${missing.join(', ')}`,
+        detail: `Found: ${schemas.join(', ')}.` });
+    }
   }
 
   const WEIGHT = { critical: 30, high: 15, medium: 8, low: 3 };
