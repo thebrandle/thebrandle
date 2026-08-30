@@ -111,7 +111,7 @@ async function handler(req, res) {
 
   // Resend SDK v3 returns { data, error } — does NOT throw on failure
   const result = await resend.emails.send({
-    from: 'The Brandle <onboarding@resend.dev>',
+    from: 'The Brandle <noreply@thebrandle.com>',
     to: 'thebrandleteam@gmail.com',
     replyTo: email,
     subject: `New Contact Form Submission from ${name}`,
