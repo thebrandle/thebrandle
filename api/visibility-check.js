@@ -1,9 +1,9 @@
-const { audit } = require('../scripts/ai-visibility');
+const { audit } = require('./_lib/ai-visibility');
 
 /**
  * GET /api/visibility-check?domain=example.com
  *
- * Wraps scripts/ai-visibility.js. The audit does four outbound fetches against
+ * Wraps api/_lib/ai-visibility.js. The audit does four outbound fetches against
  * a domain the caller names, so this endpoint is rate limited and refuses
  * anything that is not a public hostname - otherwise it is an open proxy for
  * probing private networks.
