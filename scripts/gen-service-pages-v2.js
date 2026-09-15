@@ -451,7 +451,7 @@ ${steps}
 
   <section class="svc-section">
     <span class="svc-label" style="text-align:center">Questions</span>
-    <h2 class="${P.h2}" style="color:#fff;text-align:center;margin:0">${esc(d.navTitle)} design, answered</h2>
+    <h2 class="${P.h2}" style="color:#fff;text-align:center;margin:0">${esc(d.faqHeading || d.navTitle + ' design')}, answered</h2>
     <div class="svc-faq">
 ${faqs}
     </div>
@@ -861,11 +861,22 @@ function mergeSitemap(entries) {
   const START = '  <!-- generated:start -->';
   const END = '  <!-- generated:end -->';
   const today = new Date().toISOString().slice(0, 10);
-  const block = [START,
-    ...entries.map((e) => `  <url>\n    <loc>${esc(e.loc)}</loc>\n    <lastmod>${e.lastmod || today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>${e.priority}</priority>\n  </url>`),
-    END].join('\n');
   let xml = fs.readFileSync(SITEMAP, 'utf8');
   const already = new Set((xml.match(/<loc>([^<]*)<\/loc>/g) || []).map((m) => m.slice(5, -6)));
+  /* Keep the date a URL already carries. Stamping today on every run told Google
+     these pages changed each time the generator was run for an unrelated reason,
+     which is a false freshness signal - only genuinely new URLs get today. */
+  const priorLastmod = (loc) => {
+    const at = xml.indexOf(`<loc>${loc}</loc>`);
+    if (at < 0) return null;
+    const open = xml.indexOf('<lastmod>', at);
+    const close = xml.indexOf('</lastmod>', open);
+    if (open < 0 || close < 0 || open > xml.indexOf('</url>', at)) return null;
+    return xml.slice(open + 9, close).trim() || null;
+  };
+  const block = [START,
+    ...entries.map((e) => `  <url>\n    <loc>${esc(e.loc)}</loc>\n    <lastmod>${e.lastmod || priorLastmod(e.loc) || today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>${e.priority}</priority>\n  </url>`),
+    END].join('\n');
   xml = xml.includes(START)
     ? xml.replace(new RegExp(`${START}[\\s\\S]*?${END}`), block)
     : xml.replace('</urlset>', block + '\n</urlset>');
