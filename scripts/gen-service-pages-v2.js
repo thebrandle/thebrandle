@@ -524,7 +524,7 @@ ${noiseHtml ? `<div class="svc-noise">${noiseHtml}</div>` : ``}
   </section>
 ${groups}
 
-  <div class="svc-cta">
+  <div class="svc-band">
     <h2 class="${P.display}" style="color:#fff;margin:0 0 22px">Still have a question?</h2>
     <p class="${P.lead}" style="color:${MUTED};max-width:52ch;margin:0 auto">Tell us what you are building and we will come back with a clear scope, a timeline and a fixed quote.</p>
     <div class="svc-hero-actions">${cta('Book a free consultation', '/contact')}</div>
@@ -594,7 +594,7 @@ ${noiseHtml ? `<div class="svc-noise">${noiseHtml}</div>` : ``}
 ${members}
   </section>
 
-  <div class="svc-cta">
+  <div class="svc-band">
     <h2 class="${P.display}" style="color:#fff;margin:0 0 22px">Want to work together?</h2>
     <p class="${P.lead}" style="color:${MUTED};max-width:52ch;margin:0 auto">Tell us what you are building and we will come back with a clear scope, a timeline and a fixed quote.</p>
     <div class="svc-hero-actions">${cta('Book a free consultation', '/contact')}</div>

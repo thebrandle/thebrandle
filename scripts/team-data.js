@@ -13,14 +13,14 @@
 const TEAM = [
   {
     slug: 'muteeb',
-    name: 'Muteeb',
+    name: 'Muteeb Mehraj',
     role: 'Founder',
     location: 'Dubai, UAE',
     photo: null,
     // Drawn only from copy already published on /about. Muteeb should replace
     // this with how he actually wants to be introduced.
     bio: [
-      'Muteeb founded TheBrandle and leads design and build on every project.',
+      'Muteeb Mehraj founded TheBrandle and leads design and build on every project - branding, UI/UX, websites and app design.',
       'The approach has not changed since the studio started: work out what the thing needs to do, who will use it, and how to make it as simple and effective as possible. If custom code is needed, we write it. If something works out of the box, we do not reinvent it.',
     ],
     links: [],
