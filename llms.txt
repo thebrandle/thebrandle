@@ -50,6 +50,7 @@ web applications, mobile apps, B2B and B2C portals and payment gateway integrati
 ## Elsewhere on the site
 
 - [Services overview](https://www.thebrandle.com/services/): every service in one place
+- [Team](https://www.thebrandle.com/team/): the people who do the design, build and video work
 - [FAQ](https://www.thebrandle.com/faq/): pricing, timelines, revisions, ownership and support, answered directly
 - [Blog](https://www.thebrandle.com/blog/): articles on design, build and platform choices
 - [AI visibility check](https://www.thebrandle.com/tools/ai-visibility/): free tool that reports whether AI assistants can reach and quote a given website

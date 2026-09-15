@@ -17,6 +17,7 @@ const fs = require('fs');
 const path = require('path');
 const { pages, PROCESS } = require('./service-pages-data');
 const { FAQ_GROUPS } = require('./faq-data');
+const { TEAM } = require('./team-data');
 
 const ROOT = path.join(__dirname, '..');
 const COMP = path.join(ROOT, '_snapshot', 'components');
@@ -224,6 +225,20 @@ html,body{background:#0C0C0C;margin:0}
 .svc-step{padding:32px 26px 36px 0;border-right:1px solid rgba(255,255,255,.12)}
 .svc-step:last-child{border-right:none}
 @media(max-width:840px){.svc-step{border-right:none;border-bottom:1px solid rgba(255,255,255,.12)}}
+.tm-member{display:grid;grid-template-columns:200px 1fr;gap:48px;align-items:start;padding:44px 0;border-top:1px solid rgba(255,255,255,.12)}
+@media(max-width:760px){.tm-member{grid-template-columns:1fr;gap:26px}}
+.tm-photo{width:200px;height:200px;border-radius:50%;object-fit:cover;display:block}
+/* Monogram stands in for a headshot we do not have. Deliberate, not a
+   broken image - see the note in team-data.js. */
+.tm-mono{width:200px;height:200px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.03)}
+.tm-mono span{font-family:inherit;font-size:44px;font-weight:500;letter-spacing:.04em;color:${ACCENT}!important}
+/* After both base rules, not before: equal specificity, so source order
+   decides and an earlier media query loses to a later base declaration. */
+@media(max-width:760px){.tm-photo,.tm-mono{width:128px;height:128px}.tm-mono span{font-size:30px}}
+.tm-meta{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;margin:0 0 18px}
+.tm-links{display:flex;flex-wrap:wrap;gap:18px;margin-top:22px}
+.tm-links a{color:${ACCENT}!important;text-decoration:none;border-bottom:1px solid rgba(249,69,45,.4);padding-bottom:2px}
+.tm-links a:hover{border-bottom-color:${ACCENT}}
 .svc-faq{max-width:880px;margin:54px auto 0}
 .svc-faq details{border-bottom:1px solid rgba(255,255,255,.12)}
 .svc-faq summary{list-style:none;cursor:pointer;padding:28px 0;display:flex;justify-content:space-between;align-items:center;gap:22px;color:#fff}
@@ -511,6 +526,76 @@ ${groups}
 
   <div class="svc-cta">
     <h2 class="${P.display}" style="color:#fff;margin:0 0 22px">Still have a question?</h2>
+    <p class="${P.lead}" style="color:${MUTED};max-width:52ch;margin:0 auto">Tell us what you are building and we will come back with a clear scope, a timeline and a fixed quote.</p>
+    <div class="svc-hero-actions">${cta('Book a free consultation', '/contact')}</div>
+  </div>
+
+  <div class="svc-footer">
+${footerHtml}
+  </div>
+</div>
+</div>
+${REVEAL_JS}
+</body>
+</html>
+`;
+}
+
+function renderTeam() {
+  const url = `${SITE}/team`;
+  const title = 'The Team - Design, Build and Media | TheBrandle';
+  const desc = 'The people behind TheBrandle: who does the design and build, and who shoots the video. Based in Dubai.';
+
+  const initials = (name) => name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0].toUpperCase()).join('');
+
+  const members = TEAM.map((m, i) => {
+    const portrait = m.photo
+      ? `<img class="tm-photo" src="${esc(m.photo)}" alt="${esc(m.name)}, ${esc(m.role)} at TheBrandle" width="200" height="200" loading="lazy">`
+      : `<div class="tm-mono" role="img" aria-label="${esc(m.name)}"><span class="${P.h2}">${esc(initials(m.name))}</span></div>`;
+    const links = (m.links || []).length
+      ? `\n        <div class="tm-links ${P.small}">${m.links.map((l) => `<a href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join('')}</div>`
+      : '';
+    return `      <div class="tm-member" data-reveal style="transition-delay:${i * 80}ms">
+        <div>${portrait}</div>
+        <div>
+          <h2 class="${P.h2}" style="color:#fff;text-align:left;margin:0 0 12px">${esc(m.name)}</h2>
+          <div class="tm-meta"><span class="svc-label" style="margin:0">${esc(m.role)}</span><span class="${P.small}" style="color:${MUTED2}">${esc(m.location)}</span></div>
+${m.bio.map((para) => `          <p class="${P.body}" style="color:${MUTED};text-align:left;margin:0 0 14px;max-width:60ch">${esc(para)}</p>`).join('\n')}${links}
+        </div>
+      </div>`;
+  }).join('\n');
+
+  const schemas = [
+    {
+      '@context': 'https://schema.org', '@type': 'Organization', name: 'TheBrandle', url: SITE + '/',
+      employee: TEAM.map((m) => {
+        const person = { '@type': 'Person', name: m.name, jobTitle: m.role };
+        if ((m.links || []).length) person.sameAs = m.links.map((l) => l.href);
+        return person;
+      }),
+    },
+    { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: SITE + '/' }, { '@type': 'ListItem', position: 2, name: 'Team', item: url }] },
+  ];
+
+  return `${head(title, desc, url, schemas)}
+<body>
+${ROOT_OPEN}
+${noiseHtml ? `<div class="svc-noise">${noiseHtml}</div>` : ``}
+<div class="svc-page">
+  <div class="svc-nav-wrap"><div class="svc-nav-desktop">${navHtmlFinal}</div><div class="svc-nav-phone">${navPhoneHtml}</div></div>
+
+  <section class="svc-section" style="padding-top:110px">
+    <span class="svc-label" data-reveal>Who you work with</span>
+    <h1 class="${P.display}" data-reveal style="color:#fff;text-align:left;margin:0 0 26px;transition-delay:70ms">The team</h1>
+    <p class="${P.lead}" data-reveal style="color:${MUTED};max-width:60ch;margin:0;transition-delay:140ms">A small studio in Dubai. You deal with the people doing the work, not an account manager relaying messages.</p>
+  </section>
+
+  <section class="svc-section" style="padding-top:10px">
+${members}
+  </section>
+
+  <div class="svc-cta">
+    <h2 class="${P.display}" style="color:#fff;margin:0 0 22px">Want to work together?</h2>
     <p class="${P.lead}" style="color:${MUTED};max-width:52ch;margin:0 auto">Tell us what you are building and we will come back with a clear scope, a timeline and a fixed quote.</p>
     <div class="svc-hero-actions">${cta('Book a free consultation', '/contact')}</div>
   </div>
@@ -930,6 +1015,7 @@ ${svc}
 ## Elsewhere on the site
 
 - [Services overview](${SITE}/services/): every service in one place
+- [Team](${SITE}/team/): the people who do the design, build and video work
 - [FAQ](${SITE}/faq/): pricing, timelines, revisions, ownership and support, answered directly
 - [Blog](${SITE}/blog/): articles on design, build and platform choices
 - [AI visibility check](${SITE}/tools/ai-visibility/): free tool that reports whether AI assistants can reach and quote a given website
@@ -957,4 +1043,9 @@ const faqDir = path.join(__dirname, '..', 'faq');
 fs.mkdirSync(faqDir, { recursive: true });
 fs.writeFileSync(path.join(faqDir, 'index.html'), renderFaq());
 console.log('  wrote faq/index.html');
+
+const teamDir = path.join(__dirname, '..', 'team');
+fs.mkdirSync(teamDir, { recursive: true });
+fs.writeFileSync(path.join(teamDir, 'index.html'), renderTeam());
+console.log(`  wrote team/index.html (${TEAM.length} members)`);
 console.log(`v2: generated ${n} service pages + hub from carved real components`);

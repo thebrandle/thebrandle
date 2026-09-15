@@ -211,6 +211,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.thebrandle.com/team/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.thebrandle.com/blog/headless-cms-guide/</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>

@@ -99,6 +99,10 @@
       "destination": "/services/index.html"
     },
     {
+      "source": "/team",
+      "destination": "/team/index.html"
+    },
+    {
       "source": "/services/:slug",
       "destination": "/services/:slug/index.html"
     },
