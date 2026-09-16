@@ -14,9 +14,9 @@ const TEAM = [
   {
     slug: 'muteeb',
     name: 'Muteeb Mehraj',
-    role: 'Founder',
+    role: 'Founder / Chief of Design',
     location: 'Dubai, UAE',
-    photo: null,
+    photo: '/assets/team/muteeb.jpg',
     // Drawn only from copy already published on /about. Muteeb should replace
     // this with how he actually wants to be introduced.
     bio: [
@@ -28,9 +28,9 @@ const TEAM = [
   {
     slug: 'raheem-dzhairkhanov',
     name: 'Raheem Dzhairkhanov',
-    role: 'Chief of Media',
+    role: 'Co-Founder / Chief of Media',
     location: 'Dubai, UAE',
-    photo: null,
+    photo: '/assets/team/raheem.jpg',
     // Written from his Behance headline ("Videographer, Journalist, Media
     // Specialist"), his stated location, and what his ten published projects
     // actually are. His profile carries no biography, no skills list and no
