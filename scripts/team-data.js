@@ -23,7 +23,9 @@ const TEAM = [
       'Muteeb Mehraj founded TheBrandle and leads design and build on every project - branding, UI/UX, websites and app design.',
       'The approach has not changed since the studio started: work out what the thing needs to do, who will use it, and how to make it as simple and effective as possible. If custom code is needed, we write it. If something works out of the box, we do not reinvent it.',
     ],
-    links: [],
+    links: [
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/muteebmrj' },
+    ],
   },
   {
     slug: 'raheem-dzhairkhanov',
@@ -36,12 +38,15 @@ const TEAM = [
     // actually are. His profile carries no biography, no skills list and no
     // years of experience, so none are claimed here.
     //
+    // Muteeb confirmed he is already part of the company, so this reads in the
+    // present tense throughout - no "joining", no job-description framing.
+    //
     // His event and interview work - ByBit, CoinMarketCap x Binance, RWA
     // Unveil, Pavel Durov - was shot at TheBlock FZCO, not at TheBrandle.
     // Those names must not appear on this site as TheBrandle clients.
     bio: [
-      'Raheem is a videographer and journalist based in Dubai, and leads media at TheBrandle.',
-      'He shoots event films, founder interviews and behind-the-scenes content, alongside brand and venue work for cafes, bars and barbershops across the city. His job here is to plan a shoot around the deliverables a brand actually needs, then cut it for social as well as the site.',
+      'Raheem is a videographer and journalist based in Dubai. He leads media at TheBrandle.',
+      'He shoots event films, founder interviews and behind-the-scenes content, alongside brand and venue work for cafes, bars and barbershops across the city. Every shoot is planned around the deliverables a brand actually needs, then cut for social as well as the site.',
     ],
     // Resolved from the LinkedIn redirect his Behance profile links out to,
     // so this is his profile, not a guess at a vanity slug.
