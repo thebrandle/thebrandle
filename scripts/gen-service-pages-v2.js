@@ -262,6 +262,12 @@ html,body{background:#0C0C0C;margin:0}
 .svc-hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:44px}
 .svc-band{max-width:1200px;margin:100px auto 120px;padding:0 30px;text-align:center}
 .svc-band .svc-hero-actions{justify-content:center}
+/* The band centres its children, but text-align does not survive into the
+   paragraph: a Framer preset on .framer-text sets it back to start, from a
+   cross-origin stylesheet whose specificity we cannot read. Hence !important,
+   the same reason .svc-num carries one. Without it the heading and button
+   centre while the sentence between them sits left. */
+.svc-band p{text-align:center!important}
 .svc-footer{width:100%;margin-top:110px}
 /* site grain overlay (carved) */
 .svc-noise{position:fixed;inset:0;z-index:30;pointer-events:none}
