@@ -253,21 +253,38 @@ html,body{background:#0C0C0C;margin:0}
 .svc-step{padding:32px 26px 36px 0;border-right:1px solid rgba(255,255,255,.12)}
 .svc-step:last-child{border-right:none}
 @media(max-width:840px){.svc-step{border-right:none;border-bottom:1px solid rgba(255,255,255,.12)}}
-.tm-member{display:grid;grid-template-columns:200px 1fr;gap:48px;align-items:start;padding:44px 0;border-top:1px solid rgba(255,255,255,.12)}
-@media(max-width:760px){.tm-member{grid-template-columns:1fr;gap:26px}}
+/* Three areas rather than two columns, so the phone layout can pair the
+   portrait with the name and drop the bio to full width underneath. */
+.tm-member{display:grid;grid-template-columns:200px 1fr;column-gap:48px;row-gap:0;align-items:start;padding:44px 0;border-top:1px solid rgba(255,255,255,.12);grid-template-areas:"portrait id" "portrait meta" "portrait body"}
+.tm-portrait{grid-area:portrait}
+.tm-id{grid-area:id}
+.tm-body{grid-area:body}
 .tm-photo{width:200px;height:200px;border-radius:50%;object-fit:cover;display:block}
 /* Monogram stands in for a headshot we do not have. Deliberate, not a
    broken image - see the note in team-data.js. */
 .tm-mono{width:200px;height:200px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.03)}
 .tm-mono span{font-family:inherit;font-size:44px;font-weight:500;letter-spacing:.04em;color:${ACCENT}!important}
-/* After both base rules, not before: equal specificity, so source order
-   decides and an earlier media query loses to a later base declaration. */
-@media(max-width:760px){.tm-photo,.tm-mono{width:128px;height:128px}.tm-mono span{font-size:30px}}
-.tm-meta{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;margin:0 0 18px}
+.tm-meta{grid-area:meta;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;margin:0 0 18px}
 .tm-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
 .tm-links a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.18);color:${ACCENT}!important;text-decoration:none;transition:background .2s ease,border-color .2s ease,color .2s ease}
 .tm-links a svg{width:18px;height:18px;fill:currentColor;display:block}
 @media(hover:hover) and (pointer:fine){.tm-links a:hover{background:${ACCENT};border-color:${ACCENT};color:#fff!important}}
+/* Phone. Every base rule above this point, none below: equal specificity means
+   source order decides, and a media query placed earlier loses to a later base
+   declaration - which is how the monogram stayed 200px on phones once already.
+   A 128px portrait alone on its own row left ~190px of dead space beside it and
+   pushed the name most of a screen down, so pair them. The name needs
+   !important twice over: its size comes from a Framer preset class and its
+   margin from an inline style. */
+@media(max-width:760px){
+  .tm-member{grid-template-columns:auto 1fr;grid-template-areas:"portrait id" "meta meta" "body body";column-gap:16px;row-gap:0;align-items:center;padding:34px 0}
+  .tm-photo,.tm-mono{width:76px;height:76px}
+  .tm-mono span{font-size:24px}
+  .tm-member h2{font-size:24px!important;line-height:1.15!important;margin:0!important}
+  /* Full width of its own row, so "Co-Founder / Chief of Media" stops
+     breaking across two lines beside a 76px portrait. */
+  .tm-meta{margin:14px 0 16px;gap:4px 14px}
+}
 .svc-faq{max-width:880px;margin:54px auto 0}
 .svc-faq details{border-bottom:1px solid rgba(255,255,255,.12)}
 .svc-faq summary{list-style:none;cursor:pointer;padding:28px 0;display:flex;justify-content:space-between;align-items:center;gap:22px;color:#fff}
@@ -611,10 +628,12 @@ function renderTeam() {
       ? `\n        <div class="tm-links">${m.links.map((l) => `<a href="${esc(l.href)}" target="_blank" rel="noopener" aria-label="${esc(m.name)} on ${esc(l.label)}" title="${esc(l.label)}">${ICONS[l.label] || esc(l.label)}</a>`).join('')}</div>`
       : '';
     return `      <div class="tm-member" data-reveal style="transition-delay:${i * 80}ms">
-        <div>${portrait}</div>
-        <div>
+        <div class="tm-portrait">${portrait}</div>
+        <div class="tm-id">
           <h2 class="${P.h2}" style="color:#fff;text-align:left;margin:0 0 12px">${esc(m.name)}</h2>
-          <div class="tm-meta"><span class="svc-label" style="margin:0">${esc(m.role)}</span><span class="${P.small}" style="color:${MUTED2}">${esc(m.location)}</span></div>
+        </div>
+        <div class="tm-meta"><span class="svc-label" style="margin:0">${esc(m.role)}</span><span class="${P.small}" style="color:${MUTED2}">${esc(m.location)}</span></div>
+        <div class="tm-body">
 ${m.bio.map((para) => `          <p class="${P.body}" style="color:${MUTED};text-align:left;margin:0 0 14px;max-width:60ch">${esc(para)}</p>`).join('\n')}${links}
         </div>
       </div>`;
