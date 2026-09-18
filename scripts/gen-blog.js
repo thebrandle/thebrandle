@@ -28,23 +28,42 @@ const NAV_LINKS = [
   { href: '/services/', upper: 'SERVICES', lower: 'Services' },
   { href: '/team/', upper: 'TEAM', lower: 'Team' },
 ];
+/* The repeatable unit is a different element in each layout, and cloning the
+   wrong one nests the new link INSIDE Contact's container instead of beside it:
+
+     footer   <div RichTextContainer><p><a>About</a></p></div>
+     top nav  <a href="/about"><div><p>About</p></div></a>
+
+   Matching the <p> put Services, Team and Contact inside one footer div, where
+   Framer's paragraph spacing adds 20px between siblings - so the footer list
+   showed two gaps the Framer-rendered one does not have. Try the widest
+   wrapper first, and match Contact at whatever level About was found. */
+const UNIT_RES = (href) => [
+  new RegExp('<div\\b[^>]*>\\s*<p\\b[^>]*>\\s*<a\\b[^>]*href="' + href + '"[\\s\\S]*?<\\/a>\\s*<\\/p>\\s*<\\/div>'),
+  new RegExp('<p\\b[^>]*>\\s*<a\\b[^>]*href="' + href + '"[\\s\\S]*?<\\/a>\\s*<\\/p>'),
+  new RegExp('<a\\b[^>]*href="' + href + '"[\\s\\S]*?<\\/a>'),
+];
 const addNavLink = (html, spec) => {
-  // Footer links are each wrapped in their own <p>; nav links are bare <a>.
-  // Clone whichever unit the link actually lives in - cloning just the <a>
-  // drops the new link inside Contact's <p>, rendering "ServicesContact".
-  const pAbout = html.match(/<p\b[^>]*>\s*<a\b[^>]*href="\/about"[\s\S]*?<\/a>\s*<\/p>/);
-  const aAbout = html.match(/<a\b[^>]*href="\/about"[\s\S]*?<\/a>/);
-  const unit = pAbout || aAbout;
+  const about = UNIT_RES('/about');
+  let unit = null, level = -1;
+  for (let i = 0; i < about.length; i++) {
+    const m = html.match(about[i]);
+    if (m) { unit = m; level = i; break; }
+  }
   if (!unit) return html;
   const clone = unit[0]
     .replace(/>(\s*)ABOUT(\s*)</g, '>$1' + spec.upper + '$2<')
     .replace(/>(\s*)About(\s*)</g, '>$1' + spec.lower + '$2<')
     .replace(/href="\/about"/, 'href="' + spec.href + '"')
+    /* Drop the Framer editor label rather than renaming it to the link.
+       Framer's stylesheet hides [data-framer-name="Team"] - a draft footer
+       item that was never shipped - so a clone relabelled "Team" rendered
+       display:none. The label has no function in a static export, and a
+       nameless container inherits its styling from the class. */
+    .replace(/\s*data-framer-name="[^"]*"/, '')
     .replace(/ data-framer-page-link-current(="[^"]*")?/, '');
   if (clone === unit[0]) return html;
-  const target = pAbout
-    ? html.match(/<p\b[^>]*>\s*<a\b[^>]*href="\/contact"[\s\S]*?<\/a>\s*<\/p>/)
-    : html.match(/<a\b[^>]*href="\/contact"[\s\S]*?<\/a>/);
+  const target = html.match(UNIT_RES('/contact')[level]);
   if (target) return html.replace(target[0], clone + target[0]);
   return html.replace(unit[0], unit[0] + clone);
 };
@@ -215,6 +234,12 @@ html,body{background:#0C0C0C;margin:0}
 .post-cta .framer-LqZE5 .framer-13x93le{width:auto;min-width:200px;padding:20px 36px!important;justify-content:center!important;gap:0!important}
 .post-cta .framer-1m71lft-container{display:none}
 .svc-footer{width:100%;margin-top:90px}
+/* The carved footer is Framer's Desktop variant, which expects far more room
+   than these pages give it, so the newsletter column lands at 180px while the
+   word "connected" measures 181. Framer's break-word then chops it mid-word:
+   "connecte / d". Letting the word stay whole overflows by that one pixel,
+   which nobody can see, and reads correctly. */
+.svc-footer [data-framer-name="Stay connected"] p{word-break:normal!important;overflow-wrap:normal!important}
 .svc-noise{position:fixed;inset:0;z-index:30;pointer-events:none}
 .svc-noise .framer-22mi0a{position:absolute;inset:0}
 [data-reveal]{opacity:0;transform:translateY(16px);transition:opacity .56s var(--bp-ease-out,cubic-bezier(0.23,1,0.32,1)),transform .56s var(--bp-ease-out,cubic-bezier(0.23,1,0.32,1))}
