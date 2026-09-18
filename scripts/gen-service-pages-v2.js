@@ -35,18 +35,22 @@ const absolutize = (h) => h.replace(/href="\.\//g, 'href="/').replace(/tel:555-6
 /* bake a Services link into carved nav/footer markup: clone the About
    anchor (native styling + hover-dup labels), relabel, insert before
    Contact when present, else right after About */
-const addServices = (html) => {
+const NAV_LINKS = [
+  { href: '/services/', upper: 'SERVICES', lower: 'Services' },
+  { href: '/team/', upper: 'TEAM', lower: 'Team' },
+];
+const addNavLink = (html, spec) => {
   // Footer links are each wrapped in their own <p>; nav links are bare <a>.
   // Clone whichever unit the link actually lives in - cloning just the <a>
-  // drops Services inside Contact's <p>, rendering "ServicesContact".
+  // drops the new link inside Contact's <p>, rendering "ServicesContact".
   const pAbout = html.match(/<p\b[^>]*>\s*<a\b[^>]*href="\/about"[\s\S]*?<\/a>\s*<\/p>/);
   const aAbout = html.match(/<a\b[^>]*href="\/about"[\s\S]*?<\/a>/);
   const unit = pAbout || aAbout;
   if (!unit) return html;
   const clone = unit[0]
-    .replace(/>(\s*)ABOUT(\s*)</g, '>$1SERVICES$2<')
-    .replace(/>(\s*)About(\s*)</g, '>$1Services$2<')
-    .replace(/href="\/about"/, 'href="/services/"')
+    .replace(/>(\s*)ABOUT(\s*)</g, '>$1' + spec.upper + '$2<')
+    .replace(/>(\s*)About(\s*)</g, '>$1' + spec.lower + '$2<')
+    .replace(/href="\/about"/, 'href="' + spec.href + '"')
     .replace(/ data-framer-page-link-current(="[^"]*")?/, '');
   if (clone === unit[0]) return html;
   const target = pAbout
@@ -55,14 +59,17 @@ const addServices = (html) => {
   if (target) return html.replace(target[0], clone + target[0]);
   return html.replace(unit[0], unit[0] + clone);
 };
+/* Each link is inserted before Contact in turn, so a nav that starts as
+   About, Contact ends up About, Services, Team, Contact. */
+const addNav = (html) => NAV_LINKS.reduce((h, spec) => addNavLink(h, spec), html);
 const navHtml = absolutize(read('nav-live.html')
   // the container is captured in its pre-appear animation state — normalize
   .replace(/style="opacity: 0\.001;[^"]*"/, 'style="opacity: 1;"'));
-const navHtmlFinal = addServices(navHtml);
+const navHtmlFinal = addNav(navHtml);
 const navPhoneHtml = fs.existsSync(path.join(COMP, 'nav-phone.html'))
-  ? addServices(absolutize(read('nav-phone.html').replace(/style="opacity: 0\.001;[^"]*"/, 'style="opacity: 1;"')))
+  ? addNav(absolutize(read('nav-phone.html').replace(/style="opacity: 0\.001;[^"]*"/, 'style="opacity: 1;"')))
   : '';
-const footerHtml = addServices(absolutize(read('footer-live.html')
+const footerHtml = addNav(absolutize(read('footer-live.html')
   .replace(/style="will-change: transform; opacity: 1; transform: translateY\([^)]+\);"/, 'style="opacity: 1;"')));
 const ctaHtml = fs.existsSync(path.join(COMP, 'button-live.html'))
   ? read('button-live.html')            // hydrated red pill w/ real arrow icon
@@ -116,10 +123,12 @@ html,body{background:#0C0C0C;margin:0}
 .svc-nav-wrap a[href="/about"],
 .svc-nav-wrap a[href="/projects"],
 .svc-nav-wrap a[href="/services/"],
+.svc-nav-wrap a[href="/team/"],
 .svc-nav-wrap a[href="/contact"]{display:none!important}
 .svc-nav-wrap .bm-open a[href="/about"],
 .svc-nav-wrap .bm-open a[href="/projects"],
 .svc-nav-wrap .bm-open a[href="/services/"],
+.svc-nav-wrap .bm-open a[href="/team/"],
 .svc-nav-wrap .bm-open a[href="/contact"]{display:revert!important}
 /* No opacity here: the handler sets it inline on open and animates it back
    down on close, and an !important rule would win over that and freeze the
@@ -236,9 +245,10 @@ html,body{background:#0C0C0C;margin:0}
    decides and an earlier media query loses to a later base declaration. */
 @media(max-width:760px){.tm-photo,.tm-mono{width:128px;height:128px}.tm-mono span{font-size:30px}}
 .tm-meta{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;margin:0 0 18px}
-.tm-links{display:flex;flex-wrap:wrap;gap:18px;margin-top:22px}
-.tm-links a{color:${ACCENT}!important;text-decoration:none;border-bottom:1px solid rgba(249,69,45,.4);padding-bottom:2px}
-.tm-links a:hover{border-bottom-color:${ACCENT}}
+.tm-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.tm-links a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.18);color:${ACCENT}!important;text-decoration:none;transition:background .2s ease,border-color .2s ease,color .2s ease}
+.tm-links a svg{width:18px;height:18px;fill:currentColor;display:block}
+@media(hover:hover) and (pointer:fine){.tm-links a:hover{background:${ACCENT};border-color:${ACCENT};color:#fff!important}}
 .svc-faq{max-width:880px;margin:54px auto 0}
 .svc-faq details{border-bottom:1px solid rgba(255,255,255,.12)}
 .svc-faq summary{list-style:none;cursor:pointer;padding:28px 0;display:flex;justify-content:space-between;align-items:center;gap:22px;color:#fff}
@@ -276,10 +286,11 @@ const REVEAL_JS = `<script>
   // static pages: burger MENU can't open the Framer menu — jump to footer nav
   function overlayEl(){var as=document.querySelectorAll('.svc-nav-wrap a[href="/"]');for(var i=0;i<as.length;i++){var t=(as[i].textContent||'').trim();if(!/^home/i.test(t))continue;return as[i].parentElement&&as[i].parentElement.parentElement;}return null;}
   /* The overlay wraps each link in its own container div, which the build-time
-     addServices() cannot match (it only handles <p> wrappers and bare <a>).
+     addNav() cannot match (it only handles <p> wrappers and bare <a>).
      Clone the About container into it at runtime instead. */
+  var OVERLAY_LINKS=[{href:'/services/',mark:'data-bm-svc',upper:'SERVICES',lower:'Services'},{href:'/team/',mark:'data-bm-team',upper:'TEAM',lower:'Team'}];
   function addServicesToOverlay(){
-    var o=overlayEl(); if(!o||o.querySelector('[data-bm-svc]')) return;
+    var o=overlayEl(); if(!o) return;
     var about=null,contact=null,kids=o.children;
     for(var i=0;i<kids.length;i++){
       var a=kids[i].querySelector?kids[i].querySelector('a'):null; if(!a) continue;
@@ -288,13 +299,20 @@ const REVEAL_JS = `<script>
       if(h==='/contact') contact=kids[i];
     }
     if(!about||!contact) return;
-    var clone=about.cloneNode(true);
-    clone.setAttribute('data-bm-svc','1');
-    var link=clone.querySelector('a')||clone;
-    link.setAttribute('href','/services/');
-    link.removeAttribute('data-framer-page-link-current');
-    (function walk(el){var k=el.children;if(!k.length){if((el.textContent||'').trim())el.textContent=(el.textContent.trim()===el.textContent.trim().toUpperCase()?'SERVICES':'Services');return;}for(var j=0;j<k.length;j++)walk(k[j]);})(clone);
-    o.insertBefore(clone,contact);
+    /* Per-link marker, not one shared one: with a single marker the first
+       injected link would make the overlay look done and the second never
+       lands. Each is inserted before Contact, giving Services then Team. */
+    for(var n=0;n<OVERLAY_LINKS.length;n++){
+      var spec=OVERLAY_LINKS[n];
+      if(o.querySelector('['+spec.mark+']')) continue;
+      var clone=about.cloneNode(true);
+      clone.setAttribute(spec.mark,'1');
+      var link=clone.querySelector('a')||clone;
+      link.setAttribute('href',spec.href);
+      link.removeAttribute('data-framer-page-link-current');
+      (function(sp){(function walk(el){var k=el.children;if(!k.length){if((el.textContent||'').trim())el.textContent=(el.textContent.trim()===el.textContent.trim().toUpperCase()?sp.upper:sp.lower);return;}for(var j=0;j<k.length;j++)walk(k[j]);})(clone);})(spec);
+      o.insertBefore(clone,contact);
+    }
   }
   /* Clone of the homepage menu. Framer opens it by swapping the header's
      variant class and setting the link list's inline opacity - nothing more.
@@ -541,6 +559,12 @@ ${REVEAL_JS}
 `;
 }
 
+/* Social marks are drawn, not labelled - the ask was the logo itself.
+   fill:currentColor so the accent and the hover swap both come from CSS. */
+const ICONS = {
+  LinkedIn: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>',
+};
+
 function renderTeam() {
   const url = `${SITE}/team`;
   const title = 'The Team - Design, Build and Media | TheBrandle';
@@ -553,7 +577,7 @@ function renderTeam() {
       ? `<img class="tm-photo" src="${esc(m.photo)}" alt="${esc(m.name)}, ${esc(m.role)} at TheBrandle" width="200" height="200" loading="lazy">`
       : `<div class="tm-mono" role="img" aria-label="${esc(m.name)}"><span class="${P.h2}">${esc(initials(m.name))}</span></div>`;
     const links = (m.links || []).length
-      ? `\n        <div class="tm-links ${P.small}">${m.links.map((l) => `<a href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join('')}</div>`
+      ? `\n        <div class="tm-links">${m.links.map((l) => `<a href="${esc(l.href)}" target="_blank" rel="noopener" aria-label="${esc(m.name)} on ${esc(l.label)}" title="${esc(l.label)}">${ICONS[l.label] || esc(l.label)}</a>`).join('')}</div>`
       : '';
     return `      <div class="tm-member" data-reveal style="transition-delay:${i * 80}ms">
         <div>${portrait}</div>
@@ -587,7 +611,7 @@ ${noiseHtml ? `<div class="svc-noise">${noiseHtml}</div>` : ``}
   <section class="svc-section" style="padding-top:110px">
     <span class="svc-label" data-reveal>Who you work with</span>
     <h1 class="${P.display}" data-reveal style="color:#fff;text-align:left;margin:0 0 26px;transition-delay:70ms">The team</h1>
-    <p class="${P.lead}" data-reveal style="color:${MUTED};max-width:60ch;margin:0;transition-delay:140ms">A small studio in Dubai. You deal with the people doing the work, not an account manager relaying messages.</p>
+    <p class="${P.lead}" data-reveal style="color:${MUTED};max-width:60ch;margin:0;transition-delay:140ms">A small studio in Dubai. The people who design your project are the people who build it.</p>
   </section>
 
   <section class="svc-section" style="padding-top:10px">

@@ -15821,6 +15821,7 @@
 .framer-1pl4r2c > a[href="/about"],
 .framer-1pl4r2c > a[href="/projects"],
 .framer-1pl4r2c > a[href="/services/"],
+.framer-1pl4r2c > a[href="/team/"],
 .framer-1pl4r2c > a[href="/contact"]{display:none!important}
 </style>
 </head>
@@ -87816,13 +87817,19 @@
 <!-- Brandle Services nav/footer link (JS-injected; Framer nav is baked) -->
 <script>
 (function () {
-  var HREF = '/services/';
+  /* Every link injected into the baked Framer nav. Each carries its own marker
+     attribute: a single shared marker would make the first injected link make
+     the group look "already done" to the second, so only one would ever land. */
+  var LINKS = [
+    { href: '/services/', upper: 'SERVICES', lower: 'Services', mark: 'data-brandle-services' },
+    { href: '/team/',     upper: 'TEAM',     lower: 'Team',     mark: 'data-brandle-team' }
+  ];
 
-  function labelFor(orig) {
-    return orig === orig.toUpperCase() ? 'SERVICES' : 'Services';
+  function labelFor(orig, spec) {
+    return orig === orig.toUpperCase() ? spec.upper : spec.lower;
   }
 
-  function rewriteText(root) {
+  function rewriteText(root, spec) {
     var leaves = [];
     (function walk(el) {
       var kids = el.children;
@@ -87830,7 +87837,7 @@
       for (var i = 0; i < kids.length; i++) walk(kids[i]);
     })(root);
     for (var i = 0; i < leaves.length; i++) {
-      leaves[i].textContent = labelFor(leaves[i].textContent.trim());
+      leaves[i].textContent = labelFor(leaves[i].textContent.trim(), spec);
     }
     return leaves.length > 0;
   }
@@ -87865,14 +87872,14 @@
      an ancestor - just mirror the sibling we were cloned from. Whatever Framer
      does to About, Services does too. No state detection, nothing to poll. */
   function syncOverlay() {
-    var clones = document.querySelectorAll('[data-brandle-services][data-brandle-topnav]');
+    var clones = document.querySelectorAll('[data-brandle-injected][data-brandle-topnav]');
     for (var i = 0; i < clones.length; i++) {
       var clone = clones[i];
       var src = null;
       var sibs = clone.parentElement ? clone.parentElement.children : [];
       for (var j = 0; j < sibs.length; j++) {
         var h = sibs[j].getAttribute && sibs[j].getAttribute('href');
-        if ((h === '/about' || h === './about') && !sibs[j].hasAttribute('data-brandle-services')) { src = sibs[j]; break; }
+        if ((h === '/about' || h === './about') && !sibs[j].hasAttribute('data-brandle-injected')) { src = sibs[j]; break; }
       }
       if (!src) continue;
       var cs = getComputedStyle(src);
@@ -87923,30 +87930,39 @@
       }
       if (!contact || !anc2) continue;
 
-      // dedupe per group: only look at direct children of this ancestor
-      var dupe = false;
-      for (var k = 0; k < anc2.children.length; k++) {
-        if (anc2.children[k].querySelector
-            ? (anc2.children[k].hasAttribute('data-brandle-services') || anc2.children[k].querySelector('[data-brandle-services]'))
-            : false) { dupe = true; break; }
-      }
-      if (dupe) continue;
-
       var aboutUnit = unitUnder(about, anc2);
       var contactUnit = unitUnder(contact, anc2);
       if (!aboutUnit || !contactUnit) continue;
 
-      var clone = aboutUnit.cloneNode(true);
-      clone.setAttribute('data-brandle-services', '1');
-      if (aboutUnit === about) clone.setAttribute('data-brandle-topnav', '1');
-      var link = clone.matches('a') ? clone : clone.querySelector('a');
-      if (!link) continue;
-      link.setAttribute('href', HREF);
-      link.setAttribute('data-brandle-services', '1');
-      link.removeAttribute('data-framer-page-link-current');
-      clone.removeAttribute('data-framer-page-link-current');
-      if (!rewriteText(clone)) continue;
-      anc2.insertBefore(clone, contactUnit);
+      /* Insert each in order before Contact, so the group reads
+         About, Services, Team, Contact. */
+      for (var n = 0; n < LINKS.length; n++) {
+        var spec = LINKS[n];
+
+        // dedupe per group AND per link: only direct children of this ancestor
+        var dupe = false;
+        for (var k = 0; k < anc2.children.length; k++) {
+          var ch = anc2.children[k];
+          if (ch.querySelector
+              ? (ch.hasAttribute(spec.mark) || ch.querySelector('[' + spec.mark + ']'))
+              : false) { dupe = true; break; }
+        }
+        if (dupe) continue;
+
+        var clone = aboutUnit.cloneNode(true);
+        clone.setAttribute(spec.mark, '1');
+        clone.setAttribute('data-brandle-injected', '1');
+        if (aboutUnit === about) clone.setAttribute('data-brandle-topnav', '1');
+        var link = clone.matches('a') ? clone : clone.querySelector('a');
+        if (!link) continue;
+        link.setAttribute('href', spec.href);
+        link.setAttribute(spec.mark, '1');
+        link.setAttribute('data-brandle-injected', '1');
+        link.removeAttribute('data-framer-page-link-current');
+        clone.removeAttribute('data-framer-page-link-current');
+        if (!rewriteText(clone, spec)) continue;
+        anc2.insertBefore(clone, contactUnit);
+      }
     }
     syncOverlay();
   }
@@ -87966,7 +87982,7 @@
       // /blog is a static listing of ours now; without this Framer's router
       // handles the click client-side and renders its own CMS listing, which
       // only contains the 2024 posts and can never show anything we generate.
-      if (h === '/' || h === '/services/' || h === '/blog' || h === '/blog/') {
+      if (h === '/' || h === '/services/' || h === '/team/' || h === '/blog' || h === '/blog/') {
         e.preventDefault();
         e.stopImmediatePropagation();
         window.location.href = h;

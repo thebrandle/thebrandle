@@ -268,18 +268,22 @@ function auditContent(text, slug) {
 /* --------------------------------------------------------------- brand shell */
 const read = (f) => fs.readFileSync(path.join(COMP, f), 'utf8');
 const absolutize = (h) => h.replace(/href="\.\//g, 'href="/').replace(/tel:555-666-7777/g, 'tel:+971561429789');
-const addServices = (html) => {
+const NAV_LINKS = [
+  { href: '/services/', upper: 'SERVICES', lower: 'Services' },
+  { href: '/team/', upper: 'TEAM', lower: 'Team' },
+];
+const addNavLink = (html, spec) => {
   // Footer links are each wrapped in their own <p>; nav links are bare <a>.
   // Clone whichever unit the link actually lives in - cloning just the <a>
-  // drops Services inside Contact's <p>, rendering "ServicesContact".
+  // drops the new link inside Contact's <p>, rendering "ServicesContact".
   const pAbout = html.match(/<p\b[^>]*>\s*<a\b[^>]*href="\/about"[\s\S]*?<\/a>\s*<\/p>/);
   const aAbout = html.match(/<a\b[^>]*href="\/about"[\s\S]*?<\/a>/);
   const unit = pAbout || aAbout;
   if (!unit) return html;
   const clone = unit[0]
-    .replace(/>(\s*)ABOUT(\s*)</g, '>$1SERVICES$2<')
-    .replace(/>(\s*)About(\s*)</g, '>$1Services$2<')
-    .replace(/href="\/about"/, 'href="/services/"')
+    .replace(/>(\s*)ABOUT(\s*)</g, '>$1' + spec.upper + '$2<')
+    .replace(/>(\s*)About(\s*)</g, '>$1' + spec.lower + '$2<')
+    .replace(/href="\/about"/, 'href="' + spec.href + '"')
     .replace(/ data-framer-page-link-current(="[^"]*")?/, '');
   if (clone === unit[0]) return html;
   const target = pAbout
@@ -287,12 +291,15 @@ const addServices = (html) => {
     : html.match(/<a\b[^>]*href="\/contact"[\s\S]*?<\/a>/);
   return target ? html.replace(target[0], clone + target[0]) : html.replace(unit[0], unit[0] + clone);
 };
+/* Each link is inserted before Contact in turn, so a nav that starts as
+   About, Contact ends up About, Services, Team, Contact. */
+const addNav = (html) => NAV_LINKS.reduce((h, spec) => addNavLink(h, spec), html);
 
 const styles = read('styles.html');
-const navHtml = addServices(absolutize(read('nav-live.html').replace(/style="opacity: 0\.001;[^"]*"/, 'style="opacity: 1;"')));
+const navHtml = addNav(absolutize(read('nav-live.html').replace(/style="opacity: 0\.001;[^"]*"/, 'style="opacity: 1;"')));
 const navPhoneHtml = fs.existsSync(path.join(COMP, 'nav-phone.html'))
-  ? addServices(absolutize(read('nav-phone.html').replace(/style="opacity: 0\.001;[^"]*"/, 'style="opacity: 1;"'))) : '';
-const footerHtml = addServices(absolutize(read('footer-live.html')
+  ? addNav(absolutize(read('nav-phone.html').replace(/style="opacity: 0\.001;[^"]*"/, 'style="opacity: 1;"'))) : '';
+const footerHtml = addNav(absolutize(read('footer-live.html')
   .replace(/style="will-change: transform; opacity: 1; transform: translateY\([^)]+\);"/, 'style="opacity: 1;"')));
 const noiseHtml = fs.existsSync(path.join(COMP, 'noise-live.html')) ? read('noise-live.html') : '';
 const ctaHtml = read(fs.existsSync(path.join(COMP, 'button-live.html')) ? 'button-live.html' : 'button.html');
@@ -332,10 +339,12 @@ html,body{background:#0C0C0C;margin:0}
 .svc-nav-wrap a[href="/about"],
 .svc-nav-wrap a[href="/projects"],
 .svc-nav-wrap a[href="/services/"],
+.svc-nav-wrap a[href="/team/"],
 .svc-nav-wrap a[href="/contact"]{display:none!important}
 .svc-nav-wrap .bm-open a[href="/about"],
 .svc-nav-wrap .bm-open a[href="/projects"],
 .svc-nav-wrap .bm-open a[href="/services/"],
+.svc-nav-wrap .bm-open a[href="/team/"],
 .svc-nav-wrap .bm-open a[href="/contact"]{display:revert!important}
 /* No opacity here: the handler sets it inline on open and animates it back
    down on close, and an !important rule would win over that and freeze the
@@ -506,10 +515,11 @@ const JS = `<script>
   els.forEach(function(e){io.observe(e)});
   function overlayEl(){var as=document.querySelectorAll('.svc-nav-wrap a[href="/"]');for(var i=0;i<as.length;i++){var t=(as[i].textContent||'').trim();if(!/^home/i.test(t))continue;return as[i].parentElement&&as[i].parentElement.parentElement;}return null;}
   /* The overlay wraps each link in its own container div, which the build-time
-     addServices() cannot match (it only handles <p> wrappers and bare <a>).
+     addNav() cannot match (it only handles <p> wrappers and bare <a>).
      Clone the About container into it at runtime instead. */
+  var OVERLAY_LINKS=[{href:'/services/',mark:'data-bm-svc',upper:'SERVICES',lower:'Services'},{href:'/team/',mark:'data-bm-team',upper:'TEAM',lower:'Team'}];
   function addServicesToOverlay(){
-    var o=overlayEl(); if(!o||o.querySelector('[data-bm-svc]')) return;
+    var o=overlayEl(); if(!o) return;
     var about=null,contact=null,kids=o.children;
     for(var i=0;i<kids.length;i++){
       var a=kids[i].querySelector?kids[i].querySelector('a'):null; if(!a) continue;
@@ -518,13 +528,20 @@ const JS = `<script>
       if(h==='/contact') contact=kids[i];
     }
     if(!about||!contact) return;
-    var clone=about.cloneNode(true);
-    clone.setAttribute('data-bm-svc','1');
-    var link=clone.querySelector('a')||clone;
-    link.setAttribute('href','/services/');
-    link.removeAttribute('data-framer-page-link-current');
-    (function walk(el){var k=el.children;if(!k.length){if((el.textContent||'').trim())el.textContent=(el.textContent.trim()===el.textContent.trim().toUpperCase()?'SERVICES':'Services');return;}for(var j=0;j<k.length;j++)walk(k[j]);})(clone);
-    o.insertBefore(clone,contact);
+    /* Per-link marker, not one shared one: with a single marker the first
+       injected link would make the overlay look done and the second never
+       lands. Each is inserted before Contact, giving Services then Team. */
+    for(var n=0;n<OVERLAY_LINKS.length;n++){
+      var spec=OVERLAY_LINKS[n];
+      if(o.querySelector('['+spec.mark+']')) continue;
+      var clone=about.cloneNode(true);
+      clone.setAttribute(spec.mark,'1');
+      var link=clone.querySelector('a')||clone;
+      link.setAttribute('href',spec.href);
+      link.removeAttribute('data-framer-page-link-current');
+      (function(sp){(function walk(el){var k=el.children;if(!k.length){if((el.textContent||'').trim())el.textContent=(el.textContent.trim()===el.textContent.trim().toUpperCase()?sp.upper:sp.lower);return;}for(var j=0;j<k.length;j++)walk(k[j]);})(clone);})(spec);
+      o.insertBefore(clone,contact);
+    }
   }
   /* The carved nav ships the overlay markup but not Framer's runtime, so MENU
      had nothing to toggle and fell back to scrolling to the footer. */

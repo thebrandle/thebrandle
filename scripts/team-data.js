@@ -43,8 +43,10 @@ const TEAM = [
       'Raheem is a videographer and journalist based in Dubai, and leads media at TheBrandle.',
       'He shoots event films, founder interviews and behind-the-scenes content, alongside brand and venue work for cafes, bars and barbershops across the city. His job here is to plan a shoot around the deliverables a brand actually needs, then cut it for social as well as the site.',
     ],
+    // Resolved from the LinkedIn redirect his Behance profile links out to,
+    // so this is his profile, not a guess at a vanity slug.
     links: [
-      { label: 'Behance', href: 'https://www.behance.net/rakhimsky95' },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/rakhimdzhairkhanov' },
     ],
   },
 ];
