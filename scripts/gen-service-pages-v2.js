@@ -614,7 +614,7 @@ const ICONS = {
 };
 
 function renderTeam() {
-  const url = `${SITE}/team`;
+  const url = `${SITE}/team/`;
   const title = 'The Team - Design, Build and Media | TheBrandle';
   const desc = 'The people behind TheBrandle: who does the design and build, and who shoots the video. Based in Dubai.';
 
@@ -902,7 +902,7 @@ const PRJ_CSS = `<style>
 </style>`;
 
 function renderProjectsHub() {
-  const url = `${SITE}/projects/`;
+  const url = `${SITE}/projects`;
   const title = 'Selected Work - Web, Ecommerce & Brand Projects | TheBrandle';
   const desc = 'Selected projects from TheBrandle across Shopify, Webflow, Wix and Framer - ecommerce stores, agency sites, brand identities and landing pages.';
   const rows = projects.map((p, i) => {
