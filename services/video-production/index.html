@@ -15897,6 +15897,42 @@ html,body{background:#0C0C0C;margin:0}
   .tm-meta{margin:14px 0 16px;gap:4px 14px}
 }
 .svc-faq{max-width:880px;margin:54px auto 0}
+/* Films. Wide films get a grid, vertical cuts get their own row: putting 16:9
+   and 9:16 in one grid leaves either ragged row heights or letterboxing. */
+.flm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.flm-sub{display:block;margin:46px 0 0}
+.flm-row{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;margin-top:18px}
+.flm{appearance:none;-webkit-appearance:none;background:none;border:0;padding:0;margin:0;color:inherit;font:inherit;text-align:left;cursor:pointer;display:block;width:100%}
+.flm-media{position:relative;display:block;overflow:hidden;background:#111;border-radius:10px}
+.flm-wide .flm-media{aspect-ratio:16/9}
+.flm-tall .flm-media{aspect-ratio:9/16}
+.flm-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.23,1,.32,1)}
+.flm-play{position:absolute;left:50%;top:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:background .2s ease,border-color .2s ease,transform .16s ease-out}
+.flm-play svg{width:22px;height:22px;fill:#fff;margin-left:3px;display:block}
+.flm-meta{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-top:12px}
+.flm-title{color:#fff!important;text-align:left}
+.flm-info{color:rgba(255, 255, 255, 0.4)!important;white-space:nowrap}
+.flm-tall .flm-meta{flex-direction:column;gap:2px}
+.flm:focus-visible{outline:2px solid var(--token-1662617d-fd18-4319-b3da-aa36e5415705, rgb(249, 69, 45));outline-offset:4px;border-radius:10px}
+.flm:active .flm-play{transform:scale(.94)}
+.flm-box{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;background:rgba(5,5,5,.94);padding:64px 16px 24px}
+.flm-box.is-open{display:flex;animation:flm-in .22s cubic-bezier(.23,1,.32,1)}
+@keyframes flm-in{from{opacity:0}to{opacity:1}}
+.flm-stage{position:relative;background:#000;border-radius:10px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.flm-stage-wide{width:min(1200px,100%,calc((100vh - 110px) * 16 / 9));aspect-ratio:16/9}
+.flm-stage-tall{width:min(100%,calc((100vh - 110px) * 9 / 16),480px);aspect-ratio:9/16}
+.flm-stage iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.flm-close{position:absolute;top:12px;right:16px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06);color:#fff;font-size:26px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s ease,border-color .2s ease}
+/* Every .flm base rule sits above this line and every media query below it:
+   equal specificity, so a query placed earlier loses to a later base rule. */
+@media(hover:hover) and (pointer:fine){
+  .flm:hover .flm-media img{transform:scale(1.035)}
+  .flm:hover .flm-play{background:var(--token-1662617d-fd18-4319-b3da-aa36e5415705, rgb(249, 69, 45));border-color:var(--token-1662617d-fd18-4319-b3da-aa36e5415705, rgb(249, 69, 45))}
+  .flm-close:hover{background:var(--token-1662617d-fd18-4319-b3da-aa36e5415705, rgb(249, 69, 45));border-color:var(--token-1662617d-fd18-4319-b3da-aa36e5415705, rgb(249, 69, 45))}
+}
+@media(max-width:900px){.flm-grid{grid-template-columns:repeat(2,1fr)}.flm-row{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.flm-grid{grid-template-columns:1fr;gap:28px}.flm-row{grid-template-columns:repeat(2,1fr);gap:14px}.flm-play{width:50px;height:50px;margin:-25px 0 0 -25px}}
+@media(prefers-reduced-motion:reduce){.flm-box.is-open{animation:none}.flm-media img,.flm-play{transition:none}}
 .svc-faq details{border-bottom:1px solid rgba(255,255,255,.12)}
 .svc-faq summary{list-style:none;cursor:pointer;padding:28px 0;display:flex;justify-content:space-between;align-items:center;gap:22px;color:#fff}
 .svc-faq summary::-webkit-details-marker{display:none}
@@ -15933,6 +15969,11 @@ html,body{background:#0C0C0C;margin:0}
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"Video Production","name":"Video that looks like the rest of your brand","provider":{"@type":"ProfessionalService","name":"TheBrandle","url":"https://www.thebrandle.com","email":"hello@thebrandle.com","telephone":"+971561429789","image":"https://www.thebrandle.com/framerusercontent.com/images/YNmypiM868x4WUMKO25HF3tDPN4.jpg","areaServed":"Worldwide"},"description":"Video production in Dubai. Event films, founder interviews, brand and venue content, cut for social as well as the big screen. Fixed quote before the shoot.","url":"https://www.thebrandle.com/services/video-production/"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does video production cost?","acceptedAnswer":{"@type":"Answer","text":"It depends on the shoot - a half-day interview is a different project from multi-day event coverage with several deliverables. We scope it up front and give you a fixed quote before anything is booked."}},{"@type":"Question","name":"Do you cover events outside Dubai?","acceptedAnswer":{"@type":"Answer","text":"Yes. We are based in Dubai and cover Abu Dhabi and the wider UAE, and travel to Riyadh and beyond for larger productions."}},{"@type":"Question","name":"Do we get vertical cuts for social as well?","acceptedAnswer":{"@type":"Answer","text":"Yes, and we plan for them before the shoot rather than cropping a landscape edit afterwards. Vertical versions come out of the same footage, subtitled and ready to post."}},{"@type":"Question","name":"Can you work to our existing brand guidelines?","acceptedAnswer":{"@type":"Answer","text":"Yes - and in most cases we wrote them. Type, colour and tone come from the same identity as your website, so the video does not look like it came from somewhere else."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.thebrandle.com/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://www.thebrandle.com/services/"},{"@type":"ListItem","position":3,"name":"Video Production","item":"https://www.thebrandle.com/services/video-production/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoObject","name":"BeInCrypto","description":"BeInCrypto, a 0:39 film by Raheem Dzhairkhanov.","thumbnailUrl":"https://www.thebrandle.com/assets/video/beincrypto.jpg","uploadDate":"2026-10-01T13:40:18-07:00","duration":"PT39S","embedUrl":"https://www.youtube.com/embed/2CchbQdESco","contentUrl":"https://www.youtube.com/watch?v=2CchbQdESco","creator":{"@type":"Person","name":"Raheem Dzhairkhanov"},"publisher":{"@type":"Organization","name":"TheBrandle","url":"https://www.thebrandle.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoObject","name":"Blockstreet","description":"Blockstreet, a 1:35 film by Raheem Dzhairkhanov.","thumbnailUrl":"https://www.thebrandle.com/assets/video/blockstreet.jpg","uploadDate":"2026-10-01T13:36:12-07:00","duration":"PT1M35S","embedUrl":"https://www.youtube.com/embed/WC7X097ixNw","contentUrl":"https://www.youtube.com/watch?v=WC7X097ixNw","creator":{"@type":"Person","name":"Raheem Dzhairkhanov"},"publisher":{"@type":"Organization","name":"TheBrandle","url":"https://www.thebrandle.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoObject","name":"Lavo","description":"Lavo, a 1:06 film by Raheem Dzhairkhanov.","thumbnailUrl":"https://www.thebrandle.com/assets/video/lavo.jpg","uploadDate":"2026-10-01T13:50:58-07:00","duration":"PT1M6S","embedUrl":"https://www.youtube.com/embed/60H5TW-L4oI","contentUrl":"https://www.youtube.com/watch?v=60H5TW-L4oI","creator":{"@type":"Person","name":"Raheem Dzhairkhanov"},"publisher":{"@type":"Organization","name":"TheBrandle","url":"https://www.thebrandle.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoObject","name":"White Sunday","description":"White Sunday, a 0:20 vertical film by Raheem Dzhairkhanov.","thumbnailUrl":"https://www.thebrandle.com/assets/video/white-sunday.jpg","uploadDate":"2026-10-01T13:31:51-07:00","duration":"PT20S","embedUrl":"https://www.youtube.com/embed/ul5GEKFK0Kk","contentUrl":"https://www.youtube.com/watch?v=ul5GEKFK0Kk","creator":{"@type":"Person","name":"Raheem Dzhairkhanov"},"publisher":{"@type":"Organization","name":"TheBrandle","url":"https://www.thebrandle.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoObject","name":"DAT Summit","description":"DAT Summit, a 0:06 vertical film by Raheem Dzhairkhanov.","thumbnailUrl":"https://www.thebrandle.com/assets/video/dat-summit.jpg","uploadDate":"2026-10-01T13:49:18-07:00","duration":"PT6S","embedUrl":"https://www.youtube.com/embed/NMS26S4K2iM","contentUrl":"https://www.youtube.com/watch?v=NMS26S4K2iM","creator":{"@type":"Person","name":"Raheem Dzhairkhanov"},"publisher":{"@type":"Organization","name":"TheBrandle","url":"https://www.thebrandle.com/"}}</script>
 </head>
 <body>
 <div
@@ -15949,6 +15990,37 @@ html,body{background:#0C0C0C;margin:0}
     <h1 class="framer-text framer-styles-preset-1usw2w6" data-reveal style="color:#fff;text-align:left;margin:0 0 26px;transition-delay:70ms">Video that looks like the rest of your brand</h1>
     <p class="framer-text framer-styles-preset-1dmjd5e" data-reveal style="color:rgba(255, 255, 255, 0.62);text-align:left;max-width:58ch;transition-delay:140ms">Event coverage, founder interviews, brand and venue films - shot in Dubai and cut for social as well as the site, by the same studio that built your identity.</p>
     <div class="svc-hero-actions" data-reveal style="transition-delay:210ms"><button class="framer-LqZE5 framer-PJOjX framer-az50z5 framer-v-az50z5" data-framer-name="Desktop" data-reset="button" style="opacity: 1;"><a class="framer-13x93le framer-dbdkto" data-framer-name="Link" href="/contact" style="background-color: rgba(0, 0, 0, 0); border-radius: 0px; opacity: 1;"><div class="framer-1m71lft-container" style="opacity: 1; transform: none;"><div style="display: contents;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" focusable="false" color="var(--token-1662617d-fd18-4319-b3da-aa36e5415705, rgb(249, 69, 45))" style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-1662617d-fd18-4319-b3da-aa36e5415705, rgb(249, 69, 45)); color: var(--token-1662617d-fd18-4319-b3da-aa36e5415705, rgb(249, 69, 45)); flex-shrink: 0;"><g color="var(--token-1662617d-fd18-4319-b3da-aa36e5415705, rgb(249, 69, 45))" weight="regular"><path d="M221.66,181.66l-48,48a8,8,0,0,1-11.32-11.32L196.69,184H72a8,8,0,0,1-8-8V32a8,8,0,0,1,16,0V168H196.69l-34.35-34.34a8,8,0,0,1,11.32-11.32l48,48A8,8,0,0,1,221.66,181.66Z"></path></g></svg></div></div><div class="framer-7q3foz" data-framer-name="Start your project" data-framer-component-type="RichTextContainer" style="--extracted-r6o4lv: var(--variable-reference-zvTGbXZx3-ozPjcS5mp); --framer-paragraph-spacing: 0px; --variable-reference-zvTGbXZx3-ozPjcS5mp: var(--token-09fd1980-8076-4f0b-8bb4-7ba5919ad6b8, rgb(12, 12, 12)); transform: none; opacity: 1;"><p class="framer-text framer-styles-preset-1dmjd5e" data-styles-preset="q35quwzCc" style="--framer-text-color: var(--extracted-r6o4lv, var(--variable-reference-zvTGbXZx3-ozPjcS5mp));">Start your project</p></div></a></button></div>
+  </section>
+
+  <section class="svc-section" id="films">
+    <span class="svc-label">Selected work</span>
+    <h2 class="framer-text framer-styles-preset-1t5qoig" style="color:#fff;text-align:left;margin:0 0 14px">Recent films</h2>
+    <p class="framer-text framer-styles-preset-bq16ho" style="color:rgba(255, 255, 255, 0.62);text-align:left;max-width:64ch">Event films, interviews and vertical cuts by Raheem Dzhairkhanov, our Chief of Media.</p>
+    <div class="flm-grid">
+      <button type="button" class="flm flm-wide" data-yt="2CchbQdESco" data-shape="wide" aria-label="Play BeInCrypto, 0:39" data-reveal style="transition-delay:0ms">
+        <span class="flm-media"><img src="/assets/video/beincrypto.jpg" alt="" width="960" height="540" loading="lazy" decoding="async"><span class="flm-play"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l10.6-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14z"/></svg></span></span>
+        <span class="flm-meta"><span class="flm-title framer-text framer-styles-preset-ddjjzx">BeInCrypto</span><span class="flm-info framer-text framer-styles-preset-1hahlh8">0:39 · 4K</span></span>
+      </button>
+      <button type="button" class="flm flm-wide" data-yt="WC7X097ixNw" data-shape="wide" aria-label="Play Blockstreet, 1:35" data-reveal style="transition-delay:70ms">
+        <span class="flm-media"><img src="/assets/video/blockstreet.jpg" alt="" width="960" height="540" loading="lazy" decoding="async"><span class="flm-play"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l10.6-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14z"/></svg></span></span>
+        <span class="flm-meta"><span class="flm-title framer-text framer-styles-preset-ddjjzx">Blockstreet</span><span class="flm-info framer-text framer-styles-preset-1hahlh8">1:35</span></span>
+      </button>
+      <button type="button" class="flm flm-wide" data-yt="60H5TW-L4oI" data-shape="wide" aria-label="Play Lavo, 1:06" data-reveal style="transition-delay:140ms">
+        <span class="flm-media"><img src="/assets/video/lavo.jpg" alt="" width="960" height="540" loading="lazy" decoding="async"><span class="flm-play"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l10.6-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14z"/></svg></span></span>
+        <span class="flm-meta"><span class="flm-title framer-text framer-styles-preset-ddjjzx">Lavo</span><span class="flm-info framer-text framer-styles-preset-1hahlh8">1:06</span></span>
+      </button>
+    </div>
+    <span class="svc-label flm-sub">Vertical cuts</span>
+    <div class="flm-row">
+      <button type="button" class="flm flm-tall" data-yt="ul5GEKFK0Kk" data-shape="tall" aria-label="Play White Sunday, 0:20" data-reveal style="transition-delay:210ms">
+        <span class="flm-media"><img src="/assets/video/white-sunday.jpg" alt="" width="540" height="960" loading="lazy" decoding="async"><span class="flm-play"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l10.6-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14z"/></svg></span></span>
+        <span class="flm-meta"><span class="flm-title framer-text framer-styles-preset-ddjjzx">White Sunday</span><span class="flm-info framer-text framer-styles-preset-1hahlh8">0:20 · Vertical</span></span>
+      </button>
+      <button type="button" class="flm flm-tall" data-yt="NMS26S4K2iM" data-shape="tall" aria-label="Play DAT Summit, 0:06" data-reveal style="transition-delay:280ms">
+        <span class="flm-media"><img src="/assets/video/dat-summit.jpg" alt="" width="540" height="960" loading="lazy" decoding="async"><span class="flm-play"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l10.6-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14z"/></svg></span></span>
+        <span class="flm-meta"><span class="flm-title framer-text framer-styles-preset-ddjjzx">DAT Summit</span><span class="flm-info framer-text framer-styles-preset-1hahlh8">0:06 · Vertical</span></span>
+      </button>
+    </div>
   </section>
 
   <section class="svc-section">
@@ -16139,6 +16211,49 @@ html,body{background:#0C0C0C;margin:0}
       target.addEventListener('click', toFooter);
     }
   }
+})();
+</script>
+<script>
+(function(){
+  var cards=document.querySelectorAll('.flm[data-yt]'); if(!cards.length) return;
+  var box=null, last=null;
+  function build(){
+    box=document.createElement('div');
+    box.className='flm-box'; box.setAttribute('role','dialog'); box.setAttribute('aria-modal','true'); box.setAttribute('aria-label','Video player');
+    box.innerHTML='<button type="button" class="flm-close" aria-label="Close video">&times;</button><div class="flm-stage"></div>';
+    document.body.appendChild(box);
+    box.addEventListener('click',function(e){ if(e.target===box) close(); });
+    box.querySelector('.flm-close').addEventListener('click',close);
+  }
+  function open(card){
+    if(!box) build();
+    last=card;
+    var stage=box.querySelector('.flm-stage');
+    stage.className='flm-stage flm-stage-'+card.getAttribute('data-shape');
+    var f=document.createElement('iframe');
+    f.src='https://www.youtube-nocookie.com/embed/'+card.getAttribute('data-yt')+'?autoplay=1&rel=0&playsinline=1';
+    f.title=card.getAttribute('aria-label');
+    f.setAttribute('allow','autoplay; encrypted-media; picture-in-picture; fullscreen');
+    f.setAttribute('allowfullscreen','');
+    /* YouTube refuses embeds that do not name the site they sit on (Error 153,
+       "Video player configuration error"). Browsers send the origin by default,
+       but a stricter site-wide Referrer-Policy added later would silently break
+       every film on the page, so say it explicitly here. */
+    f.setAttribute('referrerpolicy','strict-origin-when-cross-origin');
+    stage.innerHTML=''; stage.appendChild(f);
+    box.classList.add('is-open');
+    document.documentElement.style.overflow='hidden';
+    box.querySelector('.flm-close').focus();
+  }
+  function close(){
+    if(!box||!box.classList.contains('is-open')) return;
+    box.classList.remove('is-open');
+    box.querySelector('.flm-stage').innerHTML='';
+    document.documentElement.style.overflow='';
+    if(last) last.focus();
+  }
+  for(var i=0;i<cards.length;i++) cards[i].addEventListener('click',function(){ open(this); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
 })();
 </script>
 </body>

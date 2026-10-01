@@ -286,6 +286,42 @@ html,body{background:#0C0C0C;margin:0}
   .tm-meta{margin:14px 0 16px;gap:4px 14px}
 }
 .svc-faq{max-width:880px;margin:54px auto 0}
+/* Films. Wide films get a grid, vertical cuts get their own row: putting 16:9
+   and 9:16 in one grid leaves either ragged row heights or letterboxing. */
+.flm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.flm-sub{display:block;margin:46px 0 0}
+.flm-row{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;margin-top:18px}
+.flm{appearance:none;-webkit-appearance:none;background:none;border:0;padding:0;margin:0;color:inherit;font:inherit;text-align:left;cursor:pointer;display:block;width:100%}
+.flm-media{position:relative;display:block;overflow:hidden;background:#111;border-radius:10px}
+.flm-wide .flm-media{aspect-ratio:16/9}
+.flm-tall .flm-media{aspect-ratio:9/16}
+.flm-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.23,1,.32,1)}
+.flm-play{position:absolute;left:50%;top:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:background .2s ease,border-color .2s ease,transform .16s ease-out}
+.flm-play svg{width:22px;height:22px;fill:#fff;margin-left:3px;display:block}
+.flm-meta{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-top:12px}
+.flm-title{color:#fff!important;text-align:left}
+.flm-info{color:${MUTED2}!important;white-space:nowrap}
+.flm-tall .flm-meta{flex-direction:column;gap:2px}
+.flm:focus-visible{outline:2px solid ${ACCENT};outline-offset:4px;border-radius:10px}
+.flm:active .flm-play{transform:scale(.94)}
+.flm-box{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;background:rgba(5,5,5,.94);padding:64px 16px 24px}
+.flm-box.is-open{display:flex;animation:flm-in .22s cubic-bezier(.23,1,.32,1)}
+@keyframes flm-in{from{opacity:0}to{opacity:1}}
+.flm-stage{position:relative;background:#000;border-radius:10px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.flm-stage-wide{width:min(1200px,100%,calc((100vh - 110px) * 16 / 9));aspect-ratio:16/9}
+.flm-stage-tall{width:min(100%,calc((100vh - 110px) * 9 / 16),480px);aspect-ratio:9/16}
+.flm-stage iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.flm-close{position:absolute;top:12px;right:16px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06);color:#fff;font-size:26px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s ease,border-color .2s ease}
+/* Every .flm base rule sits above this line and every media query below it:
+   equal specificity, so a query placed earlier loses to a later base rule. */
+@media(hover:hover) and (pointer:fine){
+  .flm:hover .flm-media img{transform:scale(1.035)}
+  .flm:hover .flm-play{background:${ACCENT};border-color:${ACCENT}}
+  .flm-close:hover{background:${ACCENT};border-color:${ACCENT}}
+}
+@media(max-width:900px){.flm-grid{grid-template-columns:repeat(2,1fr)}.flm-row{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.flm-grid{grid-template-columns:1fr;gap:28px}.flm-row{grid-template-columns:repeat(2,1fr);gap:14px}.flm-play{width:50px;height:50px;margin:-25px 0 0 -25px}}
+@media(prefers-reduced-motion:reduce){.flm-box.is-open{animation:none}.flm-media img,.flm-play{transition:none}}
 .svc-faq details{border-bottom:1px solid rgba(255,255,255,.12)}
 .svc-faq summary{list-style:none;cursor:pointer;padding:28px 0;display:flex;justify-content:space-between;align-items:center;gap:22px;color:#fff}
 .svc-faq summary::-webkit-details-marker{display:none}
@@ -477,6 +513,98 @@ ${schemas.map(s => `<script type="application/ld+json">${JSON.stringify(s)}</scr
 </head>`;
 }
 
+const fmtDur = (sec) => `${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, '0')}`;
+const isoDur = (sec) => `PT${Math.floor(sec / 60) ? Math.floor(sec / 60) + 'M' : ''}${sec % 60}S`;
+const PLAY_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l10.6-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14z"/></svg>';
+
+/* Self-hosted posters, no YouTube player until someone presses play. Five
+   embedded players would cost several megabytes of script before anyone
+   watched anything. */
+function renderFilms(d) {
+  if (!d.films) return '';
+  const card = (f, i) => `      <button type="button" class="flm flm-${f.shape}" data-yt="${esc(f.id)}" data-shape="${f.shape}" aria-label="Play ${esc(f.title)}, ${fmtDur(f.seconds)}" data-reveal style="transition-delay:${i * 70}ms">
+        <span class="flm-media"><img src="${esc(f.poster)}" alt="" width="${f.shape === 'tall' ? 540 : 960}" height="${f.shape === 'tall' ? 960 : 540}" loading="lazy" decoding="async"><span class="flm-play">${PLAY_ICON}</span></span>
+        <span class="flm-meta"><span class="flm-title ${P.h3}">${esc(f.title)}</span><span class="flm-info ${P.small}">${fmtDur(f.seconds)}${f.tag ? ' · ' + esc(f.tag) : ''}</span></span>
+      </button>`;
+  const wide = d.films.items.filter((f) => f.shape === 'wide');
+  const tall = d.films.items.filter((f) => f.shape === 'tall');
+  return `
+  <section class="svc-section" id="films">
+    <span class="svc-label">${esc(d.films.eyebrow)}</span>
+    <h2 class="${P.h2}" style="color:#fff;text-align:left;margin:0 0 14px">${esc(d.films.heading)}</h2>
+    <p class="${P.body}" style="color:${MUTED};text-align:left;max-width:64ch">${esc(d.films.sub)}</p>
+    <div class="flm-grid">
+${wide.map(card).join('\n')}
+    </div>${tall.length ? `
+    <span class="svc-label flm-sub">Vertical cuts</span>
+    <div class="flm-row">
+${tall.map((f, i) => card(f, i + wide.length)).join('\n')}
+    </div>` : ''}
+  </section>
+`;
+}
+
+const filmSchemas = (d) => (d.films ? d.films.items.map((f) => ({
+  '@context': 'https://schema.org', '@type': 'VideoObject',
+  name: f.title,
+  description: `${f.title}, a ${fmtDur(f.seconds)} ${f.shape === 'tall' ? 'vertical ' : ''}film by Raheem Dzhairkhanov.`,
+  thumbnailUrl: SITE + f.poster,
+  uploadDate: f.uploaded,
+  duration: isoDur(f.seconds),
+  embedUrl: `https://www.youtube.com/embed/${f.id}`,
+  contentUrl: `https://www.youtube.com/watch?v=${f.id}`,
+  creator: { '@type': 'Person', name: 'Raheem Dzhairkhanov' },
+  publisher: { '@type': 'Organization', name: 'TheBrandle', url: SITE + '/' },
+})) : []);
+
+/* One shared dialog, built on first use. Closing empties the stage, which
+   tears the iframe down and stops playback rather than leaving audio running
+   behind a hidden overlay. youtube-nocookie keeps YouTube from setting
+   cookies until the visitor actually plays something. */
+const FILMS_JS = `<script>
+(function(){
+  var cards=document.querySelectorAll('.flm[data-yt]'); if(!cards.length) return;
+  var box=null, last=null;
+  function build(){
+    box=document.createElement('div');
+    box.className='flm-box'; box.setAttribute('role','dialog'); box.setAttribute('aria-modal','true'); box.setAttribute('aria-label','Video player');
+    box.innerHTML='<button type="button" class="flm-close" aria-label="Close video">&times;</button><div class="flm-stage"></div>';
+    document.body.appendChild(box);
+    box.addEventListener('click',function(e){ if(e.target===box) close(); });
+    box.querySelector('.flm-close').addEventListener('click',close);
+  }
+  function open(card){
+    if(!box) build();
+    last=card;
+    var stage=box.querySelector('.flm-stage');
+    stage.className='flm-stage flm-stage-'+card.getAttribute('data-shape');
+    var f=document.createElement('iframe');
+    f.src='https://www.youtube-nocookie.com/embed/'+card.getAttribute('data-yt')+'?autoplay=1&rel=0&playsinline=1';
+    f.title=card.getAttribute('aria-label');
+    f.setAttribute('allow','autoplay; encrypted-media; picture-in-picture; fullscreen');
+    f.setAttribute('allowfullscreen','');
+    /* YouTube refuses embeds that do not name the site they sit on (Error 153,
+       "Video player configuration error"). Browsers send the origin by default,
+       but a stricter site-wide Referrer-Policy added later would silently break
+       every film on the page, so say it explicitly here. */
+    f.setAttribute('referrerpolicy','strict-origin-when-cross-origin');
+    stage.innerHTML=''; stage.appendChild(f);
+    box.classList.add('is-open');
+    document.documentElement.style.overflow='hidden';
+    box.querySelector('.flm-close').focus();
+  }
+  function close(){
+    if(!box||!box.classList.contains('is-open')) return;
+    box.classList.remove('is-open');
+    box.querySelector('.flm-stage').innerHTML='';
+    document.documentElement.style.overflow='';
+    if(last) last.focus();
+  }
+  for(var i=0;i<cards.length;i++) cards[i].addEventListener('click',function(){ open(this); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+})();
+</script>`;
+
 function renderPage(d) {
   const url = `${SITE}/services/${d.slug}/`;
   const rows = d.features.map((f, i) => `      <div class="svc-row" data-reveal style="transition-delay:${i * 70}ms"><span class="svc-num ${P.small}">${pad2(i + 1)}</span><h3 class="svc-row-title ${P.h2}" style="text-align:left">${esc(f.title)}</h3><p class="svc-row-body ${P.body}" style="color:${MUTED2};text-align:left">${esc(f.body)}</p></div>`).join('\n');
@@ -488,6 +616,7 @@ function renderPage(d) {
     { '@context': 'https://schema.org', '@type': 'Service', serviceType: d.serviceType, name: d.h1, provider: { '@type': 'ProfessionalService', name: 'TheBrandle', url: SITE, email: EMAIL, telephone: '+971561429789', image: OG_IMAGE, areaServed: 'Worldwide' }, description: d.metaDescription, url },
     { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: d.faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: SITE + '/' }, { '@type': 'ListItem', position: 2, name: 'Services', item: SITE + '/services/' }, { '@type': 'ListItem', position: 3, name: d.navTitle, item: url }] },
+    ...filmSchemas(d),
   ];
 
   return `${head(d.title, d.metaDescription, url, schemas)}
@@ -503,7 +632,7 @@ ${noiseHtml ? `<div class="svc-noise">${noiseHtml}</div>` : ``}
     <p class="${P.lead}" data-reveal style="color:${MUTED};text-align:left;max-width:58ch;transition-delay:140ms">${esc(d.heroSub)}</p>
     <div class="svc-hero-actions" data-reveal style="transition-delay:210ms">${cta('Start your project', '/contact')}</div>
   </section>
-
+${renderFilms(d)}
   <section class="svc-section">
     <span class="svc-label">What you get</span>
     <h2 class="${P.h2}" style="color:#fff;text-align:left;margin:0 0 14px">${esc(d.deliverHeading)}</h2>
@@ -550,6 +679,7 @@ ${footerHtml}
 </div>
 </div>
 ${REVEAL_JS}
+${d.films ? FILMS_JS : ''}
 </body>
 </html>
 `;

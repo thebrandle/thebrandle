@@ -857,6 +857,26 @@ const pages = [
         'Brands whose feed looks nothing like their website',
       ],
     },
+    /* Hosted on TheBrandle's YouTube channel (@TheBrandlestudio), all unlisted.
+       Credited to Raheem as his work, with no client named on any of them:
+       several look like crypto-event coverage, and whether those were
+       TheBrandle commissions or earlier work is not confirmed. Titles are the
+       event names, durations are what YouTube reports, posters are self-hosted
+       so the page never loads a YouTube player until someone presses play.
+       Still to add once YouTube finishes processing it: SkQXS67ejFY, Forum of
+       European Journalists in Belgium. */
+    films: {
+      eyebrow: 'Selected work',
+      heading: 'Recent films',
+      sub: 'Event films, interviews and vertical cuts by Raheem Dzhairkhanov, our Chief of Media.',
+      items: [
+        { id: '2CchbQdESco', uploaded: '2026-10-01T13:40:18-07:00', title: 'BeInCrypto', seconds: 39, tag: '4K', shape: 'wide', poster: '/assets/video/beincrypto.jpg' },
+        { id: 'WC7X097ixNw', uploaded: '2026-10-01T13:36:12-07:00', title: 'Blockstreet', seconds: 95, shape: 'wide', poster: '/assets/video/blockstreet.jpg' },
+        { id: '60H5TW-L4oI', uploaded: '2026-10-01T13:50:58-07:00', title: 'Lavo', seconds: 66, shape: 'wide', poster: '/assets/video/lavo.jpg' },
+        { id: 'ul5GEKFK0Kk', uploaded: '2026-10-01T13:31:51-07:00', title: 'White Sunday', seconds: 20, tag: 'Vertical', shape: 'tall', poster: '/assets/video/white-sunday.jpg' },
+        { id: 'NMS26S4K2iM', uploaded: '2026-10-01T13:49:18-07:00', title: 'DAT Summit', seconds: 6, tag: 'Vertical', shape: 'tall', poster: '/assets/video/dat-summit.jpg' },
+      ],
+    },
     faqHeading: 'Video production',
     processHeading: 'From brief to delivered cut',
     process: [
