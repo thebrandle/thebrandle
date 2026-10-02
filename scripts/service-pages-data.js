@@ -863,8 +863,12 @@ const pages = [
        TheBrandle commissions or earlier work is not confirmed. Titles are the
        event names, durations are what YouTube reports, posters are self-hosted
        so the page never loads a YouTube player until someone presses play.
-       Still to add once YouTube finishes processing it: SkQXS67ejFY, Forum of
-       European Journalists in Belgium. */
+       Blockstreet carries a CNBC logo in the footage. Muteeb confirmed on
+       2026-10-02 that Raheem produced it, so it stays - do not pull it as
+       third-party broadcast material.
+       Held back pending Muteeb's decision: SkQXS67ejFY, Forum of European
+       Journalists in Belgium. Every frame carries a grozny.tv watermark
+       (ChGTRK Grozny, the Chechen state broadcaster). */
     films: {
       eyebrow: 'Selected work',
       heading: 'Recent films',
