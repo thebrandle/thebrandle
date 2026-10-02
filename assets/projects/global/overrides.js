@@ -287,7 +287,49 @@
   }
 
   // ---- FULL PASS ----
+  // ---- IMAGE ALT TEXT (homepage) ----
+  // The export ships 20 homepage images with no alt attribute, and hydration
+  // fails on this page, so React re-renders and drops any alt written into the
+  // static HTML. Set them here, where every re-render is re-patched.
+  // Three stock <img>s are only placeholders: THUMB_MAP above fades them to
+  // opacity 0 and paints the real project behind them. Screen readers still read
+  // that invisible <img>, so it carries the name of the project actually shown.
+  // Template leftovers that are never visible (placeholder logos, stock
+  // testimonial and avatar photos) get alt="" - decorative, skipped by readers.
+  var ALT_MAP = {
+    'bPs9iY1xCdYs2KmVLN2FyaQJhk': 'Oh My Pasta branding project',
+    'T3l9K398sRcCWjbIM6rTgD8UILk': 'DropX website design project',
+    'SDIyriYujLHtLJeg9tbQiqvoT4': 'ORBLEAD website design project',
+    'shine/bg.gif': 'Shine Skincare branding project',
+    'pallete.webp': 'Shine Skincare brand colour palette',
+    'T5XSyGg3skqWFq4gynSvi2wGqHU': 'Branded coffee pouch on a red background',
+    '2AYuIsYxoyH0AB4UH3OZXNPNbAo': '', 'o8dFjBzWHUDItoXVX8r1Ndzlk': '',
+    '0pDtIhqRHGNuPAzd4BSRF7WMlXk': '', 'EagZOs8hT2OPs3zEGfOxlGf3Bc8': '',
+    'IOGg7ZpaneY0TlHE5oJ2WoVALk4': '', 'zqhjvenuB6JlWRw3MCGzn16Xs': '',
+    'sTaxCLs7cqSjMGwmi2PWgDRgDWQ': '', 'haNVbcSIbfVRCcLU0UxDtMQWaQk': '',
+    'c3ZtmzD7MNgGgKP6Pt9WW2zXl0': '', 'hceoHFzb6OLlauC9G5LXKHf4fFY': '',
+    'BjscHvGqTPWHtU57bAqZ2terODw': '', 'aWcD3Iz6LWFQERknQy3rwYGQBI': '',
+    'nDtXYMMvDJ6YMQxXZSaJjxXSb8c': '', 'NAc0rqyjZ860lyzTnxAxYIbsKM': ''
+  };
+  function patchAlts() {
+    // Homepage only: on case-study pages the same stock files can stand for
+    // something else, so a fixed label there could describe the wrong thing.
+    if (window.location.pathname !== '/') return;
+    var imgs = document.getElementsByTagName('img');
+    for (var i = 0; i < imgs.length; i++) {
+      var img = imgs[i];
+      var ref = (img.getAttribute('src') || '') + ' ' + (img.getAttribute('srcset') || '');
+      for (var key in ALT_MAP) {
+        if (ref.indexOf(key) !== -1) {
+          if (img.getAttribute('alt') !== ALT_MAP[key]) img.setAttribute('alt', ALT_MAP[key]);
+          break;
+        }
+      }
+    }
+  }
+
   function applyOverrides() {
+    patchAlts();
     hideFifth();
     patchGlobalText();
     patchCards();
