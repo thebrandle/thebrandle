@@ -295,7 +295,9 @@
   // opacity 0 and paints the real project behind them. Screen readers still read
   // that invisible <img>, so it carries the name of the project actually shown.
   // Template leftovers that are never visible (placeholder logos, stock
-  // testimonial and avatar photos) get alt="" - decorative, skipped by readers.
+  // testimonial and avatar photos) get plain literal descriptions - "Logo",
+  // "Portrait photo" - that make no claim about clients. Not alt="": correct for
+  // decorative images, but SEO checkers such as Seobility count it as missing.
   var ALT_MAP = {
     'bPs9iY1xCdYs2KmVLN2FyaQJhk': 'Oh My Pasta branding project',
     'T3l9K398sRcCWjbIM6rTgD8UILk': 'DropX website design project',
@@ -303,13 +305,19 @@
     'shine/bg.gif': 'Shine Skincare branding project',
     'pallete.webp': 'Shine Skincare brand colour palette',
     'T5XSyGg3skqWFq4gynSvi2wGqHU': 'Branded coffee pouch on a red background',
-    '2AYuIsYxoyH0AB4UH3OZXNPNbAo': '', 'o8dFjBzWHUDItoXVX8r1Ndzlk': '',
-    '0pDtIhqRHGNuPAzd4BSRF7WMlXk': '', 'EagZOs8hT2OPs3zEGfOxlGf3Bc8': '',
-    'IOGg7ZpaneY0TlHE5oJ2WoVALk4': '', 'zqhjvenuB6JlWRw3MCGzn16Xs': '',
-    'sTaxCLs7cqSjMGwmi2PWgDRgDWQ': '', 'haNVbcSIbfVRCcLU0UxDtMQWaQk': '',
-    'c3ZtmzD7MNgGgKP6Pt9WW2zXl0': '', 'hceoHFzb6OLlauC9G5LXKHf4fFY': '',
-    'BjscHvGqTPWHtU57bAqZ2terODw': '', 'aWcD3Iz6LWFQERknQy3rwYGQBI': '',
-    'nDtXYMMvDJ6YMQxXZSaJjxXSb8c': '', 'NAc0rqyjZ860lyzTnxAxYIbsKM': ''
+    // The same three project images again, under the file names they carry once
+    // the src hook above has swapped them in - otherwise the swap strips the label.
+    'apex/project2_01.gif': 'Oh My Pasta branding project',
+    'dropx/image3.webp': 'DropX website design project',
+    'orblead/image1.webp': 'ORBLEAD website design project',
+    'mEUUzFINLTAMqcjxzWXrFUYzBPQ': 'Phone mockup',
+    '2AYuIsYxoyH0AB4UH3OZXNPNbAo': 'Portrait photo', 'o8dFjBzWHUDItoXVX8r1Ndzlk': 'Portrait photo',
+    '0pDtIhqRHGNuPAzd4BSRF7WMlXk': 'Portrait photo', 'EagZOs8hT2OPs3zEGfOxlGf3Bc8': 'Portrait photo',
+    'IOGg7ZpaneY0TlHE5oJ2WoVALk4': 'Portrait photo', 'zqhjvenuB6JlWRw3MCGzn16Xs': 'Phone mockup',
+    'sTaxCLs7cqSjMGwmi2PWgDRgDWQ': 'Logo', 'haNVbcSIbfVRCcLU0UxDtMQWaQk': 'Logo',
+    'c3ZtmzD7MNgGgKP6Pt9WW2zXl0': 'Logo', 'hceoHFzb6OLlauC9G5LXKHf4fFY': 'Logo',
+    'BjscHvGqTPWHtU57bAqZ2terODw': 'Logo', 'aWcD3Iz6LWFQERknQy3rwYGQBI': 'Portrait photo',
+    'nDtXYMMvDJ6YMQxXZSaJjxXSb8c': 'Portrait photo', 'NAc0rqyjZ860lyzTnxAxYIbsKM': 'Digital Design Studio graphic'
   };
   function patchAlts() {
     // Homepage only: on case-study pages the same stock files can stand for

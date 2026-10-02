@@ -62,7 +62,16 @@ URL-resolution branch.
 
 **Only the catch-all copy is patched.** The root `index.html` serves `/` via
 filesystem resolution and keeps its attribute, so the homepage still hydrates.
-Keep it that way — the two files are otherwise identical.
+Keep it that way.
+
+The two files differ in exactly one other place: the root `index.html` alone
+carries `<h1 class="brandle-h1">Digital Design Studio</h1>` straight after
+`<body>`, plus its visually-hidden CSS. The visible hero headline is Framer
+fit-text drawn inside `<svg><foreignObject>`, which crawlers and screen readers
+skip, so without this the homepage has no readable H1. It sits outside `#main`
+so React's re-render cannot remove it, and it must NOT go in the catch-all:
+that file is served for /about, /contact and the case studies, which would
+all inherit the homepage's heading.
 
 Cost: non-homepage routes client-render instead of hydrating (slightly slower
 first paint). The proper fix is a Framer export that emits one HTML file per
