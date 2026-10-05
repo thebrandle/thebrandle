@@ -15825,6 +15825,9 @@
 .framer-1pl4r2c > a[href="/contact"]{display:none!important}
 </style>
 <style>/* brandle: the Success stories section is the Framer template's placeholder testimonials (invented names and results). Hidden until real client quotes exist. The homepage rebuild drops it entirely. */[data-framer-name="Testimonials"]{display:none!important}</style>
+<script>/* brandle: "/" is a static page now (scripts/gen-homepage.js). Framer's client router would render its own copy of the old homepage on a Home or logo click, so any same-site link to / loads the page instead. Capture phase on document runs before React's root listeners. */(function(){document.addEventListener('click',function(e){if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;var a=e.target&&e.target.closest&&e.target.closest('a[href]');if(!a||a.target==='_blank')return;var u;try{u=new URL(a.href,location.href)}catch(x){return}if(u.origin!==location.origin||u.pathname!=='/')return;e.preventDefault();e.stopImmediatePropagation();location.href='/'+(u.hash||'');},true);})();</script>
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 
 

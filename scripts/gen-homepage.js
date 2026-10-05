@@ -19,8 +19,8 @@
  *   first work row  scroll-linked: scale .8 -> 1, y 250 -> 0, opacity 0 -> 1
  *   quote           words rise 7px and fade in, staggered
  *
- *   node scripts/gen-homepage.js                      -> home-preview/index.html (noindex)
- *   HOME_OUT=index.html node scripts/gen-homepage.js  -> the live homepage
+ *   node scripts/gen-homepage.js                                   -> index.html, the live homepage
+ *   HOME_OUT=home-preview/index.html node scripts/gen-homepage.js  -> noindex preview copy
  */
 const fs = require('fs');
 const path = require('path');
@@ -28,7 +28,7 @@ const { ROOT, COMP, SITE, OG_IMAGE, EMAIL, styles, GLUE, REVEAL_JS, navHtmlFinal
 const D = require('./home-data');
 const { TEAM } = require('./team-data');
 
-const OUT_REL = process.env.HOME_OUT || 'home-preview/index.html';
+const OUT_REL = process.env.HOME_OUT || 'index.html';
 const LIVE = OUT_REL === 'index.html';
 const ICONS = JSON.parse(fs.readFileSync(path.join(COMP, 'home-icons.json'), 'utf8'));
 const CAL_PILL = fs.readFileSync(path.join(COMP, 'cal-pill.js'), 'utf8');

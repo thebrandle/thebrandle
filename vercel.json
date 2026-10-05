@@ -75,6 +75,16 @@
       "source": "/blog/building-trust-online-the-importance-of-testimonials/",
       "destination": "/blog",
       "permanent": true
+    },
+    {
+      "source": "/home-preview",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home-preview/",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -217,14 +227,6 @@
     {
       "source": "/projects/storage-hire/",
       "destination": "/projects/storage-hire/index.html"
-    },
-    {
-      "source": "/home-preview",
-      "destination": "/home-preview/index.html"
-    },
-    {
-      "source": "/home-preview/",
-      "destination": "/home-preview/index.html"
     },
     {
       "source": "/(.*)",
