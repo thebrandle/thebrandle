@@ -219,6 +219,14 @@
       "destination": "/projects/storage-hire/index.html"
     },
     {
+      "source": "/home-preview",
+      "destination": "/home-preview/index.html"
+    },
+    {
+      "source": "/home-preview/",
+      "destination": "/home-preview/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/thebrandle.framer.website/index.html"
     }

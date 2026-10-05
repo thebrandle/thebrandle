@@ -12,3 +12,8 @@ _snapshot/components/ping.txt
 .agents/
 skills-lock.json
 .claude/
+
+# local measurement tooling and captures for the homepage rebuild
+_snapshot/measure/
+_snapshot/components/measure-*
+_snapshot/trim/
