@@ -517,6 +517,8 @@ function head(title, desc, url, schemas) {
 ${styles}
 ${GLUE}
 ${schemas.map(s => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join('\n')}
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>`;
 }
 

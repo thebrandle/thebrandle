@@ -484,6 +484,8 @@ ${GLUE}
 <script type="application/ld+json">${JSON.stringify(articleSchema)}</script>
 <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>
 <script type="application/ld+json">${JSON.stringify(breadcrumb)}</script>
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body class="bp2024">
 ${ROOT_OPEN}

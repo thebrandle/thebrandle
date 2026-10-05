@@ -667,6 +667,8 @@ const shell = ({ title, description, url, image, schemas, main, bodyClass = '' }
 ${styles}
 ${GLUE}
 ${schemas.map(s => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join('\n')}
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body${bodyClass ? ` class="${bodyClass}"` : ''}>
 ${ROOT_OPEN}
