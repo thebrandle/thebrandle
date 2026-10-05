@@ -229,7 +229,7 @@
       "destination": "/projects/storage-hire/index.html"
     },
     {
-      "source": "/(.*)",
+      "source": "/((?!_vercel/).*)",
       "destination": "/thebrandle.framer.website/index.html"
     }
   ]
