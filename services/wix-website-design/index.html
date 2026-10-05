@@ -15823,17 +15823,32 @@ html,body{background:#0C0C0C;margin:0}
    the inner row (children on flex-basis:0) crushes to ~21px columns - text
    then wraps one character per line. Scale the padding and stack the rows. */
 @media(max-width:760px){
-  .svc-footer .framer-Q4FQe{padding-left:24px!important;padding-right:24px!important}
-  .svc-footer .framer-92x2s6{width:100%!important;max-width:100%!important;min-width:0!important;gap:42px!important}
-  .svc-footer .framer-11zhs3t{flex-direction:column!important;align-items:flex-start!important;gap:38px!important;width:100%!important}
+  /* Spacing below matches the phone variant of the Framer footer: a panel
+     inset 24px, content 26px inside it, 20/40px between the blocks. */
+  .svc-footer .framer-Q4FQe{padding:24px 50px!important}
+  .svc-footer .framer-fmxr1t{inset:24px!important}
+  .svc-footer .framer-92x2s6{width:100%!important;max-width:100%!important;min-width:0!important;gap:40px!important;padding:30px 0!important}
+  .svc-footer .framer-11zhs3t{flex-direction:column!important;align-items:flex-start!important;gap:20px!important;width:100%!important}
   .svc-footer .framer-11zhs3t>*{flex:0 0 auto!important;width:100%!important;min-width:0!important;flex-basis:auto!important}
   .svc-footer .framer-e5ap8y,.svc-footer .framer-1bscsag,.svc-footer .framer-aj2el6{width:100%!important;min-width:0!important;flex-basis:auto!important;flex-grow:0!important}
-  .svc-footer .framer-aj2el6{flex-direction:column!important;gap:12px!important}
+  .svc-footer .framer-aj2el6{flex-direction:column!important;gap:0!important}
   .svc-footer .framer-aj2el6>*{width:100%!important;min-width:0!important;flex:0 0 auto!important}
   /* newsletter row: first child claimed the full width, pushing the submit
      arrow outside the viewport - let both shrink instead */
   .svc-footer .framer-e5ap8y{flex-wrap:wrap!important}
   .svc-footer .framer-e5ap8y>*{min-width:0!important;max-width:100%!important}
+  /* The newsletter column is flex-basis 0 in the desktop variant, so once the
+     row wraps it collapsed to 0px wide and "Stay connected" vanished on every
+     phone. Give it the full row and drop the desktop spacer columns. */
+  .svc-footer .framer-e5ap8y{flex-direction:column!important;gap:40px!important}
+  .svc-footer .framer-1bnz1ae{flex:1 0 100%!important;width:100%!important;gap:34px!important}
+  .svc-footer .framer-lq2n4p{gap:26px!important}
+  .svc-footer .framer-14dqdyj{gap:8px!important}
+  .svc-footer .framer-1jcs32i{min-height:34px}
+  .svc-footer .framer-r4hit5,.svc-footer .framer-15isc0s,.svc-footer .framer-klkq66{display:none!important}
+  /* The logo is fit-text, so it grew to the full column width; the phone
+     variant of the Framer footer draws it 180px wide. */
+  .svc-footer .framer-1bscsag{width:180px!important;flex:none!important}
 }
 .svc-section{width:100%;max-width:1200px;margin:0 auto;padding:100px 30px 0;box-sizing:border-box}
 .svc-label{display:block;color:var(--token-1662617d-fd18-4319-b3da-aa36e5415705, rgb(249, 69, 45));letter-spacing:.14em;text-transform:uppercase;font-family:Inter,sans-serif;font-size:12.5px;font-weight:500;margin-bottom:18px}
