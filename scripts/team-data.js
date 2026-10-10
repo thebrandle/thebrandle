@@ -54,6 +54,25 @@ const TEAM = [
       { label: 'LinkedIn', href: 'https://www.linkedin.com/in/rakhimdzhairkhanov' },
     ],
   },
+  {
+    slug: 'ubaid-wani',
+    name: 'Ubaid Wani',
+    role: 'Co-Founder / Chief of UI/UX & Product Design',
+    // Not confirmed yet, so not shown. Add his city here when Muteeb gives it.
+    location: null,
+    // No headshot supplied yet - the page shows the UW monogram until one is.
+    photo: null,
+    // Muteeb supplied this bio on 2026-10-11, written in the first person.
+    // Recast in the third person to match the other two, with nothing added.
+    // His pronouns were not stated, so the copy uses his name, not he/him.
+    bio: [
+      'Ubaid leads product and experience design at TheBrandle, turning ideas and complex problems into simple, thoughtful digital experiences. That covers the full design process, from product strategy and UX to visual design and design systems.',
+      'Ubaid believes good design should feel effortless: clear in its purpose, intuitive in its use, and considered down to the smallest detail.',
+    ],
+    links: [
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/ubaid-wani' },
+    ],
+  },
 ];
 
 module.exports = { TEAM };

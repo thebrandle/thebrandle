@@ -272,7 +272,7 @@ function renderTeam() {
         <div class="tm-id">
           <h2 class="${P.h2}" style="color:#fff;text-align:left;margin:0 0 12px">${esc(m.name)}</h2>
         </div>
-        <div class="tm-meta"><span class="svc-label" style="margin:0">${esc(m.role)}</span><span class="${P.small}" style="color:${MUTED2}">${esc(m.location)}</span></div>
+        <div class="tm-meta"><span class="svc-label" style="margin:0">${esc(m.role)}</span>${m.location ? `<span class="${P.small}" style="color:${MUTED2}">${esc(m.location)}</span>` : ''}</div>
         <div class="tm-body">
 ${m.bio.map((para) => `          <p class="${P.body}" style="color:${MUTED};text-align:left;margin:0 0 14px;max-width:60ch">${esc(para)}</p>`).join('\n')}${links}
         </div>
