@@ -10,6 +10,11 @@
 //      pricing subtitle, a template leftover.
 //   4. The 7+ years card said "Decades of experience". Reworded to match the
 //      number. The numbers themselves were confirmed accurate.
+// And one Muteeb asked for on 2026-10-11 ("fix them", on the Seobility report):
+//   5. Hero tagline "We create digital designs" became "Our studio creates
+//      designs", so every word of the H1 (Digital Design Studio) also appears in
+//      the page text. Same length on purpose: it wraps exactly like the old line
+//      at every width from 375 to 1920px. "digital" is still used further down.
 // Em dashes are not used anywhere on this site; esc() also normalises them.
 
 const { PROCESS } = require('./service-pages-data');
@@ -29,7 +34,7 @@ module.exports = {
     line1: 'Digital',
     line2: 'Design Studio',
     tags: ['UX/UI Design', 'Development', 'Brand Identity Design', 'Ongoing Support'],
-    tagline: 'We create digital designs that help brands move faster and convert better. Your business deserves more than just a website. It needs results.',
+    tagline: 'Our studio creates designs that help brands move faster and convert better. Your business deserves more than just a website. It needs results.',
     video: 'https://assets.thebrandle.com/herovideo.mp4',
     image: IMG + 'MRuoFuMbnw5FFImDwyAVxU4sYs.jpg',
     imageAlt: 'Woman lit in orange and blue light, the studio showreel still',

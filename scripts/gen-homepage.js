@@ -65,6 +65,11 @@ const arrowLink = (label, href, extra = '') => `<a class="hm-link ${extra}" href
 
 /* ------------------------------------------------------------------ sections */
 
+/* Outline: one H1, then one H2 per section and nothing deeper. Card, stat,
+   plan, step and FAQ titles are divs (spans inside <summary>) that carry the h3
+   preset - the look comes from the class, not the tag. Seobility flagged 34
+   headings against ~1,100 words on 2026-10-11; keep new titles off h3. */
+
 function hero() {
   const h = D.hero;
   return `<section class="hm-hero" id="top" aria-label="Introduction">
@@ -93,7 +98,7 @@ function numbers() {
     <div class="hm-stats">
 ${n.stats.map((s, i) => `      <div class="hm-stat" data-reveal style="transition-delay:${i * 80}ms">
         <p class="hm-stat-num"><span data-count="${s.value}" data-dec="${s.decimals}">${fmt(s.value, s.decimals)}</span><span>${esc(s.suffix)}</span></p>
-        <div class="hm-stat-txt"><h3 class="${PR.h3}"${C(INK)}>${esc(s.title)}</h3><p class="${PR.body}"${C(MUT)}>${esc(s.body)}</p></div>
+        <div class="hm-stat-txt"><div class="${PR.h3}"${C(INK)}>${esc(s.title)}</div><p class="${PR.body}"${C(MUT)}>${esc(s.body)}</p></div>
       </div>`).join('\n')}
     </div>
   </div>
@@ -125,11 +130,11 @@ function benefits() {
     <div class="hm-cards">
       <article class="hm-card hm-care" data-reveal style="background-image:url(${c.grid})">
         <img class="hm-care-img" src="${c.image}" alt="Two hands reaching towards each other" loading="lazy" decoding="async">
-        <div class="hm-card-txt"><h3 class="${PR.h3}"${C(INK)}>${esc(c.title)}</h3><p class="${PR.body}"${C(MUT)}>${rich(c.body)}</p></div>
+        <div class="hm-card-txt"><div class="${PR.h3}"${C(INK)}>${esc(c.title)}</div><p class="${PR.body}"${C(MUT)}>${rich(c.body)}</p></div>
       </article>
       <article class="hm-card hm-tweak" data-reveal style="transition-delay:80ms">
         ${corner('hm-card-corner')}
-        <h3 class="${PR.h3}"${C(INK)}>${esc(t.title)}</h3>
+        <div class="${PR.h3} hm-t"${C(INK)}>${esc(t.title)}</div>
         <p class="${PR.body}"${C(MUT)}>${rich(t.body)}</p>
         <div class="hm-avatars" aria-hidden="true">${t.avatars.map((a) => `<img src="${a}" alt="Portrait photo" loading="lazy" decoding="async">`).join('')}</div>
         <div class="hm-req">
@@ -146,7 +151,7 @@ ${t.todo.map((x) => `            <li><span class="hm-tick"></span><span>${esc(x)
         <p class="${PR.xs} hm-kit-label"${C(WHITE)}>${esc(k.label)}</p>
         <div class="hm-kit-icons" aria-hidden="true">${['folder', 'eyedropper', 'images', 'textAa', 'listIndent', 'stack'].map((n) => icon(n)).join('')}</div>
         <div class="hm-kit-btn" aria-hidden="true"><span class="hm-kit-dot">${icon('cloudDown')}</span><span class="hm-kit-count">${k.count}</span></div>
-        <div class="hm-kit-txt"><h3 class="${PR.h3}"${C(WHITE)}>${esc(k.title)}</h3><p class="${PR.body}"${C('rgba(255, 255, 255, 0.6)')}>${rich(k.body)}</p></div>
+        <div class="hm-kit-txt"><div class="${PR.h3} hm-t"${C(WHITE)}>${esc(k.title)}</div><p class="${PR.body}"${C('rgba(255, 255, 255, 0.6)')}>${rich(k.body)}</p></div>
       </article>
       <article class="hm-card hm-sup" data-reveal style="transition-delay:240ms">
         <img class="hm-sup-face" src="${s.face}" alt="Close-up portrait in soft light" loading="lazy" decoding="async">
@@ -159,7 +164,7 @@ ${t.todo.map((x) => `            <li><span class="hm-tick"></span><span>${esc(x)
             <div class="hm-bubble"><img src="${s.avatar}" alt="Designer avatar" loading="lazy" decoding="async"><div><p class="hm-bubble-top"><b>${esc(s.sender)}</b><span>${esc(s.when)}</span></p><p class="${PR.xs} hm-bubble-msg"${C(MUT)}>${esc(s.message)}</p></div></div>
             <div class="hm-bubble hm-bubble-back" aria-hidden="true"></div>
           </div>
-          <div class="hm-sup-logo"><p class="hm-wordmark hm-wordmark-w">Thebrandle</p><h3 class="hm-sup-cap">${s.caption.map(esc).join('<br>')}</h3></div>
+          <div class="hm-sup-logo"><p class="hm-wordmark hm-wordmark-w">Thebrandle</p><div class="hm-sup-cap">${s.caption.map(esc).join('<br>')}</div></div>
         </div>
       </article>
     </div>
@@ -171,7 +176,7 @@ function work() {
   const w = D.work;
   const card = (p, cls, i) => `<a class="hm-proj ${cls}" href="${p.href}"${i ? ` data-reveal` : ''}>
           <span class="hm-proj-img">${/\.gif$/.test(p.image) ? '' : ''}<img src="${p.image}" alt="${esc(p.alt)}" loading="lazy" decoding="async">${corner('hm-proj-corner')}</span>
-          <h3 class="${PR.h3}"${C(INK)}>${esc(p.title)}</h3>
+          <div class="${PR.h3} hm-t"${C(INK)}>${esc(p.title)}</div>
           <p class="${PR.bodyLg}"${C(MUT)}>${esc(p.body)}</p>
           <span class="hm-tag">${esc(p.tag)}</span>
         </a>`;
@@ -213,7 +218,7 @@ function services() {
         <p class="${PR.lead} hm-svc-desc"${C(WHITE)}>${esc(first.body)}</p>
       </div>
       <ul class="hm-svc-list">
-${s.items.map((it, i) => `        <li><button type="button" class="hm-svc-row${i ? '' : ' is-on'}" data-i="${i}" data-href="${it.href}" data-body="${esc(it.body)}" aria-pressed="${i ? 'false' : 'true'}"><span class="hm-svc-t">${esc(it.title)}</span><span class="hm-svc-n" aria-hidden="true"><b>{</b>${String(i + 1).padStart(2, '0')}<b>}</b></span></button></li>`).join('\n')}
+${s.items.map((it, i) => `        <li><button type="button" class="hm-svc-row${i ? '' : ' is-on'}" data-i="${i}" data-href="${it.href}" data-body="${esc(it.body)}" aria-pressed="${i ? 'false' : 'true'}"><span class="hm-svc-t">${esc(it.title)}</span><span class="hm-svc-n" aria-hidden="true"><span class="hm-svc-b">{</span>${String(i + 1).padStart(2, '0')}<span class="hm-svc-b">}</span></span></button></li>`).join('\n')}
       </ul>
       ${arrowLink(s.cta.label, s.cta.href, 'hm-svc-cta')}
     </div>
@@ -239,14 +244,16 @@ function quote() {
 </section>`;
 }
 
+/* Each "Choose this plan" link also carries its plan name in a screen-reader
+   span, so the three links say where they go and their texts are distinct. */
 function pricing() {
   const p = D.pricing;
   const plan = (pl, i) => `<article class="hm-plan${pl.featured ? ' is-featured' : ''}" data-reveal style="transition-delay:${i * 80}ms">
         ${pl.featured ? corner('hm-card-corner') : ''}
-        <div class="hm-plan-name"><h3 class="${PR.body}"${C(INK)}>${esc(pl.name)}</h3>${pl.badge ? `<span class="hm-badge${pl.featured ? '' : ' hm-badge-dark'}">${icon(pl.featured ? 'flame' : 'diamond')}${esc(pl.badge)}</span>` : ''}</div>
+        <div class="hm-plan-name"><div class="${PR.body}"${C(INK)}>${esc(pl.name)}</div>${pl.badge ? `<span class="hm-badge${pl.featured ? '' : ' hm-badge-dark'}">${icon(pl.featured ? 'flame' : 'diamond')}${esc(pl.badge)}</span>` : ''}</div>
         <p class="hm-price"><span class="hm-roll"><span data-tier="0">${esc(pl.price[0])}</span><span data-tier="1">${esc(pl.price[1])}</span></span></p>
         <p class="${PR.body} hm-plan-blurb"${C(MUT)}><span data-tier="0">${esc(pl.blurb[0])}</span><span data-tier="1">${esc(pl.blurb[1])}</span></p>
-        <a class="hm-plan-cta" href="${p.cta.href}">${icon('arrowElbow')}<span>${esc(p.cta.label)}</span></a>
+        <a class="hm-plan-cta" href="${p.cta.href}">${icon('arrowElbow')}<span>${esc(p.cta.label)}</span><span class="hm-sr"> (${esc(pl.name)})</span></a>
         <p class="${PR.small} hm-plan-inc"${C('rgb(11, 11, 12)')}>${esc(p.included)}</p>
         ${pl.features.map((list, t) => `<ul class="hm-feat" data-tier="${t}">${list.map((f) => `<li>${corner()}<span class="${PR.body}"${C(MUT)}>${esc(f)}</span></li>`).join('')}</ul>`).join('\n        ')}
       </article>`;
@@ -277,7 +284,7 @@ function processSteps() {
       ${arrowLink(p.cta.label, p.cta.href, 'hm-proc-cta')}
     </div>
     <ol class="hm-steps">
-${p.steps.map((s, i) => `      <li class="hm-step" data-reveal style="transition-delay:${i * 80}ms">${corner('hm-step-corner')}<span class="hm-step-n">${String(i + 1).padStart(2, '0')}</span><div><h3 class="${PR.h3}"${C(INK)}>${esc(s.title)}</h3><p class="${PR.body}"${C(MUT)}>${esc(s.body)}</p></div></li>`).join('\n')}
+${p.steps.map((s, i) => `      <li class="hm-step" data-reveal style="transition-delay:${i * 80}ms">${corner('hm-step-corner')}<span class="hm-step-n">${String(i + 1).padStart(2, '0')}</span><div><div class="${PR.h3}"${C(INK)}>${esc(s.title)}</div><p class="${PR.body}"${C(MUT)}>${esc(s.body)}</p></div></li>`).join('\n')}
     </ol>
   </div>
 </section>`;
@@ -293,7 +300,7 @@ function faq() {
       ${arrowLink(f.cta.label, f.cta.href, 'hm-faq-cta')}
     </div>
     <div class="hm-faq-list">
-${f.items.map((it) => `      <details class="hm-qa"><summary><h3 class="${PR.bodyLg}"${C(INK)}>${esc(it.q)}</h3>${icon('plus', 'hm-qa-ico')}</summary><div class="hm-qa-a"><p class="${PR.body}"${C(MUT)}>${esc(it.a)}</p></div></details>`).join('\n')}
+${f.items.map((it) => `      <details class="hm-qa"><summary><span class="${PR.bodyLg} hm-qa-q"${C(INK)}>${esc(it.q)}</span>${icon('plus', 'hm-qa-ico')}</summary><div class="hm-qa-a"><p class="${PR.body}"${C(MUT)}>${esc(it.a)}</p></div></details>`).join('\n')}
     </div>
   </div>
 </section>`;
@@ -419,7 +426,7 @@ html,body{background:#fff!important}
 .hm-care-img{width:100%;height:260px;object-fit:cover}
 .hm-care .hm-card-txt{padding:0 39px}
 .hm-tweak{background:var(--grey);padding:40px}
-.hm-tweak h3{max-width:200px}
+.hm-tweak .hm-t{max-width:200px}
 .hm-tweak>p{max-width:247px}
 .hm-avatars{display:flex;gap:2px;margin-top:30px}
 .hm-avatars img{width:42px;height:42px;border-radius:50%;border:3px solid #fff;object-fit:cover;opacity:.3}
@@ -448,7 +455,7 @@ html,body{background:#fff!important}
 .hm-kit-count{position:absolute;top:16px;right:16px;width:24px;height:24px;border-radius:50%;background:#fff;color:var(--red);font:600 12px/24px var(--inter);letter-spacing:-.04em;text-align:center}
 .hm-kit-txt{margin-top:auto;max-width:247px}
 .hm-kit-txt p{margin-top:12px}
-.hm-kit-txt h3,.hm-kit-txt p{--framer-text-alignment:center;text-align:center}
+.hm-kit-txt .hm-t,.hm-kit-txt p{--framer-text-alignment:center;text-align:center}
 .hm-sup{background:var(--red)}
 .hm-sup-face{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .hm-sup-tint{position:absolute;inset:0;z-index:1;background:var(--red);-webkit-mask-image:linear-gradient(rgba(0,0,0,0) 8.9%,rgba(0,0,0,.8) 100%);mask-image:linear-gradient(rgba(0,0,0,0) 8.9%,rgba(0,0,0,.8) 100%)}
@@ -488,7 +495,7 @@ html,body{background:#fff!important}
 .hm-proj-c .hm-proj-img{aspect-ratio:684 / 416}
 .hm-proj-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.23,1,.32,1)}
 .hm-proj-corner{position:absolute;top:30px;right:30px}
-.hm-proj h3{margin-top:36px}
+.hm-proj .hm-t{margin-top:36px}
 .hm-proj p{margin-top:8px;text-wrap:balance}
 .hm-tag{display:inline-block;margin-top:30px;padding:6px 13px;border:1px solid rgb(217,217,217);border-radius:50px;background:#fff;font:600 11px/14.3px var(--inter);letter-spacing:-.04em;text-transform:uppercase;color:var(--ink2)}
 @media(hover:hover){.hm-proj:hover .hm-proj-img img{transform:scale(1.04)}}
@@ -515,10 +522,10 @@ html,body{background:#fff!important}
    list column: "Video production" is 7.098em wide at this tracking. */
 .hm-svc-t{display:block;font:500 min(102px,calc((100vw - 610px) / 7.098))/1.1 var(--inter);letter-spacing:-.07em;color:#fff;opacity:.15;transition:opacity .35s ease,transform .45s cubic-bezier(.23,1,.32,1)}
 .hm-svc-n{font:700 16px/19.2px var(--inter);letter-spacing:-.05em;color:rgba(255,255,255,.4);display:flex;gap:4px;transition:font-size .3s}
-.hm-svc-n b{font-weight:700;color:rgba(255,255,255,.2)}
+.hm-svc-n .hm-svc-b{font-weight:700;color:rgba(255,255,255,.2)}
 .hm-svc-row.is-on .hm-svc-t{opacity:1;transform:translateX(16px)}
 .hm-svc-row.is-on .hm-svc-n{font-size:20px;line-height:24px;color:#fff;transform:translateX(16px)}
-.hm-svc-row.is-on .hm-svc-n b{color:var(--red)}
+.hm-svc-row.is-on .hm-svc-n .hm-svc-b{color:var(--red)}
 .hm-svc-row:focus-visible{outline:2px solid var(--red);outline-offset:4px}
 .hm-svc-cta{grid-column:2;margin-top:75px;color:#fff;justify-self:start}
 
@@ -594,7 +601,8 @@ html,body{background:#fff!important}
 .hm-qa:first-child{margin-top:0}
 .hm-qa summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:34px 0}
 .hm-qa summary::-webkit-details-marker{display:none}
-.hm-qa summary h3,.hm-contact-body{text-wrap:balance}
+.hm-qa summary .hm-qa-q{display:block}
+.hm-qa summary .hm-qa-q,.hm-contact-body{text-wrap:balance}
 .hm-qa-ico{width:18px;height:18px;flex:none;color:var(--red);transition:transform .35s cubic-bezier(.23,1,.32,1)}
 .hm-qa[open] .hm-qa-ico{transform:rotate(45deg)}
 .hm-qa-a{padding:0 60px 34px 0;margin-top:-14px}
@@ -652,7 +660,7 @@ html,body{background:#fff!important}
   .hm-care-img{height:374px}
   .hm-care .hm-card-txt{padding:0 33px}
   .hm-tweak{padding:34px}
-  .hm-tweak h3{max-width:180px}
+  .hm-tweak .hm-t{max-width:180px}
   .hm-tweak>p{max-width:none}
   .hm-kit{padding:70px 34px 60px}
   .hm-kit-l.hm-kit-t{top:34px}.hm-kit-l.hm-kit-b{bottom:34px}.hm-kit-lv{left:34px}.hm-kit-rv{right:34px}
@@ -676,7 +684,7 @@ html,body{background:#fff!important}
   .hm-proj-a .hm-proj-img,.hm-proj-d .hm-proj-img{aspect-ratio:469 / 285}
   .hm-proj-c{width:100%;max-width:none}
   .hm-proj-d{width:48.96%}
-  .hm-proj h3{margin-top:37px}
+  .hm-proj .hm-t{margin-top:37px}
   .hm-tag{margin-top:29px}
   .hm-row2{margin-top:79px}
   .hm-row3{margin-top:81px}
@@ -761,7 +769,7 @@ html,body{background:#fff!important}
   .hm-care-img{height:272px}
   .hm-care .hm-card-txt{padding:0 29px}
   .hm-tweak{height:550px;padding:30px}
-  .hm-tweak h3{max-width:150px}
+  .hm-tweak .hm-t{max-width:150px}
   .hm-kit{height:520px;padding:60px 24px 49px}
   .hm-kit-l.hm-kit-t{top:24px}.hm-kit-l.hm-kit-b{bottom:24px}.hm-kit-lv{left:24px}.hm-kit-rv{right:24px}
   .hm-kit-btn{margin-top:60px}
@@ -790,7 +798,7 @@ html,body{background:#fff!important}
   .hm-row3{margin-top:44px}
   .hm-proj-a,.hm-proj-b,.hm-proj-c,.hm-proj-d{width:100%;max-width:none}
   .hm-proj .hm-proj-img,.hm-proj-b .hm-proj-img,.hm-proj-c .hm-proj-img{aspect-ratio:342 / 208}
-  .hm-proj h3{margin-top:30px}
+  .hm-proj .hm-t{margin-top:30px}
   .hm-proj p{margin-top:6px}
   .hm-tag{margin-top:24px;padding:5px 9px;font-size:10px;line-height:13px}
   .hm-all{font-size:30px;line-height:36px;gap:10px;margin:80px 8px 0 auto}
