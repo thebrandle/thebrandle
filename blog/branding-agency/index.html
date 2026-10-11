@@ -15812,9 +15812,18 @@ html,body{background:#0C0C0C;margin:0}
 .svc-nav-wrap .bm-open a>.framer-7xhv9u{opacity:0!important}
 .svc-nav-wrap .bm-open a>.framer-1vowgdm,
 .svc-nav-wrap .bm-open a>.framer-7xhv9u{transition:transform .42s cubic-bezier(0.23,1,0.32,1),opacity .26s linear!important}
+/* Hover belongs to the link box alone. Mid-roll the labels sit outside it -
+   the spare 38px above, the outgoing copy 38px below - and a transformed label
+   paints over the neighbouring link, so it caught the pointer there: moving down
+   the open menu flipped hover between adjacent links, which read as shaking. */
+.svc-nav-wrap .bm-open a>.framer-1vowgdm,
+.svc-nav-wrap .bm-open a>.framer-7xhv9u{pointer-events:none!important}
+/* Framer enables the roll on the Desktop variant only (framer-v-76oe1d). The
+   Tablet-Phone variant (framer-v-8ibbxv) has one label and no hover state, so
+   rolling it slid the word away with nothing to replace it. */
 @media(hover:hover) and (pointer:fine){
-  .svc-nav-wrap .bm-open a:hover>.framer-1vowgdm{transform:translateY(38px)!important;opacity:0!important}
-  .svc-nav-wrap .bm-open a:hover>.framer-7xhv9u{transform:translateY(38px)!important;opacity:1!important}
+  .svc-nav-wrap .bm-open a.framer-v-76oe1d:hover>.framer-1vowgdm{transform:translateY(38px)!important;opacity:0!important}
+  .svc-nav-wrap .bm-open a.framer-v-76oe1d:hover>.framer-7xhv9u{transform:translateY(38px)!important;opacity:1!important}
 }
 /* The open menu is Framer's own component state, not something we style.
    Its closed variant pins the header to height:50px; the open variant simply
