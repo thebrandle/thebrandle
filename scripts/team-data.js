@@ -58,8 +58,8 @@ const TEAM = [
     slug: 'ubaid-wani',
     name: 'Ubaid Wani',
     role: 'Co-Founder / Chief of UI/UX & Product Design',
-    // Not confirmed yet, so not shown. Add the city here when Muteeb gives it.
-    location: null,
+    // Confirmed by Muteeb on 2026-10-13, worded as given.
+    location: 'Srinagar, J&K',
     // Headshot supplied by Muteeb on 2026-10-11, resized to 400x400 like the others.
     photo: '/assets/team/ubaid.jpg',
     // Muteeb supplied this bio on 2026-10-11, written in the first person.
