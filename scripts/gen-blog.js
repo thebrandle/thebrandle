@@ -4,10 +4,10 @@
  * Composes /blog/<slug>/index.html from the site's own components (styles,
  * hydrated nav/footer, presets, grain) so posts are on-brand by construction.
  *
- * IMPORTANT: /blog itself stays with the Framer SPA (it lists the original
- * Framer posts). We only create directories for NEW slugs; existing Framer
- * post slugs keep resolving through the SPA catch-all. Never create
- * /blog/index.html.
+ * /blog itself (blog/index.html) is rendered by gen-opinly-blog.js. This
+ * script only keeps that listing's cards, its Blog schema and the sitemap in
+ * step with blog-posts-data.js (see the end of the file); it never rewrites
+ * the listing page as a whole.
  * Run: node scripts/gen-blog.js
  */
 const fs = require('fs');
@@ -448,7 +448,7 @@ function renderPost(d) {
 
   const articleSchema = {
     '@context': 'https://schema.org', '@type': 'Article',
-    headline: d.title, description: d.metaDescription, datePublished: d.date, dateModified: d.date,
+    headline: d.title, description: d.metaDescription, datePublished: d.date, dateModified: d.updated || d.date,
     author: { '@type': 'Organization', name: 'TheBrandle', url: SITE },
     publisher: { '@type': 'Organization', name: 'TheBrandle', url: SITE, logo: { '@type': 'ImageObject', url: SITE + '/framerusercontent.com/assets/TheBrandle.svg' } },
     image: OG_IMAGE, mainEntityOfPage: url,
@@ -558,4 +558,105 @@ for (const d of posts) {
   console.log('wrote blog/' + d.slug + '/index.html');
   n++;
 }
-console.log(`\nGenerated ${n} blog posts. (/blog listing itself remains the Framer SPA's.)`);
+console.log(`\nGenerated ${n} blog posts.`);
+
+/* ------------------------------------------------- listing, sitemap, lengths
+
+   /blog (blog/index.html) is rendered by gen-opinly-blog.js, which needs the
+   Opinly API key, so a new post used to be added to the listing, its Blog
+   schema and the sitemap by hand. These keep all three in step with
+   blog-posts-data.js on every run. Idempotent: a second run changes nothing.
+
+   - A post missing from the listing gets a card at the top (newest first) and
+     a BlogPosting entry. A listed post that carries its own `blurb` has its
+     card re-rendered, so an edited h1 shows; older posts take their card text
+     from gen-opinly-blog.js and are left alone.
+   - A post missing from the sitemap is added before the /faq entry with its
+     date. A post with `updated` has its lastmod moved forward, never back.
+   - Titles over 580px or descriptions over 1000px (Seobility's limits) warn. */
+const { titlePx, descPx, TITLE_MAX, DESC_MAX } = require('./seo-length');
+
+function cardHtml(d) {
+  const img = fs.existsSync(path.join(ROOT, 'assets', 'blog', d.slug + '.jpg'))
+    ? `<img src="/assets/blog/${d.slug}.jpg" alt="${esc(d.h1)}" loading="lazy" decoding="async">` : '';
+  return `      <a class="idx-card" href="/blog/${d.slug}/">${img}<div class="pad"><h2>${esc(d.h1)}</h2>${d.blurb ? `<p>${esc(d.blurb)}</p>` : ''}</div></a>`;
+}
+
+function syncListing() {
+  const file = path.join(OUT, 'index.html');
+  if (!fs.existsSync(file)) { console.warn('listing: blog/index.html not found, skipped'); return false; }
+  const before = fs.readFileSync(file, 'utf8');
+  let html = before;
+  const added = [];
+  // oldest first, each inserted at the top, so the newest ends up first
+  for (const d of [...posts].sort((a, b) => String(a.date).localeCompare(String(b.date)))) {
+    const re = new RegExp('      <a class="idx-card" href="/blog/' + d.slug + '/">.*?</div></a>');
+    if (re.test(html)) {
+      if (d.blurb) html = html.replace(re, () => cardHtml(d));
+      continue;
+    }
+    const top = html.indexOf('      <a class="idx-card"');
+    if (top < 0) throw new Error('listing: no existing card to insert before');
+    html = html.slice(0, top) + cardHtml(d) + '\n' + html.slice(top);
+    added.push(d.slug);
+  }
+  // Blog schema: same rule - add missing posts at the front, refresh headlines of posts with a blurb
+  const m = html.match(/(<script type="application\/ld\+json">)(\{"@context":"https:\/\/schema\.org","@type":"Blog".*?\})(<\/script>)/s);
+  if (m) {
+    const blog = JSON.parse(m[2]);
+    const list = blog.blogPost || (blog.blogPost = []);
+    let touched = false;
+    for (const d of [...posts].sort((a, b) => String(a.date).localeCompare(String(b.date)))) {
+      const url = `${SITE}/blog/${d.slug}/`;
+      const hit = list.find((x) => x.url === url);
+      if (!hit) { list.unshift({ '@type': 'BlogPosting', headline: d.h1, url }); touched = true; }
+      else if (d.blurb && hit.headline !== d.h1) { hit.headline = d.h1; touched = true; }
+    }
+    if (touched) html = html.replace(m[0], () => m[1] + JSON.stringify(blog) + m[3]);
+  }
+  if (html !== before) {
+    fs.writeFileSync(file, html);
+    console.log('listing: updated blog/index.html' + (added.length ? ' (added ' + added.join(', ') + ')' : ''));
+    return true;
+  }
+  return false;
+}
+
+function syncSitemap(listingChanged) {
+  const file = path.join(ROOT, 'thebrandle.framer.website', 'sitemap.xml');
+  if (!fs.existsSync(file)) { console.warn('sitemap: not found, skipped'); return; }
+  const before = fs.readFileSync(file, 'utf8');
+  let xml = before;
+  const anchor = '  <url>\n    <loc>' + SITE + '/faq</loc>';
+  const setLastmod = (loc, mod) => {
+    const at = xml.indexOf('<loc>' + loc + '</loc>');
+    if (at < 0) return;
+    const open = xml.indexOf('<lastmod>', at), close = xml.indexOf('</lastmod>', open);
+    if (open < 0 || close < 0 || open > xml.indexOf('</url>', at)) return;
+    if (xml.slice(open + 9, close).trim() < mod) xml = xml.slice(0, open + 9) + mod + xml.slice(close);
+  };
+  let newest = '';
+  for (const d of [...posts].sort((a, b) => String(a.date).localeCompare(String(b.date)))) {
+    const loc = `${SITE}/blog/${d.slug}/`;
+    const mod = d.updated || d.date;
+    if (mod > newest) newest = mod;
+    if (!xml.includes('<loc>' + loc + '</loc>')) {
+      if (!xml.includes(anchor)) throw new Error('sitemap: the /faq entry this inserts before is missing');
+      xml = xml.replace(anchor, () => `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${mod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n` + anchor);
+      console.log('sitemap: added ' + loc);
+    } else if (d.updated) {
+      setLastmod(loc, d.updated);
+    }
+  }
+  if (listingChanged && newest) setLastmod(SITE + '/blog', newest);
+  if (xml !== before) { fs.writeFileSync(file, xml); console.log('sitemap: updated'); }
+}
+
+syncSitemap(syncListing());
+
+for (const d of posts) {
+  const pageTitle = /\|\s*TheBrandle\s*$/.test(d.title) ? d.title : d.title + ' | TheBrandle';
+  const t = titlePx(pageTitle), m = descPx(d.metaDescription);
+  if (t > TITLE_MAX) console.warn(`WARN ${d.slug}: title is ${t}px, over ${TITLE_MAX}px - shorten it`);
+  if (m > DESC_MAX) console.warn(`WARN ${d.slug}: description is ${m}px, over ${DESC_MAX}px - shorten it`);
+}

@@ -30,6 +30,11 @@ const COMP = path.join(ROOT, '_snapshot', 'components');
 const SITE = 'https://www.thebrandle.com';
 const SITEMAP = path.join(ROOT, 'thebrandle.framer.website', 'sitemap.xml');
 
+/* The hand-written cluster. Read from blog-posts-data.js rather than copied
+   into this file, so a new post is reserved, listed and linked from "More
+   articles" without a second edit here. */
+const HAND_WRITTEN = require('./blog-posts-data').posts;
+
 /* Slugs already owned by the Framer SPA or the hand-written cluster.
    Opinly posts using these are skipped so nothing live gets clobbered. */
 const RESERVED = new Set([
@@ -56,6 +61,7 @@ const RESERVED = new Set([
   'website-security-checklist',
   'all',
 ]);
+for (const p of HAND_WRITTEN) RESERVED.add(p.slug);
 
 /* Real posts for the "More articles" list. The Framer ones live in Framer's
    CMS, so they cannot be read at build time - titles and dates are mirrored
@@ -72,24 +78,9 @@ const RETIRED_2024_POSTS = [
   { iso: '2024-11-05', title: 'Top Web Design Trends to Watch in 2024', slug: 'top-web-design-trends-to-watch-in-2024' },
   { iso: '2024-10-23', title: 'Building trust online: the importance of testimonials', slug: 'building-trust-online-the-importance-of-testimonials' },
 ];
-const WRITTEN_POSTS = [
-  { iso: '2026-07-22', title: "Shopify vs WooCommerce: which should you build your store on?", slug: 'shopify-vs-woocommerce' },
-  { iso: '2026-07-22', title: "How much does a website cost in Dubai?", slug: 'website-cost-dubai' },
-  { iso: '2026-07-22', title: "Framer vs Webflow: which builder fits your website?", slug: 'framer-vs-webflow' },
-  { iso: '2026-07-22', title: "Moving from Wix to Shopify: a practical guide", slug: 'wix-to-shopify-migration' },
-  { iso: '2026-07-28', title: "Headless CMS: what it is and when you actually need one", slug: 'headless-cms-guide' },
-  { iso: '2026-07-28', title: "AI in web design: what it does well and where it fails", slug: 'ai-in-web-design' },
-  { iso: '2026-07-28', title: "Arabic and RTL website design: doing it properly", slug: 'arabic-rtl-website-design' },
-  { iso: '2026-07-28', title: "How to redesign your website without losing SEO", slug: 'website-redesign-without-losing-seo' },
-  { iso: '2026-07-28', title: "Website maintenance: what you actually need to pay for", slug: 'website-maintenance-cost' },
-  { iso: '2026-07-28', title: "WordPress vs Webflow: an honest comparison", slug: 'wordpress-vs-webflow' },
-  { iso: '2026-07-28', title: "The real cost of a website over three years", slug: 'website-total-cost-of-ownership' },
-  { iso: '2026-07-28', title: "Real estate website design: what actually converts", slug: 'real-estate-website-design' },
-  { iso: '2026-07-28', title: "Core Web Vitals: what they are and how to fix them", slug: 'core-web-vitals-guide' },
-  { iso: '2026-07-28', title: "Progressive web apps: do you actually need one?", slug: 'progressive-web-apps' },
-  { iso: '2026-07-28', title: "Website security: a practical checklist for small businesses", slug: 'website-security-checklist' },
-  { iso: '2026-10-16', title: "How to build a startup website people trust", slug: 'how-to-build-a-startup-website' },
-];
+/* Titles are the posts' h1s and iso their publish dates - exactly what this
+   list held when it was hand-maintained (checked entry by entry, 2026-10-16). */
+const WRITTEN_POSTS = HAND_WRITTEN.map((p) => ({ iso: p.date, title: p.h1, slug: p.slug, blurb: p.blurb }));
 
 const BLOG_BLURB = {
   'shopify-vs-woocommerce': 'Hosted convenience against ownership and no platform fees.',
@@ -107,7 +98,6 @@ const BLOG_BLURB = {
   'core-web-vitals-guide': 'LCP, INP and CLS - what breaks them and how to fix it.',
   'progressive-web-apps': 'Where it beats a native app, and where you need neither.',
   'website-security-checklist': 'The realistic threats, and the fixes that stop most of them.',
-  'how-to-build-a-startup-website': 'One clear job, the pages you need, the right platform and a launch checklist.',
 };
 
 /* Hero photography.
@@ -816,7 +806,7 @@ function allPostsForIndex(opinly) {
   const own = WRITTEN_POSTS.map((w) => ({
     slug: w.slug, title: w.title, iso: w.iso, href: '/blog/' + w.slug + '/',
     img: cardFor(w.slug),
-    description: BLOG_BLURB[w.slug] || '',
+    description: BLOG_BLURB[w.slug] || w.blurb || '',
   }));
   const fromOpinly = (opinly || []).map((o) => ({
     slug: o.slug, title: o.title || o.slug, iso: fmtDate(o.firstPublishedAt),

@@ -100,6 +100,17 @@ const POSTS = [
     h1:'A security checklist that fits a small business', sub:'The realistic threats, and the fixes that stop most of them' },
   { slug:'how-to-build-a-startup-website', kind:'editorial', eyebrow:'STARTUPS', motif:'layers',
     h1:'Building your first startup website', sub:'One clear job, the pages you need, and a launch checklist' },
+  /* content plan (scripts/content-plan.js) - cards made ahead of publishing */
+  { slug:'small-business-branding', kind:'editorial', eyebrow:'BRANDING', motif:'split',
+    h1:'Branding for a small business', sub:'What a brand identity needs, and what can wait' },
+  { slug:'fixed-price-vs-hourly-web-design', kind:'editorial', eyebrow:'PRICING', motif:'gauge',
+    h1:'Fixed price or hourly?', sub:'How each way of paying for a website shifts the risk' },
+  { slug:'how-to-choose-a-web-design-package', kind:'editorial', eyebrow:'PRICING', motif:'bars',
+    h1:'Choosing a web design package', sub:'What separates the tiers, and which one fits' },
+  { slug:'saas-landing-page-design', kind:'editorial', eyebrow:'SAAS', motif:'nodes',
+    h1:'SaaS landing pages that get sign-ups', sub:'The structure behind pages people act on' },
+  { slug:'what-makes-a-website-convert', kind:'editorial', eyebrow:'CONVERSION', motif:'cycle',
+    h1:'What makes a website convert', sub:'Clarity, speed, trust and less friction' },
   /* Opinly posts - same treatment as the hand-written cluster so the blog is
      visually consistent. Opinly's own title-card images are ignored. */
   { slug:'branding-agency', kind:'editorial', eyebrow:'BRANDING', motif:'layers',

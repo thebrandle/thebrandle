@@ -62,6 +62,15 @@ The homepage form (and its footer newsletter) post JSON `{name, email, phone, pl
 - `thebrandle.framer.website/index.html` is a Framer export — re-exporting from Framer will overwrite manual edits.
 - Root `index.html` is generated. Edit `scripts/home-data.js` (copy) or `scripts/gen-homepage.js` (layout) and regenerate. **Never copy the catch-all over it** — the old "keep both index.html files in sync" rule is retired; doing so would put the Framer homepage back.
 
+### Blog posts
+
+Hand-written posts live in `scripts/blog-posts-data.js`; `node scripts/gen-blog.js` renders each to `blog/<slug>/index.html` and, on every run, keeps the `/blog` listing (`blog/index.html` - its cards and Blog schema), and the sitemap in step with that file. It warns when a title or description is over Seobility's pixel limits (`scripts/seo-length.js`).
+
+- Cover art: `assets/blog/covers/<slug>.jpg` (Magnific, 2560x1440, dark abstract, no text) with alt text in `COVER_ALT` in `scripts/blog-layout-2024.js`.
+- Listing card: `assets/blog/<slug>.jpg` from `node scripts/gen-blog-images.js <slug>` (needs local Chrome + ImageMagick; pass the slug so the other cards are left alone).
+- `gen-opinly-blog.js` reads the hand-written posts from `blog-posts-data.js` too - no second list to maintain. Do not run it without `OPINLY_API_KEY`.
+- The content plan the "blog content plan" routine works through is `scripts/content-plan.js`: one item per run, rules and briefs in the file.
+
 ### Homepage
 
 ```bash

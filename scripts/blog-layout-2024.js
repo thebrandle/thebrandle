@@ -286,6 +286,12 @@ const COVER_ALT = {
   'wix-to-shopify-migration': 'Abstract particles streaming from one form into another',
   'wordpress-vs-webflow': 'A dense abstract texture meeting a smooth surface',
   'how-to-build-a-startup-website': 'Glowing abstract blocks coming together into a first structure',
+  // covers made ahead for the content plan (scripts/content-plan.js); unused until each post is published
+  'small-business-branding': 'Abstract translucent forms and swatches balanced around a small glowing mark',
+  'fixed-price-vs-hourly-web-design': 'A closed abstract glass block beside an open stream of light',
+  'how-to-choose-a-web-design-package': 'Three abstract glass rings of different sizes, the middle one glowing',
+  'saas-landing-page-design': 'An abstract beam of light passing through thin panels to one bright point',
+  'what-makes-a-website-convert': 'Abstract particles of light drawn together into one bright channel',
 };
 const coverFor = (slug) => {
   const rel = COVER_DIR + slug + '.jpg';

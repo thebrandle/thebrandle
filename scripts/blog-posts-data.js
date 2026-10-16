@@ -560,6 +560,8 @@ const posts = [
     date: '2026-10-16',
     readMins: 7,
     tag: 'Startups',
+    // one line for the /blog listing card (gen-blog.js keeps the card in sync)
+    blurb: 'One clear job, the pages you need, the right platform and a launch checklist.',
     sections: [
       { h: null, p: [
         'Your first website has one job: get the right people to take the next step. That might be joining a waitlist, booking a demo or placing a first order. It does not need to look like the site of a company ten times your size, and trying to is one of the most common reasons first sites stall.',
