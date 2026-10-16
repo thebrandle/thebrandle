@@ -12,7 +12,9 @@
  * typographic treatment instead of a wrong mark. Drop official SVGs into
  * LOGOS to upgrade them.
  *
- * Run: node scripts/gen-blog-images.js
+ * Run: node scripts/gen-blog-images.js            (every card)
+ *      node scripts/gen-blog-images.js <slug> ...  (just these - leaves the
+ *      other cards untouched, so a new post does not rewrite every image)
  */
 const fs = require('fs');
 const path = require('path');
@@ -96,6 +98,8 @@ const POSTS = [
     h1:'Do you actually need a PWA?', sub:'Where it beats a native app, and where you need neither' },
   { slug:'website-security-checklist', kind:'editorial', eyebrow:'SECURITY', motif:'shield',
     h1:'A security checklist that fits a small business', sub:'The realistic threats, and the fixes that stop most of them' },
+  { slug:'how-to-build-a-startup-website', kind:'editorial', eyebrow:'STARTUPS', motif:'layers',
+    h1:'Building your first startup website', sub:'One clear job, the pages you need, and a launch checklist' },
   /* Opinly posts - same treatment as the hand-written cluster so the blog is
      visually consistent. Opinly's own title-card images are ignored. */
   { slug:'branding-agency', kind:'editorial', eyebrow:'BRANDING', motif:'layers',
@@ -152,8 +156,12 @@ function svgFor(p) {
 }
 
 fs.mkdirSync(OUT, { recursive: true });
+const ONLY = process.argv.slice(2);
+const unknown = ONLY.filter((x) => !POSTS.some((p) => p.slug === x));
+if (unknown.length) throw new Error('no card spec for: ' + unknown.join(', '));
 let ok = 0;
 for (const p of POSTS) {
+  if (ONLY.length && !ONLY.includes(p.slug)) continue;
   const svg = svgFor(p);
   fs.writeFileSync(path.join(OUT, p.slug + '.svg'), svg);
   const html = path.join(TMP, p.slug + '.html');

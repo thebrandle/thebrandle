@@ -548,6 +548,73 @@ const posts = [
       { label: 'All Services', href: '/services/' },
     ],
   },
+  {
+    // Content plan post 1 of 10 (2026-10-16). Covers the cluster: startup
+    // website design, build website for startup, first business website,
+    // web design agency for startups. Prices and timelines are the site's
+    // own published figures (home-data.js pricing, faq-data.js timelines).
+    slug: 'how-to-build-a-startup-website',
+    title: 'Startup Website Design: How to Build Yours',
+    metaDescription: 'How to build a startup website that earns trust: one clear job, the pages you actually need, the right platform, a realistic budget and a launch checklist.',
+    h1: 'How to build a startup website people trust',
+    date: '2026-10-16',
+    readMins: 7,
+    tag: 'Startups',
+    sections: [
+      { h: null, p: [
+        'Your first website has one job: get the right people to take the next step. That might be joining a waitlist, booking a demo or placing a first order. It does not need to look like the site of a company ten times your size, and trying to is one of the most common reasons first sites stall.',
+        'We design and build startup websites on Framer, Webflow, Shopify and WordPress. This guide follows the order we work in with founders: decide the job, write the message, choose the pages, pick the platform, then launch and keep improving.',
+      ]},
+      { h: 'Decide the one job the site has to do', p: [
+        'Before any design, write down the single action you want a visitor to take. Pre-launch products usually want waitlist sign-ups. B2B startups want booked calls or demos. Consumer brands want a first order. Founders who are raising want investors to understand the business in under a minute.',
+        'Everything on the site should serve that action. A second goal is fine, but a site with five equal goals ends up with five weak buttons and no clear path. If you cannot choose, pick the action that brings revenue or validation soonest.',
+      ]},
+      { h: 'Write the message before you design anything', p: [
+        'Most startup sites are designed first and written last, which is backwards. The words decide the layout: how long the headline is, how much proof you have and how many sections the page needs. Draft the copy first, even roughly.',
+        'Start with one sentence that says what you do, who it is for and why it beats the way they do it now. Then list the three questions a sceptical visitor will ask and answer each one on the page.',
+        'Add proof as you earn it: real customer quotes, logos you have permission to show, numbers you can stand behind, or the founders\' own track record. Never invent testimonials. Visitors spot them, and they cost more trust than they buy.',
+      ]},
+      { h: 'The pages a first website actually needs', p: [
+        'Most startups need fewer pages than they think. A strong homepage that explains the product, shows proof and makes the next step obvious can carry the whole site at launch.',
+        'Around it you usually need a pricing page if your pricing is public, an about or team page so people can see who is behind the product, a contact or booking page, and privacy and terms pages. If you sell products, add product pages and a checkout you have tested on a phone.',
+        'What can wait: a blog you cannot keep up, a careers page before you are hiring, and a resource library with three resources in it. Empty sections make a young company look smaller, not bigger. Add them when you have the content to fill them.',
+      ]},
+      { h: 'Choosing a platform', p: [
+        'For most early-stage marketing sites we recommend Framer. It is fast to design and build in, handles animation well, and lets non-technical founders edit text and images themselves. Our Framer website design service covers how we build on it.',
+        'Choose Webflow when the site will carry a lot of structured content, such as a large resource library or many landing pages built from one template. Our Webflow website design service covers those builds.',
+        'Choose Shopify if you sell physical products. Checkout, payments and stock are handled for you, which matters more at launch than any design detail. Our Shopify website design service covers custom stores. WordPress still suits content-heavy businesses that want full ownership, as long as someone is responsible for updates and security.',
+        'If you are weighing up the first two, our Framer vs Webflow comparison goes through the trade-offs in more detail.',
+      ]},
+      { h: 'Budget and timeline', p: [
+        'A custom marketing site usually takes about 3 to 6 weeks from kickoff to launch, and Framer sites are often at the faster end. The biggest variable is rarely design or build time. It is how quickly the copy, images and feedback arrive.',
+        'Setting up a template yourself costs little more than the platform subscription, but your time and the risk of looking like everyone else are real costs too. A custom design and build is a one-off investment. For reference, our fixed-price plans start at $799 for a homepage and up to three inner pages, and the scope is agreed before work starts, so the price does not move halfway through. For local market rates, see our guide to website costs in Dubai.',
+      ]},
+      { h: 'Your launch checklist', p: [
+        'Before you announce the site, test the main action end to end on a real phone: submit the form, book the call or place a test order, and check it arrives where it should.',
+        'Then cover the basics that are harder to fix later: a clear title and description on every page, a share image for when the link is posted on social media, analytics and Google Search Console set up from day one, pages that load quickly on mobile data, and a 404 page that points somewhere useful.',
+        'Finally, make sure the company owns everything. The domain, the platform account, analytics and any paid tools should sit in accounts the business controls, not in a freelancer\'s personal login.',
+      ]},
+      { h: 'After launch: treat it as version one', p: [
+        'A startup website is never finished, and it should not be. Watch where visitors drop off, listen to the questions people ask on sales calls, and feed both back into the copy. Swap in stronger proof as customers arrive.',
+        'Once you can publish regularly, a blog that answers your buyers\' real questions becomes one of the cheapest ways to be found in search. Until then, a fast, clear site with one strong next step will do more for you than a large one.',
+      ]},
+      { h: 'DIY, freelancer or agency?', p: [
+        'If you are pre-revenue and still testing the idea, a template you set up yourself is a sensible start. Once the site is responsible for leads or sales, it is usually worth paying for design and build, because a confusing site loses customers you never hear from.',
+        'If you hire a web design agency for your startup, look for a fixed, written scope, design and development under one roof, real work in a similar space, and a handover that leaves you able to edit the site yourself. There is more on that decision in our honest guide to hiring a designer or doing it yourself. If you would like a quote for your own launch, get in touch.',
+      ]},
+    ],
+    faq: [
+      { q: 'How much does a startup website cost?', a: 'It depends how much is custom. Setting up a template yourself costs little more than the platform subscription. A custom design and build is a one-off cost: our fixed-price plans start at $799 for a homepage and up to three inner pages, with the scope agreed before work starts.' },
+      { q: 'How long does it take to build a startup website?', a: 'A custom marketing site usually takes about 3 to 6 weeks from kickoff to launch, and Framer sites are often faster. Having your copy and images ready is the biggest thing you can do to shorten it.' },
+      { q: 'Which platform is best for a startup website?', a: 'Framer for most early-stage marketing sites, Webflow when you need a lot of structured content, and Shopify if you sell physical products. WordPress suits content-heavy businesses that will keep it maintained.' },
+      { q: 'Does a startup website need a blog at launch?', a: 'No. Launch with a strong homepage and the pages buyers need to decide. Start a blog when you can publish useful articles regularly, because an abandoned blog makes a young company look inactive.' },
+    ],
+    related: [
+      { label: 'Framer Website Design', href: '/services/framer-website-design/' },
+      { label: 'UI/UX Design', href: '/services/ui-ux-design/' },
+      { label: 'Brand Identity Design', href: '/services/brand-identity-design/' },
+    ],
+  },
 ];
 
 module.exports = { posts };

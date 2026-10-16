@@ -285,6 +285,7 @@ const COVER_ALT = {
   'website-total-cost-of-ownership': 'Abstract strata accumulating in layers',
   'wix-to-shopify-migration': 'Abstract particles streaming from one form into another',
   'wordpress-vs-webflow': 'A dense abstract texture meeting a smooth surface',
+  'how-to-build-a-startup-website': 'Glowing abstract blocks coming together into a first structure',
 };
 const coverFor = (slug) => {
   const rel = COVER_DIR + slug + '.jpg';

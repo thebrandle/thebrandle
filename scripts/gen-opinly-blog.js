@@ -88,6 +88,7 @@ const WRITTEN_POSTS = [
   { iso: '2026-07-28', title: "Core Web Vitals: what they are and how to fix them", slug: 'core-web-vitals-guide' },
   { iso: '2026-07-28', title: "Progressive web apps: do you actually need one?", slug: 'progressive-web-apps' },
   { iso: '2026-07-28', title: "Website security: a practical checklist for small businesses", slug: 'website-security-checklist' },
+  { iso: '2026-10-16', title: "How to build a startup website people trust", slug: 'how-to-build-a-startup-website' },
 ];
 
 const BLOG_BLURB = {
@@ -106,6 +107,7 @@ const BLOG_BLURB = {
   'core-web-vitals-guide': 'LCP, INP and CLS - what breaks them and how to fix it.',
   'progressive-web-apps': 'Where it beats a native app, and where you need neither.',
   'website-security-checklist': 'The realistic threats, and the fixes that stop most of them.',
+  'how-to-build-a-startup-website': 'One clear job, the pages you need, the right platform and a launch checklist.',
 };
 
 /* Hero photography.
