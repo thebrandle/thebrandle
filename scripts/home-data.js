@@ -188,6 +188,33 @@ module.exports = {
     ],
   },
 
+  // /pricing/ - a money page built from the sections above (pricing, process,
+  // FAQ, contact), so it cannot drift from the homepage. Every answer below is
+  // already published: faq-data.js (scope, revisions, support, ownership,
+  // timelines) or the plan features in `pricing` above. Added 2026-10-19.
+  pricingPage: {
+    meta: {
+      title: 'Web Design Pricing: Fixed-Price Packages | TheBrandle',
+      description: 'Fixed-price web design packages from $799. Compare our Build and Grow plans, see what each includes, and get a written scope before any work starts.',
+    },
+    heading: 'Web design pricing',
+    sub: ['Fixed-price plans for design and build.', 'Your scope and quote are agreed in writing before work starts.'],
+    faq: {
+      heading: 'FAQ',
+      sub: 'Pricing questions: what is included, what costs extra, and how a fixed-price project runs.',
+      cta: { label: 'Ask a question', href: '/contact' },
+      items: [
+        { q: 'Are your prices fixed?', a: 'Yes. You get a written scope and a fixed quote before any work starts, so there is nothing to dispute later. If the scope changes, we quote the change before doing the work.' },
+        { q: 'What is the difference between Build and Grow?', a: 'Each Grow plan includes everything in the Build plan of the same name, plus more speed and support: faster delivery, extra or priority revisions and, depending on the plan, on-page SEO setup, a blog, more pages, longer post-launch support and analytics reporting. The plan cards above list exactly what each one adds.' },
+        { q: 'Which plan do I need?', a: 'Basic suits startups building their first digital presence, Pro suits growing businesses ready to make a real impact, and Max is for founders who want to make a serious first impression. If you are unsure, book a free consultation and we will recommend one based on what the site needs to do.' },
+        { q: 'Do you charge extra for revisions?', a: 'Two rounds of revisions are included at each stage of the project. If you want changes beyond that, or the scope itself changes, we quote it before doing the work - nothing is billed without your approval first.' },
+        { q: 'What happens after launch?', a: 'For 30 days after launch we fix bugs and anything that does not work as originally scoped, at no extra cost. After that, fixes are covered by a maintenance plan or quoted before any work is done.' },
+        { q: 'Who owns the website once it is delivered?', a: 'You do. On final payment you own the codebase and we hand over the repository, along with source and export files for any brand work. You are never locked to us to keep it running.' },
+        { q: 'How long does a project take?', a: 'A custom marketing site usually runs about 3 to 6 weeks from kickoff to launch, and the Grow versions of Basic and Pro are scheduled faster. We agree the timeline before work starts.' },
+      ],
+    },
+  },
+
   contact: {
     label: 'Contact us',
     heading: 'Let’s bring your vision to life',

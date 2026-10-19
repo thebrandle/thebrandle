@@ -1,5 +1,7 @@
-// Content plan - the blog and service-page work the "blog content plan" routine
-// works through, one item per run (Tuesdays and Fridays, 09:00 Dubai).
+// Content plan - the blog, money-page and service-page work the "blog content
+// plan" routine works through, one item per run (Tuesdays, Wednesdays and
+// Fridays, 09:00 Dubai). Blog items fall on Tuesdays and Fridays, money pages
+// on Wednesdays (one a week, added 2026-10-19).
 //
 // Agreed with Muteeb on 2026-10-16 from an AnswerThePublic keyword export. The
 // export scheduled one post per keyword (three per topic, sixteen in sixteen
@@ -22,6 +24,22 @@
 //                 and `h1` only as the brief says. Then `node scripts/gen-blog.js`.
 //   service-pages edit the named entries in scripts/service-pages-data.js, then
 //                 `node scripts/gen-service-pages-v2.js`.
+//   money-page    a NEW service page: add one entry to `pages` in
+//                 scripts/service-pages-data.js, inserted just before the entry
+//                 with slug 'web-design-dubai' (services first, locations last).
+//                 Model it on an existing entry and fill every field it has:
+//                 slug, navTitle, serviceType, title, metaDescription, hubTitle,
+//                 hubTagline, eyebrow, h1, heroSub, trust (3), deliverHeading,
+//                 deliverSub, features (6, title + body), why (eyebrow, heading,
+//                 body, points x4), processHeading, faqs (4), ctaHeading,
+//                 ctaBody. Use this item's slug, title, h1 and the other given
+//                 fields exactly. Then `node scripts/gen-service-pages-v2.js`:
+//                 it adds the page to the /services/ hub, llms.txt and the
+//                 sitemap. Expect exactly these files to change:
+//                 services/<slug>/index.html (new), services/index.html,
+//                 llms.txt, the sitemap, service-pages-data.js and this file.
+//                 Service-page copy has no inline links; link from the FAQs'
+//                 wording only where the brief says, as plain text.
 // Then set this item's status to 'done' and `published` to today, and commit.
 //
 // Inline links: gen-blog.js only links phrases listed in LINKS (near the end
@@ -85,7 +103,7 @@ const plan = [
       'Red flags in either model. Be open that TheBrandle works at a fixed price (the homepage says so) and why, without turning the post into an advert.',
       'For "how much does a website cost", link to the existing Dubai cost guide rather than repeating its price bands.',
     ],
-    linkTo: ['/blog/website-cost-dubai/', '/#pricing', '/blog/website-total-cost-of-ownership/'],
+    linkTo: ['/blog/website-cost-dubai/', '/pricing/', '/blog/website-total-cost-of-ownership/'],
     related: [
       { label: 'Web Design in Dubai', href: '/services/web-design-dubai/' },
       { label: 'Website Maintenance', href: '/services/website-maintenance/' },
@@ -104,10 +122,10 @@ const plan = [
       'What actually separates package tiers: number of pages, custom design versus template, CMS and blog, SEO setup, integrations, revision rounds, speed of delivery, post-launch support.',
       'Matching a tier to the stage of the business - a first site, a growing company, an established brand - and the questions to answer before choosing.',
       'Costs that sit outside most packages: hosting or platform plans, domains, font and plugin licences, copywriting, photography.',
-      'Use TheBrandle\'s real plans as the worked example, with the exact names, prices and features from home-data.js (Build and Grow, each with Basic, Pro and Max). Do not invent anything those features do not say.',
+      'Use TheBrandle\'s real plans as the worked example, with the exact names, prices and features from home-data.js (Build and Grow, each with Basic, Pro and Max), and link /pricing/ for the full comparison. Do not invent anything those features do not say.',
       'Red flags: unlimited revisions with no definition, vague page counts, no mention of who owns the accounts.',
     ],
-    linkTo: ['/#pricing', '/blog/how-to-build-a-startup-website/', '/blog/website-maintenance-cost/'],
+    linkTo: ['/pricing/', '/blog/how-to-build-a-startup-website/', '/blog/website-maintenance-cost/'],
     related: [
       { label: 'Web Design in Dubai', href: '/services/web-design-dubai/' },
       { label: 'Framer Website Design', href: '/services/framer-website-design/' },
@@ -130,7 +148,7 @@ const plan = [
       'Measuring it: set up conversion events from day one, change one thing at a time, and judge on enough traffic.',
       'Orblead is a SaaS website in the site\'s projects (/projects/orblead-website-design). You may link it as an example of our work, but claim nothing about its results.',
     ],
-    linkTo: ['/projects/orblead-website-design', '/blog/how-to-build-a-startup-website/', '/services/ui-ux-design/'],
+    linkTo: ['/projects/orblead-website-design', '/services/landing-page-design/', '/blog/how-to-build-a-startup-website/'],
     related: [
       { label: 'UI/UX Design', href: '/services/ui-ux-design/' },
       { label: 'Framer Website Design', href: '/services/framer-website-design/' },
@@ -203,6 +221,63 @@ const plan = [
     n: 10, type: 'skip', status: 'skipped',
     keywords: ['affordable web design agency', 'startup website agency usa', 'web design agency for startups'],
     note: 'A "best agencies for startups" list written by an agency reads as an ad for itself. Folded into item 1 instead.',
+  },
+
+  // ---- money pages: pages people land on when they are ready to hire ------
+  // Found 2026-10-19 by checking the site against the commercial keywords in
+  // the AnswerThePublic export: these four did not exist. Pricing needed its
+  // own layout, so it was built by hand; the routine writes the other three
+  // into the existing service-page template.
+  {
+    n: 11, type: 'money-page', status: 'done', due: '2026-10-19', published: '2026-10-19',
+    slug: 'pricing', url: '/pricing/',
+    keywords: ['web design packages pricing', 'website design tiers', 'fixed price web design', 'affordable web design agency'],
+    note: 'Built by gen-homepage.js from the homepage\'s own pricing, process, FAQ and contact sections; copy in home-data.js `pricingPage`.',
+  },
+  {
+    n: 12, type: 'money-page', status: 'todo', due: '2026-10-28',
+    slug: 'landing-page-design',
+    title: 'Landing Page Design Services That Convert | TheBrandle',
+    h1: 'Landing pages built to convert',
+    navTitle: 'Landing pages', serviceType: 'Landing Page Design', hubTitle: 'Landing Page Design', eyebrow: 'Web · Landing pages',
+    keywords: ['landing page design', 'saas landing page design', 'lead generation website design'],
+    brief: [
+      'The homepage schema already lists Landing Page Design as a service ("High-conversion landing pages for product launches, lead generation and marketing campaigns") - this page is where that promise lives.',
+      'Who it is for: product launches, paid ad campaigns that need a page that matches the ad, lead generation, waitlists and events.',
+      'Features to cover: one goal per page, message that matches the ad or email that sent the visitor, fast loading on mobile, forms that ask only what the next step needs, analytics and conversion tracking set up from day one (the plans include a basic analytics setup and a contact form), and sections the client can edit afterwards.',
+      'Platforms: Framer for most launch pages, Webflow or WordPress when the page has to live inside an existing site - in line with the platform pages.',
+      'FAQs (4): what a landing page costs (fixed quote agreed before work starts - point to the pricing page by name, no new prices), how long it takes (the timeline is agreed before kickoff; Framer sites often launch in 2 to 4 weeks per the Framer page), which platform, and whether it can sit on the existing domain.',
+    ],
+  },
+  {
+    n: 13, type: 'money-page', status: 'todo', due: '2026-11-04',
+    slug: 'startup-website-design',
+    title: 'Startup Website Design Agency | TheBrandle',
+    h1: 'Websites for startups',
+    navTitle: 'Startups', serviceType: 'Startup Website Design', hubTitle: 'Startup Websites', eyebrow: 'Web · Startups',
+    keywords: ['web design agency for startups', 'startup website design', 'build website for startup'],
+    brief: [
+      'For founders launching a first site or replacing a placeholder: a site that makes a young company look established, with one clear next step (waitlist, demo, first order).',
+      'Use the site\'s own facts: the Basic plans are described as "For startups building their first digital presence" and "For startups who need to launch fast, without cutting corners" (home-data.js); the Framer page calls Framer "perfect for startups and product launches"; custom sites take about 3 to 6 weeks; the scope and quote are fixed before work starts; the client owns the code.',
+      'Features: launch-ready homepage and the few pages a startup actually needs, investor- and customer-ready messaging structure, Framer or Webflow so founders can edit it themselves, analytics from day one, room to grow (blog, more pages) when there is content for it.',
+      'Do not repeat the blog post - this page sells the service. The why block can echo the post\'s main idea in one or two sentences.',
+      'FAQs (4): cost (fixed price, plans start at $799 - name the pricing page), timeline, which platform for a startup, and what the founder needs to prepare (copy, images, decisions - as in the post).',
+    ],
+  },
+  {
+    n: 14, type: 'money-page', status: 'todo', due: '2026-11-11',
+    slug: 'website-redesign',
+    title: 'Website Redesign Services Without Losing SEO | TheBrandle',
+    h1: 'Website redesigns that keep what works',
+    navTitle: 'Redesign', serviceType: 'Website Redesign', hubTitle: 'Website Redesign', eyebrow: 'Web · Redesign',
+    keywords: ['website redesign services', 'website redesign', 'redesign without losing seo'],
+    brief: [
+      'For businesses whose site no longer matches the business, converts poorly or is hard to edit - and who are worried about losing rankings.',
+      'Use the existing post "How to redesign your website without losing SEO" (blog-posts-data.js) for the method - URL mapping, redirects, content parity, checking before and after launch - and describe it as how we work, without copying its wording.',
+      'Platform moves are included where they make sense: the Shopify page says we migrate from WooCommerce, Wix, Squarespace and other platforms with redirects in place; faq-data.js says we can take over an existing build rather than start from zero.',
+      'Features (6): an audit of what works now, keeping the URLs and content that earn traffic, a new design on the right platform, redirects and launch checks, a fixed scope and quote, and handover so the team can edit it.',
+      'FAQs (4): will we lose rankings (explain the safeguards - promise nothing about results), cost (fixed quote; name the pricing page), can you redesign a site you did not build (yes, per faq-data.js), and how long (agreed before kickoff; custom sites usually 3 to 6 weeks).',
+    ],
   },
 ];
 

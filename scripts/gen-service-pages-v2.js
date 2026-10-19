@@ -19,7 +19,7 @@ const { pages, PROCESS } = require('./service-pages-data');
 const { FAQ_GROUPS } = require('./faq-data');
 const { TEAM } = require('./team-data');
 
-const { ROOT, COMP, SITE, OG_IMAGE, EMAIL, read, styles, absolutize, NAV_LINKS, UNIT_RES, addNavLink, addNav, navHtml, navHtmlFinal, navPhoneHtml, footerHtml, ctaHtml, noiseHtml, snapshot, rootM, ROOT_OPEN, esc, pad2, P, ACCENT, MUTED, MUTED2, cta, GLUE, REVEAL_JS, MARK, head } = require('./site-shell');
+const { ROOT, COMP, SITE, OG_IMAGE, EMAIL, read, styles, absolutize, NAV_LINKS, UNIT_RES, addNavLink, addNav, navHtml, navHtmlFinal, navPhoneHtml, footerHtml, ctaHtml, noiseHtml, snapshot, rootM, ROOT_OPEN, esc, pad2, P, ACCENT, MUTED, MUTED2, cta, GLUE, REVEAL_JS, MARK, head, ensureSitemapEntry } = require('./site-shell');
 
 const OUT = path.join(ROOT, 'services');
 
@@ -696,6 +696,14 @@ mergeSitemap([
    drift. Every fact below is a public commitment already stated on /faq. No
    statistics, no client names that are not already on the site.
 --------------------------------------------------------------------------- */
+/* the /pricing/ line in llms.txt, from the homepage's own plan data */
+const HOME = require('./home-data');
+const PRICING_LINE = (() => {
+  const all = HOME.pricing.plans.flatMap((pl) => pl.price).map((v) => Number(String(v).replace(/[^0-9.]/g, '')));
+  const from = '$' + Math.min(...all).toLocaleString('en-US');
+  return `fixed-price ${HOME.pricing.tiers.join(' and ')} plans (${HOME.pricing.plans.map((pl) => pl.name).join(', ')}), from ${from}`;
+})();
+
 function renderLlms() {
   const svc = pages.map((p) => `- [${p.hubTitle}](${SITE}/services/${p.slug}/): ${p.hubTagline}`).join('\n');
   return `# TheBrandle
@@ -729,6 +737,7 @@ ${svc}
 ## Elsewhere on the site
 
 - [Services overview](${SITE}/services/): every service in one place
+- [Pricing](${SITE}/pricing/): ${PRICING_LINE}
 - [Team](${SITE}/team/): the people who do the design, build and video work
 - [FAQ](${SITE}/faq/): pricing, timelines, revisions, ownership and support, answered directly
 - [Blog](${SITE}/blog/): articles on design, build and platform choices
@@ -751,6 +760,10 @@ for (const d of pages) {
   fs.writeFileSync(path.join(dir, 'index.html'), renderPage(d));
   n++;
 }
+/* The service URLs live in the hand-kept part of the sitemap, so a new page
+   was invisible to it. Add any that are missing; leave the rest alone. */
+const todayIso = new Date().toISOString().slice(0, 10);
+for (const d of pages) ensureSitemapEntry(`${SITE}/services/${d.slug}/`, todayIso, '0.8');
 fs.writeFileSync(path.join(OUT, 'index.html'), renderHub());
 
 const faqDir = path.join(__dirname, '..', 'faq');

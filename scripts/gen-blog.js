@@ -408,7 +408,7 @@ const LINKS = [
   ['get in touch', '/contact'],
   /* links between posts and to pricing - phrases specific enough that they
      only match where a post was written to use them */
-  ['our fixed-price plans', '/#pricing'],
+  ['our fixed-price plans', '/pricing/'],
   ['our Framer vs Webflow comparison', '/blog/framer-vs-webflow/'],
   ['our guide to website costs in Dubai', '/blog/website-cost-dubai/'],
   ['our honest guide to hiring a designer or doing it yourself', '/blog/should-i-hire-a-web-designer-or-do-it-myself/'],

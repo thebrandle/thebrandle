@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Static website for **The Brandle** (a design studio), deployed on Vercel with serverless functions in `api/`. Two kinds of page:
 
-- **Generated static pages**, built by Node scripts in `scripts/` from parts carved out of the Framer export (stylesheet, text presets, nav, footer): the homepage `/`, `/services/*`, `/team/`, `/faq/`, `/projects/` and the static project pages, `/tools/ai-visibility/` and the blog posts.
+- **Generated static pages**, built by Node scripts in `scripts/` from parts carved out of the Framer export (stylesheet, text presets, nav, footer): the homepage `/`, `/pricing/`, `/services/*`, `/team/`, `/faq/`, `/projects/` and the static project pages, `/tools/ai-visibility/` and the blog posts.
 - **The Framer export**, served by the `vercel.json` catch-all: `/about`, `/contact`, the four CMS case studies and the `/blog` listing.
 
 ## Development Commands
@@ -22,7 +22,7 @@ npm install
 No build step on Vercel. Generated pages are built locally and committed:
 
 ```bash
-node scripts/gen-homepage.js          # / (copy lives in scripts/home-data.js)
+node scripts/gen-homepage.js          # / and /pricing/ (copy lives in scripts/home-data.js)
 node scripts/gen-service-pages-v2.js  # services, team, faq, projects, tools, sitemap block, llms.txt
 node scripts/gen-blog.js              # blog posts
 node scripts/gen-framer-routes.js     # per-route copies of the Framer catch-all
@@ -78,6 +78,8 @@ node scripts/gen-homepage.js                                   # writes index.ht
 HOME_OUT=home-preview/index.html node scripts/gen-homepage.js  # noindex preview copy
 node scripts/trim-home-css.mjs && node scripts/gen-homepage.js # after changing site-shell.js, presets or section classes
 ```
+
+The same run writes `/pricing/` (`pricing/index.html`): the homepage's pricing, process, FAQ and contact sections under a light nav bar, with its own h1, intro and FAQs from `pricingPage` in `home-data.js`. Preview runs (`HOME_OUT=...`) skip it.
 
 `trim-home-css.mjs` needs `node server.js` running and the Playwright install in `~/.dev-browser`. Geometry and motion were measured from the Framer homepage in headless Chrome (tooling in `_snapshot/measure/`, gitignored).
 

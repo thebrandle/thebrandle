@@ -24,7 +24,7 @@
  */
 const fs = require('fs');
 const path = require('path');
-const { ROOT, COMP, SITE, OG_IMAGE, EMAIL, styles, GLUE, REVEAL_JS, navHtmlFinal, navPhoneHtml, footerHtml, ROOT_OPEN, esc } = require('./site-shell');
+const { ROOT, COMP, SITE, OG_IMAGE, EMAIL, styles, GLUE, REVEAL_JS, navHtmlFinal, navPhoneHtml, footerHtml, ROOT_OPEN, esc, ensureSitemapEntry } = require('./site-shell');
 const D = require('./home-data');
 const { TEAM } = require('./team-data');
 
@@ -246,8 +246,13 @@ function quote() {
 
 /* Each "Choose this plan" link also carries its plan name in a screen-reader
    span, so the three links say where they go and their texts are distinct. */
-function pricing() {
+function pricing(opts = {}) {
   const p = D.pricing;
+  /* /pricing/ reuses this section as its first block, so the heading can be
+     the page's h1 with its own words */
+  const tag = opts.h1 ? 'h1' : 'h2';
+  const heading = opts.heading || p.heading;
+  const sub = opts.sub || p.sub;
   const plan = (pl, i) => `<article class="hm-plan${pl.featured ? ' is-featured' : ''}" data-reveal style="transition-delay:${i * 80}ms">
         ${pl.featured ? corner('hm-card-corner') : ''}
         <div class="hm-plan-name"><div class="${PR.body}"${C(INK)}>${esc(pl.name)}</div>${pl.badge ? `<span class="hm-badge${pl.featured ? '' : ' hm-badge-dark'}">${icon(pl.featured ? 'flame' : 'diamond')}${esc(pl.badge)}</span>` : ''}</div>
@@ -259,8 +264,8 @@ function pricing() {
       </article>`;
   return `<section class="hm-sec hm-price-sec" id="pricing" aria-labelledby="hm-price-h" data-tier="1">
   <div class="hm-wrap">
-    <h2 id="hm-price-h" class="${PR.display} hm-price-h" data-reveal${C('rgb(11, 11, 12)')}>${esc(p.heading)}</h2>
-    <p class="${PR.bodyLg} hm-price-sub" data-reveal style="transition-delay:80ms;--framer-text-color:${MUT}">${esc(p.sub[0])}<br>${esc(p.sub[1])}</p>
+    <${tag} id="hm-price-h" class="${PR.display} hm-price-h" data-reveal${C('rgb(11, 11, 12)')}>${esc(heading)}</${tag}>
+    <p class="${PR.bodyLg} hm-price-sub" data-reveal style="transition-delay:80ms;--framer-text-color:${MUT}">${esc(sub[0])}<br>${esc(sub[1])}</p>
     <div class="hm-toggle" data-reveal style="transition-delay:120ms">
       <span class="${PR.small} hm-tg-l" data-for="0">${esc(p.tiers[0])}</span>
       <button type="button" class="hm-switch" role="switch" aria-checked="true" aria-label="Show ${esc(p.tiers[1])} plans"><span></span></button>
@@ -290,8 +295,7 @@ ${p.steps.map((s, i) => `      <li class="hm-step" data-reveal style="transition
 </section>`;
 }
 
-function faq() {
-  const f = D.faq;
+function faq(f = D.faq) {
   return `<section class="hm-sec hm-faq" aria-labelledby="hm-faq-h">
   <div class="hm-wrap hm-faq-grid">
     <div class="hm-faq-intro">
@@ -1103,25 +1107,43 @@ function prune(css, html) {
 
 /* ------------------------------------------------------------------- render */
 
-function render() {
-  const url = SITE + '/';
-  const m = D.meta;
-  const body = `<body>
+/* The homepage's bar is transparent and white, sitting over the dark hero
+   video, and fades in with the intro. A page without that hero needs the
+   light bar the 2024 blog posts use (blog-layout-2024.js, body.bp2024): white
+   band, dark logo and label, inverted back to white while the red menu is
+   open. Same rules, scoped to body.hm-light, and the homepage's 809/810
+   breakpoint for swapping the desktop and phone bars. */
+const LIGHT_NAV_CSS = `<style>
+body.hm-light .svc-nav-wrap{min-height:104px;background:rgba(255,255,255,.9);border-bottom:1px solid rgba(12,12,12,.07)}
+body.hm-light .svc-nav-wrap .framer-fyydzk-container{top:50%!important;transform:translateY(-50%)}
+body.hm-light .svc-nav-wrap img[src*="TheBrandle"]{filter:brightness(0)!important}
+body.hm-light .svc-nav-wrap,body.hm-light .svc-nav-wrap *{color:#0c0c0c!important}
+body.hm-light .svc-nav-wrap svg [fill="#fff"],body.hm-light .svc-nav-wrap svg [fill="#FFF"],body.hm-light .svc-nav-wrap svg [fill="white"]{fill:#0c0c0c!important}
+body.hm-light .svc-nav-wrap svg [stroke="#fff"],body.hm-light .svc-nav-wrap svg [stroke="#FFF"],body.hm-light .svc-nav-wrap svg [stroke="white"]{stroke:#0c0c0c!important}
+body.hm-light .svc-nav-wrap:has(.bm-open),body.hm-light .svc-nav-wrap:has(.bm-open) *{color:#fff!important}
+body.hm-light .svc-nav-wrap:has(.bm-open){background:transparent;border-bottom-color:transparent;min-height:0}
+body.hm-light .svc-nav-wrap:has(.bm-open) img[src*="TheBrandle"]{filter:brightness(0) invert(1)!important}
+body.hm-light .svc-nav-wrap:has(.bm-open) .framer-fyydzk-container{top:0!important;transform:none!important}
+@media(max-width:809px){body.hm-light .svc-nav-desktop{display:none}body.hm-light .svc-nav-phone{display:block}}
+@media(min-width:810px){body.hm-light .svc-nav-desktop{display:block}body.hm-light .svc-nav-phone{display:none}}
+/* first section under the bar: the homepage spaces its sections 170/120/60px
+   apart, which reads as a hole directly under a 104px bar */
+body.hm-light .hm main .hm-price-sec{padding-top:100px}
+@media(max-width:1199px){body.hm-light .hm main .hm-price-sec{padding-top:80px}}
+@media(max-width:809px){body.hm-light .hm main .hm-price-sec{padding-top:40px}}
+</style>`;
+
+/* One document shell for every page this script writes: the homepage, and
+   /pricing/, which is built from the homepage's own pricing, process, FAQ and
+   contact sections so it cannot drift from them. */
+function renderDoc({ url, meta, main, schemaList, preload, lightNav = false }) {
+  const m = meta;
+  const body = `<body${lightNav ? ' class="hm-light"' : ''}>
 ${ROOT_OPEN}
 <div class="hm">
-  <div class="svc-nav-wrap hm-navwrap"><div class="svc-nav-desktop">${navHtmlFinal}</div><div class="svc-nav-phone">${navPhoneHtml}</div></div>
+  <div class="svc-nav-wrap${lightNav ? '' : ' hm-navwrap'}"><div class="svc-nav-desktop">${navHtmlFinal}</div><div class="svc-nav-phone">${navPhoneHtml}</div></div>
   <main>
-${hero()}
-${numbers()}
-${statement()}
-${benefits()}
-${work()}
-${services()}
-${quote()}
-${pricing()}
-${processSteps()}
-${faq()}
-${contact()}
+${main}
   </main>
   <div class="svc-footer">
 ${footerHtml}
@@ -1158,19 +1180,66 @@ ${HOME_JS}
 <meta property="og:url" content="${url}"><meta property="og:image" content="${OG_IMAGE}">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(m.title)}">
 <meta name="twitter:description" content="${esc(m.description)}"><meta name="twitter:image" content="${OG_IMAGE}">
-<link rel="preload" as="image" href="${D.hero.image}" fetchpriority="high">
-<style>${pruned}</style>
+${preload ? `<link rel="preload" as="image" href="${preload}" fetchpriority="high">\n` : ''}<style>${pruned}</style>
 ${scope(HOME_CSS)}
-${schemas(url).map((s) => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join('\n')}
+${lightNav ? LIGHT_NAV_CSS + '\n' : ''}${schemaList.map((s) => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join('\n')}
 </head>
 `;
   return { html: headHtml + body, cssBefore: rawCss.length, cssAfter: pruned.length };
 }
 
+function render() {
+  const url = SITE + '/';
+  return renderDoc({
+    url, meta: D.meta, schemaList: schemas(url), preload: D.hero.image,
+    main: [hero(), numbers(), statement(), benefits(), work(), services(), quote(), pricing(), processSteps(), faq(), contact()].join('\n'),
+  });
+}
+
+/* /pricing/ - the money page for "web design pricing" and "web design
+   packages". Plans, prices and features are the homepage's own (D.pricing);
+   the page adds an h1, its own intro and pricing FAQs (D.pricingPage). */
+function pricingSchemas(url) {
+  const p = D.pricing;
+  const usd = (s) => s.replace(/[^0-9.]/g, '');
+  const offers = p.tiers.flatMap((tierName, t) => p.plans.map((pl) => ({
+    '@type': 'Offer', name: `${tierName} ${pl.name}`, price: usd(pl.price[t]), priceCurrency: 'USD',
+    description: pl.blurb[t], url,
+  })));
+  return [
+    { '@context': 'https://schema.org', '@type': 'Service', name: 'Website design and development', serviceType: 'Web Design',
+      provider: { '@type': 'Organization', name: 'TheBrandle', url: SITE + '/' }, areaServed: 'Worldwide', offers },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: D.pricingPage.faq.items.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+    { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE + '/' },
+      { '@type': 'ListItem', position: 2, name: 'Pricing', item: url }] },
+  ];
+}
+function renderPricing() {
+  const P2 = D.pricingPage;
+  const url = SITE + '/pricing/';
+  return renderDoc({
+    url, meta: P2.meta, schemaList: pricingSchemas(url), preload: null, lightNav: true,
+    main: [pricing({ h1: true, heading: P2.heading, sub: P2.sub }), processSteps(), faq(P2.faq), contact()].join('\n'),
+  });
+}
+
+const report = (rel, html, extra = '') => {
+  const h1s = (html.match(/<h1\b/g) || []).length;
+  const hs = (html.match(/<h[1-6]\b/g) || []).length;
+  console.log(`home: wrote ${rel}  ${(html.length / 1024).toFixed(0)}KB  ${extra}h1=${h1s} headings=${hs}  ${LIVE ? 'INDEXABLE' : 'noindex preview'}`);
+};
 const { html, cssBefore, cssAfter } = render();
 const outPath = path.join(ROOT, OUT_REL);
 fs.mkdirSync(path.dirname(outPath), { recursive: true });
 fs.writeFileSync(outPath, html);
-const h1s = (html.match(/<h1\b/g) || []).length;
-const hs = (html.match(/<h[1-6]\b/g) || []).length;
-console.log(`home: wrote ${OUT_REL}  ${(html.length / 1024).toFixed(0)}KB  (framer css ${(cssBefore / 1024).toFixed(0)}KB -> ${(cssAfter / 1024).toFixed(0)}KB)  h1=${h1s} headings=${hs}  ${LIVE ? 'INDEXABLE' : 'noindex preview'}`);
+report(OUT_REL, html, `(framer css ${(cssBefore / 1024).toFixed(0)}KB -> ${(cssAfter / 1024).toFixed(0)}KB)  `);
+
+// /pricing/ only with the live homepage - previews and the CSS trimmer skip it
+if (LIVE) {
+  const pr = renderPricing().html;
+  fs.mkdirSync(path.join(ROOT, 'pricing'), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, 'pricing', 'index.html'), pr);
+  report('pricing/index.html', pr);
+  ensureSitemapEntry(SITE + '/pricing/', '2026-10-19', '0.8');
+}

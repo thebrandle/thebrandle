@@ -531,4 +531,21 @@ ${schemas.map(s => `<script type="application/ld+json">${JSON.stringify(s)}</scr
 </head>`;
 }
 
-module.exports = { ROOT, COMP, SITE, OG_IMAGE, EMAIL, read, styles, absolutize, NAV_LINKS, UNIT_RES, addNavLink, addNav, navHtml, navHtmlFinal, navPhoneHtml, footerHtml, ctaHtml, noiseHtml, snapshot, rootM, ROOT_OPEN, esc, pad2, P, ACCENT, MUTED, MUTED2, cta, GLUE, REVEAL_JS, MARK, head };
+/* Add a page to the sitemap if it is not there yet - inserted before the /faq
+   entry, with the given lastmod. Never edits an entry that already exists, so
+   running a generator again changes nothing. Used for pages the sitemap's
+   generated blocks do not cover (new service pages, /pricing/). */
+function ensureSitemapEntry(loc, lastmod, priority = '0.8') {
+  const file = path.join(ROOT, 'thebrandle.framer.website', 'sitemap.xml');
+  if (!fs.existsSync(file)) { console.warn('sitemap: not found, skipped'); return false; }
+  const xml = fs.readFileSync(file, 'utf8');
+  if (xml.includes('<loc>' + loc + '</loc>')) return false;
+  const anchor = '  <url>\n    <loc>' + SITE + '/faq</loc>';
+  if (!xml.includes(anchor)) throw new Error('sitemap: the /faq entry new pages are inserted before is missing');
+  const entry = '  <url>\n    <loc>' + loc + '</loc>\n    <lastmod>' + lastmod + '</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>' + priority + '</priority>\n  </url>\n';
+  fs.writeFileSync(file, xml.replace(anchor, () => entry + anchor));
+  console.log('sitemap: added ' + loc);
+  return true;
+}
+
+module.exports = { ROOT, COMP, SITE, OG_IMAGE, EMAIL, read, styles, absolutize, NAV_LINKS, UNIT_RES, addNavLink, addNav, navHtml, navHtmlFinal, navPhoneHtml, footerHtml, ctaHtml, noiseHtml, snapshot, rootM, ROOT_OPEN, esc, pad2, P, ACCENT, MUTED, MUTED2, cta, GLUE, REVEAL_JS, MARK, head, ensureSitemapEntry };
