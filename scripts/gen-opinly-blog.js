@@ -687,7 +687,7 @@ ${JS}
 </html>
 `;
 
-const OG_FALLBACK = SITE + '/framerusercontent.com/images/YNmypiM868x4WUMKO25HF3tDPN4.jpg';
+const OG_FALLBACK = SITE + '/assets/brand/og-image.jpg';
 const fmtDate = (iso) => { try { return new Date(iso).toISOString().slice(0, 10); } catch { return ''; } };
 // "Nov 18, 2024" - the format the Framer blog template uses
 const fmtDateLong = (iso) => {

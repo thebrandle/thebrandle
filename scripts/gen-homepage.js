@@ -1027,8 +1027,8 @@ function schemas(url) {
   return [
     {
       '@context': 'https://schema.org', '@type': 'ProfessionalService', name: 'TheBrandle', url: SITE,
-      logo: `${SITE}/framerusercontent.com/images/0qZrfBuw0vpXfqa4iQEyDlGqjU.png`,
-      image: `${SITE}/framerusercontent.com/images/0qZrfBuw0vpXfqa4iQEyDlGqjU.png`,
+      logo: `${SITE}/assets/brand/logo-mark.png`,
+      image: `${SITE}/assets/brand/logo-mark.png`,
       description: 'TheBrandle is a Dubai branding, UI/UX and web design studio. Websites on Framer, Webflow, Shopify and WordPress, brand identities, app design and video production, built in-house.',
       founder: founders, email: EMAIL, telephone: '+971561429789', areaServed: 'Worldwide',
       priceRange: '$799-$3,799',
@@ -1172,8 +1172,8 @@ ${HOME_JS}
 <meta name="description" content="${esc(m.description)}">
 <link rel="canonical" href="${url}">
 <meta name="robots" content="${LIVE ? 'index, follow, max-image-preview:large' : 'noindex, nofollow'}">
-<link rel="icon" href="/framerusercontent.com/images/0qZrfBuw0vpXfqa4iQEyDlGqjU.png">
-<link rel="apple-touch-icon" href="/framerusercontent.com/images/kSD5jxsYs1XjwIhA7wJG06330.png">
+<link rel="icon" href="/assets/brand/favicon.png">
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <meta property="og:type" content="website"><meta property="og:site_name" content="TheBrandle">
 <meta property="og:title" content="${esc(m.title)}"><meta property="og:description" content="${esc(m.description)}">

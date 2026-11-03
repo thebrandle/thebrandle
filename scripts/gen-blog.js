@@ -19,7 +19,7 @@ const ROOT = path.join(__dirname, '..');
 const COMP = path.join(ROOT, '_snapshot', 'components');
 const OUT = path.join(ROOT, 'blog');
 const SITE = 'https://www.thebrandle.com';
-const OG_IMAGE = SITE + '/framerusercontent.com/images/YNmypiM868x4WUMKO25HF3tDPN4.jpg';
+const OG_IMAGE = SITE + '/assets/brand/og-image.jpg';
 const EMAIL = 'hello@thebrandle.com';
 
 const read = (f) => fs.readFileSync(path.join(COMP, f), 'utf8');

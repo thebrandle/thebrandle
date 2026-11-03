@@ -21,7 +21,7 @@ const ROOT = path.join(__dirname, '..');
 const OUT = path.join(ROOT, 'services');
 
 const LOGO = '/framerusercontent.com/assets/TheBrandle.svg';
-const OG_IMAGE = SITE + '/framerusercontent.com/images/YNmypiM868x4WUMKO25HF3tDPN4.jpg';
+const OG_IMAGE = SITE + '/assets/brand/og-image.jpg';
 const EMAIL = 'hello@thebrandle.com';
 const PHONE_DISPLAY = '+971 56 142 9789';
 const PHONE_HREF = 'tel:+971561429789';
