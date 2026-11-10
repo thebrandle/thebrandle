@@ -42,7 +42,7 @@ const FAQ_GROUPS = [
       { q: 'How much does a website cost?',
         a: 'It depends on scope - a new brand identity plus a full custom site is a different project from a redesign or a landing page. Our fixed-price website plans run from $799 to $3,799 (about AED 2,900 to 14,000), and every project is scoped up front and quoted at a fixed price before work begins.' },
       { q: 'Is TheBrandle competitively priced for the Dubai market?',
-        a: 'We are not the cheapest option in Dubai and do not try to be. What you get instead is a fixed, transparent price agreed before work starts, with no additions appearing part-way through.' },
+        a: 'Yes. Our plans run from $799 to $3,799 (about AED 2,900 to 14,000): Basic and Pro cost about what a template build does in Dubai, and Max sits at the low end of the custom-design range. Every plan is still custom-designed, and the price is agreed before work starts, with no additions appearing part-way through.' },
       { q: 'How long does a typical project take?',
         a: 'A custom marketing site usually runs about 3 to 6 weeks from kickoff to launch, and a custom Shopify store is similar. App and web application MVPs run to a few months, phased so you see working software early. The timeline is agreed before we start, and how quickly we get content and feedback affects it.' },
       { q: 'Do you charge extra for revisions?',
