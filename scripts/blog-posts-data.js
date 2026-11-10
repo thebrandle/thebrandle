@@ -47,6 +47,7 @@ const posts = [
     metaDescription: 'Real 2026 price ranges for websites in Dubai and the UAE - template builds, custom design, ecommerce stores - and what actually drives the cost up or down.',
     h1: 'How much does a website cost in Dubai?',
     date: '2026-07-22',
+    updated: '2026-11-10',
     readMins: 5,
     tag: 'Pricing',
     sections: [
@@ -55,7 +56,7 @@ const posts = [
       ]},
       { h: 'The three price bands', p: [
         'Template builds (roughly AED 2,000 - 8,000). A pre-made theme on WordPress, Wix or Squarespace with your content dropped in. Fast and affordable; the trade-off is a site that looks like other sites and rarely converts exceptionally. Right for validating a new business quickly.',
-        'Custom-designed sites (roughly AED 10,000 - 40,000). Original design around your brand, built on a platform like Framer, Webflow or WordPress, with proper UX thinking, copy structure and SEO foundations. This is where most serious small businesses and startups should be - and where we do most of our work.',
+        'Custom-designed sites (roughly AED 10,000 - 40,000). Original design around your brand, built on a platform like Framer, Webflow or WordPress, with proper UX thinking, copy structure and SEO foundations. This is where most serious small businesses and startups should be.',
         'Ecommerce and complex builds (roughly AED 20,000 - 100,000+). Online stores, booking systems, multi-language sites and custom functionality. The range is wide because scope is wide: a focused Shopify store sits at the lower end; large catalogues and custom integrations push higher.',
       ]},
       { h: 'What actually moves the price', p: [
@@ -64,7 +65,7 @@ const posts = [
       ]},
       { h: 'How to compare quotes fairly', p: [
         'Ask every agency the same three questions. What exactly is included (designs, revisions, SEO setup, launch support)? Who owns everything at handover? What happens after launch if something breaks? Cheap quotes usually get expensive at exactly these three points.',
-        'We publish our approach openly: fixed, transparent quotes scoped before work begins - no surprises. See our services or get in touch for a real number against your actual scope.',
+        'Here are our own answers: our fixed-price plans run from $799 to $3,799 (about AED 2,900 to 14,000), and each plan lists exactly what it includes. You own the code once the final invoice is paid, and we fix bugs free for 30 days after launch. Every plan is custom-designed: Basic and Pro cost about what a template build does, and Max sits at the low end of the custom band. For a fixed quote on your exact scope, get in touch.',
       ]},
     ],
     faq: [

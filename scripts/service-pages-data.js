@@ -726,7 +726,7 @@ const pages = [
     },
     processHeading: 'From brief to launch, working in your timezone',
     faqs: [
-      { q: 'How much does a website cost in Dubai?', a: 'Template builds start low, custom design and build typically runs mid four to low five figures AED, and ecommerce goes higher. We scope and quote fixed - see our Dubai cost guide for the full breakdown.' },
+      { q: 'How much does a website cost in Dubai?', a: 'Roughly AED 2,000 - 8,000 for a template build, AED 10,000 - 40,000 for a custom-designed site and AED 20,000 or more for ecommerce. Our own fixed-price plans run from $799 to $3,799 (about AED 2,900 to 14,000) - see our Dubai cost guide for the full breakdown.' },
       { q: 'Do you build Arabic websites?', a: 'Yes, including proper RTL layouts and Arabic typography. Translation is normally supplied by you or a translator we can recommend.' },
       { q: 'Are you actually based in Dubai?', a: 'Yes. You can meet, call in your hours, and get replies during the working week here rather than overnight from another timezone.' },
       { q: 'Which platform is best for a Dubai business?', a: 'It depends on whether you sell online, how often you edit and your budget. We recommend based on your situation, not on what we prefer to build.' },

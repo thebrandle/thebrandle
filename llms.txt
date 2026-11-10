@@ -10,8 +10,8 @@ web applications, mobile apps, B2B and B2C portals and payment gateway integrati
 
 ## How we work
 
-- Fixed quote agreed before any work starts. Custom builds sit in the mid four to
-  low five figures in AED.
+- Fixed quote agreed before any work starts. Website plans run from $799 to $3,799
+  (about AED 2,900 to 14,000).
 - A custom website or Shopify store typically takes three to six weeks. A mobile
   app MVP takes a few months.
 - Two rounds of revisions at each stage. Anything beyond that is quoted before it
