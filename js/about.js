@@ -166,7 +166,7 @@
     const to = popCard.getBoundingClientRect();
     gsap.timeline()
       .fromTo(popCard, { x: from.left + from.width / 2 - (to.left + to.width / 2), y: from.top + from.height / 2 - (to.top + to.height / 2), scaleX: Math.max(0.25, from.width / to.width), scaleY: Math.max(0.25, from.height / to.height), opacity: 0.6 },
-        { x: 0, y: 0, scaleX: 1, scaleY: 1, opacity: 1, duration: 0.65, ease: 'back.out(1.4)' }, 0)
+        { x: 0, y: 0, scaleX: 1, scaleY: 1, opacity: 1, duration: 0.65, ease: 'back.out(1.4)', clearProps: 'transform' }, 0)
       .fromTo($$('.ab-pop__name, .ab-pop__role, .ab-pop__bio p, .ab-pop__links a', pop), { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.04, ease: 'power2.out' }, 0.18)
       .fromTo('.ab-pop__close', { scale: 0, opacity: 0, rotation: -90 }, { scale: 1, opacity: 1, rotation: 0, duration: 0.45, ease: 'back.out(2.5)', clearProps: 'all' }, 0.3);
   };

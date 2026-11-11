@@ -85,3 +85,23 @@
 .game__talk { font-weight: 600; text-decoration: underline; text-underline-offset: 0.2em; }
 .qf .ct-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .qf__x { top: 0.7em; right: 0.7em; }
+/* phones: the changing word always has the third line to itself, so the heading never jumps between two and three lines */
+@media (max-width: 767px) { .hword { display: block; width: max-content; margin-left: auto; margin-right: auto; } }
+
+/* the floating speaker: muted until pressed, drag it anywhere (the spot is remembered on this device) */
+.vibe { position: fixed; z-index: 90; left: 1.25em; bottom: 1.25em; display: grid; place-items: center; width: 3.4em; height: 3.4em; border: 1.5px solid #000; border-radius: 50%; background: var(--bg); box-shadow: 0.2em 0.2em 0 #000; cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none; }
+.vibe.is-drag { cursor: grabbing; }
+.vibe__ico { width: 1.5em; height: 1.5em; fill: none; stroke: #000; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+.vibe__spk { fill: #000; }
+.vibe__bars { display: none; align-items: flex-end; gap: 0.16em; height: 1.2em; }
+.vibe__bars i { width: 0.22em; height: 100%; border-radius: 1em; background: #000; transform-origin: 50% 100%; animation: vibe-bar 0.9s ease-in-out infinite; }
+.vibe__bars i:nth-child(2) { animation-delay: -0.3s; } .vibe__bars i:nth-child(3) { animation-delay: -0.6s; } .vibe__bars i:nth-child(4) { animation-delay: -0.15s; }
+@keyframes vibe-bar { 0%, 100% { transform: scaleY(0.3); } 50% { transform: scaleY(1); } }
+.vibe.is-on { background: var(--orange); }
+.vibe.is-on .vibe__ico { display: none; }
+.vibe.is-on .vibe__bars { display: flex; }
+.vibe__tip { position: absolute; left: calc(100% + 0.7em); top: 50%; translate: 0 -50%; padding: 0.45em 0.9em; border-radius: 99em; background: #000; color: var(--bg); font-size: 0.85em; font-weight: 500; white-space: nowrap; scale: 0; transform-origin: 0 50%; transition: scale 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); pointer-events: none; }
+.vibe.is-right .vibe__tip { left: auto; right: calc(100% + 0.7em); transform-origin: 100% 50%; }
+@media (hover: hover) and (pointer: fine) { .vibe:hover .vibe__tip { scale: 1; } }
+.vibe:focus-visible { outline: 2px solid #000; outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { .vibe__bars i { animation: none; transform: scaleY(0.7); } }

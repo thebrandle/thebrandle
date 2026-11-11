@@ -58,7 +58,7 @@
     qd.addEventListener('close', () => TB.lenis && TB.lenis.start());
     qbtn.addEventListener('click', () => {
       qd.showModal(); TB.lenis && TB.lenis.stop();
-      if (ok) gsap.fromTo($('.qf__card', qd), { scale: 0.85, rotation: 2, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 0.5, ease: 'back.out(2)' });
+      if (ok) gsap.fromTo($('.qf__card', qd), { scale: 0.85, rotation: 2, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 0.5, ease: 'back.out(2)', clearProps: 'transform' });
       $('input', qform).focus();
     });
     const val = (n) => [...qform.querySelectorAll(`input[name="${n}"]:checked`)].map((c) => c.value).join(', ');
@@ -86,6 +86,64 @@
       }
       qgo.textContent = 'Send it to the herd';
     });
+  }
+
+
+  /* ---------- the floating speaker: muted by default; press to play the loop (gapless, through Web Audio), drag to
+     move it anywhere. A press that moves more than a few pixels is a drag, not a toggle. ---------- */
+  const vibe = $('.vibe');
+  if (vibe) {
+    const KEY = 'tb-vibe-pos';
+    let ctx = null, gain = null, src = null, buf = null, on = false;
+    const place = (x, y) => {
+      const r = vibe.getBoundingClientRect(), m = 8;
+      x = Math.max(m, Math.min(innerWidth - r.width - m, x)); y = Math.max(m, Math.min(innerHeight - r.height - m, y));
+      Object.assign(vibe.style, { left: `${x}px`, top: `${y}px`, bottom: 'auto' });
+      vibe.classList.toggle('is-right', x > innerWidth / 2);
+      return [x, y];
+    };
+    try { const saved = JSON.parse(localStorage.getItem(KEY)); if (saved) place(saved[0] * innerWidth, saved[1] * innerHeight); } catch (e) {}
+    const play = async () => {
+      if (!ctx) {
+        ctx = new (window.AudioContext || window.webkitAudioContext)();
+        gain = ctx.createGain(); gain.gain.value = 0; gain.connect(ctx.destination);
+      }
+      if (ctx.state === 'suspended') await ctx.resume();
+      if (!buf) buf = await fetch(vibe.dataset.src).then((r) => r.arrayBuffer()).then((a) => new Promise((ok2, no) => ctx.decodeAudioData(a, ok2, no)));
+      src = ctx.createBufferSource(); src.buffer = buf; src.loop = true; src.connect(gain); src.start();
+      gain.gain.setTargetAtTime(0.55, ctx.currentTime, 0.25);
+    };
+    const stop = () => { if (!src) return; const s0 = src; gain.gain.setTargetAtTime(0, ctx.currentTime, 0.12); setTimeout(() => s0.stop(), 600); src = null; };
+    const toggle = () => {
+      on = !on;
+      vibe.classList.toggle('is-on', on);
+      vibe.setAttribute('aria-pressed', String(on));
+      vibe.setAttribute('aria-label', on ? 'Mute music' : 'Play music');
+      on ? play().catch(() => { on = false; vibe.classList.remove('is-on'); }) : stop();
+      if (ok) gsap.fromTo(vibe, { scale: 0.85 }, { scale: 1, duration: 0.5, ease: 'elastic.out(1.2, 0.4)' });
+    };
+    let start = null, moved = false;
+    vibe.addEventListener('pointerdown', (e) => {
+      const r = vibe.getBoundingClientRect();
+      start = { x: e.clientX, y: e.clientY, dx: e.clientX - r.left, dy: e.clientY - r.top }; moved = false;
+      vibe.setPointerCapture(e.pointerId);
+    });
+    vibe.addEventListener('pointermove', (e) => {
+      if (!start) return;
+      if (!moved && Math.hypot(e.clientX - start.x, e.clientY - start.y) < 6) return;
+      moved = true; vibe.classList.add('is-drag');
+      place(e.clientX - start.dx, e.clientY - start.dy);
+    });
+    const up = () => {
+      if (!start) return;
+      if (moved) { const r = vibe.getBoundingClientRect(); try { localStorage.setItem(KEY, JSON.stringify([r.left / innerWidth, r.top / innerHeight])); } catch (e) {} }
+      vibe.classList.remove('is-drag'); start = null;
+    };
+    vibe.addEventListener('pointerup', up); vibe.addEventListener('pointercancel', up);
+    vibe.addEventListener('click', (e) => { if (moved) { e.preventDefault(); moved = false; return; } toggle(); });
+    addEventListener('resize', () => { const r = vibe.getBoundingClientRect(); if (vibe.style.top) place(r.left, r.top); });
+    document.addEventListener('visibilitychange', () => { if (ctx && on) document.hidden ? ctx.suspend() : ctx.resume(); });
+    if (ok) gsap.from(vibe, { scale: 0, rotation: -90, duration: 0.7, ease: 'back.out(2)', delay: 2 });
   }
 
   /* ---------- "just here to procrastinate?": a 30-second game in a dialog. The camel catches the good news and
@@ -198,7 +256,7 @@
       intro.hidden = false; end.hidden = true; g = null;
       gdlg.showModal(); TB.lenis && TB.lenis.stop();
       size(); cx.clearRect(0, 0, W, H);
-      if (ok) gsap.fromTo($('.game__card', gdlg), { scale: 0.85, rotation: -2, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 0.5, ease: 'back.out(2)' });
+      if (ok) gsap.fromTo($('.game__card', gdlg), { scale: 0.85, rotation: -2, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 0.5, ease: 'back.out(2)', clearProps: 'transform' });
       $('.game__go', gdlg).focus();
     });
     addEventListener('resize', () => gdlg.open && size());

@@ -27,7 +27,7 @@
     gsap.timeline()
       .fromTo(card,
         { x: a.left + a.width / 2 - (b.left + b.width / 2), y: a.top + a.height / 2 - (b.top + b.height / 2), scaleX: Math.max(0.25, a.width / b.width), scaleY: Math.max(0.25, a.height / b.height), opacity: 0.6 },
-        { x: 0, y: 0, scaleX: 1, scaleY: 1, opacity: 1, duration: 0.65, ease: 'back.out(1.4)' }, 0)
+        { x: 0, y: 0, scaleX: 1, scaleY: 1, opacity: 1, duration: 0.65, ease: 'back.out(1.4)', clearProps: 'transform' }, 0)   // no transform left behind: the pinned Close button needs a plain card
       .fromTo([name, role, ...bio.children], { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.04, ease: 'power2.out' }, 0.18)
       .fromTo(closeBtn, { scale: 0, opacity: 0, rotation: -90 }, { scale: 1, opacity: 1, rotation: 0, duration: 0.45, ease: 'back.out(2.5)' }, 0.3);
   };

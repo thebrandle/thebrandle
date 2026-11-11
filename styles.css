@@ -510,3 +510,10 @@ h1, h2, h3, h4, .sheading { text-wrap: balance; }
 .qf__card, .tm-pop__card, .ab-pop__card, .menu, .game__card { overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
 /* text on cream at the size of body copy: the deeper orange passes contrast (4.5:1); headings keep the brand orange */
 .tcard__btm p, .tpfp small { color: #c4311b; }
+
+/* phones: every pop-up's Close stays pinned to the top corner while its content scrolls (fixed to the screen; the
+   cards drop their transforms once open, so nothing pulls the button back into the scroll) */
+@media (max-width: 767px) {
+  dialog.tm-pop .tm-pop__card, dialog.ab-pop .ab-pop__card, dialog.qf .qf__card, dialog.game .game__card { will-change: auto; }
+  dialog.tm-pop .tm-pop__close, dialog.ab-pop .ab-pop__close, dialog.qf .qf__x, dialog.game .game__x { position: fixed; z-index: 10; top: calc(env(safe-area-inset-top, 0px) + 0.9em); right: 0.9em; }
+}
