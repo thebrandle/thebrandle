@@ -614,3 +614,24 @@ window.TB = (() => {
     gsap.to(camel, { rotation: gsap.utils.clamp(-8, 8, (e.clientX - (r.left + r.width / 2)) / 60), duration: 0.6, ease: 'power2.out', overwrite: 'auto' });
   });
 })();
+
+/* phones: a pop-up's Close button stays exactly where it first appears while the card scrolls under it. Once the
+   card has finished opening, the button moves out of the scrolling card into the dialog itself and is fixed at the
+   spot it was drawn; it goes back when the dialog closes. */
+(() => {
+  const PAIRS = [['dialog.tm-pop', '.tm-pop__close'], ['dialog.ab-pop', '.ab-pop__close'], ['dialog.qf', '.qf__x'], ['dialog.game', '.game__x']];
+  PAIRS.forEach(([d, b]) => {
+    const dlg = document.querySelector(d), btn = dlg && dlg.querySelector(b);
+    if (!btn) return;
+    const home = btn.parentNode, next = btn.nextSibling;
+    let timer = 0;
+    const pin = () => {
+      if (!dlg.open || innerWidth > 767) return;
+      const r = btn.getBoundingClientRect();
+      dlg.appendChild(btn);
+      Object.assign(btn.style, { position: 'fixed', top: `${r.top}px`, left: `${r.left}px`, right: 'auto', bottom: 'auto', margin: '0', zIndex: '20' });
+    };
+    const unpin = () => { clearTimeout(timer); if (btn.parentNode !== home) home.insertBefore(btn, next); ['position', 'top', 'left', 'right', 'bottom', 'margin', 'zIndex'].forEach((k) => { btn.style[k] = ''; }); };
+    new MutationObserver(() => { if (dlg.open) { clearTimeout(timer); timer = setTimeout(pin, 800); } else unpin(); }).observe(dlg, { attributes: true, attributeFilter: ['open'] });
+  });
+})();
