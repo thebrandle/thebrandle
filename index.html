@@ -24,17 +24,21 @@
 <meta name="theme-color" content="#fae3e2">
 <link rel="icon" type="image/svg+xml" href="/assets/logo-icon.svg"><link rel="apple-touch-icon" href="/assets/logo-icon.png">
 <link rel="alternate" type="application/rss+xml" title="The Brandle blog" href="/rss.xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,700..800&family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css?v=c80c4a7f">
-<link rel="stylesheet" href="/css/home.css?v=0bba9320">
+<link rel="preload" href="/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>/* fonts served from this site (OFL), latin and latin-ext only: no request to Google before the first paint */
+@font-face { font-family: 'Bricolage Grotesque'; font-style: normal; font-weight: 700 800; font-stretch: 75% 100%; font-display: swap; src: url(/fonts/bricolage-grotesque-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Bricolage Grotesque'; font-style: normal; font-weight: 700 800; font-stretch: 75% 100%; font-display: swap; src: url(/fonts/bricolage-grotesque-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 400; font-display: swap; src: url(/fonts/geist-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 400; font-display: swap; src: url(/fonts/geist-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 500; font-display: swap; src: url(/fonts/geist-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 500; font-display: swap; src: url(/fonts/geist-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }</style>
+<link rel="stylesheet" href="/styles.css?v=35bb6224">
+<link rel="stylesheet" href="/css/home.css?v=10e73dd8">
 <link rel="preload" as="image" href="/assets/hero-poster.webp?v=3" fetchpriority="high">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ProfessionalService","@id":"https://www.thebrandle.com/#organization","name":"The Brandle","url":"https://www.thebrandle.com/","logo":{"@type":"ImageObject","url":"https://www.thebrandle.com/assets/logo-icon.png","width":512,"height":512},"alternateName":"TheBrandle","image":"https://www.thebrandle.com/assets/og.jpg","description":"The Brandle is a design and development studio in Dubai. It designs and builds websites, online stores, brand identities and apps in-house, on a fixed quote, and hands over the code.","email":"hello@thebrandle.com","address":{"@type":"PostalAddress","addressLocality":"Dubai","addressCountry":"AE"},"areaServed":[{"@type":"Country","name":"United Arab Emirates"},{"@type":"Country","name":"Saudi Arabia"}],"priceRange":"$799 - $3,799","knowsAbout":["Web design","Brand identity design","UI/UX design","Ecommerce website design","Web application development","Search engine optimisation","Video production"],"founder":[{"@type":"Person","name":"Muteeb Mehraj","jobTitle":"Founder / Chief of Design","sameAs":["https://www.linkedin.com/in/muteebmrj"]},{"@type":"Person","name":"Raheem Dzhairkhanov","jobTitle":"Co-Founder / Chief of Media","sameAs":["https://www.linkedin.com/in/rakhimdzhairkhanov"]},{"@type":"Person","name":"Ubaid Wani","jobTitle":"Co-Founder / Chief of UI/UX & Product Design","sameAs":["https://www.linkedin.com/in/ubaid-wani"]}],"sameAs":["https://www.instagram.com/thebrandlestudio"]},{"@type":"WebSite","@id":"https://www.thebrandle.com/#website","url":"https://www.thebrandle.com/","name":"The Brandle","alternateName":"TheBrandle","inLanguage":"en","publisher":{"@id":"https://www.thebrandle.com/#organization"}},{"@type":"WebPage","@id":"https://www.thebrandle.com/#webpage","url":"https://www.thebrandle.com/","name":"The Brandle | Dubai Design and Development Studio","isPartOf":{"@id":"https://www.thebrandle.com/#website"},"about":{"@id":"https://www.thebrandle.com/#organization"},"inLanguage":"en"},{"@type":"FAQPage","@id":"https://www.thebrandle.com/#faq","mainEntity":[{"@type":"Question","name":"What kind of projects do you take on?","acceptedAnswer":{"@type":"Answer","text":"Websites, online stores, brand identities and apps. Designed and built by the same small team, on whichever platform suits the job: Shopify, Webflow, Framer, WordPress or custom code."}},{"@type":"Question","name":"How much does a website cost?","acceptedAnswer":{"@type":"Answer","text":"Plans run from $1,299 to $6,499. You get a written scope and a fixed quote before any work starts. No mysterious numbers pulled out of a hat."}},{"@type":"Question","name":"Can you work with a brand that already exists?","acceptedAnswer":{"@type":"Answer","text":"Yes. We build on what works and fix what doesn’t. Nobody needs a full rebrand just because a designer got bored."}},{"@type":"Question","name":"Do you work with clients outside the UAE?","acceptedAnswer":{"@type":"Answer","text":"Yes. We are based in Dubai and work across the UAE, Saudi Arabia and further afield. One point of contact, a weekly call and a shared WhatsApp group."}},{"@type":"Question","name":"What if we don’t like the first concepts?","acceptedAnswer":{"@type":"Answer","text":"Two rounds of revisions are included at every stage. Anything beyond that gets quoted before we touch it, so nothing lands on an invoice by surprise."}},{"@type":"Question","name":"How involved do we need to be?","acceptedAnswer":{"@type":"Answer","text":"Enough to tell us when we are wrong. One weekly call and quick feedback is plenty. We handle the rest."}},{"@type":"Question","name":"Do you work with small businesses?","acceptedAnswer":{"@type":"Answer","text":"Most of our clients are. The Basic plan exists for startups building their first proper website."}},{"@type":"Question","name":"Who owns the website when it’s done?","acceptedAnswer":{"@type":"Answer","text":"You do. On final payment we hand over the repository and the source files. You are never locked in to us."}}]}]}</script>
 <noscript><style>.loader { display: none; } body.is-loading { overflow: auto; }</style></noscript>
 <script>document.documentElement.className = 'js'; try { if (sessionStorage.getItem('tb-seen')) document.documentElement.className += ' seen'; } catch (e) {}</script>
-<script>/* Vercel Web Analytics: the same graph as the old site. Not loaded on a local preview, where the file does not exist. */
-if (!/^(localhost|127\.|\[::1\])/.test(location.host)) { var va = document.createElement('script'); va.defer = true; va.src = '/_vercel/insights/script.js'; document.head.appendChild(va); }</script>
 </head>
 <body class="is-loading">
 
@@ -92,7 +96,7 @@ if (!/^(localhost|127\.|\[::1\])/.test(location.host)) { var va = document.creat
     </div>
     <svg class="hero__path hero__path--l" viewBox="0 0 229 599" aria-hidden="true"><path d="M-60 40C70 30 190 110 190 240S70 420 10 340S60 170 150 250S215 480 -40 590"/></svg>
     <svg class="hero__path hero__path--r" viewBox="0 0 354 487" aria-hidden="true"><path d="M400 10C250 20 110 110 125 240S270 430 335 330S270 140 185 205S90 430 420 480"/></svg>
-    <div class="marquee" aria-label="Brands, websites, stores and apps. Fixed quote. Designed and built in-house. It’s all yours.">
+    <div class="marquee" role="img" aria-label="Brands, websites, stores and apps. Fixed quote. Designed and built in-house. It’s all yours.">
       <svg viewBox="0 0 1440 420" aria-hidden="true">
         <path id="mq-path" class="marquee__band" d="M-120 330C300 80 1000 60 1560 230"/>
         <text class="marquee__text"><textPath id="mq-tp" href="#mq-path" startOffset="0"></textPath></text>
@@ -114,16 +118,16 @@ if (!/^(localhost|127\.|\[::1\])/.test(location.host)) { var va = document.creat
   <!-- SHOWCASE MARQUEE -->
   <section class="showcase" aria-hidden="true">
     <div class="showcase__slider">
-      <div class="slide"><img src="/assets/work/sq-sameticket.webp" alt=""></div>
-      <div class="slide"><img src="/assets/work/sq-soznikar.webp" alt=""></div>
-      <div class="slide"><img src="/assets/work/sq-pawsword.webp" alt=""></div>
-      <div class="slide"><img src="/assets/work/sq-bellow.webp" alt=""></div>
-      <div class="slide"><img src="/assets/work/sq-fanfare.webp" alt=""></div>
-      <div class="slide"><img src="/assets/work/sq-limonaia.webp" alt=""></div>
-      <div class="slide"><img src="/assets/work/sq-bezier.webp" alt=""></div>
-      <div class="slide"><img src="/assets/work/sq-rotonda.webp" alt=""></div>
-      <div class="slide"><img src="/assets/work/sq-sunwise.webp" alt=""></div>
-      <div class="slide"><img src="/assets/work/sq-tideline.webp" alt=""></div>
+      <div class="slide"><img src="/assets/work/sq-sameticket-600.webp" srcset="/assets/work/sq-sameticket-600.webp 600w, /assets/work/sq-sameticket.webp 1000w" sizes="(max-width: 767px) 17em, 31.25em" width="1000" height="1000" loading="lazy" decoding="async" alt=""></div>
+      <div class="slide"><img src="/assets/work/sq-soznikar-600.webp" srcset="/assets/work/sq-soznikar-600.webp 600w, /assets/work/sq-soznikar.webp 1000w" sizes="(max-width: 767px) 17em, 31.25em" width="1000" height="1000" loading="lazy" decoding="async" alt=""></div>
+      <div class="slide"><img src="/assets/work/sq-pawsword-600.webp" srcset="/assets/work/sq-pawsword-600.webp 600w, /assets/work/sq-pawsword.webp 1000w" sizes="(max-width: 767px) 17em, 31.25em" width="1000" height="1000" loading="lazy" decoding="async" alt=""></div>
+      <div class="slide"><img src="/assets/work/sq-bellow-600.webp" srcset="/assets/work/sq-bellow-600.webp 600w, /assets/work/sq-bellow.webp 1000w" sizes="(max-width: 767px) 17em, 31.25em" width="1000" height="1000" loading="lazy" decoding="async" alt=""></div>
+      <div class="slide"><img src="/assets/work/sq-fanfare-600.webp" srcset="/assets/work/sq-fanfare-600.webp 600w, /assets/work/sq-fanfare.webp 1000w" sizes="(max-width: 767px) 17em, 31.25em" width="1000" height="1000" loading="lazy" decoding="async" alt=""></div>
+      <div class="slide"><img src="/assets/work/sq-limonaia-600.webp" srcset="/assets/work/sq-limonaia-600.webp 600w, /assets/work/sq-limonaia.webp 1000w" sizes="(max-width: 767px) 17em, 31.25em" width="1000" height="1000" loading="lazy" decoding="async" alt=""></div>
+      <div class="slide"><img src="/assets/work/sq-bezier-600.webp" srcset="/assets/work/sq-bezier-600.webp 600w, /assets/work/sq-bezier.webp 1000w" sizes="(max-width: 767px) 17em, 31.25em" width="1000" height="1000" loading="lazy" decoding="async" alt=""></div>
+      <div class="slide"><img src="/assets/work/sq-rotonda-600.webp" srcset="/assets/work/sq-rotonda-600.webp 600w, /assets/work/sq-rotonda.webp 1000w" sizes="(max-width: 767px) 17em, 31.25em" width="1000" height="1000" loading="lazy" decoding="async" alt=""></div>
+      <div class="slide"><img src="/assets/work/sq-sunwise-600.webp" srcset="/assets/work/sq-sunwise-600.webp 600w, /assets/work/sq-sunwise.webp 1000w" sizes="(max-width: 767px) 17em, 31.25em" width="1000" height="1000" loading="lazy" decoding="async" alt=""></div>
+      <div class="slide"><img src="/assets/work/sq-tideline-600.webp" srcset="/assets/work/sq-tideline-600.webp 600w, /assets/work/sq-tideline.webp 1000w" sizes="(max-width: 767px) 17em, 31.25em" width="1000" height="1000" loading="lazy" decoding="async" alt=""></div>
     </div>
   </section>
 
@@ -232,7 +236,7 @@ if (!/^(localhost|127\.|\[::1\])/.test(location.host)) { var va = document.creat
       <h2 class="sheading sheading--wide" data-magnetic>Suspiciously good numbers</h2>
     </div>
     <div class="testi__body">
-      <div class="testi__bg" role="button" tabindex="0" aria-label="Next card">
+      <div class="testi__bg" role="button" tabindex="0"><span class="vh">Next card: </span>
         <div class="tlist">
           <article class="titem"><div class="tcard"><h3>Seventeen websites launched, and nobody has asked for a refund</h3><div class="tcard__btm"><div class="tpfp"><span class="tpfp__img">17+</span><div><b>Websites</b> <small>Launched</small></div></div><p>Every one designed and built in-house, then handed over with the keys. Brands, stores, landing pages and the odd rescue job.</p></div></div></article>
           <article class="titem"><div class="tcard"><h3>Our work has been seen by 1.2 million people. We didn&rsquo;t count by hand</h3><div class="tcard__btm"><div class="tpfp"><span class="tpfp__img">1.2M</span><div><b>Users</b> <small>Reached</small></div></div><p>That is how many people the sites and brands we built have been put in front of. A few of them even clicked the button.</p></div></div></article>
@@ -252,7 +256,7 @@ if (!/^(localhost|127\.|\[::1\])/.test(location.host)) { var va = document.creat
         <p class="label label--static">Frequently asked questions</p>
         <h2 class="sheading sheading--faq" data-magnetic>Things you might ask</h2>
       </div>
-      <img class="faq__art" src="/assets/nap-light.webp" loading="lazy" alt="A camel asleep on its back with a large arrow pointing at its belly">
+      <img class="faq__art" src="/assets/nap-light.webp" width="1300" height="807" loading="lazy" alt="A camel asleep on its back with a large arrow pointing at its belly">
     </div>
     <div class="faq__right">
       <div class="fitem open"><button class="fq" type="button" aria-expanded="true">What kind of projects do you take on?</button><div class="fa"><div class="fa__block"><p>Websites, online stores, brand identities and apps. Designed and built by the same small team, on whichever platform suits the job: Shopify, Webflow, Framer, WordPress or custom code.</p></div><span class="fa__logo">B</span></div></div>

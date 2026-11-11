@@ -19,7 +19,7 @@
 .hask__tag--yes { background: var(--orange); rotate: -4deg; }
 .hask__tag--no { background: var(--bg); rotate: 3deg; margin-top: 3.4em; transform-origin: 50% -3.4em; }
 .hask__tag b { font-size: 1.05em; font-weight: 700; color: #000; white-space: nowrap; }
-.hask__tag small { font-size: 0.8em; color: #000b; white-space: nowrap; }
+.hask__tag small { font-size: 0.8em; color: #000; white-space: nowrap; }
 /* the string, from the question down to the hole in the tag */
 .hask__str { position: absolute; left: 50%; bottom: 100%; width: 1.5px; height: 2.6em; background: #000; }
 .hask__tag--no .hask__str { height: 3.4em; }
