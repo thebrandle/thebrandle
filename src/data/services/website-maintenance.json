@@ -1,0 +1,155 @@
+{
+ "title": "Website Maintenance Dubai: Monthly Care Plans | The Brandle",
+ "description": "Website maintenance in Dubai on a fixed monthly plan. Updates, backups we actually test, security patches and small design changes. Cancel any month.",
+ "crumb": "Maintenance",
+ "schema_name": "Website maintenance Dubai",
+ "service_type": "Website Maintenance & Support",
+ "hub": {
+  "name": "Website maintenance",
+  "line": "Updates, backups and small changes, monthly."
+ },
+ "hero": {
+  "h1": [
+   "Website",
+   "maintenance",
+   "Dubai"
+  ],
+  "stickers": [
+   {
+    "icon": "wrench"
+   }
+  ],
+  "chips": [
+   "Monthly plans",
+   "Backups & updates",
+   "Reply in a business day"
+  ],
+  "joke": "Websites don't break at launch. They break quietly, eight months later, on a Thursday.",
+  "intro": "Website maintenance in Dubai on a fixed monthly plan. Platform updates, tested backups, security patches, an uptime monitor and the small changes you never get round to. We start with an audit, so the plan fits the site."
+ },
+ "get": {
+  "h2": "What a plan covers",
+  "items": [
+   {
+    "icon": "wrench",
+    "t": "Updates and patches",
+    "p": "Platform, theme and plugin updates, tried on a copy first where the platform allows, then applied to the live site."
+   },
+   {
+    "icon": "swap",
+    "t": "Backups that restore",
+    "p": "Scheduled backups kept away from the server. And we test restoring one, because an untested backup is a rumour."
+   },
+   {
+    "icon": "clock",
+    "t": "An uptime monitor",
+    "p": "An automated check that alerts us when the site goes down, so you don't hear it from a customer first."
+   },
+   {
+    "icon": "shield",
+    "t": "Security housekeeping",
+    "p": "Strong logins, old accounts removed, forms protected from spam, certificates renewed before they expire."
+   },
+   {
+    "icon": "pencil",
+    "t": "Small changes",
+    "p": "New team member, new price, new banner. Send it over and it gets done, without a quote for every comma."
+   },
+   {
+    "icon": "bolt",
+    "t": "Speed checks",
+    "p": "A regular look at load times, with fixes for whatever has crept in since last time."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Do you need a plan?",
+  "p": "If someone on your team already updates the site every month and tests the backups, no. If the last update was at launch and the backup is a theory, yes.",
+  "yes": [
+   "Without a developer on the team",
+   "Running WordPress or WooCommerce, which need regular updates",
+   "Fairly sure there's a backup somewhere",
+   "Tired of relearning the CMS for one small change"
+  ],
+  "no": "your site is on Shopify, Webflow, Framer, Wix or Squarespace and you rarely change it. Those look after their own servers. You may only need the odd job, which we quote on its own."
+ },
+ "steps": {
+  "h2": "Audit, then autopilot",
+  "items": [
+   {
+    "t": "Audit",
+    "p": "We look at the platform, plugins, backups, speed and logins. You get a plain list of what's fine and what isn't."
+   },
+   {
+    "t": "Clear the backlog",
+    "p": "Overdue updates and urgent problems get sorted first, quoted as a one-off if it's a big pile."
+   },
+   {
+    "t": "Monthly round",
+    "p": "Updates, a backup test, checks and your change requests, every month, for a fixed fee."
+   },
+   {
+    "t": "Report",
+    "p": "A short note on what was done and anything you should know. Readable in under two minutes."
+   }
+  ]
+ },
+ "commit": "retainer",
+ "price": {
+  "big": [
+   "Quoted after",
+   "an audit"
+  ],
+  "p": "A five-page brochure site and a busy WooCommerce store need different amounts of care, so we audit first and quote a fixed monthly fee. Nothing outside the plan is billed without your approval. Plans are monthly, and you can cancel."
+ },
+ "tools": {
+  "h2": "Sites we look after",
+  "items": [
+   "wordpress",
+   "woo",
+   "shopify",
+   "webflow"
+  ],
+  "note": "We maintain sites on the platforms we build on, including sites we didn't build."
+ },
+ "faq_h2": "Maintenance, answered",
+ "faq": [
+  {
+   "q": "Do you maintain sites you didn't build?",
+   "a": "Yes, on the mainstream platforms. The audit tells us what we're taking on. Now and then it tells us the site needs rebuilding, and we'll say so before taking your money for a plan."
+  },
+  {
+   "q": "Are you watching my site around the clock?",
+   "a": "A monitor is. We're not a 24-hour helpdesk and won't pretend to be. Alerts reach us straight away, and we reply to you within one business day."
+  },
+  {
+   "q": "What if something breaks outside my plan?",
+   "a": "We tell you what it will take before we do the work. Nothing outside the plan is billed without your yes."
+  },
+  {
+   "q": "What does maintenance usually cost?",
+   "a": "It varies with the platform and how much changes each month. Our guide to [website maintenance cost](/blog/website-maintenance-cost/) explains what you're paying for and what you can skip."
+  }
+ ],
+ "related": [
+  "seo-services",
+  "wordpress-website-design",
+  "woocommerce-website-design"
+ ],
+ "post": {
+  "slug": "website-maintenance-cost",
+  "title": "Website maintenance cost: what you actually need to pay for"
+ },
+ "cta": {
+  "lines": [
+   "Sleep through",
+   "the updates"
+  ],
+  "pills": [
+   "Free call",
+   "Fixed monthly fee",
+   "Cancel any month"
+  ],
+  "p": "Send us the address of your site. We'll tell you what it needs, even if the answer is nothing."
+ }
+}

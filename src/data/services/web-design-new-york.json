@@ -1,0 +1,158 @@
+{
+ "title": "Web Design New York: A Dubai Studio, Remotely | The Brandle",
+ "description": "Web design for New York businesses from a Dubai studio. Stores with sales tax, Shop Pay and accessibility handled, built while you sleep.",
+ "crumb": "New York",
+ "country": "United States",
+ "schema_name": "Web design New York",
+ "service_type": "Web Design New York",
+ "hub": {
+  "name": "Web design New York",
+  "line": "We work the night shift. Your night."
+ },
+ "hero": {
+  "h1": [
+   "Web design",
+   "New York"
+  ],
+  "stickers": [
+   {
+    "icon": "clock"
+   }
+  ],
+  "chips": [
+   "Remote from Dubai",
+   "Sales tax ready",
+   "Built while you sleep"
+  ],
+  "joke": "When New York starts work, we're finishing ours. Your website gets built overnight, which is the only quiet thing that happens in New York.",
+  "intro": "Web design for New York businesses, from a studio in Dubai. We have no New York office. We work across your early morning on video calls and asynchronously the rest of the day, building websites and stores with US sales tax, American checkout habits and accessibility handled."
+ },
+ "get": {
+  "h2": "Built for the US",
+  "items": [
+   {
+    "icon": "doc",
+    "t": "Sales tax, set up",
+    "p": "Sales tax varies by state and city, so the store calculates it from the delivery address. In New York City that's 8.875% combined, and other states have their own rates."
+   },
+   {
+    "icon": "card",
+    "t": "US checkout",
+    "p": "Cards, Apple Pay, Google Pay, Shop Pay, PayPal and pay later with Afterpay, Affirm or Klarna."
+   },
+   {
+    "icon": "eye",
+    "t": "Accessibility",
+    "p": "New York sees a lot of website accessibility lawsuits, so contrast, keyboard use, headings and alt text are built in from day one."
+   },
+   {
+    "icon": "clock",
+    "t": "Overnight progress",
+    "p": "You send feedback at the end of your day, and the changes are waiting when you wake up."
+   },
+   {
+    "icon": "bolt",
+    "t": "Fast in America",
+    "p": "Hosting and a CDN chosen for quick loading across the US, not just near us."
+   },
+   {
+    "icon": "chart",
+    "t": "Ready for ads",
+    "p": "Analytics, conversion tracking and clean product data in place before you spend on ads."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Why a studio nine hours away?",
+  "p": "Because a time difference can work for you. Your evening feedback becomes our morning, so progress lands while you sleep. Calls happen in your early morning. If you need someone across the table in Manhattan, we're not that, and we'll say so first.",
+  "yes": [
+   "A New York founder happy to work async",
+   "A brand that wants senior design without Manhattan overheads",
+   "A store expanding sales across several states",
+   "Anyone who prefers a fixed price to an hourly rate"
+  ],
+  "no": "you need daily calls in your afternoon. The time difference makes that hard, and we'd rather tell you now. For UK work see [web design London](/services/web-design-london/). For product design, read [UI and UX design](/services/ui-ux-design/)."
+ },
+ "steps": {
+  "h2": "Brief to launch",
+  "items": [
+   {
+    "t": "Brief",
+    "p": "A free video call at 8 or 9 in your morning, which is our late afternoon. Dubai is nine hours ahead in winter and eight in summer."
+   },
+   {
+    "t": "Design",
+    "p": "Key pages designed in Figma and shared for comments, so feedback fits your day, not ours."
+   },
+   {
+    "t": "Build",
+    "p": "Built and tested overnight on your clock. Daily notes tell you what moved."
+   },
+   {
+    "t": "Launch",
+    "p": "Sales tax, payments and accessibility basics checked, then live. Free fixes for 30 days."
+   }
+  ]
+ },
+ "price": {
+  "big": [
+   "$1,299 to",
+   "$6,499"
+  ],
+  "p": "Our fixed plans run from $1,299 to $6,499, fixed before work starts, and a site or store takes 3 to 6 weeks. That's in US dollars already, so nobody needs a calculator. Selling in many states or a large catalogue adds scope, which the quote will show."
+ },
+ "tools": {
+  "h2": "What we build with",
+  "items": [
+   "shopify",
+   "stripe",
+   "webflow",
+   "framer",
+   "Shop Pay",
+   "Apple Pay",
+   "PayPal",
+   "Afterpay",
+   "Affirm"
+  ]
+ },
+ "faq_h2": "New York, answered",
+ "faq": [
+  {
+   "q": "Do you have a New York office?",
+   "a": "No. We're a Dubai studio of three founders and we work with New York clients remotely. We reply within one business day, usually before you're up."
+  },
+  {
+   "q": "How does the time difference work?",
+   "a": "Dubai is nine hours ahead of New York in winter and eight in summer. We take calls in your early morning, and the rest happens in shared documents, so work moves while you sleep."
+  },
+  {
+   "q": "Will my store charge the right sales tax?",
+   "a": "We set up the platform's tax tools so tax is calculated from the delivery address. Where you have to collect in other states depends on your sales there, so check that with your accountant."
+  },
+  {
+   "q": "Is the site accessible?",
+   "a": "We build to the WCAG basics: contrast, keyboard use, semantic markup and alt text. A formal audit needs a specialist, and we'll tell you if you need one."
+  }
+ ],
+ "related": [
+  "web-design-london",
+  "ecommerce-website-design",
+  "ui-ux-design"
+ ],
+ "post": {
+  "slug": "website-total-cost-of-ownership",
+  "title": "The real cost of a website over three years"
+ },
+ "cta": {
+  "lines": [
+   "Wake up",
+   "to progress"
+  ],
+  "pills": [
+   "Free call",
+   "Fixed quote",
+   "Overnight work"
+  ],
+  "p": "Tell us about the business. We reply within one business day, often before your alarm."
+ }
+}

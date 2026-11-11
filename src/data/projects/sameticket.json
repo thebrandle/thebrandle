@@ -1,0 +1,106 @@
+{
+ "type": "own",
+ "seo_title": "SameTicket: Website Design and Build | The Brandle",
+ "summary": "A price comparison site for attraction tickets in Dubai and the UAE, built in Astro on Cloudflare.",
+ "cover": "blue",
+ "portrait": "xdr-blue-portrait",
+ "screens": 8,
+ "cta": "Visit sameticket.com",
+ "brief": {
+  "label": "Travel price comparison",
+  "heading": "The itch",
+  "paras": [
+   "The same Burj Khalifa ticket has one price on the official site and a different one on every reseller. Finding the cheapest means six open tabs and some sums in a hotel lobby.",
+   "So we built the site we wanted on holiday. SameTicket shows what each seller charges for the same attraction ticket, cheapest first, always. Commission never changes the order."
+  ]
+ },
+ "answer": {
+  "label": "Launched 2026",
+  "heading": "The build",
+  "paras": [
+   "We named it, designed it and built it in Astro, hosted on Cloudflare. The home page is a retro travel poster with a 3D paper ticket standing in a field, because a price table on its own never made anyone smile.",
+   "Every price shows when it was checked and where it came from. If the prices go stale, the page takes itself out of Google rather than fib to you.",
+   "It covers Dubai, Abu Dhabi, Sharjah and Ras Al Khaimah, plus a calculator that tells you whether a Go City pass beats buying single tickets. As the site puts it, a pass only pays if you use it."
+  ]
+ },
+ "tags": [
+  "Naming",
+  "Web design",
+  "Astro build",
+  "WebGL hero"
+ ],
+ "blocks": [
+  {
+   "t": "full",
+   "img": "s1",
+   "alt": "The SameTicket home page listing where booking direct costs the most, with both prices side by side"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p1",
+    "alt": "SameTicket home page on a phone: the words Same Ticket, different price over a blue sky"
+   },
+   "b": {
+    "img": "p2",
+    "alt": "The Burj Khalifa price table on a phone"
+   }
+  },
+  {
+   "t": "video",
+   "file": "sameticket-wide",
+   "alt": "The SameTicket home page scrolling on a MacBook Pro"
+  },
+  {
+   "t": "mock",
+   "scene": "studio-white",
+   "alt": "Pages of SameTicket cutting past on a desktop display in a white studio"
+  },
+  {
+   "t": "full",
+   "img": "s2",
+   "alt": "A dark green panel on SameTicket introducing the Go City pass calculator"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p3",
+    "alt": "The Dubai attractions list on a phone"
+   },
+   "b": {
+    "img": "p4",
+    "alt": "The Go City pass calculator on a phone"
+   }
+  },
+  {
+   "t": "full",
+   "img": "s3",
+   "alt": "The Burj Khalifa page on SameTicket with a price from every seller, cheapest first"
+  },
+  {
+   "t": "full",
+   "img": "s4",
+   "alt": "The ticket deals page on SameTicket, listing attractions selling below the official price"
+  },
+  {
+   "t": "full",
+   "img": "s5",
+   "alt": "The Go City Dubai pass calculator on SameTicket adding up a visitor's plan"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "What it is, sellers compared, cheapest first, commission never changes the order, stale pages noindex themselves, every price shows when it was checked",
+   "source": "~/sameticket/PRODUCT.md (What it is, Promise, Strategic principles 2 and 5)"
+  },
+  {
+   "claim": "Named by us, Astro, hosted on Cloudflare, live since 2026-10-30, retro poster hero with a WebGL paper ticket in a field, four emirates, Go City pass calculator",
+   "source": "~/.claude/projects/-Users-muteebmehraj-friday/memory/affiliate-site-2-niche.md"
+  },
+  {
+   "claim": "Page captures",
+   "source": "https://sameticket.com (captured 2026-11-11)"
+  }
+ ],
+ "description": "A price comparison site for attraction tickets in Dubai and the UAE, built in Astro on Cloudflare. Designed and built by The Brandle, a Dubai design and development studio."
+}

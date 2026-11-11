@@ -1,0 +1,154 @@
+{
+ "title": "Web Design Riyadh: Arabic-First Websites | The Brandle",
+ "description": "Web design for Riyadh and Saudi Arabia. Arabic-first websites and stores with Mada, Apple Pay and Tamara at checkout and 15% Saudi VAT handled.",
+ "crumb": "Riyadh",
+ "country": "Saudi Arabia",
+ "schema_name": "Web design Riyadh",
+ "service_type": "Web Design Riyadh",
+ "hub": {
+  "name": "Web design Riyadh",
+  "line": "Arabic first. English is the translation."
+ },
+ "hero": {
+  "h1": [
+   "Web design",
+   "Riyadh"
+  ],
+  "stickers": [
+   {
+    "icon": "globe"
+   }
+  ],
+  "chips": [
+   "Arabic-first design",
+   "Saudi payments",
+   "Mada & Tamara"
+  ],
+  "joke": "Arabic isn't English flipped in a mirror. We've seen the websites that thought it was.",
+  "intro": "Web design for Riyadh and the wider Saudi market, from a studio in Dubai. Arabic-first websites and online stores, with the payment methods Saudi shoppers use and 15% VAT handled correctly."
+ },
+ "get": {
+  "h2": "Built for the Kingdom",
+  "items": [
+   {
+    "icon": "globe",
+    "t": "Arabic-first layouts",
+    "p": "Right-to-left is the main direction, designed first. English is the translation, not the other way round."
+   },
+   {
+    "icon": "card",
+    "t": "Saudi payment methods",
+    "p": "Mada, Apple Pay, STC Pay and Tamara instalments, connected through a gateway that supports them."
+   },
+   {
+    "icon": "doc",
+    "t": "VAT and invoicing",
+    "p": "15% Saudi VAT displayed and invoiced properly, with the fields your accountant will ask for."
+   },
+   {
+    "icon": "bolt",
+    "t": "Hosting and speed",
+    "p": "Hosting chosen for quick loading in Saudi Arabia. If your data has to stay in the Kingdom, tell us at the start and we plan around it."
+   },
+   {
+    "icon": "search",
+    "t": "Arabic search",
+    "p": "Page titles, descriptions and addresses written for how people search in Arabic, not translated from the English ones."
+   },
+   {
+    "icon": "phone",
+    "t": "Phone first",
+    "p": "Designed for phones before desktops, and tested on them."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Entering Saudi?",
+  "p": "A site built for another market and translated into Arabic reads like exactly that. If Saudi Arabia is a serious part of the plan, the Arabic version is the real website and the English one is the extra.",
+  "yes": [
+   "A Saudi business that needs an Arabic-first site",
+   "A Gulf brand expanding into the Kingdom",
+   "Selling online and in need of Mada and Saudi VAT",
+   "Stuck with a site that was designed for somewhere else"
+  ],
+  "no": "Arabic is a nice-to-have for you. Then a bilingual build from [web design Dubai](/services/web-design-dubai/) is enough. If checkout is the only issue, go to [payment gateway integration](/services/payment-gateway-integration/)."
+ },
+ "steps": {
+  "h2": "Arabic first, then launch",
+  "items": [
+   {
+    "t": "Brief",
+    "p": "A free video call. Riyadh is an hour behind Dubai, so mornings work for everyone. A fixed quote follows."
+   },
+   {
+    "t": "Arabic design",
+    "p": "Key pages designed in Arabic first, with real Arabic copy, not placeholder text."
+   },
+   {
+    "t": "Build",
+    "p": "Both languages built and payments connected in test mode. Our working weeks overlap from Monday to Thursday, which is plenty."
+   },
+   {
+    "t": "Launch",
+    "p": "Real test payments, VAT checked on real invoices, then live. Free fixes for 30 days."
+   }
+  ]
+ },
+ "price": {
+  "big": [
+   "$1,299 to",
+   "$6,499"
+  ],
+  "p": "Our fixed plans run from $1,299 to $6,499, and a site or store takes 3 to 6 weeks. Two languages and Saudi payment set-up add scope, which the quote will show. Translation is separate, and we can recommend translators."
+ },
+ "tools": {
+  "h2": "At the Saudi checkout",
+  "items": [
+   "tamara",
+   "Mada",
+   "STC Pay",
+   "Apple Pay"
+  ],
+  "note": "Payment methods we can connect through a gateway that supports them. Mostly written as words, because that's how their owners prefer it."
+ },
+ "faq_h2": "Riyadh, answered",
+ "faq": [
+  {
+   "q": "Do you design Arabic-first?",
+   "a": "Yes. Right-to-left is the primary layout, with Arabic type chosen for reading on screens. Our [Arabic and RTL guide](/blog/arabic-rtl-website-design/) shows what changes."
+  },
+  {
+   "q": "Which payment methods matter in Saudi Arabia?",
+   "a": "Mada is the domestic card network, so it comes first. Then Apple Pay, STC Pay and Tamara for instalments. We set up whichever your gateway and licence allow."
+  },
+  {
+   "q": "Can you work with us from the UAE?",
+   "a": "Yes. Riyadh is one hour behind Dubai. The Saudi week runs Sunday to Thursday and ours runs Monday to Friday, so four working days overlap. We reply within one business day."
+  },
+  {
+   "q": "Do you provide the Arabic copy?",
+   "a": "We design for it and can recommend translators. Native copywriting is a specialist's job, and we won't run your brand through a translation tool and hope."
+  }
+ ],
+ "related": [
+  "web-design-dubai",
+  "payment-gateway-integration",
+  "ecommerce-website-design"
+ ],
+ "post": {
+  "slug": "arabic-rtl-website-design",
+  "title": "Arabic and RTL website design: doing it properly"
+ },
+ "cta": {
+  "lines": [
+   "Right to left,",
+   "done right"
+  ],
+  "pills": [
+   "Free call",
+   "Fixed quote",
+   "Arabic first"
+  ],
+  "p": "Tell us about the business and who you're selling to. We reply within one business day."
+ }
+}

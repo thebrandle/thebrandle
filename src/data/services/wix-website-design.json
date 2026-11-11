@@ -1,0 +1,158 @@
+{
+ "title": "Wix Website Design for Small Businesses | The Brandle",
+ "description": "Wix website design for small businesses, from a Dubai studio. A designed site you can edit yourself, on a fixed quote agreed before any work starts.",
+ "crumb": "Wix",
+ "schema_name": "Wix website design",
+ "service_type": "Wix Website Design",
+ "hub": {
+  "name": "Wix design",
+  "line": "Small-business sites that don't look homemade."
+ },
+ "hero": {
+  "h1": [
+   "Wix",
+   "website design"
+  ],
+  "stickers": [
+   {
+    "mark": "wix"
+   }
+  ],
+  "chips": [
+   "Small-business ready",
+   "Quick to launch",
+   "Easy to manage"
+  ],
+  "joke": "Proof that a Wix site doesn't have to look like your cousin made it over a weekend.",
+  "intro": "Wix website design for small businesses and founders. We design the site properly, build it in Wix and hand you an editor simple enough to run yourself. Fixed quote before we start."
+ },
+ "get": {
+  "h2": "Small, done well",
+  "items": [
+   {
+    "icon": "pencil",
+    "t": "Actual design",
+    "p": "Layout, type and colour chosen for your business. The Wix template gallery stays closed."
+   },
+   {
+    "icon": "tag",
+    "t": "A price that fits",
+    "p": "Wix builds sit at the lower end of our plans. Less custom code, fewer hours, smaller bill."
+   },
+   {
+    "icon": "key",
+    "t": "Yours to edit",
+    "p": "Change a price, swap a photo, add a page. You won't need us, and that's the idea."
+   },
+   {
+    "icon": "calendar",
+    "t": "Bookings and forms",
+    "p": "Appointments, enquiry forms and simple payments using Wix's own tools, set up and tested."
+   },
+   {
+    "icon": "phone",
+    "t": "A phone layout someone checked",
+    "p": "Wix makes a mobile version automatically. We then fix everything the automatic version got wrong."
+   },
+   {
+    "icon": "search",
+    "t": "Search basics",
+    "p": "Page titles, descriptions and the settings that help a local business show up when someone nearby goes looking."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Wix, seriously?",
+  "p": "Yes. For a small business with a small budget, Wix is a reasonable tool. Most Wix sites look homemade because they are. The platform isn't the problem. The missing designer is.",
+  "yes": [
+   "A local business or a solo service provider",
+   "Taking bookings or enquiries, not running a big shop",
+   "Working with a tight budget",
+   "Planning to update the site yourself"
+  ],
+  "no": "you plan to sell a lot online. Wix shops reach a ceiling, and [Shopify](/services/shopify-website-design/) doesn't. For a portfolio, [Squarespace](/services/squarespace-website-design/) may suit you better."
+ },
+ "proof": {
+  "label": "Proof",
+  "h2": "A real one",
+  "cards": [
+   "storage-hire"
+  ],
+  "p": "Storage Hire is a managed storage company in Harlow, Essex. We designed and built their site on Wix. A real client with a real site, which you can go and click on."
+ },
+ "steps": {
+  "h2": "Brief to live",
+  "items": [
+   {
+    "t": "Brief",
+    "p": "A free call about the business and what the site has to do. You get a page list and a fixed quote."
+   },
+   {
+    "t": "Design",
+    "p": "We design the main pages and show you before building the rest."
+   },
+   {
+    "t": "Build",
+    "p": "Built in Wix on your own account, with bookings, forms and the phone layout sorted."
+   },
+   {
+    "t": "Handover",
+    "p": "A tour of the editor, your domain connected, and 30 days of free fixes."
+   }
+  ]
+ },
+ "price": {
+  "big": [
+   "$1,299 to",
+   "$6,499"
+  ],
+  "p": "Our fixed plans run from $1,299 to $6,499, about AED 4,800 to 23,900, and Wix projects belong near the start of that range. A site takes 3 to 6 weeks, with a small Wix site at the short end. Wix's own subscription is separate."
+ },
+ "tools": {
+  "h2": "Built on",
+  "items": [
+   "wix"
+  ],
+  "note": "Just the one. No partner badge, no plaque in reception."
+ },
+ "faq_h2": "Wix, answered",
+ "faq": [
+  {
+   "q": "Can a Wix site look professional?",
+   "a": "Yes. Most look homemade because the owner built them at midnight. With a designer choosing the type, spacing and photos, the platform stops being visible."
+  },
+  {
+   "q": "Will I be able to update it myself?",
+   "a": "That's the main reason to pick Wix. The editor is drag and drop, and we show you around at handover."
+  },
+  {
+   "q": "Should I hire you or do it myself?",
+   "a": "If you have more time than budget, doing it yourself is a fair choice, and we wrote an honest guide: [hire a web designer or DIY](/blog/should-i-hire-a-web-designer-or-do-it-myself/). Hire us when the site has to win customers, not just exist."
+  },
+  {
+   "q": "What if I outgrow Wix?",
+   "a": "Then we move you. Content and products can come across to Shopify or Webflow with redirects in place. Our [Wix to Shopify guide](/blog/wix-to-shopify-migration/) shows how."
+  }
+ ],
+ "related": [
+  "squarespace-website-design",
+  "shopify-website-design",
+  "seo-services"
+ ],
+ "post": {
+  "slug": "should-i-hire-a-web-designer-or-do-it-myself",
+  "title": "Hire a web designer or DIY? An honest guide"
+ },
+ "cta": {
+  "lines": [
+   "Small site,",
+   "big upgrade"
+  ],
+  "pills": [
+   "Free call",
+   "Fixed quote",
+   "You can edit it"
+  ],
+  "p": "Tell us about the business. We'll come back within one business day."
+ }
+}

@@ -1,0 +1,373 @@
+{
+  "slug": "website-design",
+  "url": "https://www.thebrandle.com/blog/website-design/",
+  "path": "/blog/website-design/",
+  "canonical": "https://www.thebrandle.com/blog/website-design/",
+  "lang": "en",
+  "source": "opinly",
+  "title": "Website Design: What Founders Need to Know in 2026 | TheBrandle",
+  "titleWithoutBrand": "Website Design: What Founders Need to Know in 2026",
+  "description": "What makes good website design in 2026? A practical guide for founders on trends, platforms, custom vs. themes, and what to look for in a studio.",
+  "h1": "Website Design in 2026: What Founders Need to Know Before They Build",
+  "headline": "Website Design in 2026: What Founders Need to Know Before They Build",
+  "datePublished": "2026-07-28T22:04:11.000Z",
+  "dateModified": "2026-07-28T22:04:11.000Z",
+  "dateDisplayed": "Jul 28, 2026",
+  "sitemapLastmod": "2026-09-18",
+  "gitFirstCommit": "2026-08-05T13:55:25+04:00",
+  "gitLastCommit": "2026-10-11T11:19:48+04:00",
+  "author": {
+    "name": "The Brandle Team",
+    "role": "Design Studio",
+    "avatar": "/assets/blog/_shared/author-avatar.jpg",
+    "avatarOriginal": "/framerusercontent.com/images/A0LPOEdkaRkfMcS2EWs1My620fA.jpg",
+    "schemaAuthor": {
+      "@type": "Organization",
+      "name": "TheBrandle",
+      "url": "https://www.thebrandle.com"
+    }
+  },
+  "category": "Foundations",
+  "categorySource": "eyebrow word baked into the listing card image (scripts/gen-blog-images.js); the Opinly category is not on the page",
+  "tags": [
+    "Foundations"
+  ],
+  "suggestedGroup": "Planning",
+  "heroImage": {
+    "src": "/assets/blog/website-design/cover.jpg",
+    "alt": "An abstract ribbon of light folded into a smooth form",
+    "width": 2560,
+    "height": 1440,
+    "original": "/assets/blog/covers/website-design.jpg"
+  },
+  "cardImage": {
+    "src": "/assets/blog/website-design/card.jpg",
+    "alt": "Website Design in 2026: What Founders Need to Know Before They Build",
+    "width": 1600,
+    "height": 900,
+    "original": "/assets/blog/website-design.jpg",
+    "svgSource": "/assets/blog/website-design/card.svg",
+    "bakedText": {
+      "eyebrow": "FOUNDATIONS",
+      "h1": "What good website design actually does",
+      "sub": "Beyond looks - the decisions that decide whether it works"
+    }
+  },
+  "readingMinutes": 22,
+  "readingMinutesSource": "computed: (body words + FAQ words) / 225, rounded, minimum 1. The live page shows no reading time.",
+  "readingMinutesDeclared": null,
+  "wordCount": 5060,
+  "wordCountFaq": 0,
+  "wordCountSchema": 5028,
+  "excerpt": "What makes good website design in 2026? A practical guide for founders on trends, platforms, custom vs. themes, and what to look for in a studio.",
+  "listing": {
+    "position": 3,
+    "title": "Website Design in 2026: What Founders Need to Know Before They Build",
+    "blurb": "First impressions form in 50 milliseconds - and in 2026, good website design means far more than looking polished. Here's what actually matters before you build."
+  },
+  "faq": [],
+  "relatedServices": [],
+  "headings": [
+    {
+      "level": 2,
+      "text": "Why Website Design Decisions Carry More Weight Now",
+      "id": "why-website-design-decisions-carry-more-weight-now"
+    },
+    {
+      "level": 2,
+      "text": "10 Things That Define Good Website Design in 2026",
+      "id": "10-things-that-define-good-website-design-in-2026"
+    },
+    {
+      "level": 3,
+      "text": "1. Mobile-First as the Primary Canvas",
+      "id": "1-mobile-first-as-the-primary-canvas"
+    },
+    {
+      "level": 3,
+      "text": "2. Intent-First Design Thinking",
+      "id": "2-intent-first-design-thinking"
+    },
+    {
+      "level": 3,
+      "text": "3. Core Web Vitals Baked In From the Start",
+      "id": "3-core-web-vitals-baked-in-from-the-start"
+    },
+    {
+      "level": 3,
+      "text": "4. Minimalist, Content-First Layouts",
+      "id": "4-minimalist-content-first-layouts"
+    },
+    {
+      "level": 3,
+      "text": "5. Bold Typography as a Visual Anchor",
+      "id": "5-bold-typography-as-a-visual-anchor"
+    },
+    {
+      "level": 3,
+      "text": "6. AI-Influenced Personalisation and Dynamic Content",
+      "id": "6-ai-influenced-personalisation-and-dynamic-content"
+    },
+    {
+      "level": 3,
+      "text": "7. Semantic Structure and Clean Site Architecture",
+      "id": "7-semantic-structure-and-clean-site-architecture"
+    },
+    {
+      "level": 3,
+      "text": "8. WCAG Compliance as a Baseline",
+      "id": "8-wcag-compliance-as-a-baseline"
+    },
+    {
+      "level": 3,
+      "text": "9. Custom Design Versus Themes - The Credibility Gap",
+      "id": "9-custom-design-versus-themes-the-credibility-gap"
+    },
+    {
+      "level": 3,
+      "text": "10. The Designer-Developer Handoff Problem",
+      "id": "10-the-designer-developer-handoff-problem"
+    },
+    {
+      "level": 2,
+      "text": "Which Platform Fits Your Business: Shopify, Webflow, Framer, WordPress, Wix, or Squarespace",
+      "id": "which-platform-fits-your-business-shopify-webflow-framer-wordpress-wix-or-squarespace"
+    },
+    {
+      "level": 3,
+      "text": "1. Shopify - Built for Selling",
+      "id": "1-shopify-built-for-selling"
+    },
+    {
+      "level": 3,
+      "text": "2. Webflow - Content-Rich, Marketing-Heavy Sites",
+      "id": "2-webflow-content-rich-marketing-heavy-sites"
+    },
+    {
+      "level": 3,
+      "text": "3. Framer - Early-Stage and Product-Led Brands",
+      "id": "3-framer-early-stage-and-product-led-brands"
+    },
+    {
+      "level": 3,
+      "text": "4. WordPress - Content-Heavy, SEO-Intensive Sites",
+      "id": "4-wordpress-content-heavy-seo-intensive-sites"
+    },
+    {
+      "level": 3,
+      "text": "5. Wix and Squarespace - Simpler, Lower-Complexity Builds",
+      "id": "5-wix-and-squarespace-simpler-lower-complexity-builds"
+    },
+    {
+      "level": 3,
+      "text": "The Rule That Overrides All of This",
+      "id": "the-rule-that-overrides-all-of-this"
+    },
+    {
+      "level": 2,
+      "text": "What Website Design Looks Like in Dubai and the UAE Market",
+      "id": "what-website-design-looks-like-in-dubai-and-the-uae-market"
+    },
+    {
+      "level": 2,
+      "text": "Early-Stage Build vs. Conversion-Focused Scale Build: Knowing Which One You Need",
+      "id": "early-stage-build-vs-conversion-focused-scale-build-knowing-which-one-you-need"
+    },
+    {
+      "level": 3,
+      "text": "The Early-Stage Build: Presence, Credibility, Validation",
+      "id": "the-early-stage-build-presence-credibility-validation"
+    },
+    {
+      "level": 3,
+      "text": "The Scale-Focused Build: Conversion Logic, Engineered In",
+      "id": "the-scale-focused-build-conversion-logic-engineered-in"
+    },
+    {
+      "level": 3,
+      "text": "Why Choosing the Wrong Type Costs You",
+      "id": "why-choosing-the-wrong-type-costs-you"
+    },
+    {
+      "level": 2,
+      "text": "What to Look for in a Web Design Studio",
+      "id": "what-to-look-for-in-a-web-design-studio"
+    },
+    {
+      "level": 2,
+      "text": "How We Approach a New Website Design Project",
+      "id": "how-we-approach-a-new-website-design-project"
+    },
+    {
+      "level": 2,
+      "text": "Key Takeaways",
+      "id": "key-takeaways"
+    },
+    {
+      "level": 2,
+      "text": "Conclusion",
+      "id": "conclusion"
+    }
+  ],
+  "links": [
+    {
+      "href": "/services/ecommerce-website-design/",
+      "text": "ecommerce website design"
+    },
+    {
+      "href": "/services/wordpress-website-design/",
+      "text": "WordPress"
+    },
+    {
+      "href": "/services/shopify-website-design/",
+      "text": "Shopify"
+    },
+    {
+      "href": "/services/ecommerce-website-design/",
+      "text": "ecommerce"
+    },
+    {
+      "href": "/services/shopify-website-design/",
+      "text": "Shopify website design service"
+    },
+    {
+      "href": "/services/webflow-website-design/",
+      "text": "Webflow"
+    },
+    {
+      "href": "/services/webflow-website-design/",
+      "text": "Webflow website design service"
+    },
+    {
+      "href": "/services/framer-website-design/",
+      "text": "Framer"
+    },
+    {
+      "href": "/services/framer-website-design/",
+      "text": "Framer website design service"
+    },
+    {
+      "href": "/services/seo-services/",
+      "text": "SEO"
+    },
+    {
+      "href": "/services/wordpress-website-design/",
+      "text": "WordPress website design service"
+    },
+    {
+      "href": "/services/squarespace-website-design/",
+      "text": "Squarespace"
+    },
+    {
+      "href": "/services/wix-website-design/",
+      "text": "Wix website design"
+    },
+    {
+      "href": "/services/squarespace-website-design/",
+      "text": "Squarespace website design"
+    },
+    {
+      "href": "/services/",
+      "text": "what we do"
+    },
+    {
+      "href": "/contact",
+      "text": "get in touch"
+    }
+  ],
+  "moreArticlesAsPublished": [
+    {
+      "title": "How to Choose a Branding Agency (Without Getting Burned)",
+      "href": "/blog/branding-agency/"
+    },
+    {
+      "title": "Headless CMS: what it is and when you actually need one",
+      "href": "/blog/headless-cms-guide/"
+    },
+    {
+      "title": "AI in web design: what it does well and where it fails",
+      "href": "/blog/ai-in-web-design/"
+    },
+    {
+      "title": "Arabic and RTL website design: doing it properly",
+      "href": "/blog/arabic-rtl-website-design/"
+    },
+    {
+      "title": "How to redesign your website without losing SEO",
+      "href": "/blog/website-redesign-without-losing-seo/"
+    }
+  ],
+  "cta": {
+    "heading": "Let’s bring your vision to life",
+    "text": "We are here to ensure your experience with us is smooth and successful. Reach out anytime - we will come back with a clear plan, timeline and a fixed quote.",
+    "button": "Get in touch",
+    "href": "/contact"
+  },
+  "meta": {
+    "robots": "index, follow",
+    "ogType": "article",
+    "ogTitle": "Website Design: What Founders Need to Know in 2026 | TheBrandle",
+    "ogDescription": "What makes good website design in 2026? A practical guide for founders on trends, platforms, custom vs. themes, and what to look for in a studio.",
+    "ogImage": "https://www.thebrandle.com/assets/blog/website-design.jpg",
+    "twitterCard": "summary_large_image",
+    "twitterTitle": "Website Design: What Founders Need to Know in 2026 | TheBrandle",
+    "twitterImage": "https://www.thebrandle.com/assets/blog/website-design.jpg",
+    "rssAlternate": "https://www.thebrandle.com/rss.xml"
+  },
+  "jsonLdTypes": [
+    "BlogPosting",
+    "BreadcrumbList"
+  ],
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Website Design in 2026: What Founders Need to Know Before They Build",
+      "description": "What makes good website design in 2026? A practical guide for founders on trends, platforms, custom vs. themes, and what to look for in a studio.",
+      "url": "https://www.thebrandle.com/blog/website-design/",
+      "mainEntityOfPage": "https://www.thebrandle.com/blog/website-design/",
+      "datePublished": "2026-07-28T22:04:11.000Z",
+      "dateModified": "2026-07-28T22:04:11.000Z",
+      "image": "https://www.thebrandle.com/assets/blog/website-design.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.thebrandle.com/framerusercontent.com/assets/TheBrandle.svg"
+        }
+      },
+      "wordCount": 5028
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.thebrandle.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.thebrandle.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Website Design in 2026: What Founders Need to Know Before They Build",
+          "item": "https://www.thebrandle.com/blog/website-design/"
+        }
+      ]
+    }
+  ]
+}

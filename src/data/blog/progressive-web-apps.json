@@ -1,0 +1,247 @@
+{
+  "slug": "progressive-web-apps",
+  "url": "https://www.thebrandle.com/blog/progressive-web-apps/",
+  "path": "/blog/progressive-web-apps/",
+  "canonical": "https://www.thebrandle.com/blog/progressive-web-apps/",
+  "lang": "en",
+  "source": "hand-written",
+  "title": "Progressive Web Apps: Do You Need One? | TheBrandle",
+  "titleWithoutBrand": "Progressive Web Apps: Do You Need One?",
+  "description": "What a progressive web app is, how it compares to a native mobile app, and the honest cases where a PWA is the right choice for a business.",
+  "h1": "Progressive web apps: do you actually need one?",
+  "headline": "Progressive Web Apps: Do You Need One? | TheBrandle",
+  "datePublished": "2026-07-28",
+  "dateModified": "2026-07-28",
+  "dateDisplayed": "Jul 28, 2026",
+  "sitemapLastmod": "2026-08-16",
+  "gitFirstCommit": "2026-08-07T03:49:12+04:00",
+  "gitLastCommit": "2026-11-03T10:57:22+04:00",
+  "author": {
+    "name": "The Brandle Team",
+    "role": "Design Studio",
+    "avatar": "/assets/blog/_shared/author-avatar.jpg",
+    "avatarOriginal": "/framerusercontent.com/images/A0LPOEdkaRkfMcS2EWs1My620fA.jpg",
+    "schemaAuthor": {
+      "@type": "Organization",
+      "name": "TheBrandle",
+      "url": "https://www.thebrandle.com"
+    }
+  },
+  "category": "Architecture",
+  "categorySource": "tag in scripts/blog-posts-data.js (never rendered on the live page)",
+  "tags": [
+    "Architecture"
+  ],
+  "suggestedGroup": "SEO and performance",
+  "heroImage": {
+    "src": "/assets/blog/progressive-web-apps/cover.jpg",
+    "alt": "Abstract concentric waves spreading from a point",
+    "width": 2560,
+    "height": 1440,
+    "original": "/assets/blog/covers/progressive-web-apps.jpg"
+  },
+  "cardImage": {
+    "src": "/assets/blog/progressive-web-apps/card.jpg",
+    "alt": "Progressive web apps: do you actually need one?",
+    "width": 1600,
+    "height": 900,
+    "original": "/assets/blog/progressive-web-apps.jpg",
+    "svgSource": "/assets/blog/progressive-web-apps/card.svg",
+    "bakedText": {
+      "eyebrow": "ARCHITECTURE",
+      "h1": "Do you actually need a PWA?",
+      "sub": "Where it beats a native app, and where you need neither"
+    }
+  },
+  "readingMinutes": 2,
+  "readingMinutesSource": "computed: (body words + FAQ words) / 225, rounded, minimum 1. The live page shows no reading time.",
+  "readingMinutesDeclared": 6,
+  "wordCount": 285,
+  "wordCountFaq": 85,
+  "wordCountSchema": null,
+  "excerpt": "What a progressive web app is, how it compares to a native mobile app, and the honest cases where a PWA is the right choice for a business.",
+  "listing": {
+    "position": 13,
+    "title": "Progressive web apps: do you actually need one?",
+    "blurb": "Where it beats a native app, and where you need neither."
+  },
+  "faq": [
+    {
+      "q": "Is a PWA cheaper than a native app?",
+      "a": "Usually substantially, because it builds on your existing site rather than two separate codebases. The saving is real but so are the capability limits."
+    },
+    {
+      "q": "Can a PWA go in the App Store?",
+      "a": "It can be wrapped for submission, though Apple applies scrutiny to apps that are mainly a website. It is not a reliable route to store presence."
+    },
+    {
+      "q": "Do PWAs help SEO?",
+      "a": "The performance work usually involved helps. Being a PWA is not itself a ranking factor."
+    }
+  ],
+  "relatedServices": [
+    {
+      "label": "Mobile App Development",
+      "href": "/services/mobile-app-development/"
+    },
+    {
+      "label": "Web Application Development",
+      "href": "/services/web-application-development/"
+    },
+    {
+      "label": "All Services",
+      "href": "/services/"
+    }
+  ],
+  "headings": [
+    {
+      "level": 2,
+      "text": "What a PWA gives you",
+      "id": "what-a-pwa-gives-you"
+    },
+    {
+      "level": 2,
+      "text": "What you give up",
+      "id": "what-you-give-up"
+    },
+    {
+      "level": 2,
+      "text": "The honest recommendation",
+      "id": "the-honest-recommendation"
+    }
+  ],
+  "links": [
+    {
+      "href": "/services/mobile-app-development/",
+      "text": "mobile app development service"
+    },
+    {
+      "href": "/contact",
+      "text": "get in touch"
+    }
+  ],
+  "moreArticlesAsPublished": [
+    {
+      "title": "How to build a startup website people trust",
+      "href": "/blog/how-to-build-a-startup-website/"
+    },
+    {
+      "title": "Headless CMS: what it is and when you actually need one",
+      "href": "/blog/headless-cms-guide/"
+    },
+    {
+      "title": "AI in web design: what it does well and where it fails",
+      "href": "/blog/ai-in-web-design/"
+    },
+    {
+      "title": "Arabic and RTL website design: doing it properly",
+      "href": "/blog/arabic-rtl-website-design/"
+    },
+    {
+      "title": "How to redesign your website without losing SEO",
+      "href": "/blog/website-redesign-without-losing-seo/"
+    }
+  ],
+  "cta": {
+    "heading": "Ready to build it right?",
+    "text": "Tell us about your project and we will come back with a clear plan, timeline and a fixed quote.",
+    "button": "Book a free consultation",
+    "href": "/contact"
+  },
+  "meta": {
+    "robots": "index, follow",
+    "ogType": "article",
+    "ogTitle": "Progressive Web Apps: Do You Need One? | TheBrandle",
+    "ogDescription": "What a progressive web app is, how it compares to a native mobile app, and the honest cases where a PWA is the right choice for a business.",
+    "ogImage": "https://www.thebrandle.com/assets/blog/progressive-web-apps.jpg",
+    "twitterCard": "summary_large_image",
+    "twitterTitle": "Progressive Web Apps: Do You Need One? | TheBrandle",
+    "twitterImage": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+    "rssAlternate": null
+  },
+  "jsonLdTypes": [
+    "Article",
+    "FAQPage",
+    "BreadcrumbList"
+  ],
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Progressive Web Apps: Do You Need One? | TheBrandle",
+      "description": "What a progressive web app is, how it compares to a native mobile app, and the honest cases where a PWA is the right choice for a business.",
+      "datePublished": "2026-07-28",
+      "dateModified": "2026-07-28",
+      "author": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.thebrandle.com/framerusercontent.com/assets/TheBrandle.svg"
+        }
+      },
+      "image": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+      "mainEntityOfPage": "https://www.thebrandle.com/blog/progressive-web-apps/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is a PWA cheaper than a native app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually substantially, because it builds on your existing site rather than two separate codebases. The saving is real but so are the capability limits."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a PWA go in the App Store?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It can be wrapped for submission, though Apple applies scrutiny to apps that are mainly a website. It is not a reliable route to store presence."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do PWAs help SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The performance work usually involved helps. Being a PWA is not itself a ranking factor."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.thebrandle.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.thebrandle.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Progressive Web Apps: Do You Need One? | TheBrandle",
+          "item": "https://www.thebrandle.com/blog/progressive-web-apps/"
+        }
+      ]
+    }
+  ]
+}

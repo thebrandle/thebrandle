@@ -1,0 +1,109 @@
+{
+ "type": "own",
+ "seo_title": "Soznikar: Shopify Store Design and Build | The Brandle",
+ "summary": "A Shopify store for hand-loomed Kashmiri pashmina, sold into the Gulf.",
+ "cover": "ink",
+ "portrait": "xdr-ink-portrait",
+ "screens": 5,
+ "cta": "Visit soznikar.com",
+ "brief": {
+  "label": "Luxury retail",
+  "heading": "The brief",
+  "paras": [
+   "Soznikar sells hand-loomed Kashmiri pashmina ghutras to the Gulf. Every piece is woven and embroidered by hand, so the store had to carry detail and provenance rather than shout about discounts.",
+   "It is our own brand. That made us the client, and we can confirm the client was difficult."
+  ]
+ },
+ "answer": {
+  "label": "Shopify store",
+  "heading": "The build",
+  "paras": [
+   "A Shopify storefront, designed and built in-house, in English and Arabic. The home page opens on one line, \"Woven in Kashmir. Worn in the Gulf.\", and then gets out of the way of the cloth.",
+   "There is a page for the ghutra, a page for the heritage behind it, and product pages that give the craft room to speak. Nobody has ever been talked into pashmina by a pop-up."
+  ]
+ },
+ "tags": [
+  "Store design",
+  "Shopify build",
+  "English & Arabic",
+  "Product pages"
+ ],
+ "blocks": [
+  {
+   "t": "full",
+   "img": "s1",
+   "alt": "The Ghutra page on Soznikar showing the Signature and Imperial collections"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p1",
+    "alt": "The Soznikar home page on a phone"
+   },
+   "b": {
+    "img": "p2",
+    "alt": "The Ghutra page on a phone"
+   }
+  },
+  {
+   "t": "video",
+   "file": "soznikar-wide",
+   "alt": "The Soznikar home page playing on a MacBook Pro"
+  },
+  {
+   "t": "mock",
+   "scene": "concrete",
+   "alt": "Pages of the Soznikar store cutting past on a desktop display on a concrete desk"
+  },
+  {
+   "t": "full",
+   "img": "s2",
+   "alt": "The Soznikar product listing: a grid of embroidered pashmina shawls"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p3",
+    "alt": "The Soznikar product grid on a phone"
+   },
+   "b": {
+    "img": "p4",
+    "alt": "A Soznikar product page on a phone"
+   }
+  },
+  {
+   "t": "full",
+   "img": "s3",
+   "alt": "A Soznikar product page for a Kashmiri pashmina shawl with close-up photographs"
+  },
+  {
+   "t": "full",
+   "img": "s4",
+   "alt": "The Heritage page on Soznikar, telling where pashmina comes from"
+  },
+  {
+   "t": "full",
+   "img": "s5",
+   "alt": "The Soznikar home page: Woven in Kashmir, worn in the Gulf, above a fan of product photographs"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Hand-loomed Kashmiri pashmina ghutras for the Gulf, woven and sozni-embroidered by hand, detail and provenance over volume, Shopify storefront design and build",
+   "source": "https://www.thebrandle.com/projects/soznikar/ (live page text, research/brandle-pages/content/project-soznikar.md)"
+  },
+  {
+   "claim": "It is the studio's own brand, not an outside client",
+   "source": "research/brandle-pages/verdict.md (Projects table) and content/project-soznikar.md"
+  },
+  {
+   "claim": "English and Arabic, home page headline, pages for the ghutra and heritage, product pages",
+   "source": "https://soznikar.com (links /ar, /pages/the-ghutra, /pages/heritage; captured 2026-11-11)"
+  },
+  {
+   "claim": "Theme built in-house",
+   "source": "~/soznikar/theme and ~/soznikar/docs/launch-checklist.md"
+  }
+ ],
+ "description": "A Shopify store for hand-loomed Kashmiri pashmina, sold into the Gulf. Designed and built by The Brandle, a Dubai design and development studio."
+}

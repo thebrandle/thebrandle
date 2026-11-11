@@ -1,0 +1,155 @@
+{
+ "title": "Web Design Doha: Bilingual Websites | The Brandle",
+ "description": "Web design for Doha businesses. Bilingual Arabic and English websites and stores, local card payments set up properly, and no VAT to complicate checkout.",
+ "crumb": "Doha",
+ "country": "Qatar",
+ "schema_name": "Web design Doha",
+ "service_type": "Web Design Doha",
+ "hub": {
+  "name": "Web design Doha",
+  "line": "Marble lobby energy, for your homepage."
+ },
+ "hero": {
+  "h1": [
+   "Web design",
+   "Doha"
+  ],
+  "stickers": [
+   {
+    "icon": "building"
+   }
+  ],
+  "chips": [
+   "Bilingual EN/AR",
+   "Local card payments",
+   "No VAT, still tidy"
+  ],
+  "joke": "Doha does its hotel lobbies in marble. A lot of its websites are still done in plasterboard.",
+  "intro": "Web design for Doha, from a studio in Dubai. Bilingual Arabic and English websites and online stores for hospitality, property, professional services and retail, with the payment methods people in Qatar actually use and a checkout with no VAT line to argue about."
+ },
+ "get": {
+  "h2": "Built for Qatar",
+  "items": [
+   {
+    "icon": "globe",
+    "t": "Bilingual by design",
+    "p": "Arabic and English designed together, each in its own direction, so neither one looks like an afterthought."
+   },
+   {
+    "icon": "card",
+    "t": "Local cards first",
+    "p": "NAPS debit cards, Visa, Mastercard and Apple Pay, through a gateway licensed to take payments in Qatar."
+   },
+   {
+    "icon": "tag",
+    "t": "Prices without VAT",
+    "p": "Qatar doesn't charge VAT, so prices stay clean. If that ever changes, the store is set up to add a tax line without a rebuild."
+   },
+   {
+    "icon": "star",
+    "t": "Hospitality and property",
+    "p": "Rooms, residences, menus and enquiry forms laid out for people choosing between several very nice options."
+   },
+   {
+    "icon": "users",
+    "t": "Expats and locals",
+    "p": "Clear structure for a mixed audience, with the language switch where people look for it, not hidden in the footer."
+   },
+   {
+    "icon": "phone",
+    "t": "Quick on a phone",
+    "p": "Light pages that load fast on mobile and are tested on real phones."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Is this you?",
+  "p": "Doha clients often need a site that impresses the people who live here and the people who just arrived. That means two languages done properly, payments that work with local cards and a structure a visitor can follow without a guide.",
+  "yes": [
+   "A Doha business that needs both Arabic and English",
+   "A hotel, restaurant or property developer",
+   "A professional firm with a site that undersells it",
+   "A Gulf brand opening in Qatar"
+  ],
+  "no": "you're a large organisation buying through several committees. [Web design Abu Dhabi](/services/web-design-abu-dhabi/) describes how we run those projects. For checkout only, see [payment gateway integration](/services/payment-gateway-integration/)."
+ },
+ "steps": {
+  "h2": "Brief to launch",
+  "items": [
+   {
+    "t": "Brief",
+    "p": "A free video call. Doha is one hour behind Dubai, so mornings suit both sides. A written scope and fixed quote follow."
+   },
+   {
+    "t": "Design",
+    "p": "Key pages designed in Arabic and English side by side."
+   },
+   {
+    "t": "Build",
+    "p": "Built on the platform that suits you, with payments connected in test mode. Our weeks overlap Monday to Thursday."
+   },
+   {
+    "t": "Launch",
+    "p": "Test payments with local cards, both languages checked, then live. Free fixes for 30 days."
+   }
+  ]
+ },
+ "price": {
+  "big": [
+   "$1,299 to",
+   "$6,499"
+  ],
+  "p": "Our fixed plans run from $1,299 to $6,499, and a site or store takes 3 to 6 weeks. A second language and a Qatar payment gateway add scope, which the quote will show. Translation is separate."
+ },
+ "tools": {
+  "h2": "At the Qatar checkout",
+  "items": [
+   "NAPS debit cards",
+   "Visa",
+   "Mastercard",
+   "Apple Pay",
+   "Cash on delivery"
+  ],
+  "note": "Payment methods we can connect through a gateway that supports them. Mostly written as words, because that's how their owners prefer it."
+ },
+ "faq_h2": "Doha, answered",
+ "faq": [
+  {
+   "q": "Is there VAT on online sales in Qatar?",
+   "a": "Not at the moment. Qatar doesn't charge VAT, so your prices can stay as they are. We still build the store so a tax line can be switched on later if the rules change."
+  },
+  {
+   "q": "Which payment methods should a Doha store take?",
+   "a": "Local NAPS debit cards, Visa, Mastercard and Apple Pay, through a gateway licensed in Qatar. Cash on delivery is still worth offering for many shops."
+  },
+  {
+   "q": "Can you work with us from Dubai?",
+   "a": "Yes. Doha is one hour behind Dubai. Your week runs Sunday to Thursday and ours Monday to Friday, so four days overlap. We reply within one business day."
+  },
+  {
+   "q": "Do you write the Arabic?",
+   "a": "We design for it and can recommend translators. Native copy is a specialist's job, and we won't run your brand through a translation tool and hope."
+  }
+ ],
+ "related": [
+  "web-design-dubai",
+  "web-design-kuwait",
+  "payment-gateway-integration"
+ ],
+ "post": {
+  "slug": "arabic-rtl-website-design",
+  "title": "Arabic and RTL website design: doing it properly"
+ },
+ "cta": {
+  "lines": [
+   "Swap the",
+   "plasterboard"
+  ],
+  "pills": [
+   "Free call",
+   "Fixed quote",
+   "Two languages"
+  ],
+  "p": "Tell us about the business and who it's for. We reply within one business day."
+ }
+}

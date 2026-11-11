@@ -1,0 +1,22 @@
+{
+ "_": "Art for each post's card, share image and hero, drawn by src/og/blog-card.mjs. lines = the short topic in big type; ground = cream | orange | black; stickers = platform marks (assets/blog/logos/<name>.svg) or icons drawn in src/og/blog-card.html; quip = the small pill.",
+ "how-to-build-a-startup-website": {"lines": ["The startup", "website"], "ground": "orange", "stickers": ["rocket"], "quip": "No pitch deck needed"},
+ "branding-agency": {"lines": ["Picking a", "branding agency"], "ground": "cream", "stickers": ["star"], "quip": "Red flags included"},
+ "website-design": {"lines": ["Website design", "in 2026"], "ground": "black", "stickers": ["browser"], "quip": "It is a long one"},
+ "headless-cms-guide": {"lines": ["Headless", "CMS"], "ground": "cream", "stickers": ["blocks"], "quip": "Body sold separately"},
+ "ai-in-web-design": {"lines": ["AI in", "web design"], "ground": "orange", "stickers": ["spark"], "quip": "Written by humans"},
+ "arabic-rtl-website-design": {"lines": ["Arabic", "and RTL"], "ground": "black", "stickers": ["rtl"], "quip": "Right to left, done right"},
+ "website-redesign-without-losing-seo": {"lines": ["Redesign.", "Keep the SEO"], "ground": "orange", "stickers": ["refresh", "search"], "quip": "Rankings stay put"},
+ "website-maintenance-cost": {"lines": ["What upkeep", "really costs"], "ground": "cream", "stickers": ["wrench"], "quip": "Skip the padding"},
+ "wordpress-vs-webflow": {"lines": ["WordPress", "vs Webflow"], "ground": "black", "stickers": ["wordpress", "webflow"], "quip": "No fan clubs"},
+ "website-total-cost-of-ownership": {"lines": ["The three", "year bill"], "ground": "orange", "stickers": ["calendar"], "quip": "The bit quotes skip"},
+ "real-estate-website-design": {"lines": ["Real estate", "websites"], "ground": "cream", "stickers": ["building"], "quip": "Location, location, loading"},
+ "core-web-vitals-guide": {"lines": ["Core Web", "Vitals"], "ground": "black", "stickers": ["gauge"], "quip": "LCP, INP, CLS, OMG"},
+ "progressive-web-apps": {"lines": ["Do you need", "a PWA?"], "ground": "orange", "stickers": ["phone"], "quip": "Probably not. Maybe."},
+ "website-security-checklist": {"lines": ["Security", "checklist"], "ground": "cream", "stickers": ["shield"], "quip": "Password123 is out"},
+ "should-i-hire-a-web-designer-or-do-it-myself": {"lines": ["Hire or", "DIY?"], "ground": "black", "stickers": ["signpost"], "quip": "Biased, still honest"},
+ "shopify-vs-woocommerce": {"lines": ["Shopify", "vs Woo"], "ground": "cream", "stickers": ["shopify", "woo"], "quip": "Pick your fighter"},
+ "website-cost-dubai": {"lines": ["What a", "website costs"], "ground": "orange", "stickers": ["tag"], "quip": "Spoiler: it depends"},
+ "framer-vs-webflow": {"lines": ["Framer", "vs Webflow"], "ground": "black", "stickers": ["framer", "webflow"], "quip": "We build on both"},
+ "wix-to-shopify-migration": {"lines": ["Wix to", "Shopify"], "ground": "cream", "stickers": ["wix", "shopify"], "quip": "Pack light"}
+}

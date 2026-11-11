@@ -1,0 +1,243 @@
+{
+  "slug": "core-web-vitals-guide",
+  "url": "https://www.thebrandle.com/blog/core-web-vitals-guide/",
+  "path": "/blog/core-web-vitals-guide/",
+  "canonical": "https://www.thebrandle.com/blog/core-web-vitals-guide/",
+  "lang": "en",
+  "source": "hand-written",
+  "title": "Core Web Vitals: What They Are and How to Fix Them | TheBrandle",
+  "titleWithoutBrand": "Core Web Vitals: What They Are and How to Fix Them",
+  "description": "A practical guide to Core Web Vitals - LCP, INP and CLS explained in plain English, what causes bad scores, and the fixes that actually move the numbers.",
+  "h1": "Core Web Vitals: what they are and how to fix them",
+  "headline": "Core Web Vitals: What They Are and How to Fix Them | TheBrandle",
+  "datePublished": "2026-07-28",
+  "dateModified": "2026-07-28",
+  "dateDisplayed": "Jul 28, 2026",
+  "sitemapLastmod": "2026-08-16",
+  "gitFirstCommit": "2026-08-07T03:49:12+04:00",
+  "gitLastCommit": "2026-11-03T10:57:22+04:00",
+  "author": {
+    "name": "The Brandle Team",
+    "role": "Design Studio",
+    "avatar": "/assets/blog/_shared/author-avatar.jpg",
+    "avatarOriginal": "/framerusercontent.com/images/A0LPOEdkaRkfMcS2EWs1My620fA.jpg",
+    "schemaAuthor": {
+      "@type": "Organization",
+      "name": "TheBrandle",
+      "url": "https://www.thebrandle.com"
+    }
+  },
+  "category": "Performance",
+  "categorySource": "tag in scripts/blog-posts-data.js (never rendered on the live page)",
+  "tags": [
+    "Performance"
+  ],
+  "suggestedGroup": "SEO and performance",
+  "heroImage": {
+    "src": "/assets/blog/core-web-vitals-guide/cover.jpg",
+    "alt": "Abstract ribbons of light accelerating into streaks",
+    "width": 2560,
+    "height": 1440,
+    "original": "/assets/blog/covers/core-web-vitals-guide.jpg"
+  },
+  "cardImage": {
+    "src": "/assets/blog/core-web-vitals-guide/card.jpg",
+    "alt": "Core Web Vitals: what they are and how to fix them",
+    "width": 1600,
+    "height": 900,
+    "original": "/assets/blog/core-web-vitals-guide.jpg",
+    "svgSource": "/assets/blog/core-web-vitals-guide/card.svg",
+    "bakedText": {
+      "eyebrow": "PERFORMANCE",
+      "h1": "Core Web Vitals, without the jargon",
+      "sub": "LCP, INP and CLS - what breaks them and how to fix it"
+    }
+  },
+  "readingMinutes": 2,
+  "readingMinutesSource": "computed: (body words + FAQ words) / 225, rounded, minimum 1. The live page shows no reading time.",
+  "readingMinutesDeclared": 6,
+  "wordCount": 343,
+  "wordCountFaq": 93,
+  "wordCountSchema": null,
+  "excerpt": "A practical guide to Core Web Vitals - LCP, INP and CLS explained in plain English, what causes bad scores, and the fixes that actually move the numbers.",
+  "listing": {
+    "position": 12,
+    "title": "Core Web Vitals: what they are and how to fix them",
+    "blurb": "LCP, INP and CLS - what breaks them and how to fix it."
+  },
+  "faq": [
+    {
+      "q": "How much do Core Web Vitals affect rankings?",
+      "a": "They are a real but small signal, mostly acting as a tiebreaker between similar pages. Content relevance matters far more. Fix them for conversions as much as for rankings."
+    },
+    {
+      "q": "Why does my score differ between tools?",
+      "a": "PageSpeed Insights lab tests simulate a slow device. Search Console reports real visitors. The field data is what Google uses."
+    },
+    {
+      "q": "Can a WordPress site pass Core Web Vitals?",
+      "a": "Yes, but it needs work - lean theme, few plugins, optimised images and decent hosting. Passing by default is unusual on WordPress."
+    }
+  ],
+  "relatedServices": [
+    {
+      "label": "SEO Services",
+      "href": "/services/seo-services/"
+    },
+    {
+      "label": "Website Maintenance",
+      "href": "/services/website-maintenance/"
+    },
+    {
+      "label": "All Services",
+      "href": "/services/"
+    }
+  ],
+  "headings": [
+    {
+      "level": 2,
+      "text": "The three metrics",
+      "id": "the-three-metrics"
+    },
+    {
+      "level": 2,
+      "text": "What actually causes bad scores",
+      "id": "what-actually-causes-bad-scores"
+    },
+    {
+      "level": 2,
+      "text": "The fixes that matter",
+      "id": "the-fixes-that-matter"
+    }
+  ],
+  "links": [
+    {
+      "href": "/services/seo-services/",
+      "text": "SEO services"
+    }
+  ],
+  "moreArticlesAsPublished": [
+    {
+      "title": "How to build a startup website people trust",
+      "href": "/blog/how-to-build-a-startup-website/"
+    },
+    {
+      "title": "Headless CMS: what it is and when you actually need one",
+      "href": "/blog/headless-cms-guide/"
+    },
+    {
+      "title": "AI in web design: what it does well and where it fails",
+      "href": "/blog/ai-in-web-design/"
+    },
+    {
+      "title": "Arabic and RTL website design: doing it properly",
+      "href": "/blog/arabic-rtl-website-design/"
+    },
+    {
+      "title": "How to redesign your website without losing SEO",
+      "href": "/blog/website-redesign-without-losing-seo/"
+    }
+  ],
+  "cta": {
+    "heading": "Ready to build it right?",
+    "text": "Tell us about your project and we will come back with a clear plan, timeline and a fixed quote.",
+    "button": "Book a free consultation",
+    "href": "/contact"
+  },
+  "meta": {
+    "robots": "index, follow",
+    "ogType": "article",
+    "ogTitle": "Core Web Vitals: What They Are and How to Fix Them | TheBrandle",
+    "ogDescription": "A practical guide to Core Web Vitals - LCP, INP and CLS explained in plain English, what causes bad scores, and the fixes that actually move the numbers.",
+    "ogImage": "https://www.thebrandle.com/assets/blog/core-web-vitals-guide.jpg",
+    "twitterCard": "summary_large_image",
+    "twitterTitle": "Core Web Vitals: What They Are and How to Fix Them | TheBrandle",
+    "twitterImage": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+    "rssAlternate": null
+  },
+  "jsonLdTypes": [
+    "Article",
+    "FAQPage",
+    "BreadcrumbList"
+  ],
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Core Web Vitals: What They Are and How to Fix Them | TheBrandle",
+      "description": "A practical guide to Core Web Vitals - LCP, INP and CLS explained in plain English, what causes bad scores, and the fixes that actually move the numbers.",
+      "datePublished": "2026-07-28",
+      "dateModified": "2026-07-28",
+      "author": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.thebrandle.com/framerusercontent.com/assets/TheBrandle.svg"
+        }
+      },
+      "image": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+      "mainEntityOfPage": "https://www.thebrandle.com/blog/core-web-vitals-guide/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much do Core Web Vitals affect rankings?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They are a real but small signal, mostly acting as a tiebreaker between similar pages. Content relevance matters far more. Fix them for conversions as much as for rankings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does my score differ between tools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PageSpeed Insights lab tests simulate a slow device. Search Console reports real visitors. The field data is what Google uses."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a WordPress site pass Core Web Vitals?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, but it needs work - lean theme, few plugins, optimised images and decent hosting. Passing by default is unusual on WordPress."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.thebrandle.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.thebrandle.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Core Web Vitals: What They Are and How to Fix Them | TheBrandle",
+          "item": "https://www.thebrandle.com/blog/core-web-vitals-guide/"
+        }
+      ]
+    }
+  ]
+}

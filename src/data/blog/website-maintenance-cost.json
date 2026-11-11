@@ -1,0 +1,243 @@
+{
+  "slug": "website-maintenance-cost",
+  "url": "https://www.thebrandle.com/blog/website-maintenance-cost/",
+  "path": "/blog/website-maintenance-cost/",
+  "canonical": "https://www.thebrandle.com/blog/website-maintenance-cost/",
+  "lang": "en",
+  "source": "hand-written",
+  "title": "Website Maintenance Cost: What You Actually Need to Pay For | TheBrandle",
+  "titleWithoutBrand": "Website Maintenance Cost: What You Actually Need to Pay For",
+  "description": "What website maintenance really costs, what a care plan should include, and which line items are worth paying for versus padding on an invoice.",
+  "h1": "Website maintenance: what you actually need to pay for",
+  "headline": "Website Maintenance Cost: What You Actually Need to Pay For | TheBrandle",
+  "datePublished": "2026-07-28",
+  "dateModified": "2026-07-28",
+  "dateDisplayed": "Jul 28, 2026",
+  "sitemapLastmod": "2026-08-16",
+  "gitFirstCommit": "2026-08-07T03:49:12+04:00",
+  "gitLastCommit": "2026-11-03T10:57:22+04:00",
+  "author": {
+    "name": "The Brandle Team",
+    "role": "Design Studio",
+    "avatar": "/assets/blog/_shared/author-avatar.jpg",
+    "avatarOriginal": "/framerusercontent.com/images/A0LPOEdkaRkfMcS2EWs1My620fA.jpg",
+    "schemaAuthor": {
+      "@type": "Organization",
+      "name": "TheBrandle",
+      "url": "https://www.thebrandle.com"
+    }
+  },
+  "category": "Pricing",
+  "categorySource": "tag in scripts/blog-posts-data.js (never rendered on the live page)",
+  "tags": [
+    "Pricing"
+  ],
+  "suggestedGroup": "Pricing",
+  "heroImage": {
+    "src": "/assets/blog/website-maintenance-cost/cover.jpg",
+    "alt": "Abstract interlocking rings in continuous motion",
+    "width": 2560,
+    "height": 1440,
+    "original": "/assets/blog/covers/website-maintenance-cost.jpg"
+  },
+  "cardImage": {
+    "src": "/assets/blog/website-maintenance-cost/card.jpg",
+    "alt": "Website maintenance: what you actually need to pay for",
+    "width": 1600,
+    "height": 900,
+    "original": "/assets/blog/website-maintenance-cost.jpg",
+    "svgSource": "/assets/blog/website-maintenance-cost/card.svg",
+    "bakedText": {
+      "eyebrow": "PRICING",
+      "h1": "What maintenance should actually cost",
+      "sub": "The work that matters, and the line items that are padding"
+    }
+  },
+  "readingMinutes": 2,
+  "readingMinutesSource": "computed: (body words + FAQ words) / 225, rounded, minimum 1. The live page shows no reading time.",
+  "readingMinutesDeclared": 6,
+  "wordCount": 334,
+  "wordCountFaq": 114,
+  "wordCountSchema": null,
+  "excerpt": "What website maintenance really costs, what a care plan should include, and which line items are worth paying for versus padding on an invoice.",
+  "listing": {
+    "position": 8,
+    "title": "Website maintenance: what you actually need to pay for",
+    "blurb": "The work that matters, and the line items that are padding."
+  },
+  "faq": [
+    {
+      "q": "Do I really need a maintenance plan?",
+      "a": "If your site is on WordPress or WooCommerce, effectively yes - unpatched plugins are the main attack route. On a hosted platform like Shopify or Framer the platform handles more, so the need is smaller."
+    },
+    {
+      "q": "Can I do maintenance myself?",
+      "a": "You can, if you will genuinely do it monthly and know how to recover from a failed update. The reason most owners pay for it is that it gets skipped until something breaks."
+    },
+    {
+      "q": "What happens if I skip it?",
+      "a": "Usually nothing, for a while. Then a plugin vulnerability gets exploited, or an update breaks the checkout, and the recovery costs more than a year of maintenance would have."
+    }
+  ],
+  "relatedServices": [
+    {
+      "label": "Website Maintenance",
+      "href": "/services/website-maintenance/"
+    },
+    {
+      "label": "WordPress Website Design",
+      "href": "/services/wordpress-website-design/"
+    },
+    {
+      "label": "All Services",
+      "href": "/services/"
+    }
+  ],
+  "headings": [
+    {
+      "level": 2,
+      "text": "What actually needs doing",
+      "id": "what-actually-needs-doing"
+    },
+    {
+      "level": 2,
+      "text": "What is usually padding",
+      "id": "what-is-usually-padding"
+    },
+    {
+      "level": 2,
+      "text": "What it should cost",
+      "id": "what-it-should-cost"
+    }
+  ],
+  "links": [
+    {
+      "href": "/services/website-maintenance/",
+      "text": "website maintenance service"
+    }
+  ],
+  "moreArticlesAsPublished": [
+    {
+      "title": "How to build a startup website people trust",
+      "href": "/blog/how-to-build-a-startup-website/"
+    },
+    {
+      "title": "Headless CMS: what it is and when you actually need one",
+      "href": "/blog/headless-cms-guide/"
+    },
+    {
+      "title": "AI in web design: what it does well and where it fails",
+      "href": "/blog/ai-in-web-design/"
+    },
+    {
+      "title": "Arabic and RTL website design: doing it properly",
+      "href": "/blog/arabic-rtl-website-design/"
+    },
+    {
+      "title": "How to redesign your website without losing SEO",
+      "href": "/blog/website-redesign-without-losing-seo/"
+    }
+  ],
+  "cta": {
+    "heading": "Ready to build it right?",
+    "text": "Tell us about your project and we will come back with a clear plan, timeline and a fixed quote.",
+    "button": "Book a free consultation",
+    "href": "/contact"
+  },
+  "meta": {
+    "robots": "index, follow",
+    "ogType": "article",
+    "ogTitle": "Website Maintenance Cost: What You Actually Need to Pay For | TheBrandle",
+    "ogDescription": "What website maintenance really costs, what a care plan should include, and which line items are worth paying for versus padding on an invoice.",
+    "ogImage": "https://www.thebrandle.com/assets/blog/website-maintenance-cost.jpg",
+    "twitterCard": "summary_large_image",
+    "twitterTitle": "Website Maintenance Cost: What You Actually Need to Pay For | TheBrandle",
+    "twitterImage": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+    "rssAlternate": null
+  },
+  "jsonLdTypes": [
+    "Article",
+    "FAQPage",
+    "BreadcrumbList"
+  ],
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Website Maintenance Cost: What You Actually Need to Pay For | TheBrandle",
+      "description": "What website maintenance really costs, what a care plan should include, and which line items are worth paying for versus padding on an invoice.",
+      "datePublished": "2026-07-28",
+      "dateModified": "2026-07-28",
+      "author": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.thebrandle.com/framerusercontent.com/assets/TheBrandle.svg"
+        }
+      },
+      "image": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+      "mainEntityOfPage": "https://www.thebrandle.com/blog/website-maintenance-cost/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do I really need a maintenance plan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If your site is on WordPress or WooCommerce, effectively yes - unpatched plugins are the main attack route. On a hosted platform like Shopify or Framer the platform handles more, so the need is smaller."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I do maintenance myself?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can, if you will genuinely do it monthly and know how to recover from a failed update. The reason most owners pay for it is that it gets skipped until something breaks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if I skip it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually nothing, for a while. Then a plugin vulnerability gets exploited, or an update breaks the checkout, and the recovery costs more than a year of maintenance would have."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.thebrandle.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.thebrandle.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Website Maintenance Cost: What You Actually Need to Pay For | TheBrandle",
+          "item": "https://www.thebrandle.com/blog/website-maintenance-cost/"
+        }
+      ]
+    }
+  ]
+}

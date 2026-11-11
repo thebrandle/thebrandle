@@ -1,0 +1,97 @@
+{
+ "type": "template",
+ "seo_title": "Fanfare: Framer Agency Template Design | The Brandle",
+ "summary": "A loud, motion-led Framer template for creative studios that would rather make an entrance.",
+ "description": "Fanfare, a motion-led Framer template for creative studios and agencies. Designed and built by The Brandle, a Dubai design and development studio.",
+ "cover": "ink",
+ "portrait": "xdr-ink-portrait",
+ "screens": 8,
+ "cta": "Open the live preview",
+ "brief": {
+  "label": "Framer template, agencies",
+  "heading": "The idea",
+  "paras": [
+   "Most studio sites whisper. Fanfare walks in with a brass band.",
+   "It is a Framer template for creative studios, agencies and freelancers who sell identity, web and launch work. The logo is drawn on screen like a designer's file, fills with colour and wipes away, then the headline rises letter by letter."
+  ]
+ },
+ "answer": {
+  "label": "Launched 2026",
+  "heading": "What's inside",
+  "paras": [
+   "Twelve written pages, eight case studies, four services and eight journal posts, all on Framer's CMS. Swap in your logo, colours and projects, and launch.",
+   "The preloader is yours in one step: replace one logo layer and it redraws itself around your mark, in your accent colour. No video to render, no code to touch.",
+   "It is on the Framer Marketplace. The applause is not included, but it is strongly implied."
+  ]
+ },
+ "tags": [
+  "Template design",
+  "Framer build",
+  "Scroll motion",
+  "CMS setup"
+ ],
+ "blocks": [
+  {
+   "t": "full",
+   "img": "s1",
+   "alt": "The Fanfare home page: Brands worth a fanfare, in huge black type"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p1",
+    "alt": "The Fanfare home page on a phone"
+   },
+   "b": {
+    "img": "p2",
+    "alt": "The Fanfare work page on a phone"
+   }
+  },
+  {
+   "t": "mock",
+   "scene": "ink",
+   "alt": "Pages of the Fanfare template cutting past on a desktop display"
+  },
+  {
+   "t": "full",
+   "img": "s2",
+   "alt": "An outdoor cinema at dusk, from the Lumen case study in Fanfare"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p3",
+    "alt": "A Fanfare case study on a phone"
+   },
+   "b": {
+    "img": "p4",
+    "alt": "The Fanfare services page on a phone"
+   }
+  },
+  {
+   "t": "full",
+   "img": "s3",
+   "alt": "A grid of case study photos: a cargo bike, a fish and chips stand and a city at night"
+  },
+  {
+   "t": "full",
+   "img": "s4",
+   "alt": "The Halden case study: a cargo bike on a wet street"
+  },
+  {
+   "t": "full",
+   "img": "s5",
+   "alt": "The Fanfare studio page: Meet the band"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Who it is for, the drawn logo preloader and its one-step swap, letter-by-letter headline, 12 pages, 8 case studies, 4 services, 8 journal posts, on the Framer Marketplace",
+   "source": "~/framertemplates/templates/fanfare/LISTING_KIT.md (State, section 1 Description), launched 2026-11-11"
+  },
+  {
+   "claim": "Page captures",
+   "source": "https://fanfare-studio.framer.website (captured 2026-11-11)"
+  }
+ ]
+}

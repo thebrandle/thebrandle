@@ -1,0 +1,152 @@
+{
+ "title": "Digital Marketing Agency Dubai: Ads and Email | The Brandle",
+ "description": "Digital marketing in Dubai from a studio that also builds the landing pages. Google Ads, paid social, email and tracking for a fixed monthly fee.",
+ "crumb": "Digital marketing",
+ "schema_name": "Digital marketing agency Dubai",
+ "service_type": "Digital Marketing Services",
+ "hub": {
+  "name": "Digital marketing",
+  "line": "Ads, email and the landing page, planned together."
+ },
+ "hero": {
+  "h1": [
+   "Digital marketing",
+   "agency Dubai"
+  ],
+  "stickers": [
+   {
+    "icon": "megaphone"
+   }
+  ],
+  "chips": [
+   "Google & Meta Ads",
+   "Email & automation",
+   "Tracking done properly"
+  ],
+  "joke": "Paying for clicks that land on a bad page is an expensive way to disappoint strangers.",
+  "intro": "A digital marketing agency in Dubai that also builds the pages your ads point at. Google Ads, paid social, email and analytics, planned together with the landing page, for a fixed monthly fee."
+ },
+ "get": {
+  "h2": "Ads plus the page",
+  "items": [
+   {
+    "icon": "search",
+    "t": "Google Ads",
+    "p": "Search campaigns built around what people type when they're ready to buy, with the wasteful terms blocked."
+   },
+   {
+    "icon": "megaphone",
+    "t": "Paid social",
+    "p": "Campaigns on Instagram, Facebook and LinkedIn, with creative we design so it looks like you."
+   },
+   {
+    "icon": "window",
+    "t": "Landing pages",
+    "p": "A page built for each campaign, saying the same thing the ad promised. This is usually where the wasted money is hiding."
+   },
+   {
+    "icon": "mail",
+    "t": "Email and automation",
+    "p": "Welcome emails, abandoned baskets, follow-ups. Set up once in Klaviyo or Mailchimp, then they run themselves."
+   },
+   {
+    "icon": "chart",
+    "t": "Tracking you can trust",
+    "p": "Google Analytics 4 and conversion tracking set up and checked with real test conversions, so the numbers mean something."
+   },
+   {
+    "icon": "doc",
+    "t": "Reporting",
+    "p": "One page a month: what was spent, what came back, what we're changing. No forty-slide decks."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Ready for ads?",
+  "p": "Ads multiply whatever the page already does. A page that turns visitors into enquiries gets more enquiries. A page that doesn't just gets a bigger bill. So we look at the page first.",
+  "yes": [
+   "Running ads that point at your home page",
+   "Unable to say which channel brings the leads",
+   "Unsure your conversion tracking has ever worked",
+   "After one team for the ads and the website"
+  ],
+  "no": "your budget is very small. With too little spend there isn't enough data to improve anything, and we'll say so on the first call. Start with [SEO](/services/seo-services/). Only need content? That's [social media marketing](/services/social-media-marketing/)."
+ },
+ "steps": {
+  "h2": "Audit, launch, improve",
+  "items": [
+   {
+    "t": "Audit",
+    "p": "We look at the account, the tracking and the pages. You hear what's worth keeping and what to rebuild."
+   },
+   {
+    "t": "Set up",
+    "p": "Tracking gets fixed first. Then campaigns and landing pages are built together."
+   },
+   {
+    "t": "Launch",
+    "p": "Campaigns go live on a budget you set. We watch closely for the first weeks, when most of the learning happens."
+   },
+   {
+    "t": "Improve",
+    "p": "Monthly changes based on what the numbers say, explained in plain words."
+   }
+  ]
+ },
+ "commit": "retainer",
+ "price": {
+  "big": [
+   "Fixed",
+   "monthly fee"
+  ],
+  "p": "We charge a fixed monthly management fee, quoted after the audit. Not a percentage of your ad spend, because that would reward us for spending more of your money. The ad budget itself is paid by you, straight to the platforms."
+ },
+ "tools": {
+  "h2": "Where the work happens",
+  "items": [
+   "meta",
+   "instagram",
+   "mailchimp",
+   "Google Ads",
+   "Google Analytics 4",
+   "LinkedIn",
+   "Klaviyo"
+  ]
+ },
+ "faq_h2": "Marketing, answered",
+ "faq": [
+  {
+   "q": "What's the minimum ad budget?",
+   "a": "There's no magic number, but there is a floor. If the budget is too small to produce enough clicks to learn from, managing it wastes your money. We'll tell you honestly on the first call."
+  },
+  {
+   "q": "Do you charge a percentage of spend?",
+   "a": "No. A fixed monthly fee. Percentage pricing quietly rewards an agency for spending more."
+  },
+  {
+   "q": "Can you take over existing campaigns?",
+   "a": "Yes. We audit the account first and tell you what can be saved and what should be rebuilt, before touching anything."
+  },
+  {
+   "q": "How quickly will I see results?",
+   "a": "Search ads can bring enquiries in the first weeks. Bringing the cost of each one down takes a couple of months of data and changes."
+  }
+ ],
+ "related": [
+  "social-media-marketing",
+  "seo-services",
+  "video-production"
+ ],
+ "cta": {
+  "lines": [
+   "Make the",
+   "clicks count"
+  ],
+  "pills": [
+   "Free call",
+   "Fixed monthly fee",
+   "No percentage"
+  ],
+  "p": "Tell us what you're spending and what you're getting. We'll tell you what we'd change."
+ }
+}

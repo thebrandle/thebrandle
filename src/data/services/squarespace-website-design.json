@@ -1,0 +1,150 @@
+{
+ "title": "Squarespace Website Design Studio | The Brandle",
+ "description": "Squarespace website design for creatives, studios and restaurants. Custom styling beyond the template, simple to run, with a fixed quote before work starts.",
+ "crumb": "Squarespace",
+ "schema_name": "Squarespace website design",
+ "service_type": "Squarespace Website Design",
+ "hub": {
+  "name": "Squarespace design",
+  "line": "For great photos and zero patience for plugins."
+ },
+ "hero": {
+  "h1": [
+   "Squarespace",
+   "website design"
+  ],
+  "stickers": [
+   {
+    "mark": "squarespace"
+   }
+  ],
+  "chips": [
+   "Elegant & refined",
+   "Creative-friendly",
+   "Simple to manage"
+  ],
+  "joke": "For people with great photos and no patience for plugins.",
+  "intro": "Squarespace website design for creatives, studios, restaurants and personal brands. We style it well past the template, set up the galleries, shop or blog, and leave you with a site that's easy to run. Fixed quote first."
+ },
+ "get": {
+  "h2": "Quietly good",
+  "items": [
+   {
+    "icon": "pencil",
+    "t": "Tailored, not templated",
+    "p": "We start from a Squarespace template because you have to. Then custom styling makes it unrecognisable."
+   },
+   {
+    "icon": "camera",
+    "t": "Galleries that flatter",
+    "p": "Portfolio and gallery layouts chosen for your work. Big where it should be big, quiet where it shouldn't."
+   },
+   {
+    "icon": "bag",
+    "t": "A small shop",
+    "p": "Squarespace's built-in shop handles a modest catalogue, bookings and digital downloads without extra software."
+   },
+   {
+    "icon": "doc",
+    "t": "Blog and pages",
+    "p": "A journal, a menu, an events page. Set up so adding to it takes minutes."
+   },
+   {
+    "icon": "phone",
+    "t": "Phone polish",
+    "p": "Every page checked on a phone, where pictures crop differently and menus misbehave."
+   },
+   {
+    "icon": "key",
+    "t": "Simple to run",
+    "p": "One login, one bill, no updates to manage. We show you where everything lives."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Is it for you?",
+  "p": "Squarespace does a few things well and doesn't pretend otherwise. If your site is mostly pictures, words and a way to get in touch, it's hard to argue with.",
+  "yes": [
+   "A photographer, designer, architect or maker",
+   "A restaurant, cafe or small hotel",
+   "Building a portfolio or a personal brand",
+   "Not interested in maintaining anything, ever"
+  ],
+  "no": "you need custom features or lots of integrations. Squarespace has firm walls. [Webflow](/services/webflow-website-design/) gives more freedom, and [Wix](/services/wix-website-design/) has more built-in tools for bookings."
+ },
+ "steps": {
+  "h2": "Brief to launch",
+  "items": [
+   {
+    "t": "Brief",
+    "p": "A free call, a look at your photos and words, a page list and a fixed quote."
+   },
+   {
+    "t": "Style",
+    "p": "We design the look on two or three key pages first, so you can react to something real."
+   },
+   {
+    "t": "Build",
+    "p": "Every page built on your own Squarespace account, with the galleries, shop or blog set up."
+   },
+   {
+    "t": "Handover",
+    "p": "Domain connected, a walkthrough of your own site, and 30 days of free fixes."
+   }
+  ]
+ },
+ "price": {
+  "big": [
+   "$1,299 to",
+   "$6,499"
+  ],
+  "p": "Our fixed plans run from $1,299 to $6,499, about AED 4,800 to 23,900. A site takes 3 to 6 weeks, mostly depending on how ready your photos and words are. Squarespace's subscription is separate and paid to them."
+ },
+ "tools": {
+  "h2": "Built on",
+  "items": [
+   "squarespace"
+  ],
+  "note": "One platform, one login, one bill. And no partner badge."
+ },
+ "faq_h2": "Squarespace, answered",
+ "faq": [
+  {
+   "q": "Can you make Squarespace look custom?",
+   "a": "Yes. Custom styling changes the type, spacing, colours and layouts well beyond what the settings panel offers. Nobody should be able to name the template."
+  },
+  {
+   "q": "Can I manage the site after launch?",
+   "a": "Easily. It's one of the simplest platforms to run, and we walk you through your own site, not a generic tutorial."
+  },
+  {
+   "q": "Can you move my site to Squarespace?",
+   "a": "Yes. We bring your pages, posts and images across and set up redirects so old links still work."
+  },
+  {
+   "q": "Is Squarespace enough for a shop?",
+   "a": "For a small catalogue, yes. Once you're managing lots of products, stock and delivery rules, you'll want [Shopify](/services/shopify-website-design/). We'd rather tell you now than rebuild it in a year."
+  }
+ ],
+ "related": [
+  "wix-website-design",
+  "webflow-website-design",
+  "brand-identity-design"
+ ],
+ "post": {
+  "slug": "website-design",
+  "title": "Website design: what founders need to know in 2026"
+ },
+ "cta": {
+  "lines": [
+   "Make it",
+   "look easy"
+  ],
+  "pills": [
+   "Free call",
+   "Fixed quote",
+   "One login"
+  ],
+  "p": "Send us a few photos and a sentence about what you do. We'll take it from there."
+ }
+}

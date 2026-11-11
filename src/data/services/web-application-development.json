@@ -1,0 +1,140 @@
+{
+ "title": "Web Application Development Dubai | The Brandle",
+ "description": "Custom web application development in Dubai. Dashboards, booking systems, client portals and internal tools, built in phases at a fixed price per phase.",
+ "crumb": "Web apps",
+ "schema_name": "Web application development Dubai",
+ "service_type": "Web Application Development",
+ "hub": {
+  "name": "Web applications",
+  "line": "Dashboards and tools to retire that spreadsheet."
+ },
+ "hero": {
+  "h1": [
+   "Web application",
+   "development",
+   "Dubai"
+  ],
+  "stickers": [
+   {
+    "icon": "window"
+   }
+  ],
+  "chips": [
+   "Custom builds",
+   "Auth & roles",
+   "API integrations"
+  ],
+  "joke": "For the business currently run by one enormous spreadsheet and the only person who understands it.",
+  "intro": "Custom web application development in Dubai. Dashboards, booking systems, client portals and internal tools, designed around how your team works and built to cope with real use. Fixed price per phase, and you own the code."
+ },
+ "get": {
+  "h2": "More than a login",
+  "items": [
+   {
+    "icon": "doc",
+    "t": "A written specification",
+    "p": "Your process mapped step by step, awkward exceptions included. This is what the quote is based on."
+   },
+   {
+    "icon": "eye",
+    "t": "Interface design",
+    "p": "Screens designed for people who'll use them eight hours a day. Quick to scan, hard to get wrong."
+   },
+   {
+    "icon": "users",
+    "t": "Roles and permissions",
+    "p": "Who can see what, who can change what, and a record of who did."
+   },
+   {
+    "icon": "plug",
+    "t": "Integrations",
+    "p": "Connections to the systems you already run, where they have an API or database access."
+   },
+   {
+    "icon": "chart",
+    "t": "Reports and dashboards",
+    "p": "The numbers you currently assemble by hand on a Monday, on one screen."
+   },
+   {
+    "icon": "key",
+    "t": "Deployment and handover",
+    "p": "Hosted on accounts you own, with the repository and documentation handed over."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Build or buy?",
+  "p": "If software you can buy does the job, buy it. It's cheaper and someone else fixes it. Build your own when your process is the thing that makes you different, or when you're paying per seat for a tool you use a tenth of.",
+  "yes": [
+   "Running operations from spreadsheets and group chats",
+   "In need of somewhere for clients or suppliers to log in",
+   "Paying per seat for software you barely use",
+   "A founder with a software product to build"
+  ],
+  "no": "an off-the-shelf tool fits, and we'll tell you if we know one. If it's mainly customers placing orders, that's a [portal](/services/b2b-b2c-portal-development/). If it has to live on phones, see [mobile app development](/services/mobile-app-development/)."
+ },
+ "steps": {
+  "h2": "Map, build, deploy",
+  "items": [
+   {
+    "t": "Map",
+    "p": "A free call, then a discovery phase where we document how the work really flows. For anything substantial this phase is paid, and you keep the specification."
+   },
+   {
+    "t": "Design",
+    "p": "Key screens and a clickable prototype, tested with the people who'll use it."
+   },
+   {
+    "t": "Build",
+    "p": "Built in phases, with a working version at the end of each one."
+   },
+   {
+    "t": "Deploy",
+    "p": "Launch, training and handover of code and accounts. Free fixes for 30 days."
+   }
+  ]
+ },
+ "price": {
+  "big": [
+   "Fixed price",
+   "per phase"
+  ],
+  "p": "The first call is free. For anything substantial we run a paid discovery phase, so the quote comes from a real specification and not a guess. After that, each phase has a fixed price agreed before it starts."
+ },
+ "faq_h2": "Web apps, answered",
+ "faq": [
+  {
+   "q": "Can you integrate with our existing systems?",
+   "a": "Usually, if they have an API or allow database access. We confirm what's possible during discovery, before you commit to a build."
+  },
+  {
+   "q": "Do we own the code?",
+   "a": "Yes. You own the codebase and we hand over the repository. You're never tied to us to keep it running."
+  },
+  {
+   "q": "Can you take over an unfinished project?",
+   "a": "Often. We audit the existing code first and give you an honest view on whether carrying on beats starting again."
+  },
+  {
+   "q": "Should this be a web app or a mobile app?",
+   "a": "If people use it at a desk, a web app. If they use it out and about, maybe both. [Progressive web apps](/blog/progressive-web-apps/) sit in between and are worth a look."
+  }
+ ],
+ "related": [
+  "b2b-b2c-portal-development",
+  "mobile-app-development",
+  "ui-ux-design"
+ ],
+ "cta": {
+  "lines": [
+   "Retire the",
+   "spreadsheet"
+  ],
+  "pills": [
+   "Free call",
+   "Fixed price per phase",
+   "You own the code"
+  ],
+  "p": "Tell us what the spreadsheet does. We reply within one business day, and we won't judge the formulas."
+ }
+}

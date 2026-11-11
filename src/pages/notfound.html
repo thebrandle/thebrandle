@@ -1,0 +1,36 @@
+---
+path: /404.html
+title: Page Not Found (404) | The Brandle
+description: This page does not exist or has moved. Go back to the home page, see our work or get in touch.
+robots: noindex
+css: css/notfound.css
+js: js/notfound.js
+---
+<main class="nf">
+  <section class="nf__hero">
+    <div class="nf__text">
+      <h1 class="heading" data-lines>That page<br>is a mirage</h1>
+      <span class="pill nf__pill nf__pill--1"><span>Error 404</span></span>
+      <span class="pill nf__pill nf__pill--2"><span>Looked real from far away</span></span>
+      <span class="pill pill--orange nf__pill nf__pill--3"><span>Nothing but sand</span></span>
+    </div>
+    <div class="nf__row">
+      <div class="nf__side nf__side--l">
+        <p class="nf__lead">You asked for <b class="nf__path" data-path>an address</b> that does not exist. Maybe it moved and told nobody. Maybe it was never there.</p>
+        <p class="nf__lead">The rest of the site is real. We checked.</p>
+      </div>
+      <div class="nf__mid">{{> notfound_art}}</div>
+      <div class="nf__side nf__side--r">
+        <p class="label label--static">Official explanation</p>
+        <p class="nf__bubble" data-excuse aria-live="polite">The camel ate it.</p>
+        <button class="nf__again" type="button" data-again>Poor excuse. Try another.</button>
+      </div>
+    </div>
+    <nav class="nf__links" aria-label="Ways out of here">
+      <a class="cta" href="/projects"><span class="cta__fill"></span><span class="cta__t">See our work</span><span class="cta__arrow"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 8.5l7-7M2.5 1.5h6v6"/></svg></span></a>
+      <a class="cta" href="/services/"><span class="cta__fill"></span><span class="cta__t">Browse services</span><span class="cta__arrow"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 8.5l7-7M2.5 1.5h6v6"/></svg></span></a>
+      <a class="cta" href="/blog"><span class="cta__fill"></span><span class="cta__t">Read the blog</span><span class="cta__arrow"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 8.5l7-7M2.5 1.5h6v6"/></svg></span></a>
+      <a class="cta" href="/"><span class="cta__fill"></span><span class="cta__t">Take me home</span><span class="cta__arrow"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 8.5l7-7M2.5 1.5h6v6"/></svg></span></a>
+    </nav>
+  </section>
+</main>

@@ -1,0 +1,238 @@
+{
+  "slug": "arabic-rtl-website-design",
+  "url": "https://www.thebrandle.com/blog/arabic-rtl-website-design/",
+  "path": "/blog/arabic-rtl-website-design/",
+  "canonical": "https://www.thebrandle.com/blog/arabic-rtl-website-design/",
+  "lang": "en",
+  "source": "hand-written",
+  "title": "Arabic & RTL Website Design: Doing It Properly | TheBrandle",
+  "titleWithoutBrand": "Arabic & RTL Website Design: Doing It Properly",
+  "description": "How to design Arabic and right-to-left websites properly - typography, layout mirroring, bilingual structure and the mistakes that make a site look translated.",
+  "h1": "Arabic and RTL website design: doing it properly",
+  "headline": "Arabic & RTL Website Design: Doing It Properly | TheBrandle",
+  "datePublished": "2026-07-28",
+  "dateModified": "2026-07-28",
+  "dateDisplayed": "Jul 28, 2026",
+  "sitemapLastmod": "2026-08-16",
+  "gitFirstCommit": "2026-08-07T03:49:12+04:00",
+  "gitLastCommit": "2026-11-03T10:57:22+04:00",
+  "author": {
+    "name": "The Brandle Team",
+    "role": "Design Studio",
+    "avatar": "/assets/blog/_shared/author-avatar.jpg",
+    "avatarOriginal": "/framerusercontent.com/images/A0LPOEdkaRkfMcS2EWs1My620fA.jpg",
+    "schemaAuthor": {
+      "@type": "Organization",
+      "name": "TheBrandle",
+      "url": "https://www.thebrandle.com"
+    }
+  },
+  "category": "Localisation",
+  "categorySource": "tag in scripts/blog-posts-data.js (never rendered on the live page)",
+  "tags": [
+    "Localisation"
+  ],
+  "suggestedGroup": "Industry",
+  "heroImage": {
+    "src": "/assets/blog/arabic-rtl-website-design/cover.jpg",
+    "alt": "An abstract interlaced arabesque pattern in relief",
+    "width": 2560,
+    "height": 1440,
+    "original": "/assets/blog/covers/arabic-rtl-website-design.jpg"
+  },
+  "cardImage": {
+    "src": "/assets/blog/arabic-rtl-website-design/card.jpg",
+    "alt": "Arabic and RTL website design: doing it properly",
+    "width": 1600,
+    "height": 900,
+    "original": "/assets/blog/arabic-rtl-website-design.jpg",
+    "svgSource": "/assets/blog/arabic-rtl-website-design/card.svg",
+    "bakedText": {
+      "eyebrow": "LOCALISATION",
+      "h1": "Arabic and RTL, done properly",
+      "sub": "Typography, mirroring and bilingual structure that reads native"
+    }
+  },
+  "readingMinutes": 2,
+  "readingMinutesSource": "computed: (body words + FAQ words) / 225, rounded, minimum 1. The live page shows no reading time.",
+  "readingMinutesDeclared": 6,
+  "wordCount": 306,
+  "wordCountFaq": 104,
+  "wordCountSchema": null,
+  "excerpt": "How to design Arabic and right-to-left websites properly - typography, layout mirroring, bilingual structure and the mistakes that make a site look translated.",
+  "listing": {
+    "position": 6,
+    "title": "Arabic and RTL website design: doing it properly",
+    "blurb": "Typography, mirroring and bilingual structure that reads native."
+  },
+  "faq": [
+    {
+      "q": "Can I just use Google Translate on my site?",
+      "a": "For rough comprehension, maybe. For anything customer-facing, no. Machine translation of marketing copy reads as machine translation, and that damages trust in exactly the market you are trying to win."
+    },
+    {
+      "q": "Does an Arabic version help SEO?",
+      "a": "Yes, if implemented with separate URLs and hreflang. You become eligible for Arabic search results, which are far less competitive than English in most categories here."
+    },
+    {
+      "q": "Which should we build first?",
+      "a": "Whichever your customers actually use. In Saudi that is usually Arabic; in Dubai it is often English. Design for the primary language first and adapt to the second."
+    }
+  ],
+  "relatedServices": [
+    {
+      "label": "Web Design Riyadh",
+      "href": "/services/web-design-riyadh/"
+    },
+    {
+      "label": "Web Design Abu Dhabi",
+      "href": "/services/web-design-abu-dhabi/"
+    },
+    {
+      "label": "UI/UX Design",
+      "href": "/services/ui-ux-design/"
+    }
+  ],
+  "headings": [
+    {
+      "level": 2,
+      "text": "RTL is not a mirror",
+      "id": "rtl-is-not-a-mirror"
+    },
+    {
+      "level": 2,
+      "text": "Arabic typography is different",
+      "id": "arabic-typography-is-different"
+    },
+    {
+      "level": 2,
+      "text": "Structure for two languages",
+      "id": "structure-for-two-languages"
+    }
+  ],
+  "links": [],
+  "moreArticlesAsPublished": [
+    {
+      "title": "How to build a startup website people trust",
+      "href": "/blog/how-to-build-a-startup-website/"
+    },
+    {
+      "title": "Headless CMS: what it is and when you actually need one",
+      "href": "/blog/headless-cms-guide/"
+    },
+    {
+      "title": "AI in web design: what it does well and where it fails",
+      "href": "/blog/ai-in-web-design/"
+    },
+    {
+      "title": "How to redesign your website without losing SEO",
+      "href": "/blog/website-redesign-without-losing-seo/"
+    },
+    {
+      "title": "Website maintenance: what you actually need to pay for",
+      "href": "/blog/website-maintenance-cost/"
+    }
+  ],
+  "cta": {
+    "heading": "Ready to build it right?",
+    "text": "Tell us about your project and we will come back with a clear plan, timeline and a fixed quote.",
+    "button": "Book a free consultation",
+    "href": "/contact"
+  },
+  "meta": {
+    "robots": "index, follow",
+    "ogType": "article",
+    "ogTitle": "Arabic & RTL Website Design: Doing It Properly | TheBrandle",
+    "ogDescription": "How to design Arabic and right-to-left websites properly - typography, layout mirroring, bilingual structure and the mistakes that make a site look translated.",
+    "ogImage": "https://www.thebrandle.com/assets/blog/arabic-rtl-website-design.jpg",
+    "twitterCard": "summary_large_image",
+    "twitterTitle": "Arabic & RTL Website Design: Doing It Properly | TheBrandle",
+    "twitterImage": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+    "rssAlternate": null
+  },
+  "jsonLdTypes": [
+    "Article",
+    "FAQPage",
+    "BreadcrumbList"
+  ],
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Arabic & RTL Website Design: Doing It Properly | TheBrandle",
+      "description": "How to design Arabic and right-to-left websites properly - typography, layout mirroring, bilingual structure and the mistakes that make a site look translated.",
+      "datePublished": "2026-07-28",
+      "dateModified": "2026-07-28",
+      "author": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.thebrandle.com/framerusercontent.com/assets/TheBrandle.svg"
+        }
+      },
+      "image": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+      "mainEntityOfPage": "https://www.thebrandle.com/blog/arabic-rtl-website-design/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I just use Google Translate on my site?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For rough comprehension, maybe. For anything customer-facing, no. Machine translation of marketing copy reads as machine translation, and that damages trust in exactly the market you are trying to win."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does an Arabic version help SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, if implemented with separate URLs and hreflang. You become eligible for Arabic search results, which are far less competitive than English in most categories here."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which should we build first?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Whichever your customers actually use. In Saudi that is usually Arabic; in Dubai it is often English. Design for the primary language first and adapt to the second."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.thebrandle.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.thebrandle.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Arabic & RTL Website Design: Doing It Properly | TheBrandle",
+          "item": "https://www.thebrandle.com/blog/arabic-rtl-website-design/"
+        }
+      ]
+    }
+  ]
+}

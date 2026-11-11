@@ -1,0 +1,97 @@
+{
+ "type": "template",
+ "seo_title": "Sunwise: Framer Template Design | The Brandle",
+ "summary": "A light, editorial Framer template for marketing studios, with a hero where the sun rises on every visit.",
+ "cover": "orange",
+ "portrait": "xdr-orange-portrait",
+ "screens": 8,
+ "cta": "Open the live preview",
+ "brief": {
+  "label": "Framer template, marketing studios",
+  "heading": "The idea",
+  "paras": [
+   "Most agency templates shout. Sunwise is calm, bright and clear about what you sell.",
+   "It is a light, editorial Framer template for marketing studios and agencies: white cards on soft mist, grainy sunrise art, and headlines with an italic accent."
+  ]
+ },
+ "answer": {
+  "label": "Launched 2026",
+  "heading": "What's inside",
+  "paras": [
+   "The hero headline arrives word by word while the sun rises behind it, then sets again as you scroll. All of the motion is made with Framer's own effects. No code, so nothing for a buyer to break.",
+   "Nine pages and five CMS collections: case studies, insights, team, testimonials and FAQ. Case study and article pages build themselves from those.",
+   "It is on the Framer Marketplace. A template for people who sell attention, made by people who would quite like some."
+  ]
+ },
+ "tags": [
+  "Template design",
+  "Framer build",
+  "No-code motion",
+  "CMS setup"
+ ],
+ "blocks": [
+  {
+   "t": "full",
+   "img": "s1",
+   "alt": "The Why Sunwise section: Most brands don't need more noise, above three white cards"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p1",
+    "alt": "The Sunwise home page on a phone, with a sunrise behind the headline"
+   },
+   "b": {
+    "img": "p2",
+    "alt": "The Sunwise services page on a phone"
+   }
+  },
+  {
+   "t": "mock",
+   "scene": "concrete",
+   "alt": "Pages of the Sunwise template cutting past on a desktop display on a concrete desk"
+  },
+  {
+   "t": "full",
+   "img": "s2",
+   "alt": "Case study cards on the Sunwise home page with their results"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p3",
+    "alt": "A Sunwise case study on a phone"
+   },
+   "b": {
+    "img": "p4",
+    "alt": "The Sunwise studio page on a phone"
+   }
+  },
+  {
+   "t": "full",
+   "img": "s3",
+   "alt": "A dark section of Sunwise laying out a four-step approach"
+  },
+  {
+   "t": "full",
+   "img": "s4",
+   "alt": "The Sunwise services page: Three services. One plan."
+  },
+  {
+   "t": "full",
+   "img": "s5",
+   "alt": "The Sunwise studio page: A small senior team that plans with you"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Everything on this page: calm and bright positioning, who it is for, white cards on mist and sunrise art, headline word by word with the sun rising and setting, motion made with Framer effects and no code, 9 pages, 5 CMS collections, posted on the Framer Marketplace 2026-11-02",
+   "source": "~/framertemplates/templates/sunwise/LISTING_KIT.md (section 1)"
+  },
+  {
+   "claim": "Page captures",
+   "source": "https://sunwise.framer.website (captured 2026-11-11)"
+  }
+ ],
+ "description": "A light, editorial Framer template for marketing studios, with a hero where the sun rises on every visit. Designed and built by The Brandle, a Dubai design and development studio."
+}

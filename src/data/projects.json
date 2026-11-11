@@ -1,0 +1,209 @@
+[
+  {
+    "slug": "sameticket",
+    "type": "own",
+    "title": "SameTicket",
+    "kind": "Ticket comparison site",
+    "url": "https://sameticket.com",
+    "colour": "#1f6fb0",
+    "featured": true,
+    "alt": "Pages of SameTicket flashing by on a desktop display: the home page, price tables, city guides and deals",
+    "card": {
+      "type": "mock",
+      "scene": "xdr-blue-portrait",
+      "frames": 8
+    }
+  },
+  {
+    "slug": "soznikar",
+    "type": "own",
+    "title": "Soznikar",
+    "kind": "Online store",
+    "url": "https://soznikar.com",
+    "colour": "#111111",
+    "featured": true,
+    "alt": "The Soznikar store home page playing on a MacBook Pro",
+    "card": {
+      "type": "video",
+      "file": "soznikar-mac"
+    }
+  },
+  {
+    "slug": "pawsword",
+    "type": "own",
+    "title": "Pawsword",
+    "kind": "iOS and Mac app",
+    "url": "https://pawsword.app",
+    "colour": "#e39a1b",
+    "featured": true,
+    "alt": "The Pawsword app on an iPhone: a bear says hello, then Face ID opens the password list",
+    "card": {
+      "type": "video",
+      "file": "pawsword-phone"
+    }
+  },
+  {
+    "slug": "bellow",
+    "type": "own",
+    "title": "Bellow",
+    "kind": "Mac app",
+    "url": "https://bellow.dev",
+    "colour": "#e67a22",
+    "featured": true,
+    "alt": "The Bellow site playing on a MacBook Pro",
+    "card": {
+      "type": "video",
+      "file": "bellow-mac"
+    }
+  },
+  {
+    "slug": "fanfare",
+    "type": "template",
+    "title": "Fanfare",
+    "kind": "Framer template",
+    "url": "https://fanfare-studio.framer.website",
+    "colour": "#1c1c1c",
+    "featured": true,
+    "alt": "Pages of the Fanfare template flashing by on a desktop display: huge type, case studies of a cargo bike and an outdoor cinema, and the studio page",
+    "card": {
+      "type": "mock",
+      "scene": "xdr-ink-portrait",
+      "frames": 8
+    }
+  },
+  {
+    "slug": "limonaia",
+    "type": "template",
+    "title": "Limonaia",
+    "kind": "Framer template",
+    "url": "https://limonaia.framer.website",
+    "colour": "#1f3d2b",
+    "featured": true,
+    "alt": "Pages of the Limonaia template flashing by on a desktop display: a hillside arch, terraces, plans and price lists",
+    "card": {
+      "type": "mock",
+      "scene": "concrete-portrait",
+      "frames": 8
+    }
+  },
+  {
+    "slug": "bezier",
+    "type": "template",
+    "title": "Bezier",
+    "kind": "Framer template",
+    "url": "https://bezier-studio.framer.website",
+    "colour": "#2f3df5",
+    "featured": true,
+    "alt": "Pages of the Bezier template flashing by on a desktop display: a design studio home page, case studies and journal",
+    "card": {
+      "type": "mock",
+      "scene": "studio-white-portrait",
+      "frames": 8
+    }
+  },
+  {
+    "slug": "rotonda",
+    "type": "template",
+    "title": "Rotonda",
+    "kind": "Framer template",
+    "url": "https://rotonda.framer.website",
+    "colour": "#d0182f",
+    "featured": true,
+    "alt": "Pages of the Rotonda template flashing by on a desktop display: red process cards, a pricing ticket and case studies",
+    "card": {
+      "type": "mock",
+      "scene": "xdr-red-portrait",
+      "frames": 8
+    }
+  },
+  {
+    "slug": "sunwise",
+    "type": "template",
+    "title": "Sunwise",
+    "kind": "Framer template",
+    "url": "https://sunwise.framer.website",
+    "colour": "#f0623a",
+    "featured": true,
+    "alt": "Pages of the Sunwise template flashing by on a desktop display: a marketing studio home page, results and services",
+    "card": {
+      "type": "mock",
+      "scene": "xdr-orange-portrait",
+      "frames": 8
+    }
+  },
+  {
+    "slug": "tideline",
+    "type": "template",
+    "title": "Tideline",
+    "kind": "Webflow template",
+    "url": "https://tideline-template.webflow.io",
+    "colour": "#2743c7",
+    "featured": true,
+    "alt": "Pages of the Tideline template flashing by on a desktop display: a seafront tower, floor plans, materials and a map",
+    "card": {
+      "type": "mock",
+      "scene": "studio-dark-portrait",
+      "frames": 8
+    }
+  },
+  {
+    "slug": "isacomparison",
+    "type": "own",
+    "title": "ISA Comparison",
+    "kind": "Comparison site",
+    "url": "https://isacomparison.com",
+    "colour": "#2563eb",
+    "featured": false,
+    "alt": "Pages of ISA Comparison flashing by on a desktop display: Cash ISA rate tables, savings calculators and the ISA limit explained",
+    "card": {
+      "type": "mock",
+      "scene": "studio-white-portrait",
+      "frames": 7
+    }
+  },
+  {
+    "slug": "stablerise",
+    "type": "client",
+    "title": "Stable Rise",
+    "kind": "Property investment",
+    "url": "https://www.stablerise.ae",
+    "colour": "#e2574c",
+    "featured": false,
+    "alt": "Pages of the Stable Rise site flashing by on a desktop display: UK investment opportunities, current listings and news",
+    "card": {
+      "type": "mock",
+      "scene": "xdr-red-portrait",
+      "frames": 7
+    }
+  },
+  {
+    "slug": "voice-and-data-resale",
+    "type": "client",
+    "title": "Voice & Data Resale",
+    "kind": "Shopify store",
+    "url": "https://voiceanddataresale.com",
+    "colour": "#0f8a5f",
+    "featured": false,
+    "alt": "Pages of the Voice & Data Resale store flashing by on a desktop display: refurbished equipment, asset disposal and data destruction",
+    "card": {
+      "type": "mock",
+      "scene": "xdr-teal-portrait",
+      "frames": 7
+    }
+  },
+  {
+    "slug": "storage-hire",
+    "type": "client",
+    "title": "Storage Hire",
+    "kind": "Storage company",
+    "url": "https://www.storagehireltd.com",
+    "colour": "#2a1a8a",
+    "featured": false,
+    "alt": "Pages of the Storage Hire site flashing by on a desktop display: storage services, a quote form and the team's story",
+    "card": {
+      "type": "mock",
+      "scene": "xdr-indigo-portrait",
+      "frames": 7
+    }
+  }
+]

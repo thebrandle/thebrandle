@@ -1,0 +1,101 @@
+{
+ "type": "own",
+ "seo_title": "Pawsword: iOS and Mac App Design | The Brandle",
+ "summary": "An offline password manager for iPhone and Mac with a bear for a mascot: no account, no cloud, no subscription.",
+ "cover": "honey",
+ "portrait": "xdr-honey-portrait",
+ "screens": 8,
+ "cta": "Visit pawsword.app",
+ "brief": {
+  "label": "iOS and Mac app",
+  "heading": "The idea",
+  "paras": [
+   "Pawsword is a password manager that works offline. Every password lives in one encrypted file on your own device. No account, no cloud, no subscription. You pay once.",
+   "The mascot is Pocket, a bear. Bears keep their family safe in a den with no signal, which is more than most apps can say."
+  ]
+ },
+ "answer": {
+  "label": "Launched 2026",
+  "heading": "The build",
+  "paras": [
+   "We named it (four rounds, the pun won), drew the bear, designed the app and built it for iPhone and Mac. It went live on the App Store in November 2026.",
+   "The app has no network permission at all. It could not phone home if it wanted to. The first rule of the build was that the vault cannot be lost, so there are backups, a recovery screen and a paper copy you print at setup.",
+   "We also made the site, where a sleeping bear does most of the selling."
+  ]
+ },
+ "tags": [
+  "Naming & mascot",
+  "App design",
+  "iOS & Mac build",
+  "Launch site"
+ ],
+ "blocks": [
+  {
+   "t": "full",
+   "img": "s1",
+   "alt": "The Pawsword site showing Pocket the bear next to the app on an iPhone"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "video": "pawsword-phone",
+    "alt": "The Pawsword app on an iPhone: a bear says hello, then Face ID opens the password list"
+   },
+   "b": {
+    "img": "p1",
+    "alt": "The Pawsword site on a phone: Your passwords never leave your phone"
+   }
+  },
+  {
+   "t": "mock",
+   "scene": "studio-dark",
+   "alt": "Pages of the Pawsword site cutting past on a desktop display"
+  },
+  {
+   "t": "full",
+   "img": "s2",
+   "alt": "A section of the Pawsword site titled No signal in the den, with a bear asleep in a cave"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p2",
+    "alt": "The Pawsword site on a phone, further down the page"
+   },
+   "b": {
+    "img": "p3",
+    "alt": "The Pawsword pricing section on a phone"
+   }
+  },
+  {
+   "t": "full",
+   "img": "s3",
+   "alt": "Feature cards on the Pawsword site: no network code at all, and a paper backup printed at setup"
+  },
+  {
+   "t": "full",
+   "img": "s4",
+   "alt": "The Pawsword pricing block in honey yellow, with the bear standing by a safe"
+  },
+  {
+   "t": "full",
+   "img": "s5",
+   "alt": "Questions people ask before paying, on the Pawsword site"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Offline, one encrypted file on the device, no account, no cloud, no subscription, pay once, mascot Pocket the bear and the den line, no network entitlement, first rule: the vault cannot be lost",
+   "source": "~/Building apps/pawsword/PRODUCT.md"
+  },
+  {
+   "claim": "Named after four naming rounds; iOS and macOS 1.0.1 live on the App Store since 2026-11-07",
+   "source": "~/.claude/projects/-Users-muteebmehraj-friday/memory/offline-password-manager-idea.md and MEMORY.md"
+  },
+  {
+   "claim": "Made by The Brandle; backups, recovery and a paper backup printed at setup",
+   "source": "https://pawsword.app (footer credit and feature cards, captured 2026-11-11)"
+  }
+ ],
+ "description": "An offline password manager for iPhone and Mac with a bear for a mascot: no account, no cloud, no subscription. Designed and built by The Brandle, a Dubai design and development studio."
+}

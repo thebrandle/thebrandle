@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,700..800&family=Geist:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* One blog post's art: card, share image and hero are the same drawing at different window sizes.
+     Rendered by blog-card.mjs, which calls window.draw(spec). Every size is a multiple of --u (1/100 of a 16:9 frame that fits the window). */
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 100%; height: 100%; overflow: hidden; }
+  body { --ink: #f9452d; --pillbg: #000; --pillfg: #f9e2e1; --arc: #f9452d; --arcop: 0.2; position: relative; background: #f8eee8; font-family: "Geist", sans-serif; }
+  body.orange { background: #f9452d; --ink: #fdf8f5; --arc: #fff; --arcop: 0.14; }
+  body.black { background: #000; --pillbg: #f9452d; --pillfg: #fdf8f5; --arcop: 0.32; }
+  .arc { position: absolute; fill: none; stroke: var(--arc); opacity: var(--arcop); stroke-width: 30; stroke-linecap: round; }
+  .arc--l { left: calc(var(--u) * -5); bottom: calc(var(--u) * -9); width: calc(var(--u) * 21); }
+  .arc--r { right: calc(var(--u) * -8); top: calc(var(--u) * -7); width: calc(var(--u) * 30); }
+  .logo { position: absolute; left: calc(var(--u) * 3.4); top: calc(var(--u) * 2.8); width: calc(var(--u) * 12); }
+  body.black .logo { filter: invert(1); }
+  .pill { position: absolute; display: block; padding: calc(var(--u) * 0.8) calc(var(--u) * 2); border-radius: 100px; background: var(--pillbg); color: var(--pillfg); font-size: calc(var(--u) * 1.75); font-weight: 500; white-space: nowrap; }
+  .group { right: calc(var(--u) * 3.4); top: calc(var(--u) * 3.6); rotate: 3deg; }
+  .quip { left: calc(var(--u) * 4.5); bottom: calc(var(--u) * 5); rotate: -4deg; }
+  .title { position: absolute; left: 7%; right: 7%; top: calc(var(--u) * 10); bottom: calc(var(--u) * 16); display: flex; justify-content: center; align-items: center; }
+  h1 { font: 800 100px/0.8 "Bricolage Grotesque", sans-serif; font-stretch: 75%; text-transform: uppercase; text-align: center; color: var(--ink); white-space: nowrap; }
+  .stickers { position: absolute; right: calc(var(--u) * 4.5); bottom: calc(var(--u) * 3.6); display: flex; }
+  .st { display: flex; justify-content: center; align-items: center; width: calc(var(--u) * 13.5); height: calc(var(--u) * 13.5); border: calc(var(--u) * 0.36) solid #000; border-radius: 50%; background: #fdf8f5; color: #000; rotate: -8deg; }
+  .st + .st { margin-left: calc(var(--u) * -1.6); margin-top: calc(var(--u) * -2.4); rotate: 7deg; }
+  .st svg { width: 58%; height: 58%; overflow: visible; }
+  .st svg.ic { width: 66%; height: 66%; stroke: #000; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+</style>
+</head>
+<body>
+  <svg class="arc arc--l" viewBox="0 0 229 599"><path d="M-60 40C70 30 190 110 190 240S70 420 10 340S60 170 150 250S215 480 -40 590"/></svg>
+  <svg class="arc arc--r" viewBox="0 0 354 487"><path d="M400 10C250 20 110 110 125 240S270 430 335 330S270 140 185 205S90 430 420 480"/></svg>
+  <img class="logo" src="../../assets/logo-sticker.svg" alt="">
+  <span class="pill group"></span>
+  <div class="title"><h1></h1></div>
+  <span class="pill quip"></span>
+  <div class="stickers"></div>
+<script>
+  const O = '#f9452d', C = '#fdf8f5';
+  const ICONS = {   // drawn like the service icons on the home page: 64 box, black outline, orange and cream fills
+    star: `<path d="M32 6l7.6 17.400 18.900 1.800-14.200 12.500 4.200 18.500L32 46.600l-16.500 9.600 4.200-18.500L5.500 25.200l18.900-1.800z" fill="${O}"/>`,
+    browser: `<rect x="6" y="11" width="52" height="42" rx="7" fill="${C}"/><path d="M6 23v-5a7 7 0 0 1 7-7h38a7 7 0 0 1 7 7v5z" fill="${O}"/><path d="M31 30l15 6.500-6.400 2.400 4.200 7.400-3.600 2-4.200-7.400-5 4.600z" fill="#000" stroke="${C}" stroke-width="1.600"/>`,
+    phone: `<rect x="17" y="5" width="30" height="54" rx="8" fill="${O}"/><path d="M28 11.500h8"/><path d="M26 30l5 5 8-9" fill="none" stroke="${C}" stroke-width="3.500"/>`,
+    search: `<path d="M40 40l16 16" stroke-width="7"/><circle cx="27" cy="27" r="18" fill="${O}"/><path d="M18 31l6-7 5 4 7-9" fill="none" stroke="${C}" stroke-width="3"/>`,
+    tag: `<path d="M8 30L30 8h22a4 4 0 0 1 4 4v22L34 56a4 4 0 0 1-5.600 0L8 35.600a4 4 0 0 1 0-5.600z" fill="${O}"/><circle cx="44" cy="20" r="4.500" fill="${C}"/>`,
+    shield: `<path d="M32 6l22 8v16c0 14-9 23-22 28C19 53 10 44 10 30V14z" fill="${O}"/><path d="M22 31l7 7 13-14" fill="none" stroke="${C}" stroke-width="4"/>`,
+    gauge: `<path d="M6 46a26 26 0 0 1 52 0z" fill="${O}"/><path d="M32 46l13-17" stroke-width="4"/><circle cx="32" cy="46" r="4.500" fill="${C}"/>`,
+    rocket: `<path d="M20 38l-9 11h11zM44 38l9 11H42z" fill="${C}"/><path d="M32 4c10 8 14 20 12 35H20C18 24 22 12 32 4z" fill="${O}"/><circle cx="32" cy="23" r="5" fill="${C}"/><path d="M27 45h10l-5 14z" fill="${O}"/>`,
+    building: `<rect x="14" y="8" width="36" height="48" rx="3" fill="${O}"/><path d="M23 18h6M35 18h6M23 28h6M35 28h6M23 38h6M35 38h6" stroke="${C}" stroke-width="4"/><rect x="27" y="46" width="10" height="10" fill="${C}"/>`,
+    spark: `<path d="M28 6c2 14 8 21 24 26-16 5-22 12-24 26-2-14-8-21-24-26 16-5 22-12 24-26z" fill="${O}"/><path d="M50 4c1 5 3 7 8 9-5 2-7 4-8 9-1-5-3-7-8-9 5-2 7-4 8-9z" fill="${C}"/>`,
+    blocks: `<rect x="8" y="8" width="48" height="13" rx="4" fill="${C}"/><rect x="8" y="26" width="48" height="13" rx="4" fill="${O}"/><rect x="8" y="44" width="48" height="13" rx="4" fill="${C}"/>`,
+    wrench: `<path d="M44 6a14 14 0 0 0-13 19L8 48a5.600 5.600 0 0 0 8 8l23-23a14 14 0 0 0 19-13l-9 9-8-2-2-8z" fill="${O}"/>`,
+    calendar: `<rect x="8" y="12" width="48" height="44" rx="6" fill="${C}"/><path d="M8 26v-8a6 6 0 0 1 6-6h36a6 6 0 0 1 6 6v8z" fill="${O}"/><path d="M20 6v10M44 6v10"/><text x="32" y="50" text-anchor="middle" stroke="none" fill="#000" style="font: 800 24px 'Bricolage Grotesque'">3</text>`,
+    rtl: `<circle cx="32" cy="32" r="25" fill="${O}"/><path d="M45 24H19l8-8M19 40h26l-8 8" fill="none" stroke="${C}" stroke-width="4"/>`,
+    signpost: `<path d="M32 6v52" stroke-width="5"/><path d="M32 11h18l7 7.500-7 7.500H32z" fill="${O}"/><path d="M32 31H14l-7 7.500 7 7.500h18z" fill="${C}"/>`,
+    refresh: `<circle cx="32" cy="32" r="25" fill="${O}"/><path d="M19 30a13 13 0 0 1 23-6M45 34a13 13 0 0 1-23 6" fill="none" stroke="${C}" stroke-width="4"/><path d="M43 14v10H33M21 50V40h10" fill="none" stroke="${C}" stroke-width="4"/>`,
+  };
+  // spec: { lines, ground, group, quip, stickers: [{ icon } | { svg }] }
+  window.draw = async (spec) => {
+    const u = Math.min(innerWidth / 100, innerHeight / 56.25);
+    document.body.style.setProperty('--u', u + 'px');
+    document.body.className = spec.ground === 'cream' ? '' : spec.ground;
+    document.querySelector('.group').textContent = spec.group;
+    document.querySelector('.quip').textContent = spec.quip;
+    document.querySelector('.stickers').innerHTML = spec.stickers.map((s) => `<span class="st">${s.svg || `<svg class="ic" viewBox="0 0 64 64">${ICONS[s.icon]}</svg>`}</span>`).join('');
+    const h1 = document.querySelector('h1');
+    h1.innerHTML = spec.lines.join('<br>');
+    await document.fonts.ready;
+    await document.fonts.load('800 100px "Bricolage Grotesque"');
+    const box = document.querySelector('.title').getBoundingClientRect();
+    h1.style.fontSize = '100px';
+    const r = h1.getBoundingClientRect();
+    h1.style.fontSize = 100 * Math.min(box.width / r.width, box.height / r.height) + 'px';   // as big as the frame allows
+    const img = document.querySelector('.logo');
+    if (!img.complete) await new Promise((res) => { img.onload = img.onerror = res; });
+  };
+</script>
+</body>
+</html>

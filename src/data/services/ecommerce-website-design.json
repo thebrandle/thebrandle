@@ -1,0 +1,166 @@
+{
+ "title": "Ecommerce Website Design for Online Stores | The Brandle",
+ "description": "Ecommerce website design from a Dubai studio. We help you pick Shopify or WooCommerce, then design and build the store on a fixed quote in 3 to 6 weeks.",
+ "crumb": "Ecommerce",
+ "schema_name": "Ecommerce website design",
+ "service_type": "Ecommerce Website Design",
+ "hub": {
+  "name": "Ecommerce design",
+  "line": "Not sure which platform? Start here.",
+  "sticker": {
+   "icon": "cart"
+  }
+ },
+ "hero": {
+  "h1": [
+   "Ecommerce",
+   "website design"
+  ],
+  "stickers": [
+   {
+    "mark": "shopify"
+   },
+   {
+    "mark": "woo"
+   }
+  ],
+  "chips": [
+   "Platform-agnostic",
+   "Conversion-focused",
+   "Brand-first design"
+  ],
+  "joke": "Picking a platform is the least fun part of opening a shop. We'll do it for you.",
+  "intro": "Ecommerce website design for brands that haven't chosen a platform yet, or chose the wrong one. We recommend Shopify or WooCommerce based on how you sell, then design and build the store. Fixed quote, 3 to 6 weeks."
+ },
+ "get": {
+  "h2": "The whole shop",
+  "items": [
+   {
+    "icon": "check",
+    "t": "A straight platform answer",
+    "p": "Shopify, WooCommerce or something else, with the reasons in plain words. The advice is free and comes before any quote."
+   },
+   {
+    "icon": "cart",
+    "t": "Buying that makes sense",
+    "p": "Collection, product, basket, checkout. Designed in the order people shop, with nothing clever in the way."
+   },
+   {
+    "icon": "star",
+    "t": "A storefront that looks like you",
+    "p": "Your brand, not the theme's demo brand with your logo swapped in."
+   },
+   {
+    "icon": "phone",
+    "t": "Phone first",
+    "p": "Designed on a phone-sized canvas before a desktop one, and tested on real handsets before launch."
+   },
+   {
+    "icon": "card",
+    "t": "Payments and delivery",
+    "p": "Gateways, delivery rates and tax set up and checked with test orders. Complicated checkout? [Payment gateway integration](/services/payment-gateway-integration/) has its own page."
+   },
+   {
+    "icon": "chart",
+    "t": "Numbers you can read",
+    "p": "Analytics and search basics set up at launch, so you can see what sells and where people give up."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Which platform?",
+  "p": "Short version. Shopify if you want to sell and not think about servers. WooCommerce if you're already on WordPress or need to own every part. Something custom only if your pricing rules would make both of them cry.",
+  "yes": [
+   "Opening your first online store",
+   "Outgrowing a template or a DIY build",
+   "Changing platforms and nervous about search traffic",
+   "Selling to shoppers and trade customers alike"
+  ],
+  "no": "you already know your platform. Go straight to [Shopify](/services/shopify-website-design/) or [WooCommerce](/services/woocommerce-website-design/). Selling wholesale at customer-specific prices? That's a [portal](/services/b2b-b2c-portal-development/)."
+ },
+ "proof": {
+  "label": "Proof",
+  "h2": "Real shops",
+  "cards": [
+   "soznikar",
+   "voice-and-data-resale"
+  ],
+  "p": "Both of these run on Shopify, because for both it was the right call. Soznikar is our own brand. Voice & Data Resale is a client's. Had WooCommerce suited them better, that's what you'd be looking at."
+ },
+ "steps": {
+  "h2": "Pick, map, build",
+  "items": [
+   {
+    "t": "Choose",
+    "p": "One call about products, volumes and who'll run the store. You leave with a platform recommendation and a fixed quote."
+   },
+   {
+    "t": "Map",
+    "p": "Every page a shopper touches, from landing to order confirmation, laid out before anything gets colour."
+   },
+   {
+    "t": "Build",
+    "p": "Design, theme, products, payments and delivery, with a preview link that's always current."
+   },
+   {
+    "t": "Open",
+    "p": "Test orders on every payment method, redirects from the old store, then launch. Free fixes for 30 days."
+   }
+  ]
+ },
+ "price": {
+  "big": [
+   "$1,299 to",
+   "$6,499"
+  ],
+  "p": "Our fixed plans run from $1,299 to $6,499, about AED 4,800 to 23,900, and a store takes 3 to 6 weeks. Platform fees, apps and payment charges are separate and go to whoever charges them. We list those too, so the total isn't a surprise."
+ },
+ "tools": {
+  "h2": "We build stores on",
+  "items": [
+   "shopify",
+   "woo",
+   "wordpress"
+  ]
+ },
+ "faq_h2": "Ecommerce, answered",
+ "faq": [
+  {
+   "q": "Which ecommerce platform should I use?",
+   "a": "For most brands, Shopify, because it's dependable and easy to run day to day. WooCommerce when the store has to live inside a WordPress site or you want full ownership. We compare both in [Shopify vs WooCommerce](/blog/shopify-vs-woocommerce/)."
+  },
+  {
+   "q": "Can you redesign the store I already have?",
+   "a": "Yes. We keep what works, fix what loses people and put redirects in place so search engines can follow the move. If the platform is the real problem, we say that first."
+  },
+  {
+   "q": "Do I need a headless store?",
+   "a": "Probably not. Headless means a custom front end talking to the shop through an API. It's powerful and costly to keep. A normal theme does the job for nearly everyone, and our [headless guide](/blog/headless-cms-guide/) explains when it doesn't."
+  },
+  {
+   "q": "What happens after launch?",
+   "a": "Thirty days of free fixes, then it's yours to run. If you'd like someone to keep an eye on it, there's a [maintenance plan](/services/website-maintenance/)."
+  }
+ ],
+ "related": [
+  "shopify-website-design",
+  "woocommerce-website-design",
+  "payment-gateway-integration"
+ ],
+ "post": {
+  "slug": "headless-cms-guide",
+  "title": "Headless CMS: what it is and when you actually need one"
+ },
+ "cta": {
+  "lines": [
+   "Open",
+   "the shop"
+  ],
+  "pills": [
+   "Free platform advice",
+   "Fixed quote",
+   "Yours to keep"
+  ],
+  "p": "Tell us what you sell and how. We'll come back with a platform, a plan and a number."
+ }
+}

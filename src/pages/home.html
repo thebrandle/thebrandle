@@ -1,0 +1,225 @@
+---
+path: /
+title: The Brandle | Dubai Design and Development Studio
+description: Dubai studio for websites, online stores, brand identities and apps. Designed and built in-house, fixed quote, and the logo, files and code are all yours.
+js: js/home.js
+css: css/home.css
+head_extra: <link rel="preload" as="image" href="/assets/hero-poster.webp?v=3" fetchpriority="high">
+---
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__text">
+      <h1 class="heading" data-lines aria-label="Annoyingly good at design">Annoyingly<br> good at <span class="hword" aria-hidden="true"><span class="hword__o">design</span><span class="hword__f">design</span></span></h1>
+      <span class="pill pill--one"><span>Websites &amp; brands</span></span>
+      <span class="pill pill--two"><span>Independent studio</span></span>
+      <span class="pill pill--three"><span>Humble, too</span></span>
+    </div>
+    <div class="hask" role="group" aria-labelledby="hask-q">
+      <p class="hask__q" id="hask-q">Just here to procrastinate?</p>
+      <div class="hask__tags">
+        <button class="hask__tag hask__tag--yes" type="button" aria-haspopup="dialog" data-go="game" data-camel="/assets/game/camel.webp"><i class="hask__str" aria-hidden="true"></i><b>Yes, obviously</b><small>Play a 30-second game</small></button>
+        <button class="hask__tag hask__tag--no" type="button" aria-haspopup="dialog" data-go="form"><i class="hask__str" aria-hidden="true"></i><b>No, I need a thing</b><small>Tell us in 20 seconds</small></button>
+      </div>
+    </div>
+    <div class="hero__media">
+      <div class="hero__stage"><video class="hero__video" muted loop playsinline preload="none" poster="/assets/hero-poster.webp?v=3" width="2200" height="1092" aria-label="Two designers walking with boards whose slogans keep changing, with a camel at each end"><source src="/assets/hero-walk.mp4" type="video/mp4"></video><svg class="hero__signs" viewBox="0 0 2200 1092" aria-hidden="true"><g><text></text></g><g><text></text></g></svg></div>
+    </div>
+    <svg class="hero__path hero__path--l" viewBox="0 0 229 599" aria-hidden="true"><path d="M-60 40C70 30 190 110 190 240S70 420 10 340S60 170 150 250S215 480 -40 590"/></svg>
+    <svg class="hero__path hero__path--r" viewBox="0 0 354 487" aria-hidden="true"><path d="M400 10C250 20 110 110 125 240S270 430 335 330S270 140 185 205S90 430 420 480"/></svg>
+    <div class="marquee" aria-label="Brands, websites, stores and apps. Fixed quote. Designed and built in-house. It’s all yours.">
+      <svg viewBox="0 0 1440 420" aria-hidden="true">
+        <path id="mq-path" class="marquee__band" d="M-120 330C300 80 1000 60 1560 230"/>
+        <text class="marquee__text"><textPath id="mq-tp" href="#mq-path" startOffset="0"></textPath></text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about__pinned">
+      <p class="label label--static">A bit about us</p>
+      <p class="about__para" data-chars>We design and build websites, stores, brands and apps, all in-house. One point of contact, a fixed quote before we start, and everything we make is yours.</p>
+      <span class="pill pill--orange apill apill--second"><span>Allergic to templates</span></span>
+      <span class="pill pill--orange apill apill--first"><span>Karak-fuelled</span></span>
+      <span class="pill pill--orange apill apill--third"><span>Chronic pixel pushers</span></span>
+    </div>
+  </section>
+
+  <!-- SHOWCASE MARQUEE -->
+  <section class="showcase" aria-hidden="true">
+    <div class="showcase__slider">
+      <div class="slide"><img src="/assets/work/sq-sameticket.webp" alt=""></div>
+      <div class="slide"><img src="/assets/work/sq-soznikar.webp" alt=""></div>
+      <div class="slide"><img src="/assets/work/sq-pawsword.webp" alt=""></div>
+      <div class="slide"><img src="/assets/work/sq-bellow.webp" alt=""></div>
+      <div class="slide"><img src="/assets/work/sq-fanfare.webp" alt=""></div>
+      <div class="slide"><img src="/assets/work/sq-limonaia.webp" alt=""></div>
+      <div class="slide"><img src="/assets/work/sq-bezier.webp" alt=""></div>
+      <div class="slide"><img src="/assets/work/sq-rotonda.webp" alt=""></div>
+      <div class="slide"><img src="/assets/work/sq-sunwise.webp" alt=""></div>
+      <div class="slide"><img src="/assets/work/sq-tideline.webp" alt=""></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects" id="work">
+    <div class="shead">
+      <p class="label">Featured projects</p>
+      <h2 class="sheading" data-magnetic>Selected works</h2>
+    </div>
+    <div class="plist">{{> cards_home}}    </div>
+    <div class="pend">
+      <div class="pend__inner">
+        <p class="pend__para" data-lines>There&rsquo;s more.<br> We don&rsquo;t like to<br> show off. (We do.)</p>
+        <span class="pill ppill ppill--1"><span>Plot twist</span></span>
+        <span class="pill ppill ppill--2"><span>Also rather good</span></span>
+        <span class="pill ppill ppill--3"><span>Go on then</span></span>
+        <a class="cta" href="/projects"><span class="cta__fill"></span><span class="cta__t">See all projects</span><span class="cta__arrow"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 8.5l7-7M2.5 1.5h6v6"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+{{> brands}}
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="shead">
+      <p class="label">Our services</p>
+      <h2 class="sheading" data-magnetic>This is our thing</h2>
+    </div>
+    <div class="sbody">
+      <svg class="spath" aria-hidden="true"><path class="spath__ghost"/><path class="spath__dark"/><g class="spath__hole"><g><ellipse class="sh" cx="7" cy="16" rx="12.5" ry="3.5"/><ellipse cx="0" cy="0" rx="12.4" ry="18"/></g></g><g class="spath__hole"><g><ellipse class="sh" cx="7" cy="16" rx="12.5" ry="3.5"/><ellipse cx="0" cy="0" rx="12.4" ry="18"/></g></g></svg>
+      <div class="slayers">
+        <div class="slayer"><div class="sblock" style="--shift:27%"><span>Brand</span> <i><svg viewBox="0 0 64 64" stroke="#000" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"><rect x="9" y="9" width="46" height="46" rx="13" fill="#f9452d"/><path class="a-spin" d="M32 17l4.2 9.6 10.4 1-7.8 6.9 2.3 10.2L32 39.4l-9.1 5.3 2.3-10.2-7.8-6.9 10.4-1z" fill="#fdf8f5"/></svg></i> <span>identity</span><div class="sblock__p"><p>Logos, systems and guidelines that hold up everywhere, including the awkward places.</p></div></div></div>
+        <div class="slayer"><div class="sblock" style="--shift:-17%"><span>Web</span> <i><svg viewBox="0 0 64 64" stroke="#000" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"><rect x="6" y="11" width="52" height="42" rx="7" fill="#fdf8f5"/><path d="M6 23v-5a7 7 0 0 1 7-7h38a7 7 0 0 1 7 7v5z" fill="#f9452d"/><path class="a-cursor" d="M31 30l15 6.5-6.4 2.4 4.2 7.4-3.6 2-4.2-7.4-5 4.6z" fill="#000" stroke="#fdf8f5" stroke-width="1.6"/></svg></i> <span>design</span><div class="sblock__p"><p>Custom sites on Framer, Webflow, WordPress or Shopify. Whichever fits you, not us.</p></div></div></div>
+        <div class="slayer"><div class="sblock" style="--shift:5%"><span>App</span> <i><svg viewBox="0 0 64 64" stroke="#000" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"><rect x="17" y="5" width="30" height="54" rx="8" fill="#f9452d"/><path d="M28 11.500h8"/><path class="a-blink" d="M28 27l-5 6 5 6M36 27l5 6-5 6" fill="none" stroke="#fdf8f5" stroke-width="3"/></svg></i> <span>development</span><div class="sblock__p"><p>Web apps, portals and payment integrations, wired up and tested properly.</p></div></div></div>
+        <div class="slayer"><div class="sblock" style="--shift:30%"><span>Online</span> <i><svg viewBox="0 0 64 64" stroke="#000" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"><g class="a-bounce"><path d="M12 23h40l-3 34H15z" fill="#f9452d"/><path d="M23 28v-9a9 9 0 0 1 18 0v9" fill="none"/><path d="M24 40c4 5 12 5 16 0" fill="none" stroke="#fdf8f5" stroke-width="3"/></g></svg></i> <span>stores</span><div class="sblock__p"><p>Stores built to convert, on Shopify or&nbsp;WooCommerce.</p></div></div></div>
+        <div class="slayer"><div class="sblock" style="--shift:-10%"><span>UI/UX</span> <i><svg viewBox="0 0 64 64" stroke="#000" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"><path d="M4 32c8-13 18-19 28-19s20 6 28 19c-8 13-18 19-28 19S12 45 4 32z" fill="#fdf8f5"/><g class="a-look"><circle cx="32" cy="32" r="11" fill="#f9452d"/><circle cx="32" cy="32" r="4.500" fill="#000" stroke="none"/></g></svg></i> <span>design</span><div class="sblock__p"><p>Interfaces people can use without a manual. Or a support ticket.</p></div></div></div>
+        <div class="slayer"><div class="sblock" style="--shift:20%"><span>SEO &amp;</span> <i><svg viewBox="0 0 64 64" stroke="#000" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"><g class="a-wobble"><path d="M40 40l16 16" stroke-width="7"/><circle cx="27" cy="27" r="18" fill="#f9452d"/><path d="M18 31l6-7 5 4 7-9" fill="none" stroke="#fdf8f5" stroke-width="3"/></g></svg></i> <span>marketing</span><div class="sblock__p"><p>Done by the people who built the site, so nobody gets to blame the other team.</p></div></div></div>
+        <div class="slayer"><div class="sblock" style="--shift:-21%"><span>Video</span> <i><svg viewBox="0 0 64 64" stroke="#000" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"><rect x="6" y="22" width="52" height="35" rx="6" fill="#f9452d"/><path class="a-clap" d="M6 22l50-11 1.600 7.500L8 29z" fill="#fdf8f5"/><path class="a-pulse" d="M27 33v14l12-7z" fill="#fdf8f5"/></svg></i> <span>production</span><div class="sblock__p"><p>Event films, interviews and brand content, shot in Dubai.</p></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUMBERS (their testimonial stack) -->
+  <section class="testi" id="numbers">
+    <div class="shead">
+      <p class="label">The receipts</p>
+      <h2 class="sheading sheading--wide" data-magnetic>Suspiciously good numbers</h2>
+    </div>
+    <div class="testi__body">
+      <div class="testi__bg" role="button" tabindex="0" aria-label="Next card">
+        <div class="tlist">
+          <article class="titem"><div class="tcard"><h3>Seventeen websites launched, and nobody has asked for a refund</h3><div class="tcard__btm"><div class="tpfp"><span class="tpfp__img">17+</span><div><b>Websites</b> <small>Launched</small></div></div><p>Every one designed and built in-house, then handed over with the keys. Brands, stores, landing pages and the odd rescue job.</p></div></div></article>
+          <article class="titem"><div class="tcard"><h3>Our work has been seen by 1.2 million people. We didn&rsquo;t count by hand</h3><div class="tcard__btm"><div class="tpfp"><span class="tpfp__img">1.2M</span><div><b>Users</b> <small>Reached</small></div></div><p>That is how many people the sites and brands we built have been put in front of. A few of them even clicked the button.</p></div></div></article>
+          <article class="titem"><div class="tcard"><h3>98% of clients are happy. We are still thinking about the other&nbsp;two</h3><div class="tcard__btm"><div class="tpfp"><span class="tpfp__img">98%</span><div><b>Satisfaction</b> <small>Client rate</small></div></div><p>Fixed quote before we start, two rounds of revisions at every stage and thirty days of free fixes after launch. It tends to keep people calm.</p></div></div></article>
+          <article class="titem"><div class="tcard"><h3>Seven years in, and still arguing about button&nbsp;padding</h3><div class="tcard__btm"><div class="tpfp"><span class="tpfp__img">7+</span><div><b>Years</b> <small>At it</small></div></div><p>Seven years of launches, late-night fixes and strong opinions. The opinions are included in the&nbsp;price.</p></div></div></article>
+        </div>
+        <div class="tside" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <span class="tarrow" aria-hidden="true"><svg viewBox="0 0 10 10"><path d="M5 9V1M1.5 4.5L5 1l3.5 3.5"/></svg></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="faq__left">
+      <div class="faq__head">
+        <p class="label label--static">Frequently asked questions</p>
+        <h2 class="sheading sheading--faq" data-magnetic>Things you might ask</h2>
+      </div>
+      <img class="faq__art" src="/assets/nap-light.webp" loading="lazy" alt="A camel asleep on its back with a large arrow pointing at its belly">
+    </div>
+    <div class="faq__right">
+      <div class="fitem open"><button class="fq" type="button" aria-expanded="true">What kind of projects do you take on?</button><div class="fa"><div class="fa__block"><p>Websites, online stores, brand identities and apps. Designed and built by the same small team, on whichever platform suits the job: Shopify, Webflow, Framer, WordPress or custom code.</p></div><span class="fa__logo">B</span></div></div>
+      <div class="fitem"><button class="fq" type="button" aria-expanded="false">How much does a website cost?</button><div class="fa"><div class="fa__block"><p>Plans run from $1,299 to $6,499. You get a written scope and a fixed quote before any work starts. No mysterious numbers pulled out of a hat.</p></div><span class="fa__logo">B</span></div></div>
+      <div class="fitem"><button class="fq" type="button" aria-expanded="false">Can you work with a brand that already exists?</button><div class="fa"><div class="fa__block"><p>Yes. We build on what works and fix what doesn&rsquo;t. Nobody needs a full rebrand just because a designer got bored.</p></div><span class="fa__logo">B</span></div></div>
+      <div class="fitem"><button class="fq" type="button" aria-expanded="false">Do you work with clients outside the UAE?</button><div class="fa"><div class="fa__block"><p>Yes. We are based in Dubai and work across the UAE, Saudi Arabia and further afield. One point of contact, a weekly call and a shared WhatsApp group.</p></div><span class="fa__logo">B</span></div></div>
+      <div class="fitem"><button class="fq" type="button" aria-expanded="false">What if we don&rsquo;t like the first concepts?</button><div class="fa"><div class="fa__block"><p>Two rounds of revisions are included at every stage. Anything beyond that gets quoted before we touch it, so nothing lands on an invoice by surprise.</p></div><span class="fa__logo">B</span></div></div>
+      <div class="fitem"><button class="fq" type="button" aria-expanded="false">How involved do we need to be?</button><div class="fa"><div class="fa__block"><p>Enough to tell us when we are wrong. One weekly call and quick feedback is plenty. We handle the rest.</p></div><span class="fa__logo">B</span></div></div>
+      <div class="fitem"><button class="fq" type="button" aria-expanded="false">Can you start yesterday?</button><div class="fa"><div class="fa__block"><p>Fortunately, yesterday is fully booked. We do reply within one business day though, which is nearly as good.</p></div><span class="fa__logo">B</span></div></div>
+      <div class="fitem"><button class="fq" type="button" aria-expanded="false">Do you work with small businesses?</button><div class="fa"><div class="fa__block"><p>Most of our clients are. The Basic plan exists for startups building their first proper website.</p></div><span class="fa__logo">B</span></div></div>
+      <div class="fitem"><button class="fq" type="button" aria-expanded="false">Who owns the website when it&rsquo;s done?</button><div class="fa"><div class="fa__block"><p>You do. On final payment we hand over the repository and the source files. You are never locked in to us.</p></div><span class="fa__logo">B</span></div></div>
+      <div class="fitem"><button class="fq" type="button" aria-expanded="false">What&rsquo;s with all the camels?</button><div class="fa"><div class="fa__block"><p>We are in Dubai. It was camels or a supercar, and camels invoice less.</p></div><span class="fa__logo">B</span></div></div>
+    </div>
+  </section>
+
+  <dialog class="game" aria-labelledby="game-h">
+    <div class="game__card">
+      <button class="game__x" type="button" aria-label="Close the game"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 1.5l7 7M8.5 1.5l-7 7"/></svg></button>
+      <div class="game__top">
+        <h2 class="game__h" id="game-h">Dodge the feedback</h2>
+        <p class="game__hud" aria-live="off"><span>Score <b class="game__score">0</b></span><span class="game__lives" aria-label="Lives">&hearts;&hearts;&hearts;</span><span class="game__time">30s</span></p>
+      </div>
+      <div class="game__stage">
+        <canvas class="game__c" tabindex="0" aria-label="Game area: move the camel with the arrow keys or by dragging"></canvas>
+        <div class="game__intro">
+          <ul class="game__legend">
+            <li><span class="gtile gtile--good">&#10003; Approved</span><span>Catch these. +1 each.</span></li>
+            <li><span class="gtile gtile--bad">Make it pop</span><span>Dodge these. Three and you are out.</span></li>
+          </ul>
+          <p class="game__keys">Arrow keys, A and D, or drag.</p>
+          <button class="cta game__go" type="button"><span class="cta__fill"></span><span class="cta__t">Start</span><span class="cta__arrow"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M3 2l5 3-5 3z"/></svg></span></button>
+        </div>
+        <div class="game__end" hidden>
+          <h3 class="game__end-h"></h3>
+          <p class="game__end-p"></p>
+          <div class="game__end-b">
+            <button class="cta game__go game__again" type="button"><span class="cta__fill"></span><span class="cta__t">Play again</span><span class="cta__arrow"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M3 2l5 3-5 3z"/></svg></span></button>
+            <a class="game__talk" href="/contact">Ready for the real thing? Get in touch</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="qf" aria-labelledby="qf-h">
+    <div class="qf__card">
+      <button class="game__x qf__x" type="button" aria-label="Close the form"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 1.5l7 7M8.5 1.5l-7 7"/></svg></button>
+      <form class="qf__form" action="/api/contact" method="post" novalidate>
+        <h2 class="qf__h" id="qf-h">Straight to business. Respect.</h2>
+        <p class="qf__sub">Twenty seconds, three taps and an email. Then a human replies within one business day.</p>
+        <fieldset class="qf__q"><legend>What is keeping you up at night? <i>pick any</i></legend>
+          <div class="qf__chips">
+            <label class="qchip"><input type="checkbox" name="need" value="A website that actually works"><span>A website that actually works</span></label>
+            <label class="qchip"><input type="checkbox" name="need" value="A Shopify store that sells"><span>A Shopify store that sells</span></label>
+            <label class="qchip"><input type="checkbox" name="need" value="A brand people remember"><span>A brand people remember</span></label>
+            <label class="qchip"><input type="checkbox" name="need" value="An app"><span>An app</span></label>
+            <label class="qchip"><input type="checkbox" name="need" value="My current site, honestly"><span>My current site, honestly</span></label>
+            <label class="qchip"><input type="checkbox" name="need" value="Something else"><span>Something else</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="qf__q"><legend>How soon?</legend>
+          <div class="qf__chips">
+            <label class="qchip"><input type="radio" name="when" value="Yesterday"><span>Yesterday</span></label>
+            <label class="qchip"><input type="radio" name="when" value="This month"><span>This month</span></label>
+            <label class="qchip"><input type="radio" name="when" value="When it is right"><span>When it is right</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="qf__q"><legend>Budget, roughly</legend>
+          <div class="qf__chips">
+            <label class="qchip"><input type="radio" name="budget" value="Under $1,500"><span>Under $1,500</span></label>
+            <label class="qchip"><input type="radio" name="budget" value="$1,500 to $5,000"><span>$1,500 to $5,000</span></label>
+            <label class="qchip"><input type="radio" name="budget" value="Over $5,000"><span>Over $5,000</span></label>
+            <label class="qchip"><input type="radio" name="budget" value="Tell me what it costs"><span>Tell me what it costs</span></label>
+          </div>
+        </fieldset>
+        <div class="qf__row">
+          <label class="qf__f"><span>Your name</span><input name="name" type="text" autocomplete="name" required></label>
+          <label class="qf__f"><span>Email</span><input name="email" type="email" autocomplete="email" inputmode="email" required></label>
+        </div>
+        <label class="qf__f"><span>Anything else? <i>optional, rants welcome</i></span><textarea name="message" rows="2"></textarea></label>
+        <div class="ct-hp" aria-hidden="true"><label>Leave this empty<input name="website" type="text" tabindex="-1" autocomplete="off"></label></div>
+        <div class="qf__send">
+          <button class="cta qf__go" type="submit"><span class="cta__fill"></span><span class="cta__t">Send it to the herd</span><span class="cta__arrow"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 8.5l7-7M2.5 1.5h6v6"/></svg></span></button>
+          <p class="qf__status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+      <div class="qf__done" hidden>
+        <h2 class="qf__h" tabindex="-1">Sent. Go procrastinate guilt-free.</h2>
+        <p class="qf__sub">A human (not a camel) reads it and replies within one business day, usually with a question or two.</p>
+      </div>
+    </div>
+  </dialog>
+</main>

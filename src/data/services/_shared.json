@@ -1,0 +1,286 @@
+{
+ "hub": {
+  "title": "Services: Web Design, Stores, Brands and Apps | The Brandle",
+  "description": "All 20 services from The Brandle, a Dubai design and development studio: websites, online stores, brand identity, apps, SEO and video. Fixed quote first.",
+  "h1": [
+   "Twenty",
+   "services"
+  ],
+  "chips": [
+   "All in-house",
+   "Fixed quote first",
+   "You keep the files"
+  ],
+  "joke": "One studio, twenty ways to give us work. Pick the one that sounds like your problem.",
+  "intro": "The Brandle is a Dubai studio that designs and builds websites, online stores, brand identities and apps, then looks after them. Every service below is done in-house, starts with a fixed quote and ends with you owning the files.",
+  "cloud": [
+   "shopify-website-design",
+   "webflow-website-design",
+   "framer-website-design",
+   "wordpress-website-design",
+   "woocommerce-website-design",
+   "wix-website-design",
+   "squarespace-website-design",
+   "ui-ux-design",
+   "payment-gateway-integration"
+  ],
+  "price": "Website and store plans run from $1,299 to $6,499, about AED 4,800 to 23,900. Apps, software and monthly work are quoted once we've seen the job. Either way the number is fixed before anything starts.",
+  "cta": {
+   "lines": [
+    "Not sure",
+    "which one?"
+   ],
+   "pills": [
+    "Free call",
+    "No homework",
+    "Reply in a business day"
+   ],
+   "p": "Tell us the problem in plain words. We'll tell you which of the twenty fixes it, or that none of them do."
+  }
+ },
+ "groups": [
+  {
+   "key": "stores",
+   "name": "Online stores",
+   "line": "For people who'd like money to arrive while they sleep.",
+   "pages": [
+    "shopify-website-design",
+    "woocommerce-website-design",
+    "ecommerce-website-design",
+    "payment-gateway-integration"
+   ]
+  },
+  {
+   "key": "websites",
+   "name": "Websites",
+   "line": "Five platforms. We have opinions about all of them, and the opinions are free.",
+   "pages": [
+    "webflow-website-design",
+    "framer-website-design",
+    "wordpress-website-design",
+    "wix-website-design",
+    "squarespace-website-design"
+   ]
+  },
+  {
+   "key": "brand",
+   "name": "Brand, design and film",
+   "line": "The part where you stop apologising for your logo.",
+   "pages": [
+    "brand-identity-design",
+    "ui-ux-design",
+    "video-production"
+   ]
+  },
+  {
+   "key": "software",
+   "name": "Apps and software",
+   "line": "For when a website with a login isn't going to cut it.",
+   "pages": [
+    "mobile-app-development",
+    "web-application-development",
+    "b2b-b2c-portal-development"
+   ]
+  },
+  {
+   "key": "growth",
+   "name": "Growth and care",
+   "line": "Launching is the easy part. This is the bit after the confetti.",
+   "pages": [
+    "seo-services",
+    "digital-marketing",
+    "social-media-marketing",
+    "website-maintenance"
+   ]
+  },
+  {
+   "key": "cities",
+   "name": "By city",
+   "line": "Same studio, different traffic.",
+   "pages": [
+    "web-design-dubai",
+    "web-design-abu-dhabi",
+    "web-design-riyadh",
+    "web-design-sharjah",
+    "web-design-jeddah",
+    "web-design-doha",
+    "web-design-kuwait",
+    "web-design-london",
+    "web-design-manchester",
+    "web-design-new-york"
+   ]
+  }
+ ],
+ "brands": {
+  "shopify": "Shopify",
+  "woo": "WooCommerce",
+  "webflow": "Webflow",
+  "framer": "Framer",
+  "wordpress": "WordPress",
+  "wix": "Wix",
+  "squarespace": "Squarespace",
+  "figma": "Figma",
+  "stripe": "Stripe",
+  "tabby": "Tabby",
+  "tamara": "Tamara",
+  "meta": "Meta",
+  "instagram": "Instagram",
+  "tiktok": "TikTok",
+  "mailchimp": "Mailchimp",
+  "youtube": "YouTube"
+ },
+ "commit": {
+  "build": [
+   "Fixed quote before we start",
+   "Two rounds of revisions per stage",
+   "Weekly call and a WhatsApp group",
+   "30 days of free fixes",
+   "You own the files"
+  ],
+  "retainer": [
+   "Fixed fee agreed first",
+   "Weekly call and a WhatsApp group",
+   "Reply within one business day",
+   "You own the files"
+  ],
+  "video": [
+   "Fixed quote before the shoot",
+   "One point of contact",
+   "Reply within one business day"
+  ]
+ },
+ "slap": [
+  "star",
+  "bag",
+  "eye",
+  "bolt",
+  "chat",
+  "check",
+  "play",
+  "pencil"
+ ],
+ "tools_note": "We build on these. No partner badges, no plaques in reception. Just the work.",
+ "proofs": {
+  "soznikar": {
+   "type": "video",
+   "file": "soznikar-mac",
+   "title": "Soznikar",
+   "label": "Our own Shopify store",
+   "href": "/projects/soznikar/",
+   "colour": "#111111",
+   "tablet": true,
+   "alt": "The Soznikar store home page playing on a MacBook Pro"
+  },
+  "voice-and-data-resale": {
+   "type": "shot",
+   "img": "assets/services/voice-and-data-resale.webp",
+   "scene": "studio-white-portrait",
+   "title": "Voice & Data Resale",
+   "label": "Client Shopify store",
+   "href": "/projects/voice-and-data-resale/",
+   "colour": "#17936a",
+   "alt": "The Voice and Data Resale store home page on a desktop display"
+  },
+  "storage-hire": {
+   "type": "shot",
+   "img": "assets/services/storage-hire.webp",
+   "scene": "xdr-blue-portrait",
+   "title": "Storage Hire",
+   "label": "Client Wix site",
+   "href": "/projects/storage-hire/",
+   "colour": "#170b52",
+   "alt": "The Storage Hire home page on a desktop display"
+  },
+  "tideline": {
+   "type": "flash",
+   "frames": 8,
+   "scene": "studio-dark-portrait",
+   "title": "Tideline",
+   "label": "Our own Webflow template",
+   "href": "/projects/tideline/",
+   "colour": "#2743c7",
+   "tablet": true,
+   "alt": "Pages of the Tideline template flashing by on a desktop display: a seafront tower, floor plans, materials and a map"
+  },
+  "limonaia": {
+   "type": "flash",
+   "frames": 8,
+   "scene": "concrete-portrait",
+   "title": "Limonaia",
+   "label": "Our own Framer template",
+   "href": "/projects/limonaia/",
+   "colour": "#1f3d2b",
+   "tablet": true,
+   "alt": "Pages of the Limonaia template flashing by on a desktop display: a hillside arch, terraces, plans and price lists"
+  },
+  "bezier": {
+   "type": "flash",
+   "frames": 8,
+   "scene": "studio-white-portrait",
+   "title": "Bezier",
+   "label": "Our own Framer template",
+   "href": "/projects/bezier/",
+   "colour": "#2f3df5",
+   "tablet": true,
+   "alt": "Pages of the Bezier template flashing by on a desktop display: a design studio home page, case studies and journal"
+  },
+  "pawsword": {
+   "type": "video",
+   "file": "pawsword-phone",
+   "title": "Pawsword",
+   "label": "Our own iOS and Mac app",
+   "href": "/projects/pawsword/",
+   "colour": "#e39a1b",
+   "tablet": true,
+   "alt": "The Pawsword app on an iPhone: a bear says hello, then Face ID opens the password list"
+  },
+  "sameticket": {
+   "type": "flash",
+   "frames": 8,
+   "scene": "xdr-blue-portrait",
+   "title": "SameTicket",
+   "label": "Our own site",
+   "href": "/projects/sameticket/",
+   "colour": "#1f6fb0",
+   "tablet": true,
+   "alt": "Pages of SameTicket flashing by on a desktop display: the home page, price tables, city guides and deals"
+  }
+ },
+ "films": [
+  {
+   "file": "beincrypto",
+   "yt": "2CchbQdESco",
+   "title": "BeInCrypto",
+   "len": "0:39",
+   "shape": "w"
+  },
+  {
+   "file": "blockstreet",
+   "yt": "WC7X097ixNw",
+   "title": "Blockstreet",
+   "len": "1:35",
+   "shape": "w"
+  },
+  {
+   "file": "lavo",
+   "yt": "60H5TW-L4oI",
+   "title": "Lavo",
+   "len": "1:06",
+   "shape": "w"
+  },
+  {
+   "file": "white-sunday",
+   "yt": "ul5GEKFK0Kk",
+   "title": "White Sunday",
+   "len": "0:20",
+   "shape": "v"
+  },
+  {
+   "file": "dat-summit",
+   "yt": "NMS26S4K2iM",
+   "title": "DAT Summit",
+   "len": "0:06",
+   "shape": "v"
+  }
+ ]
+}

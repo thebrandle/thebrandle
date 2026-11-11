@@ -1,0 +1,97 @@
+{
+ "type": "template",
+ "seo_title": "Rotonda: Framer Template Design | The Brandle",
+ "summary": "A Framer template for web studios, told as one long scroll story with a retro desktop you can use.",
+ "cover": "red",
+ "portrait": "xdr-red-portrait",
+ "screens": 8,
+ "cta": "Open the live preview",
+ "brief": {
+  "label": "Framer template, web studios",
+  "heading": "The idea",
+  "paras": [
+   "Most studio sites list what they do. Rotonda shows it. The whole home page is one long story: a loader that cuts the site open, a square wheel that rolls itself round, and tickets that flip in.",
+   "It is a Framer template for web studios and freelancers who sell design and build work in packages."
+  ]
+ },
+ "answer": {
+  "label": "Launched 2026",
+  "heading": "What's inside",
+  "paras": [
+   "Scroll far enough and the pricing page shrinks into a draggable window on a retro desktop, with photo, testimonial and FAQ windows to open. Then the lot pulls back into a CRT monitor. Nobody asked for this. That is rather the point.",
+   "Four page types, with case studies on Framer's CMS and three projects already written. The next-project link sets itself.",
+   "It is on the Framer Marketplace. Every line is written for a real studio, so you change the name, the work and the prices."
+  ]
+ },
+ "tags": [
+  "Template design",
+  "Framer build",
+  "Scroll story",
+  "CMS setup"
+ ],
+ "blocks": [
+  {
+   "t": "full",
+   "img": "s1",
+   "alt": "A showreel window on a black ground, from the Rotonda home page"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p1",
+    "alt": "The Rotonda home page on a phone, the name in large red letters"
+   },
+   "b": {
+    "img": "p2",
+    "alt": "The Rotonda home page on a phone, further down the story"
+   }
+  },
+  {
+   "t": "mock",
+   "scene": "studio-white",
+   "alt": "Pages of the Rotonda template cutting past on a desktop display in a white studio"
+  },
+  {
+   "t": "full",
+   "img": "s2",
+   "alt": "Four red process cards on the Rotonda home page: discovery, design, build and launch"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p3",
+    "alt": "The Fernwell case study on a phone"
+   },
+   "b": {
+    "img": "p4",
+    "alt": "The Kilnhouse case study on a phone"
+   }
+  },
+  {
+   "t": "full",
+   "img": "s3",
+   "alt": "The Selected Work section of Rotonda beside a monitor among plants"
+  },
+  {
+   "t": "full",
+   "img": "s4",
+   "alt": "The Fernwell case study page in the Rotonda template"
+  },
+  {
+   "t": "full",
+   "img": "s5",
+   "alt": "The Kilnhouse case study page in the Rotonda template"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Everything on this page: the scroll story, loader, square wheel, tickets, the desktop with draggable windows and the CRT monitor, who it is for, 4 page types, CMS case studies with 3 written and a self-setting next link, launched on the Framer Marketplace 2026-11-04",
+   "source": "~/framertemplates/templates/rotonda/LISTING_KIT.md (header, section 1 Description)"
+  },
+  {
+   "claim": "Page captures",
+   "source": "https://rotonda.framer.website (captured 2026-11-11)"
+  }
+ ],
+ "description": "A Framer template for web studios, told as one long scroll story with a retro desktop you can use. Designed and built by The Brandle, a Dubai design and development studio."
+}

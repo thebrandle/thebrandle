@@ -1,0 +1,97 @@
+{
+ "type": "template",
+ "seo_title": "Bezier: Framer Template Design | The Brandle",
+ "summary": "A Framer template for design studios, with a 3D Bezier curve visitors can bend.",
+ "cover": "cobalt",
+ "portrait": "xdr-cobalt-portrait",
+ "screens": 8,
+ "cta": "Open the live preview",
+ "brief": {
+  "label": "Framer template, design studios",
+  "heading": "The idea",
+  "paras": [
+   "Most studio templates look like everyone else's. Bezier looks like the design tool clients never get to see: selection boxes, named cursors and artboards on a dark canvas.",
+   "It is a Framer template for design studios and freelancers who sell brand, web and product design on a monthly plan."
+  ]
+ },
+ "answer": {
+  "label": "Launched 2026",
+  "heading": "What's inside",
+  "paras": [
+   "The hero is a glossy 3D curve. It draws itself in, leans toward the cursor and bends when you drag its handles. People do drag the handles. We checked, repeatedly, instead of working.",
+   "Eight pages and three CMS collections: projects, journal and testimonials. Work cards stack and recede as you scroll, and the studio statement fills in word by word.",
+   "It is on the Framer Marketplace, written for a real studio, so you swap in your name, your work and your prices."
+  ]
+ },
+ "tags": [
+  "Template design",
+  "Framer build",
+  "3D hero",
+  "CMS setup"
+ ],
+ "blocks": [
+  {
+   "t": "full",
+   "img": "s1",
+   "alt": "A Bezier case study card for a banking app, shown on a dark canvas"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p1",
+    "alt": "The Bezier home page on a phone, with its blue 3D curve"
+   },
+   "b": {
+    "img": "p2",
+    "alt": "The Bezier work page on a phone"
+   }
+  },
+  {
+   "t": "mock",
+   "scene": "studio-dark",
+   "alt": "Pages of the Bezier template cutting past on a desktop display"
+  },
+  {
+   "t": "full",
+   "img": "s2",
+   "alt": "Stacked project cards on the Bezier home page"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p3",
+    "alt": "A Bezier case study on a phone"
+   },
+   "b": {
+    "img": "p4",
+    "alt": "The Bezier journal on a phone"
+   }
+  },
+  {
+   "t": "full",
+   "img": "s3",
+   "alt": "The Tidal case study page in the Bezier template"
+  },
+  {
+   "t": "full",
+   "img": "s4",
+   "alt": "The Bezier about page: A small studio with a big file"
+  },
+  {
+   "t": "full",
+   "img": "s5",
+   "alt": "The Bezier journal: Notes from the canvas, above three article cards"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Everything on this page: the design-tool look, who it is for, the 3D curve that draws in, leans and bends, 8 pages, 3 CMS collections, stacking work cards, word-by-word statement, posted on the Framer Marketplace 2026-11-03",
+   "source": "~/framertemplates/templates/bezier/LISTING_KIT.md (section 1)"
+  },
+  {
+   "claim": "Page captures",
+   "source": "https://bezier-studio.framer.website (captured 2026-11-11)"
+  }
+ ],
+ "description": "A Framer template for design studios, with a 3D Bezier curve visitors can bend. Designed and built by The Brandle, a Dubai design and development studio."
+}

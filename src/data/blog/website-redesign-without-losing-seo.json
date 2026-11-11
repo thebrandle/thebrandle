@@ -1,0 +1,248 @@
+{
+  "slug": "website-redesign-without-losing-seo",
+  "url": "https://www.thebrandle.com/blog/website-redesign-without-losing-seo/",
+  "path": "/blog/website-redesign-without-losing-seo/",
+  "canonical": "https://www.thebrandle.com/blog/website-redesign-without-losing-seo/",
+  "lang": "en",
+  "source": "hand-written",
+  "title": "How to Redesign a Website Without Losing SEO | TheBrandle",
+  "titleWithoutBrand": "How to Redesign a Website Without Losing SEO",
+  "description": "A practical checklist for redesigning a website without losing search rankings - URL mapping, redirects, content parity and what to monitor after launch.",
+  "h1": "How to redesign your website without losing SEO",
+  "headline": "How to Redesign a Website Without Losing SEO | TheBrandle",
+  "datePublished": "2026-07-28",
+  "dateModified": "2026-07-28",
+  "dateDisplayed": "Jul 28, 2026",
+  "sitemapLastmod": "2026-08-16",
+  "gitFirstCommit": "2026-08-07T03:49:12+04:00",
+  "gitLastCommit": "2026-11-03T10:57:22+04:00",
+  "author": {
+    "name": "The Brandle Team",
+    "role": "Design Studio",
+    "avatar": "/assets/blog/_shared/author-avatar.jpg",
+    "avatarOriginal": "/framerusercontent.com/images/A0LPOEdkaRkfMcS2EWs1My620fA.jpg",
+    "schemaAuthor": {
+      "@type": "Organization",
+      "name": "TheBrandle",
+      "url": "https://www.thebrandle.com"
+    }
+  },
+  "category": "SEO",
+  "categorySource": "tag in scripts/blog-posts-data.js (never rendered on the live page)",
+  "tags": [
+    "SEO"
+  ],
+  "suggestedGroup": "SEO and performance",
+  "heroImage": {
+    "src": "/assets/blog/website-redesign-without-losing-seo/cover.jpg",
+    "alt": "An abstract form dissolving and re-forming, one thread unbroken",
+    "width": 2560,
+    "height": 1440,
+    "original": "/assets/blog/covers/website-redesign-without-losing-seo.jpg"
+  },
+  "cardImage": {
+    "src": "/assets/blog/website-redesign-without-losing-seo/card.jpg",
+    "alt": "How to redesign your website without losing SEO",
+    "width": 1600,
+    "height": 900,
+    "original": "/assets/blog/website-redesign-without-losing-seo.jpg",
+    "svgSource": "/assets/blog/website-redesign-without-losing-seo/card.svg",
+    "bakedText": {
+      "eyebrow": "SEO",
+      "h1": "Redesign without losing your rankings",
+      "sub": "URL mapping, redirects and content parity - the checklist"
+    }
+  },
+  "readingMinutes": 2,
+  "readingMinutesSource": "computed: (body words + FAQ words) / 225, rounded, minimum 1. The live page shows no reading time.",
+  "readingMinutesDeclared": 7,
+  "wordCount": 353,
+  "wordCountFaq": 93,
+  "wordCountSchema": null,
+  "excerpt": "A practical checklist for redesigning a website without losing search rankings - URL mapping, redirects, content parity and what to monitor after launch.",
+  "listing": {
+    "position": 7,
+    "title": "How to redesign your website without losing SEO",
+    "blurb": "URL mapping, redirects and content parity - the checklist."
+  },
+  "faq": [
+    {
+      "q": "Will I lose rankings when I redesign?",
+      "a": "A short dip while Google re-crawls is normal. A lasting drop means something went wrong in the migration - usually missing redirects or removed content."
+    },
+    {
+      "q": "Should I keep my old URLs?",
+      "a": "If they rank and make sense, yes. Changing URLs for tidiness alone is rarely worth the risk. Change them when the structure is genuinely wrong."
+    },
+    {
+      "q": "How long does recovery take?",
+      "a": "With redirects done properly, most sites are back to baseline within four to six weeks. Without them, recovery can take months and may never fully happen."
+    }
+  ],
+  "relatedServices": [
+    {
+      "label": "SEO Services",
+      "href": "/services/seo-services/"
+    },
+    {
+      "label": "Website Maintenance",
+      "href": "/services/website-maintenance/"
+    },
+    {
+      "label": "All Services",
+      "href": "/services/"
+    }
+  ],
+  "headings": [
+    {
+      "level": 2,
+      "text": "Before you design anything",
+      "id": "before-you-design-anything"
+    },
+    {
+      "level": 2,
+      "text": "Map every URL",
+      "id": "map-every-url"
+    },
+    {
+      "level": 2,
+      "text": "Keep the content",
+      "id": "keep-the-content"
+    },
+    {
+      "level": 2,
+      "text": "After launch",
+      "id": "after-launch"
+    }
+  ],
+  "links": [
+    {
+      "href": "/services/seo-services/",
+      "text": "SEO services"
+    }
+  ],
+  "moreArticlesAsPublished": [
+    {
+      "title": "How to build a startup website people trust",
+      "href": "/blog/how-to-build-a-startup-website/"
+    },
+    {
+      "title": "Headless CMS: what it is and when you actually need one",
+      "href": "/blog/headless-cms-guide/"
+    },
+    {
+      "title": "AI in web design: what it does well and where it fails",
+      "href": "/blog/ai-in-web-design/"
+    },
+    {
+      "title": "Arabic and RTL website design: doing it properly",
+      "href": "/blog/arabic-rtl-website-design/"
+    },
+    {
+      "title": "Website maintenance: what you actually need to pay for",
+      "href": "/blog/website-maintenance-cost/"
+    }
+  ],
+  "cta": {
+    "heading": "Ready to build it right?",
+    "text": "Tell us about your project and we will come back with a clear plan, timeline and a fixed quote.",
+    "button": "Book a free consultation",
+    "href": "/contact"
+  },
+  "meta": {
+    "robots": "index, follow",
+    "ogType": "article",
+    "ogTitle": "How to Redesign a Website Without Losing SEO | TheBrandle",
+    "ogDescription": "A practical checklist for redesigning a website without losing search rankings - URL mapping, redirects, content parity and what to monitor after launch.",
+    "ogImage": "https://www.thebrandle.com/assets/blog/website-redesign-without-losing-seo.jpg",
+    "twitterCard": "summary_large_image",
+    "twitterTitle": "How to Redesign a Website Without Losing SEO | TheBrandle",
+    "twitterImage": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+    "rssAlternate": null
+  },
+  "jsonLdTypes": [
+    "Article",
+    "FAQPage",
+    "BreadcrumbList"
+  ],
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to Redesign a Website Without Losing SEO | TheBrandle",
+      "description": "A practical checklist for redesigning a website without losing search rankings - URL mapping, redirects, content parity and what to monitor after launch.",
+      "datePublished": "2026-07-28",
+      "dateModified": "2026-07-28",
+      "author": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.thebrandle.com/framerusercontent.com/assets/TheBrandle.svg"
+        }
+      },
+      "image": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+      "mainEntityOfPage": "https://www.thebrandle.com/blog/website-redesign-without-losing-seo/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Will I lose rankings when I redesign?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A short dip while Google re-crawls is normal. A lasting drop means something went wrong in the migration - usually missing redirects or removed content."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I keep my old URLs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If they rank and make sense, yes. Changing URLs for tidiness alone is rarely worth the risk. Change them when the structure is genuinely wrong."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does recovery take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "With redirects done properly, most sites are back to baseline within four to six weeks. Without them, recovery can take months and may never fully happen."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.thebrandle.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.thebrandle.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How to Redesign a Website Without Losing SEO | TheBrandle",
+          "item": "https://www.thebrandle.com/blog/website-redesign-without-losing-seo/"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,247 @@
+{
+  "slug": "website-cost-dubai",
+  "url": "https://www.thebrandle.com/blog/website-cost-dubai/",
+  "path": "/blog/website-cost-dubai/",
+  "canonical": "https://www.thebrandle.com/blog/website-cost-dubai/",
+  "lang": "en",
+  "source": "hand-written",
+  "title": "How Much Does a Website Cost in Dubai? (2026 Guide) | TheBrandle",
+  "titleWithoutBrand": "How Much Does a Website Cost in Dubai? (2026 Guide)",
+  "description": "Real 2026 price ranges for websites in Dubai and the UAE - template builds, custom design, ecommerce stores - and what actually drives the cost up or down.",
+  "h1": "How much does a website cost in Dubai?",
+  "headline": "How Much Does a Website Cost in Dubai? (2026 Guide)",
+  "datePublished": "2026-07-22",
+  "dateModified": "2026-11-10",
+  "dateDisplayed": "Jul 22, 2026",
+  "sitemapLastmod": "2026-11-10",
+  "gitFirstCommit": "2026-07-23T18:19:12+04:00",
+  "gitLastCommit": "2026-11-10T14:58:45+04:00",
+  "author": {
+    "name": "The Brandle Team",
+    "role": "Design Studio",
+    "avatar": "/assets/blog/_shared/author-avatar.jpg",
+    "avatarOriginal": "/framerusercontent.com/images/A0LPOEdkaRkfMcS2EWs1My620fA.jpg",
+    "schemaAuthor": {
+      "@type": "Organization",
+      "name": "TheBrandle",
+      "url": "https://www.thebrandle.com"
+    }
+  },
+  "category": "Pricing",
+  "categorySource": "tag in scripts/blog-posts-data.js (never rendered on the live page)",
+  "tags": [
+    "Pricing"
+  ],
+  "suggestedGroup": "Pricing",
+  "heroImage": {
+    "src": "/assets/blog/website-cost-dubai/cover.jpg",
+    "alt": "Abstract translucent planes stacking into ascending tiers",
+    "width": 2560,
+    "height": 1440,
+    "original": "/assets/blog/covers/website-cost-dubai.jpg"
+  },
+  "cardImage": {
+    "src": "/assets/blog/website-cost-dubai/card.jpg",
+    "alt": "How much does a website cost in Dubai?",
+    "width": 1600,
+    "height": 900,
+    "original": "/assets/blog/website-cost-dubai.jpg",
+    "svgSource": "/assets/blog/website-cost-dubai/card.svg",
+    "bakedText": {
+      "eyebrow": "PRICING",
+      "h1": "What a website costs in Dubai",
+      "sub": "Three price bands, and what actually moves the number"
+    }
+  },
+  "readingMinutes": 2,
+  "readingMinutesSource": "computed: (body words + FAQ words) / 225, rounded, minimum 1. The live page shows no reading time.",
+  "readingMinutesDeclared": 5,
+  "wordCount": 393,
+  "wordCountFaq": 124,
+  "wordCountSchema": null,
+  "excerpt": "Real 2026 price ranges for websites in Dubai and the UAE - template builds, custom design, ecommerce stores - and what actually drives the cost up or down.",
+  "listing": {
+    "position": 17,
+    "title": "How much does a website cost in Dubai?",
+    "blurb": "Three price bands, and what actually moves the number."
+  },
+  "faq": [
+    {
+      "q": "How long does a website take to build in Dubai?",
+      "a": "Template builds: 1-2 weeks. Custom-designed sites: 3-6 weeks. Ecommerce and complex builds: 4-10 weeks. Content readiness is the most common cause of delay - having copy and images ready can halve your timeline."
+    },
+    {
+      "q": "Are there ongoing costs after launch?",
+      "a": "Yes: hosting and domain (modest), platform subscriptions if you use Shopify, Framer, Webflow or Wix, and optional maintenance. A good agency states all of these up front."
+    },
+    {
+      "q": "Is it cheaper to build the website myself?",
+      "a": "In cash, yes. In outcomes, usually not - DIY sites tend to cost sales through weaker design and conversion. A sensible middle path is a professionally designed site on an easy platform like Wix, Squarespace or Framer that you then run yourself."
+    }
+  ],
+  "relatedServices": [
+    {
+      "label": "All Services",
+      "href": "/services/"
+    },
+    {
+      "label": "Shopify Website Design",
+      "href": "/services/shopify-website-design/"
+    },
+    {
+      "label": "Wix Website Design",
+      "href": "/services/wix-website-design/"
+    }
+  ],
+  "headings": [
+    {
+      "level": 2,
+      "text": "The three price bands",
+      "id": "the-three-price-bands"
+    },
+    {
+      "level": 2,
+      "text": "What actually moves the price",
+      "id": "what-actually-moves-the-price"
+    },
+    {
+      "level": 2,
+      "text": "How to compare quotes fairly",
+      "id": "how-to-compare-quotes-fairly"
+    }
+  ],
+  "links": [
+    {
+      "href": "/pricing/",
+      "text": "our fixed-price plans"
+    },
+    {
+      "href": "/contact",
+      "text": "get in touch"
+    }
+  ],
+  "moreArticlesAsPublished": [
+    {
+      "title": "How to build a startup website people trust",
+      "href": "/blog/how-to-build-a-startup-website/"
+    },
+    {
+      "title": "Headless CMS: what it is and when you actually need one",
+      "href": "/blog/headless-cms-guide/"
+    },
+    {
+      "title": "AI in web design: what it does well and where it fails",
+      "href": "/blog/ai-in-web-design/"
+    },
+    {
+      "title": "Arabic and RTL website design: doing it properly",
+      "href": "/blog/arabic-rtl-website-design/"
+    },
+    {
+      "title": "How to redesign your website without losing SEO",
+      "href": "/blog/website-redesign-without-losing-seo/"
+    }
+  ],
+  "cta": {
+    "heading": "Ready to build it right?",
+    "text": "Tell us about your project and we will come back with a clear plan, timeline and a fixed quote.",
+    "button": "Book a free consultation",
+    "href": "/contact"
+  },
+  "meta": {
+    "robots": "index, follow",
+    "ogType": "article",
+    "ogTitle": "How Much Does a Website Cost in Dubai? (2026 Guide)",
+    "ogDescription": "Real 2026 price ranges for websites in Dubai and the UAE - template builds, custom design, ecommerce stores - and what actually drives the cost up or down.",
+    "ogImage": "https://www.thebrandle.com/assets/blog/website-cost-dubai.jpg",
+    "twitterCard": "summary_large_image",
+    "twitterTitle": "How Much Does a Website Cost in Dubai? (2026 Guide)",
+    "twitterImage": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+    "rssAlternate": null
+  },
+  "jsonLdTypes": [
+    "Article",
+    "FAQPage",
+    "BreadcrumbList"
+  ],
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How Much Does a Website Cost in Dubai? (2026 Guide)",
+      "description": "Real 2026 price ranges for websites in Dubai and the UAE - template builds, custom design, ecommerce stores - and what actually drives the cost up or down.",
+      "datePublished": "2026-07-22",
+      "dateModified": "2026-11-10",
+      "author": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.thebrandle.com/framerusercontent.com/assets/TheBrandle.svg"
+        }
+      },
+      "image": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+      "mainEntityOfPage": "https://www.thebrandle.com/blog/website-cost-dubai/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long does a website take to build in Dubai?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Template builds: 1-2 weeks. Custom-designed sites: 3-6 weeks. Ecommerce and complex builds: 4-10 weeks. Content readiness is the most common cause of delay - having copy and images ready can halve your timeline."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are there ongoing costs after launch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes: hosting and domain (modest), platform subscriptions if you use Shopify, Framer, Webflow or Wix, and optional maintenance. A good agency states all of these up front."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it cheaper to build the website myself?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In cash, yes. In outcomes, usually not - DIY sites tend to cost sales through weaker design and conversion. A sensible middle path is a professionally designed site on an easy platform like Wix, Squarespace or Framer that you then run yourself."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.thebrandle.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.thebrandle.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How Much Does a Website Cost in Dubai? (2026 Guide)",
+          "item": "https://www.thebrandle.com/blog/website-cost-dubai/"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+ "title": "Web Design Sharjah: Websites and Online Stores | The Brandle",
+ "description": "Web design for Sharjah businesses from a studio one emirate away. Bilingual websites and stores, 5% VAT handled, fixed plans from $1,299 to $6,499.",
+ "crumb": "Sharjah",
+ "country": "United Arab Emirates",
+ "schema_name": "Web design Sharjah",
+ "service_type": "Web Design Sharjah",
+ "hub": {
+  "name": "Web design Sharjah",
+  "line": "One emirate over, same time zone."
+ },
+ "hero": {
+  "h1": [
+   "Web design",
+   "Sharjah"
+  ],
+  "stickers": [
+   {
+    "icon": "pin"
+   }
+  ],
+  "chips": [
+   "Same time zone",
+   "Arabic and English",
+   "5% VAT ready"
+  ],
+  "joke": "Your customers already spend an hour in Sharjah to Dubai traffic. Your website shouldn't make them wait as well.",
+  "intro": "Web design for Sharjah businesses, from a studio one emirate away in Dubai. Bilingual websites and online stores for family firms, schools, clinics and shops, with 5% UAE VAT, local payment methods and Arabic designed properly. Fixed plans from $1,299 to $6,499."
+ },
+ "get": {
+  "h2": "Built for Sharjah",
+  "items": [
+   {
+    "icon": "globe",
+    "t": "Arabic that reads right",
+    "p": "Many Sharjah customers would rather read in Arabic, so both languages get designed, not just translated. Our [Arabic and RTL guide](/blog/arabic-rtl-website-design/) shows what that means."
+   },
+   {
+    "icon": "users",
+    "t": "Made for families",
+    "p": "Clear pages for parents, patients and regulars: opening hours, fees, locations and a phone number that works with one tap."
+   },
+   {
+    "icon": "card",
+    "t": "Local payment methods",
+    "p": "Cards, Apple Pay and instalments through Tabby or Tamara, for shoppers who expect them at checkout."
+   },
+   {
+    "icon": "doc",
+    "t": "VAT-ready",
+    "p": "5% UAE VAT shown and invoiced correctly, with your tax registration number where it belongs."
+   },
+   {
+    "icon": "building",
+    "t": "Free zone or mainland",
+    "p": "Licence details and legal pages set out for your set-up, whether that's a Sharjah free zone like SAIF Zone or Shams, or the mainland."
+   },
+   {
+    "icon": "pin",
+    "t": "Found on the map",
+    "p": "Google Business Profile matched to the site, so people searching nearby find the right branch, not the one that closed."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Why a studio next door?",
+  "p": "Because Sharjah and Dubai share a clock and a working week, so calls happen when you're actually at your desk. We know the VAT rules and the free zones already. Past that, judge us on the work.",
+  "yes": [
+   "A Sharjah family business finally getting a proper site",
+   "A school, nursery or clinic that parents need to find fast",
+   "A shop that wants to start selling online",
+   "In need of Arabic and English that both look intended"
+  ],
+  "no": "you're selling mainly to Dubai, then [web design Dubai](/services/web-design-dubai/) fits better. If you only need the checkout fixed, see [payment gateway integration](/services/payment-gateway-integration/)."
+ },
+ "proof": {
+  "label": "Our own work",
+  "h2": "Sharjah on the list",
+  "cards": [
+   "sameticket"
+  ],
+  "p": "SameTicket is our own site comparing ticket prices for attractions in Dubai, Abu Dhabi, Sharjah and Ras Al Khaimah. We built it and we run it, so Sharjah's attractions are already part of our day job."
+ },
+ "steps": {
+  "h2": "Brief to launch",
+  "items": [
+   {
+    "t": "Brief",
+    "p": "A free call in your working hours. You get a written scope and a fixed quote."
+   },
+   {
+    "t": "Design",
+    "p": "Key pages designed in Figma, in Arabic and English side by side."
+   },
+   {
+    "t": "Build",
+    "p": "Built on the platform that fits how you work, with payments connected in test mode."
+   },
+   {
+    "t": "Launch",
+    "p": "Payments tested, map profile matched, site live. Free fixes for 30 days."
+   }
+  ]
+ },
+ "price": {
+  "big": [
+   "$1,299 to",
+   "$6,499"
+  ],
+  "p": "Our fixed plans run from $1,299 to $6,499, about AED 4,800 to 23,900, and a site or store takes 3 to 6 weeks. For how that compares with the rest of the UAE market, read [how much a website costs in Dubai](/blog/website-cost-dubai/). The numbers don't change at the border."
+ },
+ "tools": {
+  "h2": "What we build with",
+  "items": [
+   "shopify",
+   "webflow",
+   "framer",
+   "wordpress",
+   "tabby",
+   "tamara",
+   "Apple Pay",
+   "Google Business Profile"
+  ]
+ },
+ "faq_h2": "Sharjah, answered",
+ "faq": [
+  {
+   "q": "How much does a website cost in Sharjah?",
+   "a": "Ours run from $1,299 to $6,499, about AED 4,800 to 23,900, fixed before work starts. Two languages and online payments add scope, and the quote will say so."
+  },
+  {
+   "q": "Are you based in Sharjah?",
+   "a": "No, we're in Dubai, one emirate away and in the same time zone. Most of the work happens on video calls and in shared documents, and we reply within one business day."
+  },
+  {
+   "q": "Do you build Arabic websites?",
+   "a": "Yes, with proper right-to-left layouts and Arabic type chosen for screens. The translation usually comes from you or a translator we can recommend."
+  },
+  {
+   "q": "Can you handle VAT on our store?",
+   "a": "Yes. 5% UAE VAT shown at checkout and on invoices, with your tax registration number in place. Your accountant still files the return, sadly."
+  }
+ ],
+ "related": [
+  "web-design-dubai",
+  "web-design-abu-dhabi",
+  "ecommerce-website-design"
+ ],
+ "post": {
+  "slug": "website-cost-dubai",
+  "title": "How much does a website cost in Dubai?"
+ },
+ "cta": {
+  "lines": [
+   "Skip the",
+   "traffic"
+  ],
+  "pills": [
+   "Free call",
+   "Fixed quote",
+   "Same time zone"
+  ],
+  "p": "Tell us about the business. We reply within one business day, from just down the road."
+ }
+}

@@ -1,0 +1,26 @@
+<main id="top" class="blog">
+
+  <section class="bhero">
+    <div class="bhero__text">
+      <p class="label label--static">The blog</p>
+      <h1 class="heading bhero__h" data-lines>Free advice.<br>Worth every<br><span class="bflip">dirham</span></h1>
+      <span class="pill bpill bpill--1"><span>No fluff</span></span>
+      <span class="pill bpill bpill--2"><span>Written by builders</span></span>
+      <span class="pill bpill bpill--3"><span>Camel approved</span></span>
+      <p class="bhero__lead">Plain guides on what a website costs, which platform to pick and how to redesign without losing your rankings. {{count}} so far, none of them thought leadership.</p>
+    </div>
+    {{art}}
+  </section>
+
+  <section class="blist" aria-labelledby="blist-h">
+    <div class="shead">
+      <p class="label">All {{count}} guides</p>
+      <h2 class="sheading sheading--wide" id="blist-h" data-magnetic>Pick your problem</h2>
+    </div>
+    <div class="bfilter" role="group" aria-label="Filter guides by topic">{{filters}}</div>
+    <p class="bcount" aria-live="polite"></p>
+{{featured}}
+    <div class="plist bgrid">{{cards}}
+    </div>
+  </section>
+</main>

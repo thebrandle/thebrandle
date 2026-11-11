@@ -1,0 +1,38 @@
+<p>Core Web Vitals are Google's attempt to measure whether a page feels fast to a real person. They are a genuine ranking signal, but a modest one - fixing them will not rescue thin content.</p>
+<p>They are worth fixing anyway, because they measure things that also cost you conversions.</p>
+<h2>The three metrics</h2>
+<p>LCP, Largest Contentful Paint: how long until the main thing on screen appears. Usually your hero image or heading. Under 2.5 seconds is the target.</p>
+<p>INP, Interaction to Next Paint: how quickly the page responds when someone taps or clicks. This replaced FID and is harder to pass, because it measures every interaction rather than the first.</p>
+<p>CLS, Cumulative Layout Shift: how much the page jumps around while loading. This is the one users hate most - you go to tap something and an ad loads above it.</p>
+<h2>What actually causes bad scores</h2>
+<p>Oversized images are the most common LCP problem by a distance. A hero exported at 4000 pixels wide and displayed at 1200 wastes most of what it downloads.</p>
+<p>Too much JavaScript causes bad INP. Every script the browser parses before responding delays that response, and most sites load several they no longer use.</p>
+<p>Images and ads without dimensions cause CLS. If the browser does not know how much space something needs, it reflows when it arrives.</p>
+<p>Fonts cause both. A web font that loads late shifts text; one that blocks rendering delays it.</p>
+<h2>The fixes that matter</h2>
+<p>Serve images at the size they display, in a modern format, with width and height attributes set. This alone fixes most LCP and CLS problems on small business sites.</p>
+<p>Remove scripts you no longer use. Most sites carry tracking for tools abandoned years ago, each still loading on every visit.</p>
+<p>Preload the font you actually use, and set a sensible fallback so text is readable while it loads.</p>
+<p>Measure with real user data in Search Console rather than a one-off lab test. Lab tools are useful for diagnosis, but Google ranks on field data. See our <a href="/services/seo-services/">SEO services</a> if you want this handled.</p>
+<!-- faq -->
+<details>
+<summary>How much do Core Web Vitals affect rankings?</summary>
+<p>They are a real but small signal, mostly acting as a tiebreaker between similar pages. Content relevance matters far more. Fix them for conversions as much as for rankings.</p>
+</details>
+<details>
+<summary>Why does my score differ between tools?</summary>
+<p>PageSpeed Insights lab tests simulate a slow device. Search Console reports real visitors. The field data is what Google uses.</p>
+</details>
+<details>
+<summary>Can a WordPress site pass Core Web Vitals?</summary>
+<p>Yes, but it needs work - lean theme, few plugins, optimised images and decent hosting. Passing by default is unusual on WordPress.</p>
+</details>
+<!-- /faq -->
+<!-- related-services -->
+<h3>Related services</h3>
+<ul>
+<li><a href="/services/seo-services/">SEO Services</a></li>
+<li><a href="/services/website-maintenance/">Website Maintenance</a></li>
+<li><a href="/services/">All Services</a></li>
+</ul>
+<!-- /related-services -->

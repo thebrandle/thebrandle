@@ -1,0 +1,144 @@
+{
+ "title": "Web Design Abu Dhabi: Corporate Websites | The Brandle",
+ "description": "Web design for Abu Dhabi organisations. Bilingual English and Arabic websites with clear structure, phased scopes and full handover documentation.",
+ "crumb": "Abu Dhabi",
+ "country": "United Arab Emirates",
+ "schema_name": "Web design Abu Dhabi",
+ "service_type": "Web Design Abu Dhabi",
+ "hub": {
+  "name": "Web design Abu Dhabi",
+  "line": "Bilingual sites that survive a committee."
+ },
+ "hero": {
+  "h1": [
+   "Web design",
+   "Abu Dhabi"
+  ],
+  "stickers": [
+   {
+    "icon": "building"
+   }
+  ],
+  "chips": [
+   "Bilingual EN/AR",
+   "Accessibility minded",
+   "Documented handover"
+  ],
+  "joke": "When six people have to approve a website, the website should come with paperwork.",
+  "intro": "Web design for Abu Dhabi organisations, where a website is often signed off by several people and not one owner. Bilingual English and Arabic sites with clear structure, phased scopes and documentation at every step."
+ },
+ "get": {
+  "h2": "Built to be reviewed",
+  "items": [
+   {
+    "icon": "globe",
+    "t": "Bilingual by design",
+    "p": "English and Arabic designed side by side, each in its own direction. Not one mirrored at the last minute."
+   },
+   {
+    "icon": "eye",
+    "t": "Accessibility basics",
+    "p": "Readable contrast, keyboard navigation, proper headings and alt text. Built in from the start, because adding it later costs more."
+   },
+   {
+    "icon": "layers",
+    "t": "Corporate structure",
+    "p": "Divisions, services, leadership, news and careers arranged so a visitor can find the right department."
+   },
+   {
+    "icon": "doc",
+    "t": "Document handling",
+    "p": "Reports, policies and forms organised, searchable and easy to replace when the new version arrives."
+   },
+   {
+    "icon": "check",
+    "t": "Full documentation",
+    "p": "Scope, sitemap, design decisions and a handover manual. Written down, so the project survives a change of staff."
+   },
+   {
+    "icon": "users",
+    "t": "A CMS with roles",
+    "p": "Each department edits its own pages and nothing else. Training included."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Is this your project?",
+  "p": "This page is for projects with more than one decision-maker. We keep those moving with written scopes, clear milestones and one named contact on our side. There are no government logos on our wall yet, and we won't pretend otherwise.",
+  "yes": [
+   "A company or institution that needs both languages",
+   "Buying through a procurement process",
+   "Required to document what was built and why",
+   "Sharing one website between several departments"
+  ],
+  "no": "you're a small business that needs a good site quickly. [Web design Dubai](/services/web-design-dubai/) describes that service better. For internal systems, see [web application development](/services/web-application-development/)."
+ },
+ "steps": {
+  "h2": "Scope to sign-off",
+  "items": [
+   {
+    "t": "Requirements",
+    "p": "A free call, then a written scope with phases, milestones and a fixed quote your finance team can read."
+   },
+   {
+    "t": "Structure",
+    "p": "Sitemap and wireframes approved before design, so the argument about the menu happens once."
+   },
+   {
+    "t": "Design and build",
+    "p": "Both languages designed together, with review rounds booked in advance."
+   },
+   {
+    "t": "Handover",
+    "p": "Launch, training for each department and the documentation pack. Free fixes for 30 days."
+   }
+  ]
+ },
+ "price": {
+  "big": [
+   "Fixed quote,",
+   "in phases"
+  ],
+  "p": "Our fixed plans run from $1,299 to $6,499, about AED 4,800 to 23,900. Larger bilingual sites with many departments are scoped and quoted in phases. Either way the price is fixed before work starts, and the [plans](/pricing/) are public."
+ },
+ "faq_h2": "Abu Dhabi, answered",
+ "faq": [
+  {
+   "q": "Can you work with our procurement process?",
+   "a": "Yes. We provide detailed scopes, phased milestones and the paperwork procurement and finance usually ask for. Tell us the process early and we'll fit the timeline around it."
+  },
+  {
+   "q": "Do you build fully bilingual sites?",
+   "a": "Yes, English and Arabic with proper right-to-left layouts. We design both directions from the start. Our [Arabic and RTL guide](/blog/arabic-rtl-website-design/) explains the difference that makes."
+  },
+  {
+   "q": "Can different departments manage their own pages?",
+   "a": "Yes. Roles and permissions are set so each team edits only its own sections, and each team gets its own training."
+  },
+  {
+   "q": "Do you meet accessibility standards?",
+   "a": "We build to the WCAG basics: contrast, keyboard use, semantic markup and alt text. A formal certificate needs a specialist auditor, and we'll tell you when you need one."
+  }
+ ],
+ "related": [
+  "web-design-dubai",
+  "web-design-riyadh",
+  "web-application-development"
+ ],
+ "post": {
+  "slug": "arabic-rtl-website-design",
+  "title": "Arabic and RTL website design: doing it properly"
+ },
+ "cta": {
+  "lines": [
+   "Bring the",
+   "committee"
+  ],
+  "pills": [
+   "Free call",
+   "Phased scope",
+   "Everything documented"
+  ],
+  "p": "Tell us the requirements and how approval works. We'll come back with a phased scope and a fixed quote."
+ }
+}

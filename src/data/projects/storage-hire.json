@@ -1,0 +1,95 @@
+{
+ "type": "client",
+ "seo_title": "Storage Hire: Wix Website Design | The Brandle",
+ "summary": "A Wix site for a managed storage company in Essex, built around local search.",
+ "cover": "indigo",
+ "portrait": "xdr-indigo-portrait",
+ "screens": 7,
+ "cta": "Visit the site",
+ "brief": {
+  "label": "Storage and logistics",
+  "heading": "The client",
+  "paras": [
+   "Storage Hire offers managed storage in Harlow, Essex. Their team looks after your things, rather than handing you a padlock and a corridor. Terms are weekly or monthly, with no long contract."
+  ]
+ },
+ "answer": {
+  "label": "Storage, Essex",
+  "heading": "What we built",
+  "paras": [
+   "A Wix site, designed and built around local search. It carries LocalBusiness and OfferCatalog structured data, the quiet markup that helps a local business turn up when someone nearby goes looking.",
+   "We have not published the scope, the timeline or any results for this one. When there are numbers we can stand behind, they will go here."
+  ]
+ },
+ "tags": [
+  "Web design",
+  "Wix build",
+  "Local SEO",
+  "Client project"
+ ],
+ "blocks": [
+  {
+   "t": "full",
+   "img": "s1",
+   "alt": "A section of the Storage Hire home page: storage in Harlow, Essex for homes and businesses"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p1",
+    "alt": "The Storage Hire home page on a phone"
+   },
+   "b": {
+    "img": "p2",
+    "alt": "The Storage Hire services page on a phone"
+   }
+  },
+  {
+   "t": "mock",
+   "scene": "studio-white",
+   "alt": "Pages of the Storage Hire site cutting past on a desktop display in a white studio"
+  },
+  {
+   "t": "full",
+   "img": "s2",
+   "alt": "The storage services page on the Storage Hire site"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p3",
+    "alt": "The storage quote form on a phone"
+   },
+   "b": {
+    "img": "p4",
+    "alt": "The Storage Hire about page on a phone"
+   }
+  },
+  {
+   "t": "full",
+   "img": "s3",
+   "alt": "The storage quote form on the Storage Hire site"
+  },
+  {
+   "t": "full",
+   "img": "s4",
+   "alt": "The Storage Hire about page: family run storage in Harlow, Essex"
+  },
+  {
+   "t": "full",
+   "img": "s5",
+   "alt": "The questions page on the Storage Hire site"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Managed storage in Harlow, Essex, looked after by their team rather than self-service, weekly or monthly terms with no long contract, LocalBusiness and OfferCatalog structured data, Wix site design and build, nothing published on scope, timeline or results",
+   "source": "https://www.thebrandle.com/projects/storage-hire/ (live page text, research/brandle-pages/content/project-storage-hire.md)"
+  },
+  {
+   "claim": "Page captures",
+   "source": "https://www.storagehireltd.com (captured 2026-11-11)"
+  }
+ ],
+ "description": "A Wix site for a managed storage company in Essex, built around local search. Designed and built by The Brandle, a Dubai design and development studio."
+}

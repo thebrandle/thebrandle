@@ -1,0 +1,168 @@
+{
+ "title": "Payment Gateway Integration Dubai | The Brandle",
+ "description": "Payment gateway integration in Dubai. Stripe, Tabby, Tamara and card gateways connected to your store, plus delivery and accounting links, tested first.",
+ "crumb": "Payments",
+ "schema_name": "Payment gateway integration Dubai",
+ "service_type": "Payment Gateway & API Integration",
+ "hub": {
+  "name": "Payment integration",
+  "line": "Gateways, instalments and wallets, tested with real money.",
+  "sticker": {
+   "icon": "card"
+  }
+ },
+ "hero": {
+  "h1": [
+   "Payment gateway",
+   "integration",
+   "Dubai"
+  ],
+  "stickers": [
+   {
+    "mark": "stripe"
+   },
+   {
+    "mark": "tabby"
+   },
+   {
+    "mark": "tamara"
+   }
+  ],
+  "chips": [
+   "Local gateways",
+   "BNPL & wallets",
+   "Shipping & ERP"
+  ],
+  "joke": "The pay button is the one button on your site that has to work every single time.",
+  "intro": "Payment gateway integration in Dubai for stores and apps. Card gateways, instalment options like Tabby and Tamara, wallets, delivery APIs and accounting links, connected and tested end to end before a real customer touches them."
+ },
+ "get": {
+  "h2": "Wired and tested",
+  "items": [
+   {
+    "icon": "card",
+    "t": "Payment gateways",
+    "p": "A gateway chosen for your licence, volumes and customers, then connected properly. We compare fees and payout times first."
+   },
+   {
+    "icon": "tag",
+    "t": "Instalments and wallets",
+    "p": "Tabby, Tamara, Apple Pay and Google Pay added where your customers expect to see them."
+   },
+   {
+    "icon": "box",
+    "t": "Delivery APIs",
+    "p": "Live rates, labels and tracking from carriers such as Aramex and DHL, where they offer an API for your account."
+   },
+   {
+    "icon": "chart",
+    "t": "Accounting and ERP",
+    "p": "Orders and payments passed to systems like Zoho, QuickBooks or Odoo, so the books match the bank."
+   },
+   {
+    "icon": "shield",
+    "t": "No lost orders",
+    "p": "Payment confirmations handled so a paid order is always recorded, even when the customer closes the tab too early."
+   },
+   {
+    "icon": "check",
+    "t": "Testing and go-live",
+    "p": "Every method tested in sandbox, then with a real small payment and a real refund, before launch."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Is checkout the leak?",
+  "p": "If people fill a basket and vanish at the payment step, something there is putting them off. A missing payment method, a scary redirect, an error nobody told you about. All fixable.",
+  "yes": [
+   "Watching baskets get abandoned at the payment step",
+   "Missing a payment method your customers ask for",
+   "Typing orders into accounting software by hand",
+   "Haunted by an order that was paid for and never recorded"
+  ],
+  "no": "you don't have a store yet. Payments come with the build on our [Shopify](/services/shopify-website-design/) and [WooCommerce](/services/woocommerce-website-design/) projects. Selling in Saudi Arabia? [Web design Riyadh](/services/web-design-riyadh/) covers what's different there."
+ },
+ "steps": {
+  "h2": "Pick, connect, test",
+  "items": [
+   {
+    "t": "Pick",
+    "p": "A free call about what you sell, where, and on which platform. We recommend gateways and give a fixed quote."
+   },
+   {
+    "t": "Apply",
+    "p": "You apply for the merchant accounts, since they're yours. We tell you what to ask for and handle the technical forms."
+   },
+   {
+    "t": "Connect",
+    "p": "The integration is built in sandbox, with confirmations, refunds and failures all handled."
+   },
+   {
+    "t": "Go live",
+    "p": "Real test payments and refunds, then switch-on. Free fixes for 30 days."
+   }
+  ]
+ },
+ "price": {
+  "big": [
+   "Fixed quote",
+   "per integration"
+  ],
+  "p": "One gateway on Shopify is a small job. Several gateways, a carrier and an accounting link on a custom build is not. We scope it and quote a fixed price. Gateway fees are separate and go to the gateway. Building the whole store? See our [plans](/pricing/)."
+ },
+ "tools": {
+  "h2": "Things we can connect",
+  "items": [
+   "stripe",
+   "tabby",
+   "tamara",
+   "Telr",
+   "Network International",
+   "PayTabs",
+   "Apple Pay",
+   "Google Pay",
+   "Aramex",
+   "DHL",
+   "Zoho",
+   "QuickBooks",
+   "Odoo"
+  ],
+  "note": "Named because they can be connected, not because we're anyone's partner. Which ones suit you depends on your licence and your customers."
+ },
+ "faq_h2": "Payments, answered",
+ "faq": [
+  {
+   "q": "Which payment gateway should I use?",
+   "a": "It depends on your business type, your volumes and whether you take international cards. We compare fees and payout times for your case and don't default to one."
+  },
+  {
+   "q": "Can you add Tabby or Tamara to an existing store?",
+   "a": "Yes. Both connect to the major store platforms. You'll need a merchant account with them first, and we handle the technical side."
+  },
+  {
+   "q": "Do you handle PCI compliance?",
+   "a": "We use hosted payment fields and tokens, so card numbers never touch your server. That keeps your compliance work small. We're not a PCI auditor and won't claim to be."
+  },
+  {
+   "q": "What if an integration breaks later?",
+   "a": "APIs change. A [maintenance plan](/services/website-maintenance/) covers checks and fixes, or we fix it as a one-off with a quote first."
+  }
+ ],
+ "related": [
+  "shopify-website-design",
+  "woocommerce-website-design",
+  "b2b-b2c-portal-development"
+ ],
+ "cta": {
+  "lines": [
+   "Take",
+   "the money"
+  ],
+  "pills": [
+   "Free call",
+   "Fixed quote",
+   "Tested with real payments"
+  ],
+  "p": "Tell us your platform and where your customers are. We'll tell you what to connect."
+ }
+}

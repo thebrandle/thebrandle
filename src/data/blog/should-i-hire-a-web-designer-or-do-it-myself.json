@@ -1,0 +1,347 @@
+{
+  "slug": "should-i-hire-a-web-designer-or-do-it-myself",
+  "url": "https://www.thebrandle.com/blog/should-i-hire-a-web-designer-or-do-it-myself/",
+  "path": "/blog/should-i-hire-a-web-designer-or-do-it-myself/",
+  "canonical": "https://www.thebrandle.com/blog/should-i-hire-a-web-designer-or-do-it-myself/",
+  "lang": "en",
+  "source": "opinly",
+  "title": "Hire a Web Designer or DIY? An Honest Guide | TheBrandle",
+  "titleWithoutBrand": "Hire a Web Designer or DIY? An Honest Guide",
+  "description": "Weighing DIY vs hiring a web designer? Get an honest, founder-focused decision guide covering costs, risks, platforms, and when not to hire anyone.",
+  "h1": "Should I Hire a Web Designer or Do It Myself? An Honest Answer for Founders",
+  "headline": "Should I Hire a Web Designer or Do It Myself? An Honest Answer for Founders",
+  "datePublished": "2026-07-27T06:36:03.000Z",
+  "dateModified": "2026-07-28T21:02:53.000Z",
+  "dateDisplayed": "Jul 27, 2026",
+  "sitemapLastmod": "2026-09-18",
+  "gitFirstCommit": "2026-07-28T00:13:36+04:00",
+  "gitLastCommit": "2026-10-11T11:19:48+04:00",
+  "author": {
+    "name": "The Brandle Team",
+    "role": "Design Studio",
+    "avatar": "/assets/blog/_shared/author-avatar.jpg",
+    "avatarOriginal": "/framerusercontent.com/images/A0LPOEdkaRkfMcS2EWs1My620fA.jpg",
+    "schemaAuthor": {
+      "@type": "Organization",
+      "name": "TheBrandle",
+      "url": "https://www.thebrandle.com"
+    }
+  },
+  "category": "Decision",
+  "categorySource": "eyebrow word baked into the listing card image (scripts/gen-blog-images.js); the Opinly category is not on the page",
+  "tags": [
+    "Decision"
+  ],
+  "suggestedGroup": "Planning",
+  "heroImage": {
+    "src": "/assets/blog/should-i-hire-a-web-designer-or-do-it-myself/cover.jpg",
+    "alt": "A rough abstract mass beside a polished one",
+    "width": 2560,
+    "height": 1440,
+    "original": "/assets/blog/covers/should-i-hire-a-web-designer-or-do-it-myself.jpg"
+  },
+  "cardImage": {
+    "src": "/assets/blog/should-i-hire-a-web-designer-or-do-it-myself/card.jpg",
+    "alt": "Should I Hire a Web Designer or Do It Myself? An Honest Answer for Founders",
+    "width": 1600,
+    "height": 900,
+    "original": "/assets/blog/should-i-hire-a-web-designer-or-do-it-myself.jpg",
+    "svgSource": "/assets/blog/should-i-hire-a-web-designer-or-do-it-myself/card.svg",
+    "bakedText": {
+      "eyebrow": "DECISION",
+      "h1": "Hire a designer, or do it yourself?",
+      "sub": "An honest framework for founders weighing both"
+    }
+  },
+  "readingMinutes": 18,
+  "readingMinutesSource": "computed: (body words + FAQ words) / 225, rounded, minimum 1. The live page shows no reading time.",
+  "readingMinutesDeclared": null,
+  "wordCount": 3940,
+  "wordCountFaq": 0,
+  "wordCountSchema": 3868,
+  "excerpt": "Weighing DIY vs hiring a web designer? Get an honest, founder-focused decision guide covering costs, risks, platforms, and when not to hire anyone.",
+  "listing": {
+    "position": 15,
+    "title": "Should I Hire a Web Designer or Do It Myself? An Honest Answer for Founders",
+    "blurb": "Most guides tell early-stage founders to just DIY. We disagree. Here is a straight answer on when to build it yourself, when to hire, and what a poor site is actually costing you."
+  },
+  "faq": [],
+  "relatedServices": [],
+  "headings": [
+    {
+      "level": 2,
+      "text": "The Question Behind the Question",
+      "id": "the-question-behind-the-question"
+    },
+    {
+      "level": 2,
+      "text": "When DIY Is Genuinely the Right Call",
+      "id": "when-diy-is-genuinely-the-right-call"
+    },
+    {
+      "level": 3,
+      "text": "Case One: Pre-Revenue and Idea Validation",
+      "id": "case-one-pre-revenue-and-idea-validation"
+    },
+    {
+      "level": 3,
+      "text": "Case Two: Referrals and Offline Relationships",
+      "id": "case-two-referrals-and-offline-relationships"
+    },
+    {
+      "level": 2,
+      "text": "When Hiring a Professional Is the Right Call",
+      "id": "when-hiring-a-professional-is-the-right-call"
+    },
+    {
+      "level": 2,
+      "text": "What a Good Designer Actually Provides (Beyond How It Looks)",
+      "id": "what-a-good-designer-actually-provides-beyond-how-it-looks"
+    },
+    {
+      "level": 2,
+      "text": "The Failure Mode Nobody Talks About",
+      "id": "the-failure-mode-nobody-talks-about"
+    },
+    {
+      "level": 2,
+      "text": "Platform Matters More Than Most Guides Admit",
+      "id": "platform-matters-more-than-most-guides-admit"
+    },
+    {
+      "level": 2,
+      "text": "A Note for Founders in Dubai and the UAE",
+      "id": "a-note-for-founders-in-dubai-and-the-uae"
+    },
+    {
+      "level": 2,
+      "text": "The Decision Framework: Five Questions to Ask Yourself",
+      "id": "the-decision-framework-five-questions-to-ask-yourself"
+    },
+    {
+      "level": 3,
+      "text": "Question 1: Is the site directly responsible for generating leads, bookings, or revenue?",
+      "id": "question-1-is-the-site-directly-responsible-for-generating-leads-bookings-or-revenue"
+    },
+    {
+      "level": 3,
+      "text": "Question 2: Do your clients come through offline relationships, referrals, or warm introductions?",
+      "id": "question-2-do-your-clients-come-through-offline-relationships-referrals-or-warm-introductions"
+    },
+    {
+      "level": 3,
+      "text": "Question 3: Does your business already generate revenue that a better site could amplify?",
+      "id": "question-3-does-your-business-already-generate-revenue-that-a-better-site-could-amplify"
+    },
+    {
+      "level": 3,
+      "text": "Question 4: Do you have tens of hours available to build, iterate, and troubleshoot?",
+      "id": "question-4-do-you-have-tens-of-hours-available-to-build-iterate-and-troubleshoot"
+    },
+    {
+      "level": 3,
+      "text": "Question 5: What impression does a stranger form when they land on your site?",
+      "id": "question-5-what-impression-does-a-stranger-form-when-they-land-on-your-site"
+    },
+    {
+      "level": 3,
+      "text": "Reading Your Answers",
+      "id": "reading-your-answers"
+    },
+    {
+      "level": 2,
+      "text": "What to Do Next",
+      "id": "what-to-do-next"
+    },
+    {
+      "level": 2,
+      "text": "Conclusion",
+      "id": "conclusion"
+    }
+  ],
+  "links": [
+    {
+      "href": "/services/wix-website-design/",
+      "text": "Wix"
+    },
+    {
+      "href": "/services/squarespace-website-design/",
+      "text": "Squarespace"
+    },
+    {
+      "href": "/services/seo-services/",
+      "text": "SEO"
+    },
+    {
+      "href": "/services/",
+      "text": "services here"
+    },
+    {
+      "href": "/services/",
+      "text": "our services"
+    },
+    {
+      "href": "/services/wix-website-design/",
+      "text": "Wix"
+    },
+    {
+      "href": "/services/squarespace-website-design/",
+      "text": "Squarespace"
+    },
+    {
+      "href": "/services/shopify-website-design/",
+      "text": "Shopify"
+    },
+    {
+      "href": "/services/ecommerce-website-design/",
+      "text": "ecommerce"
+    },
+    {
+      "href": "/services/webflow-website-design/",
+      "text": "Webflow"
+    },
+    {
+      "href": "/services/framer-website-design/",
+      "text": "Framer"
+    },
+    {
+      "href": "/services/wordpress-website-design/",
+      "text": "WordPress"
+    },
+    {
+      "href": "/services/wix-website-design/",
+      "text": "Wix"
+    },
+    {
+      "href": "/services/squarespace-website-design/",
+      "text": "Squarespace"
+    },
+    {
+      "href": "/services/shopify-website-design/",
+      "text": "Shopify"
+    },
+    {
+      "href": "/services/webflow-website-design/",
+      "text": "Webflow"
+    },
+    {
+      "href": "/services/",
+      "text": "our services"
+    },
+    {
+      "href": "/services/",
+      "text": "services page"
+    },
+    {
+      "href": "/services/squarespace-website-design/",
+      "text": "Squarespace"
+    },
+    {
+      "href": "/services/",
+      "text": "our web design services"
+    },
+    {
+      "href": "/services/",
+      "text": "services overview"
+    },
+    {
+      "href": "/contact",
+      "text": "get in touch"
+    }
+  ],
+  "moreArticlesAsPublished": [
+    {
+      "title": "How to Choose a Branding Agency (Without Getting Burned)",
+      "href": "/blog/branding-agency/"
+    },
+    {
+      "title": "Website Design in 2026: What Founders Need to Know Before They Build",
+      "href": "/blog/website-design/"
+    },
+    {
+      "title": "Headless CMS: what it is and when you actually need one",
+      "href": "/blog/headless-cms-guide/"
+    },
+    {
+      "title": "AI in web design: what it does well and where it fails",
+      "href": "/blog/ai-in-web-design/"
+    },
+    {
+      "title": "Arabic and RTL website design: doing it properly",
+      "href": "/blog/arabic-rtl-website-design/"
+    }
+  ],
+  "cta": {
+    "heading": "Let’s bring your vision to life",
+    "text": "We are here to ensure your experience with us is smooth and successful. Reach out anytime - we will come back with a clear plan, timeline and a fixed quote.",
+    "button": "Get in touch",
+    "href": "/contact"
+  },
+  "meta": {
+    "robots": "index, follow",
+    "ogType": "article",
+    "ogTitle": "Hire a Web Designer or DIY? An Honest Guide | TheBrandle",
+    "ogDescription": "Weighing DIY vs hiring a web designer? Get an honest, founder-focused decision guide covering costs, risks, platforms, and when not to hire anyone.",
+    "ogImage": "https://www.thebrandle.com/assets/blog/should-i-hire-a-web-designer-or-do-it-myself.jpg",
+    "twitterCard": "summary_large_image",
+    "twitterTitle": "Hire a Web Designer or DIY? An Honest Guide | TheBrandle",
+    "twitterImage": "https://www.thebrandle.com/assets/blog/should-i-hire-a-web-designer-or-do-it-myself.jpg",
+    "rssAlternate": "https://www.thebrandle.com/rss.xml"
+  },
+  "jsonLdTypes": [
+    "BlogPosting",
+    "BreadcrumbList"
+  ],
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Should I Hire a Web Designer or Do It Myself? An Honest Answer for Founders",
+      "description": "Weighing DIY vs hiring a web designer? Get an honest, founder-focused decision guide covering costs, risks, platforms, and when not to hire anyone.",
+      "url": "https://www.thebrandle.com/blog/should-i-hire-a-web-designer-or-do-it-myself/",
+      "mainEntityOfPage": "https://www.thebrandle.com/blog/should-i-hire-a-web-designer-or-do-it-myself/",
+      "datePublished": "2026-07-27T06:36:03.000Z",
+      "dateModified": "2026-07-28T21:02:53.000Z",
+      "image": "https://www.thebrandle.com/assets/blog/should-i-hire-a-web-designer-or-do-it-myself.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.thebrandle.com/framerusercontent.com/assets/TheBrandle.svg"
+        }
+      },
+      "wordCount": 3868
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.thebrandle.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.thebrandle.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Should I Hire a Web Designer or Do It Myself? An Honest Answer for Founders",
+          "item": "https://www.thebrandle.com/blog/should-i-hire-a-web-designer-or-do-it-myself/"
+        }
+      ]
+    }
+  ]
+}

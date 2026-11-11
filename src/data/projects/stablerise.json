@@ -1,0 +1,94 @@
+{
+ "type": "client",
+ "seo_title": "Stable Rise: Webflow Website Design | The Brandle",
+ "summary": "A Webflow site for Stable Rise, who help investors in the UAE and abroad into structured UK investments.",
+ "description": "A Webflow website for Stable Rise, UK investment opportunities for investors in the UAE, the Middle East and beyond. Designed and built by The Brandle in Dubai.",
+ "cover": "red",
+ "portrait": "xdr-red-portrait",
+ "screens": 7,
+ "cta": "Visit the site",
+ "brief": {
+  "label": "Investment, UK and UAE",
+  "heading": "The client",
+  "paras": [
+   "Stable Rise works with investors in the UAE, the Middle East and further afield who want into UK property and other UK opportunities. Money is a nervous subject, so the site has to feel calm and sure of itself before it says anything clever."
+  ]
+ },
+ "answer": {
+  "label": "Property investment, UK and UAE",
+  "heading": "What we built",
+  "paras": [
+   "A Webflow site with one big idea up front, investing with confidence, and a bold red that nobody confuses with a bank. Each opportunity gets its own page and documents, there is a news section for their insights, and a clear route to register as an investor.",
+   "We have not published the scope, the timeline or any results for this one. When there are numbers we can stand behind, they will go here."
+  ]
+ },
+ "tags": [
+  "Web design",
+  "Webflow build",
+  "Client project"
+ ],
+ "blocks": [
+  {
+   "t": "full",
+   "img": "s1",
+   "alt": "The Stable Rise home page: invest in the UK with confidence, in huge black type on red"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p1",
+    "alt": "The Stable Rise home page on a phone"
+   },
+   "b": {
+    "img": "p2",
+    "alt": "The Stable Rise investments page on a phone"
+   }
+  },
+  {
+   "t": "mock",
+   "scene": "red",
+   "alt": "Pages of the Stable Rise site cutting past on a desktop display against a red backdrop"
+  },
+  {
+   "t": "full",
+   "img": "s2",
+   "alt": "Black and white horses running through dust, with a button to register to invest"
+  },
+  {
+   "t": "full",
+   "img": "s3",
+   "alt": "Structured UK investment opportunities for international investors"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p3",
+    "alt": "The UK property investments page on a phone"
+   },
+   "b": {
+    "img": "p4",
+    "alt": "The Stable Rise about page on a phone"
+   }
+  },
+  {
+   "t": "full",
+   "img": "s4",
+   "alt": "UK property investments, with the current opportunities listed as red cards"
+  },
+  {
+   "t": "full",
+   "img": "s5",
+   "alt": "The Stable Rise news page with four articles on UK investment"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "UK investment opportunities for investors in the UAE, Middle East and globally, property and other UK routes, opportunity pages, news, investor registration, contact team in the UK and Dubai, built on Webflow; scope, timeline and results not published",
+   "source": "https://www.stablerise.ae home, /our-investments, /contact-us (read 2026-11-11); client named by the owner in chat 2026-11-11"
+  },
+  {
+   "claim": "Page captures",
+   "source": "https://www.stablerise.ae (captured 2026-11-11)"
+  }
+ ]
+}

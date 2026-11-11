@@ -1,0 +1,156 @@
+{
+ "title": "Web Design Jeddah: Websites and Online Stores | The Brandle",
+ "description": "Web design for Jeddah businesses. Arabic-first websites and stores for retail, food and hospitality, with Mada, Apple Pay and Tamara and 15% VAT handled.",
+ "crumb": "Jeddah",
+ "country": "Saudi Arabia",
+ "schema_name": "Web design Jeddah",
+ "service_type": "Web Design Jeddah",
+ "hub": {
+  "name": "Web design Jeddah",
+  "line": "A trading city deserves a better shop window."
+ },
+ "hero": {
+  "h1": [
+   "Web design",
+   "Jeddah"
+  ],
+  "stickers": [
+   {
+    "icon": "bag"
+   }
+  ],
+  "chips": [
+   "Arabic-first design",
+   "Mada & Tamara",
+   "Built for visitors"
+  ],
+  "joke": "Jeddah was selling to the whole world long before the internet. The website just needs to catch up.",
+  "intro": "Web design for Jeddah and the Red Sea coast, from a studio in Dubai. Arabic-first websites and online stores for retailers, restaurants, hotels and family trading businesses, with the payment methods Saudi shoppers use and 15% VAT handled properly."
+ },
+ "get": {
+  "h2": "Built for the coast",
+  "items": [
+   {
+    "icon": "globe",
+    "t": "Arabic first",
+    "p": "Right-to-left is the main layout, designed first, with Arabic type chosen for screens. English comes second, and it still looks deliberate."
+   },
+   {
+    "icon": "card",
+    "t": "Saudi payment methods",
+    "p": "Mada, Apple Pay, STC Pay, Tamara and Tabby instalments, plus cash on delivery if your customers still ask for it."
+   },
+   {
+    "icon": "doc",
+    "t": "15% VAT and invoices",
+    "p": "Saudi VAT shown and invoiced properly, and the store set up to pass orders to whatever system issues your ZATCA e-invoices."
+   },
+   {
+    "icon": "star",
+    "t": "Hotels and restaurants",
+    "p": "Menus, rooms, bookings and directions that work for locals and for the visitors passing through on the way to Makkah."
+   },
+   {
+    "icon": "bag",
+    "t": "Retail that ships",
+    "p": "Product pages, sizes and delivery zones set up for selling across the Kingdom, not just to the next district."
+   },
+   {
+    "icon": "phone",
+    "t": "Phone first",
+    "p": "Designed for phones before desktops and tested on real ones, because that's where your customers are."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Selling from Jeddah?",
+  "p": "Jeddah businesses tend to sell to two crowds at once: people who live here and people who are visiting. A good site speaks Arabic first, takes Mada without fuss and makes a visitor's next step obvious.",
+  "yes": [
+   "A Jeddah retailer moving into online sales",
+   "A hotel, restaurant or café that visitors need to find",
+   "A family trading business with a site from another decade",
+   "A Gulf brand opening on the Red Sea coast"
+  ],
+  "no": "you're mainly selling to Riyadh offices and government buyers. [Web design Riyadh](/services/web-design-riyadh/) covers that. If only the checkout is broken, go to [payment gateway integration](/services/payment-gateway-integration/)."
+ },
+ "steps": {
+  "h2": "Arabic first, then launch",
+  "items": [
+   {
+    "t": "Brief",
+    "p": "A free video call. Jeddah is an hour behind Dubai, so a morning call suits both of us. A fixed quote follows."
+   },
+   {
+    "t": "Arabic design",
+    "p": "Key pages designed in Arabic first, with real copy, not placeholder text."
+   },
+   {
+    "t": "Build",
+    "p": "Both languages built and payments connected in test mode. Our weeks overlap Monday to Thursday."
+   },
+   {
+    "t": "Launch",
+    "p": "Real test payments with Mada, VAT checked on real invoices, then live. Free fixes for 30 days."
+   }
+  ]
+ },
+ "price": {
+  "big": [
+   "$1,299 to",
+   "$6,499"
+  ],
+  "p": "Our fixed plans run from $1,299 to $6,499, and a site or store takes 3 to 6 weeks. Two languages and Saudi payment set-up add scope, which the quote will show. Translation is separate, and we can recommend translators."
+ },
+ "tools": {
+  "h2": "At the Saudi checkout",
+  "items": [
+   "tamara",
+   "tabby",
+   "Mada",
+   "STC Pay",
+   "Apple Pay",
+   "Cash on delivery"
+  ],
+  "note": "Payment methods we can connect through a gateway that supports them. Mostly written as words, because that's how their owners prefer it."
+ },
+ "faq_h2": "Jeddah, answered",
+ "faq": [
+  {
+   "q": "Which payment methods do Jeddah shoppers expect?",
+   "a": "Mada first, because it's the domestic card network. Then Apple Pay, STC Pay and instalments through Tamara or Tabby. Plenty of shoppers still choose cash on delivery, so we can keep it."
+  },
+  {
+   "q": "Do you handle Saudi VAT and e-invoicing?",
+   "a": "We show and invoice 15% VAT correctly and connect the store to the system that issues your ZATCA e-invoices. Your accountant decides which system that is."
+  },
+  {
+   "q": "Can you work with us from Dubai?",
+   "a": "Yes. Jeddah is one hour behind Dubai. Your week runs Sunday to Thursday and ours runs Monday to Friday, so four working days overlap. We reply within one business day."
+  },
+  {
+   "q": "Can the site serve visitors who don't speak Arabic?",
+   "a": "Yes. Arabic comes first, English second, and we can plan for more languages if your guests need them. The translations come from you or a translator we recommend."
+  }
+ ],
+ "related": [
+  "web-design-riyadh",
+  "payment-gateway-integration",
+  "ecommerce-website-design"
+ ],
+ "post": {
+  "slug": "arabic-rtl-website-design",
+  "title": "Arabic and RTL website design: doing it properly"
+ },
+ "cta": {
+  "lines": [
+   "Open the",
+   "shop window"
+  ],
+  "pills": [
+   "Free call",
+   "Fixed quote",
+   "Arabic first"
+  ],
+  "p": "Tell us what you sell and who buys it. We reply within one business day."
+ }
+}

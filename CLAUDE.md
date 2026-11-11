@@ -1,116 +1,73 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+The live website of **The Brandle**, a design and development studio in Dubai. This repository IS the live site:
+every push to `main` deploys to production on Vercel (project `thebrandle.final`) in about a minute. Work carefully,
+a mistake goes live.
 
-## Project Overview
+## How the site is made (since 2026-11-11)
 
-Static website for **The Brandle** (a design studio), deployed on Vercel with serverless functions in `api/`. Two kinds of page:
+A static site built by `python3 build.py` (Python 3, no packages) from `src/`:
 
-- **Generated static pages**, built by Node scripts in `scripts/` from parts carved out of the Framer export (stylesheet, text presets, nav, footer): the homepage `/`, `/pricing/`, `/services/*`, `/team/`, `/faq/`, `/projects/` and the static project pages, `/tools/ai-visibility/` and the blog posts.
-- **The Framer export**, served by the `vercel.json` catch-all: `/about`, `/contact`, the four CMS case studies and the `/blog` listing.
+- `src/layout.html`, `src/partials/`, `src/pages/` - the page shell, shared parts and hand-written pages.
+- `src/ext/*.py` - pages made from data: `blog.py` (/blog/ and every post), `services.py` (/services/, the service
+  and city pages, /locations/), `projects.py` (/projects/ and project pages), `brands.py`, `site.py` (sitemap,
+  llms.txt, robots, rss, vercel.json redirects).
+- `src/data/` - the data: `blog/` (one `<slug>.json` + `<slug>.html` per post, `index.json`, `cards.json`),
+  `services/` (one JSON per page, `_shared.json` for the hub), `projects/`, `redirects.json`, `content-plan.json`.
+- Output is written next to `src/`: `index.html`, `blog/`, `services/`, `css/`, `js/`, `sitemap.xml`, `vercel.json` ...
+  Never edit output files by hand: change `src/` and rebuild. Commit the rebuilt output with the source.
+- `api/` - Vercel functions, separate from the build: `contact.js` (the forms, sends with Resend; takes JSON
+  `{name, email, phone, plan, message}`), `cal-slots.js`, `opinly-webhook.js`, `visibility-check.js`.
+- `tools/ai-visibility/` - a standalone tool page, not made by the build. `framerusercontent.com/` holds its assets.
+- The design work happens on the studio Mac in `~/friday/projects/brandle-two26` (same `src/`, plus drafts and
+  heavy media that never ship); `python3 src/export.py ~/thebrandlewebsite` copies it here.
 
-## Development Commands
+The build stops on a broken house rule (a dash, a banned word, a title or description of the wrong length, a link to
+a page that does not exist, a redirect chain). Fix the cause, never the check.
 
-```bash
-# Start local dev server (port 8080)
-node server.js
+## House rules for copy
 
-# Install dependencies
-npm install
-```
+- Plain hyphens only: never an en dash or em dash.
+- British spelling. "We" for the studio. Short paragraphs. Direct, practical, a little funny, never hype.
+- Nothing invented: no statistics, percentages, client names, results, testimonials or quotes that are not already
+  published on this site. Prices only from `src/pages/pricing.html` (Build $1,299 / $2,499 / $4,999, Grow $1,599 /
+  $3,199 / $6,499). Timelines only from the FAQ and the service pages. No promises about rankings.
+- Never call our work "own product" or "client work". Templates are "Our Framer template" / "Our Webflow template".
+- No disparaging competitors, no keyword stuffing.
 
-No build step on Vercel. Generated pages are built locally and committed:
+## Blog routine
 
-```bash
-node scripts/gen-homepage.js          # / and /pricing/ (copy lives in scripts/home-data.js)
-node scripts/gen-service-pages-v2.js  # services, team, faq, projects, tools, sitemap block, llms.txt
-node scripts/gen-blog.js              # blog posts
-node scripts/gen-framer-routes.js     # per-route copies of the Framer catch-all
-```
+A cloud routine runs Tuesday, Wednesday and Friday at 09:00 Dubai and does ONE item from `src/data/content-plan.json`:
+the first item with `status: "todo"` whose `due` is on or before today (`TZ=Asia/Dubai date +%F`). Nothing due:
+change nothing and say so.
 
-## Architecture
+1. Research from this repo only. Read three existing posts (`src/data/blog/<slug>.html`) for voice, the item's
+   brief and keywords, and list `blog/`, `services/` and `projects/` so every link you add exists.
+2. **new-post** or **expand-post**: write two files:
+   - `src/data/blog/drafts/<slug>.json` - the fields listed at the top of `src/new_post.py` (title without the brand,
+     h1, description 140 to 160 characters, blurb, group, category, 3 or 4 FAQs, 2 or 3 related services, card art).
+     Use the item's slug, title and h1 exactly (drop any " | TheBrandle" suffix from the title).
+   - `src/data/blog/drafts/<slug>.html` - the article: an opening paragraph with the main keyword, then 6 to 8 `<h2>`
+     sections covering every point of the brief, 1,100 to 1,600 words. Links as `<a href="/path/">words</a>`, each
+     URL in the item's `linkTo` once, plus one or two links to related posts or services where they fit.
+   - For expand-post, start from the published `src/data/blog/<slug>.html`: keep what is right, add what the brief
+     asks, keep the slug.
+   Then run `python3 src/new_post.py <slug>` (it checks the rules and writes the data files), then draw the art:
+   `npm i --no-save playwright && npx playwright install --with-deps chromium && node src/og/blog-card.mjs <slug>`
+   (it writes `assets/blog/<slug>*.jpg` and `assets/blog/covers/<slug>*.jpg`). If the art cannot be drawn, stop and
+   publish nothing.
+3. **money-page** (a new service page): copy the closest page in `src/data/services/` to `<slug>.json` and rewrite
+   every field for the brief; title ends " | The Brandle" (50 to 60 characters), description 140 to 160. Add the slug
+   to the right group in `src/data/services/_shared.json` and raise the service count written there ("Twenty", "20")
+   by one. **service-pages**: edit only the named pages, copy only, keep every existing fact.
+4. `python3 build.py` must finish with "built N pages". Then `git status` must show only what the item should touch:
+   for a post, its data files, its art, the new `blog/<slug>/index.html`, `blog/index.html`, the other posts whose
+   "related" cards changed, `sitemap.xml`, `rss.xml`, `llms.txt` and `content-plan.json`. Revert anything else.
+5. Set the item's `status` to "done" and `published` to today in `content-plan.json`, rebuild, and make one commit:
+   `feat(blog): "<h1>" (content plan item <n>)` (or `feat(services): ...`) with a two-line body. Push with
+   `git push origin HEAD:main`; if rejected, push to `claude/content-plan-<n>` and open a pull request.
+6. About 90 seconds after the push, `curl` the live page (https://www.thebrandle.com/blog/<slug>/ or /services/<slug>/):
+   it must return 200 and its `<title>` must contain the new title. Report if not.
+7. Final message (all Muteeb reads): item number and title, live URL, word count, keywords covered, anything unsure.
 
-### Tech Stack
-- **Frontend:** Framer-exported static HTML/JS (React 18, Framer Motion)
-- **Backend:** Single Vercel serverless function (`/api/contact.js`)
-- **Email:** Resend SDK v3 (`resend` npm package)
-- **Deployment:** Vercel
-
-### Key Files
-- `api/contact.js` — The only hand-written backend code. Handles contact form POST requests, parses multipart/form-data manually (Vercel bodyParser is disabled), and sends email via Resend to `thebrandleteam@gmail.com`.
-- `vercel.json` — Routes `/api/contact` to the serverless function; all other routes fall back to `thebrandle.framer.website/index.html` (SPA mode).
-- `server.js` — Local dev HTTP server with SPA fallback routing and MIME type handling.
-- `framerusercontent.com/` — Cached Framer assets. The contact form component is at `framerusercontent.com/modules/Gz8UZExgZmW0RQsPoz4M/5ciLQSyL2h33NZUb0Z1c/McSGfJuih.js` (source) and `framerusercontent.com/sites/5kj0S8gDMWYNPEPmYNuaP6/b_3HJXBJXkH4NhQLN8uHkdztFurbOyNb16_2W58e0bI.BmirNhYZ.mjs` (bundled production build).
-- `thebrandle.framer.website/index.html` — 2.7MB HTML entry point exported from Framer (the catch-all).
-- `index.html` (root) — the homepage, **generated** by `scripts/gen-homepage.js`. Not a Framer export since 2026-10-05.
-- `scripts/site-shell.js` — shared nav, footer, menu script, text presets and glue CSS used by every generator.
-- `_snapshot/components/` — carved Framer parts the generators read (committed). `home-framer.css` is the homepage's trimmed Framer stylesheet, produced by `scripts/trim-home-css.mjs`.
-
-### Contact Form Flow
-The homepage form (and its footer newsletter) post JSON `{name, email, phone, plan, message}` to `/api/contact`; the Framer form on `/contact` posts `multipart/form-data`. The handler accepts both.
-
-1. Framer form submits as `multipart/form-data` POST to `/api/contact`
-2. `api/contact.js` manually parses the multipart body (bodyParser is disabled in Vercel)
-3. Fields are normalized from Framer's Title Case names (`Name`, `E-mail`, `Phone`, `Message`, `Plan`) to camelCase
-4. Email sent via Resend SDK v3 — uses the `{data, error}` return pattern (does not throw)
-
-### Environment Variables
-- `RESEND_API_KEY` — Required on Vercel. Not committed to the repo.
-
-### What NOT to Edit
-- The `framerusercontent.com/` and `framer.com/` directories contain Framer-generated/cached assets. Most files should not be manually edited. The exception is the bundled form component (`.mjs` file) which has been patched in prior commits.
-- `thebrandle.framer.website/index.html` is a Framer export — re-exporting from Framer will overwrite manual edits.
-- Root `index.html` is generated. Edit `scripts/home-data.js` (copy) or `scripts/gen-homepage.js` (layout) and regenerate. **Never copy the catch-all over it** — the old "keep both index.html files in sync" rule is retired; doing so would put the Framer homepage back.
-
-### Blog posts
-
-Hand-written posts live in `scripts/blog-posts-data.js`; `node scripts/gen-blog.js` renders each to `blog/<slug>/index.html` and, on every run, keeps the `/blog` listing (`blog/index.html` - its cards and Blog schema), and the sitemap in step with that file. It warns when a title or description is over Seobility's pixel limits (`scripts/seo-length.js`).
-
-- Cover art: `assets/blog/covers/<slug>.jpg` (Magnific, 2560x1440, dark abstract, no text) with alt text in `COVER_ALT` in `scripts/blog-layout-2024.js`.
-- Listing card: `assets/blog/<slug>.jpg` from `node scripts/gen-blog-images.js <slug>` (needs local Chrome + ImageMagick; pass the slug so the other cards are left alone).
-- `gen-opinly-blog.js` reads the hand-written posts from `blog-posts-data.js` too - no second list to maintain. Do not run it without `OPINLY_API_KEY`.
-- The content plan the "blog content plan" routine works through is `scripts/content-plan.js`: one item per run, rules and briefs in the file.
-
-### Homepage
-
-```bash
-node scripts/gen-homepage.js                                   # writes index.html
-HOME_OUT=home-preview/index.html node scripts/gen-homepage.js  # noindex preview copy
-node scripts/trim-home-css.mjs && node scripts/gen-homepage.js # after changing site-shell.js, presets or section classes
-```
-
-The same run writes `/pricing/` (`pricing/index.html`): the homepage's pricing, process, FAQ and contact sections under a light nav bar, with its own h1, intro and FAQs from `pricingPage` in `home-data.js`. Preview runs (`HOME_OUT=...`) skip it.
-
-`trim-home-css.mjs` needs `node server.js` running and the Playwright install in `~/.dev-browser`. Geometry and motion were measured from the Framer homepage in headless Chrome (tooling in `_snapshot/measure/`, gitignored).
-
-### Routing patch — re-apply after any Framer re-export
-
-`thebrandle.framer.website/index.html` has its `data-framer-hydrate-v2` attribute
-renamed to `data-framer-hydrate-v2-disabled-see-CLAUDE-md`.
-
-**Why:** Framer's bootstrap reads the routeId from that attribute and ignores the
-URL entirely (`script_main.*.mjs`: `if (hydrateAttr) routeId = attr.routeId; else
-routeId = resolveFromURL(...)`). The export baked in the homepage routeId
-(`augiA20Il`), and Vercel serves this one file for every non-static path — so
-`/about`, `/projects`, `/contact`, `/blog`, all case studies and all Framer blog
-posts rendered **homepage content** while showing the correct `<title>`. Ten
-sitemap URLs were duplicates of the homepage. Removing the attribute forces the
-URL-resolution branch.
-
-The root `index.html` is no longer a Framer file (see Homepage above), so this
-patch only concerns the catch-all and the route copies `gen-framer-routes.js`
-writes from it.
-
-Two more head patches in the catch-all to re-apply after a re-export:
-- **Home links.** Framer's client router would render its own copy of the old
-  homepage when someone clicks Home or the logo on a Framer page. A
-  capture-phase click handler sends any same-site link to `/` through a full
-  page load instead (look for `is a static page now` in the head).
-- **Analytics.** The Vercel Web Analytics snippet (`/_vercel/insights/script.js`),
-  also emitted by every generator.
-
-Then run `node scripts/gen-framer-routes.js` to refresh the route copies.
-
-Cost: non-homepage routes client-render instead of hydrating (slightly slower
-first paint). The proper fix is a Framer export that emits one HTML file per
-route; this patch is the workaround that needs no Framer access.
+Never touch `api/`, `tools/`, `vercel.json` by hand (the build writes it), `HANDOFF.md`, or other posts' text.

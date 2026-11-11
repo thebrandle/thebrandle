@@ -1,0 +1,157 @@
+{
+ "title": "UI/UX Design Studio for Products and Apps | The Brandle",
+ "description": "UI/UX design for web and mobile products. Flows, wireframes, interface design and a design system in Figma that your developers can build from.",
+ "crumb": "UI/UX",
+ "schema_name": "UI/UX design",
+ "service_type": "UI/UX Design",
+ "hub": {
+  "name": "UI/UX design",
+  "line": "Interfaces that don't need a tutorial.",
+  "sticker": {
+   "icon": "eye"
+  }
+ },
+ "hero": {
+  "h1": [
+   "UI/UX",
+   "design"
+  ],
+  "stickers": [
+   {
+    "mark": "figma"
+   }
+  ],
+  "chips": [
+   "Research-led",
+   "Web & mobile",
+   "Design systems"
+  ],
+  "joke": "If your app needs a tutorial, the tutorial is the bug.",
+  "intro": "UI/UX design for web and mobile products. We map the flows, test them as prototypes, design the interface and hand over a Figma file your developers won't swear at. Fixed quote before we start."
+ },
+ "get": {
+  "h2": "Flows before pixels",
+  "items": [
+   {
+    "icon": "search",
+    "t": "Research and flows",
+    "p": "Who uses it, what they're trying to do, and every step between opening the app and getting it done."
+   },
+   {
+    "icon": "window",
+    "t": "Wireframes and prototypes",
+    "p": "Clickable drafts you can put in front of real people before anyone writes code. Cheap to change, which is the point."
+   },
+   {
+    "icon": "eye",
+    "t": "Interface design",
+    "p": "Type, colour, spacing and states for every screen, including the empty, loading and error ones people forget."
+   },
+   {
+    "icon": "layers",
+    "t": "A design system",
+    "p": "Buttons, inputs, cards and rules, built once as components. Screen two hundred then matches screen one."
+   },
+   {
+    "icon": "phone",
+    "t": "Web and mobile",
+    "p": "Layouts for phones, tablets and desktops that respect how each one is held and used."
+   },
+   {
+    "icon": "doc",
+    "t": "A usable handoff",
+    "p": "Organised Figma files, specs, exported assets, and us on a call when a question comes up."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Do you need this?",
+  "p": "If people keep asking how to do the main thing your product does, yes. Design fixes that for less than the support tickets cost. It also stops developers guessing, and guessing is slow.",
+  "yes": [
+   "Designing a new product or a first version",
+   "Sitting on an app that works but confuses people",
+   "A developer who'd like someone else to make it look right",
+   "Growing fast, with screens that no longer match"
+  ],
+  "no": "you need it built as well as designed. We do that too: see [mobile app development](/services/mobile-app-development/) and [web application development](/services/web-application-development/). One team for both saves a handoff."
+ },
+ "proof": {
+  "label": "Built by us",
+  "h2": "We use it too",
+  "cards": [
+   "pawsword"
+  ],
+  "p": "Pawsword is our own password manager for iPhone and Mac. We designed every screen, including the ones we got wrong first. It's a product we made, not a client job, so every design decision in it is our own fault."
+ },
+ "steps": {
+  "h2": "Insight to interface",
+  "items": [
+   {
+    "t": "Understand",
+    "p": "A free call, then a look at your users, your competitors and whatever exists already. A fixed quote follows."
+   },
+   {
+    "t": "Structure",
+    "p": "User flows and wireframes. Ugly on purpose, so the conversation stays on what it does."
+   },
+   {
+    "t": "Design",
+    "p": "The interface, screen by screen, with a prototype you can click through."
+   },
+   {
+    "t": "Hand off",
+    "p": "Components, specs and assets in Figma, plus a walkthrough with whoever is building it."
+   }
+  ]
+ },
+ "price": {
+  "big": [
+   "Fixed quote",
+   "per project"
+  ],
+  "p": "Design work is priced by scope: how many screens, how much research, and whether you need a design system. You get a fixed quote before we start. For a sense of our website prices, the [plans](/pricing/) run from $1,299 to $6,499."
+ },
+ "tools": {
+  "h2": "Designed in",
+  "items": [
+   "figma"
+  ],
+  "note": "One tool, used properly. Your developers get the same file we worked in."
+ },
+ "faq_h2": "UI/UX, answered",
+ "faq": [
+  {
+   "q": "Do you do research or just visuals?",
+   "a": "Both, in that order. Flows and structure come first, and where it's useful we test a prototype with real people. The visual design then goes on top of something that already works."
+  },
+  {
+   "q": "Do you deliver a design system?",
+   "a": "When the product is big enough to need one, yes. For a ten-screen app a tidy component library is plenty, and we won't sell you more."
+  },
+  {
+   "q": "Can you work with our developers?",
+   "a": "Yes. We deliver organised Figma files and stay available while they build. We also build, if you'd like one team for both."
+  },
+  {
+   "q": "Can you redesign an app that already exists?",
+   "a": "Yes. We start by using it the way a new customer would and writing down every place we got stuck. That list usually writes the brief."
+  }
+ ],
+ "related": [
+  "mobile-app-development",
+  "web-application-development",
+  "brand-identity-design"
+ ],
+ "cta": {
+  "lines": [
+   "No manual",
+   "required"
+  ],
+  "pills": [
+   "Free call",
+   "Fixed quote",
+   "Figma files are yours"
+  ],
+  "p": "Show us the product, or the napkin sketch. We reply within one business day."
+ }
+}

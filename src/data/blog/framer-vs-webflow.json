@@ -1,0 +1,247 @@
+{
+  "slug": "framer-vs-webflow",
+  "url": "https://www.thebrandle.com/blog/framer-vs-webflow/",
+  "path": "/blog/framer-vs-webflow/",
+  "canonical": "https://www.thebrandle.com/blog/framer-vs-webflow/",
+  "lang": "en",
+  "source": "hand-written",
+  "title": "Framer vs Webflow: Which Builder Fits Your Website? | TheBrandle",
+  "titleWithoutBrand": "Framer vs Webflow: Which Builder Fits Your Website?",
+  "description": "Framer vs Webflow in 2026 - speed, animation, CMS, scaling and pricing compared by an agency that builds on both. How to pick the right tool for your site.",
+  "h1": "Framer vs Webflow: which builder fits your website?",
+  "headline": "Framer vs Webflow: Which Builder Fits Your Website?",
+  "datePublished": "2026-07-22",
+  "dateModified": "2026-07-22",
+  "dateDisplayed": "Jul 22, 2026",
+  "sitemapLastmod": "2026-08-16",
+  "gitFirstCommit": "2026-07-23T18:19:12+04:00",
+  "gitLastCommit": "2026-11-03T10:57:22+04:00",
+  "author": {
+    "name": "The Brandle Team",
+    "role": "Design Studio",
+    "avatar": "/assets/blog/_shared/author-avatar.jpg",
+    "avatarOriginal": "/framerusercontent.com/images/A0LPOEdkaRkfMcS2EWs1My620fA.jpg",
+    "schemaAuthor": {
+      "@type": "Organization",
+      "name": "TheBrandle",
+      "url": "https://www.thebrandle.com"
+    }
+  },
+  "category": "Platforms",
+  "categorySource": "tag in scripts/blog-posts-data.js (never rendered on the live page)",
+  "tags": [
+    "Platforms"
+  ],
+  "suggestedGroup": "Platforms",
+  "heroImage": {
+    "src": "/assets/blog/framer-vs-webflow/cover.jpg",
+    "alt": "Two abstract forms, one fluid and one faceted",
+    "width": 2560,
+    "height": 1440,
+    "original": "/assets/blog/covers/framer-vs-webflow.jpg"
+  },
+  "cardImage": {
+    "src": "/assets/blog/framer-vs-webflow/card.jpg",
+    "alt": "Framer vs Webflow: which builder fits your website?",
+    "width": 1600,
+    "height": 900,
+    "original": "/assets/blog/framer-vs-webflow.jpg",
+    "svgSource": "/assets/blog/framer-vs-webflow/card.svg",
+    "bakedText": {
+      "eyebrow": "COMPARISON",
+      "h1": "Which builder fits your website?",
+      "sub": "An honest comparison, from a studio that builds on both"
+    }
+  },
+  "readingMinutes": 2,
+  "readingMinutesSource": "computed: (body words + FAQ words) / 225, rounded, minimum 1. The live page shows no reading time.",
+  "readingMinutesDeclared": 5,
+  "wordCount": 297,
+  "wordCountFaq": 120,
+  "wordCountSchema": null,
+  "excerpt": "Framer vs Webflow in 2026 - speed, animation, CMS, scaling and pricing compared by an agency that builds on both. How to pick the right tool for your site.",
+  "listing": {
+    "position": 18,
+    "title": "Framer vs Webflow: which builder fits your website?",
+    "blurb": "An honest comparison, from a studio that builds on both."
+  },
+  "faq": [
+    {
+      "q": "Is Framer or Webflow better for SEO?",
+      "a": "Both produce fast, clean sites that rank well. Webflow offers finer-grained control for large structured sites; Framer covers all the essentials with less configuration. For most marketing sites the difference is negligible."
+    },
+    {
+      "q": "Which is cheaper, Framer or Webflow?",
+      "a": "Platform subscriptions are comparable. Build cost is usually lower on Framer because design-to-launch is faster; Webflow builds take longer but suit heavier content needs. Total cost follows scope more than platform."
+    },
+    {
+      "q": "Can you migrate a site between Framer and Webflow?",
+      "a": "Yes - we rebuild rather than \"convert\", preserving your content, design intent and SEO with proper redirects. It is a real project, which is why choosing correctly up front is worth an hour of honest advice."
+    }
+  ],
+  "relatedServices": [
+    {
+      "label": "Framer Website Design",
+      "href": "/services/framer-website-design/"
+    },
+    {
+      "label": "Webflow Website Design",
+      "href": "/services/webflow-website-design/"
+    },
+    {
+      "label": "UI/UX Design",
+      "href": "/services/ui-ux-design/"
+    }
+  ],
+  "headings": [
+    {
+      "level": 2,
+      "text": "Framer: speed and motion",
+      "id": "framer-speed-and-motion"
+    },
+    {
+      "level": 2,
+      "text": "Webflow: structure and control",
+      "id": "webflow-structure-and-control"
+    },
+    {
+      "level": 2,
+      "text": "The practical decision",
+      "id": "the-practical-decision"
+    }
+  ],
+  "links": [
+    {
+      "href": "/services/framer-website-design/",
+      "text": "Framer website design service"
+    },
+    {
+      "href": "/services/webflow-website-design/",
+      "text": "Webflow website design service"
+    }
+  ],
+  "moreArticlesAsPublished": [
+    {
+      "title": "How to build a startup website people trust",
+      "href": "/blog/how-to-build-a-startup-website/"
+    },
+    {
+      "title": "Headless CMS: what it is and when you actually need one",
+      "href": "/blog/headless-cms-guide/"
+    },
+    {
+      "title": "AI in web design: what it does well and where it fails",
+      "href": "/blog/ai-in-web-design/"
+    },
+    {
+      "title": "Arabic and RTL website design: doing it properly",
+      "href": "/blog/arabic-rtl-website-design/"
+    },
+    {
+      "title": "How to redesign your website without losing SEO",
+      "href": "/blog/website-redesign-without-losing-seo/"
+    }
+  ],
+  "cta": {
+    "heading": "Ready to build it right?",
+    "text": "Tell us about your project and we will come back with a clear plan, timeline and a fixed quote.",
+    "button": "Book a free consultation",
+    "href": "/contact"
+  },
+  "meta": {
+    "robots": "index, follow",
+    "ogType": "article",
+    "ogTitle": "Framer vs Webflow: Which Builder Fits Your Website?",
+    "ogDescription": "Framer vs Webflow in 2026 - speed, animation, CMS, scaling and pricing compared by an agency that builds on both. How to pick the right tool for your site.",
+    "ogImage": "https://www.thebrandle.com/assets/blog/framer-vs-webflow.jpg",
+    "twitterCard": "summary_large_image",
+    "twitterTitle": "Framer vs Webflow: Which Builder Fits Your Website?",
+    "twitterImage": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+    "rssAlternate": null
+  },
+  "jsonLdTypes": [
+    "Article",
+    "FAQPage",
+    "BreadcrumbList"
+  ],
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Framer vs Webflow: Which Builder Fits Your Website?",
+      "description": "Framer vs Webflow in 2026 - speed, animation, CMS, scaling and pricing compared by an agency that builds on both. How to pick the right tool for your site.",
+      "datePublished": "2026-07-22",
+      "dateModified": "2026-07-22",
+      "author": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.thebrandle.com/framerusercontent.com/assets/TheBrandle.svg"
+        }
+      },
+      "image": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+      "mainEntityOfPage": "https://www.thebrandle.com/blog/framer-vs-webflow/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Framer or Webflow better for SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both produce fast, clean sites that rank well. Webflow offers finer-grained control for large structured sites; Framer covers all the essentials with less configuration. For most marketing sites the difference is negligible."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which is cheaper, Framer or Webflow?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Platform subscriptions are comparable. Build cost is usually lower on Framer because design-to-launch is faster; Webflow builds take longer but suit heavier content needs. Total cost follows scope more than platform."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you migrate a site between Framer and Webflow?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes - we rebuild rather than \"convert\", preserving your content, design intent and SEO with proper redirects. It is a real project, which is why choosing correctly up front is worth an hour of honest advice."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.thebrandle.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.thebrandle.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Framer vs Webflow: Which Builder Fits Your Website?",
+          "item": "https://www.thebrandle.com/blog/framer-vs-webflow/"
+        }
+      ]
+    }
+  ]
+}

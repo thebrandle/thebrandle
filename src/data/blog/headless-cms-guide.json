@@ -1,0 +1,243 @@
+{
+  "slug": "headless-cms-guide",
+  "url": "https://www.thebrandle.com/blog/headless-cms-guide/",
+  "path": "/blog/headless-cms-guide/",
+  "canonical": "https://www.thebrandle.com/blog/headless-cms-guide/",
+  "lang": "en",
+  "source": "hand-written",
+  "title": "Headless CMS: What It Is and When You Actually Need One | TheBrandle",
+  "titleWithoutBrand": "Headless CMS: What It Is and When You Actually Need One",
+  "description": "A plain-English guide to headless CMS - what it means, what it costs, and the honest cases where a traditional CMS is still the better call.",
+  "h1": "Headless CMS: what it is and when you actually need one",
+  "headline": "Headless CMS: What It Is and When You Actually Need One | TheBrandle",
+  "datePublished": "2026-07-28",
+  "dateModified": "2026-07-28",
+  "dateDisplayed": "Jul 28, 2026",
+  "sitemapLastmod": "2026-08-16",
+  "gitFirstCommit": "2026-08-07T03:49:12+04:00",
+  "gitLastCommit": "2026-11-03T10:57:22+04:00",
+  "author": {
+    "name": "The Brandle Team",
+    "role": "Design Studio",
+    "avatar": "/assets/blog/_shared/author-avatar.jpg",
+    "avatarOriginal": "/framerusercontent.com/images/A0LPOEdkaRkfMcS2EWs1My620fA.jpg",
+    "schemaAuthor": {
+      "@type": "Organization",
+      "name": "TheBrandle",
+      "url": "https://www.thebrandle.com"
+    }
+  },
+  "category": "Architecture",
+  "categorySource": "tag in scripts/blog-posts-data.js (never rendered on the live page)",
+  "tags": [
+    "Architecture"
+  ],
+  "suggestedGroup": "Platforms",
+  "heroImage": {
+    "src": "/assets/blog/headless-cms-guide/cover.jpg",
+    "alt": "An abstract slab separating into floating layers",
+    "width": 2560,
+    "height": 1440,
+    "original": "/assets/blog/covers/headless-cms-guide.jpg"
+  },
+  "cardImage": {
+    "src": "/assets/blog/headless-cms-guide/card.jpg",
+    "alt": "Headless CMS: what it is and when you actually need one",
+    "width": 1600,
+    "height": 900,
+    "original": "/assets/blog/headless-cms-guide.jpg",
+    "svgSource": "/assets/blog/headless-cms-guide/card.svg",
+    "bakedText": {
+      "eyebrow": "ARCHITECTURE",
+      "h1": "Headless CMS, explained plainly",
+      "sub": "What you gain, what it costs, and when a traditional CMS still wins"
+    }
+  },
+  "readingMinutes": 2,
+  "readingMinutesSource": "computed: (body words + FAQ words) / 225, rounded, minimum 1. The live page shows no reading time.",
+  "readingMinutesDeclared": 7,
+  "wordCount": 389,
+  "wordCountFaq": 111,
+  "wordCountSchema": null,
+  "excerpt": "A plain-English guide to headless CMS - what it means, what it costs, and the honest cases where a traditional CMS is still the better call.",
+  "listing": {
+    "position": 4,
+    "title": "Headless CMS: what it is and when you actually need one",
+    "blurb": "What you gain, what it costs, and when a traditional CMS still wins."
+  },
+  "faq": [
+    {
+      "q": "Is headless CMS better for SEO?",
+      "a": "Not inherently. It can be faster, which helps, but headless builds frequently ship with broken meta handling or client-only rendering. A well-built traditional site beats a badly built headless one every time."
+    },
+    {
+      "q": "How much more does a headless build cost?",
+      "a": "Typically 40 to 100 percent more than the equivalent traditional build, because you are building the front end from scratch instead of adapting a theme. Ongoing costs are higher too."
+    },
+    {
+      "q": "Can I move to headless later?",
+      "a": "Yes, and it is often the smarter order. Launch on a traditional CMS, prove the business case, then move the front end once you know what you actually need."
+    }
+  ],
+  "relatedServices": [
+    {
+      "label": "WordPress Website Design",
+      "href": "/services/wordpress-website-design/"
+    },
+    {
+      "label": "Web Application Development",
+      "href": "/services/web-application-development/"
+    },
+    {
+      "label": "All Services",
+      "href": "/services/"
+    }
+  ],
+  "headings": [
+    {
+      "level": 2,
+      "text": "What you actually gain",
+      "id": "what-you-actually-gain"
+    },
+    {
+      "level": 2,
+      "text": "What it costs you",
+      "id": "what-it-costs-you"
+    },
+    {
+      "level": 2,
+      "text": "When it is the right call",
+      "id": "when-it-is-the-right-call"
+    }
+  ],
+  "links": [
+    {
+      "href": "/contact",
+      "text": "get in touch"
+    }
+  ],
+  "moreArticlesAsPublished": [
+    {
+      "title": "How to build a startup website people trust",
+      "href": "/blog/how-to-build-a-startup-website/"
+    },
+    {
+      "title": "AI in web design: what it does well and where it fails",
+      "href": "/blog/ai-in-web-design/"
+    },
+    {
+      "title": "Arabic and RTL website design: doing it properly",
+      "href": "/blog/arabic-rtl-website-design/"
+    },
+    {
+      "title": "How to redesign your website without losing SEO",
+      "href": "/blog/website-redesign-without-losing-seo/"
+    },
+    {
+      "title": "Website maintenance: what you actually need to pay for",
+      "href": "/blog/website-maintenance-cost/"
+    }
+  ],
+  "cta": {
+    "heading": "Ready to build it right?",
+    "text": "Tell us about your project and we will come back with a clear plan, timeline and a fixed quote.",
+    "button": "Book a free consultation",
+    "href": "/contact"
+  },
+  "meta": {
+    "robots": "index, follow",
+    "ogType": "article",
+    "ogTitle": "Headless CMS: What It Is and When You Actually Need One | TheBrandle",
+    "ogDescription": "A plain-English guide to headless CMS - what it means, what it costs, and the honest cases where a traditional CMS is still the better call.",
+    "ogImage": "https://www.thebrandle.com/assets/blog/headless-cms-guide.jpg",
+    "twitterCard": "summary_large_image",
+    "twitterTitle": "Headless CMS: What It Is and When You Actually Need One | TheBrandle",
+    "twitterImage": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+    "rssAlternate": null
+  },
+  "jsonLdTypes": [
+    "Article",
+    "FAQPage",
+    "BreadcrumbList"
+  ],
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Headless CMS: What It Is and When You Actually Need One | TheBrandle",
+      "description": "A plain-English guide to headless CMS - what it means, what it costs, and the honest cases where a traditional CMS is still the better call.",
+      "datePublished": "2026-07-28",
+      "dateModified": "2026-07-28",
+      "author": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.thebrandle.com/framerusercontent.com/assets/TheBrandle.svg"
+        }
+      },
+      "image": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+      "mainEntityOfPage": "https://www.thebrandle.com/blog/headless-cms-guide/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is headless CMS better for SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not inherently. It can be faster, which helps, but headless builds frequently ship with broken meta handling or client-only rendering. A well-built traditional site beats a badly built headless one every time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much more does a headless build cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Typically 40 to 100 percent more than the equivalent traditional build, because you are building the front end from scratch instead of adapting a theme. Ongoing costs are higher too."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I move to headless later?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and it is often the smarter order. Launch on a traditional CMS, prove the business case, then move the front end once you know what you actually need."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.thebrandle.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.thebrandle.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Headless CMS: What It Is and When You Actually Need One | TheBrandle",
+          "item": "https://www.thebrandle.com/blog/headless-cms-guide/"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+ "title": "Framer Website Design and Development | The Brandle",
+ "description": "Framer website design from a Dubai studio that makes its own Framer templates. Custom sites with a CMS, fixed quote first, live in 3 to 6 weeks.",
+ "crumb": "Framer",
+ "schema_name": "Framer website design",
+ "service_type": "Framer Website Design & Development",
+ "hub": {
+  "name": "Framer design",
+  "line": "Sharp sites for launches with a date attached."
+ },
+ "hero": {
+  "h1": [
+   "Framer",
+   "website design"
+  ],
+  "stickers": [
+   {
+    "mark": "framer"
+   }
+  ],
+  "chips": [
+   "Fast to launch",
+   "Design-native",
+   "Easy to edit"
+  ],
+  "joke": "We like Framer so much we make templates for it. Then we tell clients not to use templates.",
+  "intro": "Framer website design and development for startups, launches and anyone who needs a sharp site soon. Custom design, a CMS for the parts that change, and animation that feels native. Fixed quote, 3 to 6 weeks."
+ },
+ "get": {
+  "h2": "Small site, big entrance",
+  "items": [
+   {
+    "icon": "pencil",
+    "t": "Design is the build",
+    "p": "In Framer the design file is the site. Nothing gets lost in translation because there's no translation."
+   },
+   {
+    "icon": "play",
+    "t": "Animation, built in",
+    "p": "Page transitions, scroll effects and hover states made with Framer's own tools, so they stay smooth and stay editable."
+   },
+   {
+    "icon": "clock",
+    "t": "A short runway",
+    "p": "Fewer moving parts means less time between yes and live. Handy when the launch date was picked before the website was."
+   },
+   {
+    "icon": "layers",
+    "t": "A CMS for the changing bits",
+    "p": "Blog posts, case studies, changelog, jobs. Add one without touching the layout."
+   },
+   {
+    "icon": "phone",
+    "t": "All three widths",
+    "p": "Desktop, tablet and phone layouts each get designed. Not left to chance and auto-layout."
+   },
+   {
+    "icon": "mail",
+    "t": "The boring essentials",
+    "p": "Contact forms, analytics, page titles, share images. The things nobody notices until they're missing."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Framer or not?",
+  "p": "Framer is the quickest way we know to get a custom-looking site live. It's happiest with marketing sites and launch pages. It gets unhappy when asked to be a shop or a web app.",
+  "yes": [
+   "A startup that needs a site before the funding news",
+   "Launching a product or a campaign page",
+   "After motion without paying for custom code",
+   "Happy to change text and images yourself"
+  ],
+  "no": "you need hundreds of CMS pages with complex filtering, which suits [Webflow](/services/webflow-website-design/) better, or a store, which is [Shopify](/services/shopify-website-design/)."
+ },
+ "proof": {
+  "label": "Our own work",
+  "h2": "Our templates",
+  "cards": [
+   "limonaia",
+   "bezier"
+  ],
+  "links": [
+   [
+    "See the rest on the work page",
+    "/projects"
+   ]
+  ],
+  "p": "We make our own Framer templates: Fanfare, Limonaia, Bezier, Rotonda and Sunwise. They're the best evidence of what we do in Framer when left alone with it."
+ },
+ "steps": {
+  "h2": "Idea to live",
+  "items": [
+   {
+    "t": "Kickoff",
+    "p": "A free call, a page list and a fixed quote. Bring the launch date. We'll tell you honestly if it's possible."
+   },
+   {
+    "t": "Design",
+    "p": "Straight into Framer, on the real canvas, with your real words."
+   },
+   {
+    "t": "Polish",
+    "p": "Animation, CMS, forms and the phone layout. This is the stage where it stops looking like a draft."
+   },
+   {
+    "t": "Publish",
+    "p": "Domain connected, analytics on, and the project moved into your Framer account. Free fixes for 30 days."
+   }
+  ]
+ },
+ "price": {
+  "big": [
+   "$1,299 to",
+   "$6,499"
+  ],
+  "p": "Our fixed plans run from $1,299 to $6,499, about AED 4,800 to 23,900. A site takes 3 to 6 weeks, and a small Framer build sits at the short end. Framer's own site plan is separate and paid to Framer."
+ },
+ "tools": {
+  "h2": "Made with",
+  "items": [
+   "framer",
+   "figma"
+  ]
+ },
+ "faq_h2": "Framer, answered",
+ "faq": [
+  {
+   "q": "Can I edit my Framer site myself?",
+   "a": "Yes. Text, images and CMS entries are simple to change, and we show you around at handover. If you can edit a slide deck, you can update a Framer site."
+  },
+  {
+   "q": "Is Framer good for SEO?",
+   "a": "It's fine. Pages load quickly and you control titles, descriptions, headings and redirects. What decides rankings after that is the content, which no platform writes for you."
+  },
+  {
+   "q": "Should I just buy a template?",
+   "a": "If the budget is tiny, yes, and we mean it. A good template beats a bad custom site. Come to us when the template starts fighting what you need to say. Our [startup website guide](/blog/how-to-build-a-startup-website/) covers the trade."
+  },
+  {
+   "q": "Framer or Webflow?",
+   "a": "Framer for speed and smaller sites. Webflow for bigger content libraries and finer control. The full comparison is in [Framer vs Webflow](/blog/framer-vs-webflow/)."
+  }
+ ],
+ "related": [
+  "webflow-website-design",
+  "ui-ux-design",
+  "brand-identity-design"
+ ],
+ "post": {
+  "slug": "how-to-build-a-startup-website",
+  "title": "Startup website design: how to build yours"
+ },
+ "cta": {
+  "lines": [
+   "Launch day",
+   "is coming"
+  ],
+  "pills": [
+   "Free call",
+   "Fixed quote",
+   "Your account"
+  ],
+  "p": "Tell us the date and what's being launched. We'll tell you what's realistic."
+ }
+}

@@ -1,0 +1,101 @@
+{
+ "type": "template",
+ "seo_title": "Tideline: Webflow Template Design | The Brandle",
+ "summary": "A Webflow template for launching a single residential tower, built around a clickable floor selector.",
+ "cover": "studio-dark",
+ "portrait": "studio-dark-portrait",
+ "screens": 8,
+ "cta": "Open the live preview",
+ "brief": {
+  "label": "Webflow template, real estate",
+  "heading": "The idea",
+  "paras": [
+   "Tideline is a Webflow template for developers launching a single residential building. It is built around the questions buyers ask first: which floor, what view, what it costs and how they pay.",
+   "The home page draws the tower as a floor selector. Click a band of the building and it opens the plan, the sizes and the starting price."
+  ]
+ },
+ "answer": {
+  "label": "Approved 2026",
+  "heading": "What's inside",
+  "paras": [
+   "A view section switches between photographs taken from different levels. Each inner page has its own layout: a comparison table of residences, a level-by-level tour of the tower and a numbered map of the neighbourhood.",
+   "Under the bonnet there are 99 variables for colour, type and spacing, and 18 interactions. The floor selector is made with Webflow's own tabs, so a buyer can edit all of it in the Designer.",
+   "It was first called Corniche. Then we found a template called Cornice, one letter away, and renamed it. Webflow approved it for the Marketplace in November 2026."
+  ]
+ },
+ "tags": [
+  "Template design",
+  "Webflow build",
+  "Floor selector",
+  "CMS setup"
+ ],
+ "blocks": [
+  {
+   "t": "full",
+   "img": "s1",
+   "alt": "The Choose your floor section of Tideline, with the tower drawn as a floor selector"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p1",
+    "alt": "The Tideline home page on a phone: Forty-one homes by the sea"
+   },
+   "b": {
+    "img": "p2",
+    "alt": "The Tideline residences page on a phone"
+   }
+  },
+  {
+   "t": "mock",
+   "scene": "studio-white",
+   "alt": "Pages of the Tideline template cutting past on a desktop display in a white studio"
+  },
+  {
+   "t": "full",
+   "img": "s2",
+   "alt": "A wide photograph of a palm-lined beach from the Tideline views section"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p3",
+    "alt": "The Tower page on a phone"
+   },
+   "b": {
+    "img": "p4",
+    "alt": "The Tideline location page on a phone"
+   }
+  },
+  {
+   "t": "full",
+   "img": "s3",
+   "alt": "The Tideline residences page"
+  },
+  {
+   "t": "full",
+   "img": "s4",
+   "alt": "The Tower page of Tideline, beside a photograph of the building"
+  },
+  {
+   "t": "full",
+   "img": "s5",
+   "alt": "The Tideline location page with a numbered map"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Who it is for, the buyer questions, the floor selector, the view switcher, inner page layouts, native Webflow Tabs, 99 variables, 18 interactions",
+   "source": "~/friday/vault/outputs/tideline-webflow-listing.md (Reviewer notes, Long description)"
+  },
+  {
+   "claim": "Built as Corniche and renamed because \"Cornice\" exists; approved by Webflow on 2026-11-03",
+   "source": "~/.claude/projects/-Users-muteebmehraj-friday/memory/brandle-templates.md and MEMORY.md"
+  },
+  {
+   "claim": "Page captures",
+   "source": "https://tideline-template.webflow.io (captured 2026-11-11)"
+  }
+ ],
+ "description": "A Webflow template for launching a single residential tower, built around a clickable floor selector. Designed and built by The Brandle, a Dubai design and development studio."
+}

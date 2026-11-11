@@ -1,0 +1,153 @@
+{
+ "title": "SEO Services Dubai: Technical and On-Page | The Brandle",
+ "description": "SEO services in Dubai from the people who build the sites. Technical fixes, on-page work, speed and structured data, done in the code. No ranking promises.",
+ "crumb": "SEO",
+ "schema_name": "SEO services Dubai",
+ "service_type": "SEO Services",
+ "hub": {
+  "name": "SEO services",
+  "line": "Fixes made in the code. No ranking promises."
+ },
+ "hero": {
+  "h1": [
+   "SEO services",
+   "Dubai"
+  ],
+  "stickers": [
+   {
+    "icon": "search"
+   }
+  ],
+  "chips": [
+   "Technical SEO",
+   "On-page & structure",
+   "Core Web Vitals"
+  ],
+  "joke": "Nobody can promise you first place on Google. Anyone who does is selling something else.",
+  "intro": "SEO services in Dubai from a studio that builds websites. Technical SEO, on-page work, site speed and structured data, fixed directly in the code. You get changes made, not a PDF of suggestions."
+ },
+ "get": {
+  "h2": "Fixes, not PDFs",
+  "items": [
+   {
+    "icon": "search",
+    "t": "Technical audit",
+    "p": "Crawling, indexing, broken links, duplicate pages, redirects. Everything that stops a search engine reading your site."
+   },
+   {
+    "icon": "pencil",
+    "t": "On-page work",
+    "p": "Titles, descriptions, headings and internal links, rewritten around the words your customers type."
+   },
+   {
+    "icon": "bolt",
+    "t": "Speed and Core Web Vitals",
+    "p": "Slow pages fixed at the source: images, scripts, fonts, things that jump about. Our [Core Web Vitals guide](/blog/core-web-vitals-guide/) explains the measures."
+   },
+   {
+    "icon": "layers",
+    "t": "Structured data",
+    "p": "Markup that tells search engines what a page is: a business, a product, an article, a list of questions."
+   },
+   {
+    "icon": "doc",
+    "t": "Content structure",
+    "p": "Which pages should exist, which should merge, and which are quietly competing with each other."
+   },
+   {
+    "icon": "chart",
+    "t": "Search Console, set up",
+    "p": "Google Search Console connected and explained, so you can watch the numbers without us."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Is SEO the problem?",
+  "p": "Sometimes it isn't. Sometimes the site ranks fine and the page people land on is what's wrong. We check which problem you have before selling you the cure.",
+  "yes": [
+   "Live for months with almost no search traffic",
+   "Ranking for your own name and little else",
+   "Told you need SEO, but never told what's wrong",
+   "Planning a redesign and worried about losing rankings"
+  ],
+  "no": "you want leads by next week. SEO is slow. Ads are quick and cost money every day, and that's [digital marketing](/services/digital-marketing/). Most businesses end up needing a bit of both."
+ },
+ "steps": {
+  "h2": "Audit to fixed",
+  "items": [
+   {
+    "t": "Audit",
+    "p": "We crawl the site, read Search Console and list what's wrong, in order of how much it matters."
+   },
+   {
+    "t": "Plan",
+    "p": "A short plan with realistic targets and a fixed quote. We say which goals take weeks and which take months."
+   },
+   {
+    "t": "Fix",
+    "p": "We make the changes ourselves, in the code and the CMS. Then we check they worked."
+   },
+   {
+    "t": "Report",
+    "p": "What changed and what moved, in plain words. If you'd like ongoing work, it becomes a monthly plan."
+   }
+  ]
+ },
+ "commit": "retainer",
+ "price": {
+  "big": [
+   "Quoted after",
+   "an audit"
+  ],
+  "p": "An audit shows how much is wrong, and that decides the price. One-off fixes get a fixed quote. Ongoing work is a fixed monthly fee. Every site we build already ships with the SEO basics, at no extra charge."
+ },
+ "tools": {
+  "h2": "What we work in",
+  "items": [
+   "Google Search Console",
+   "Google Analytics",
+   "Core Web Vitals"
+  ],
+  "note": "Written as words on purpose. Google is particular about its logos, and we're not its partner."
+ },
+ "faq_h2": "SEO, answered",
+ "faq": [
+  {
+   "q": "Can you guarantee first place on Google?",
+   "a": "No, and nobody honest can. We fix what's measurably wrong, aim at realistic terms and report what changes. That's the part that adds up over time."
+  },
+  {
+   "q": "How long does SEO take?",
+   "a": "Technical fixes can show within weeks, once pages are crawled again. Competitive terms take months. We tell you which kind your goals are before you pay for anything."
+  },
+  {
+   "q": "Do you build backlinks?",
+   "a": "We don't buy links or mass-produce them. That breaks Google's rules and can get a site penalised. We focus on listings you own, real reviews and pages worth linking to."
+  },
+  {
+   "q": "Do I need SEO if you built my site?",
+   "a": "The basics are already in. A separate SEO project goes further: content, structure and keeping up with competitors. Redesigning an older site? Read [how to redesign a website without losing SEO](/blog/website-redesign-without-losing-seo/) first."
+  }
+ ],
+ "related": [
+  "website-maintenance",
+  "digital-marketing",
+  "web-design-dubai"
+ ],
+ "post": {
+  "slug": "core-web-vitals-guide",
+  "title": "Core Web Vitals: what they are and how to fix them"
+ },
+ "cta": {
+  "lines": [
+   "Get found,",
+   "honestly"
+  ],
+  "pills": [
+   "Free call",
+   "No ranking promises",
+   "Fixes in the code"
+  ],
+  "p": "Send us your site and the search terms you wish you owned. We'll tell you what's in the way."
+ }
+}

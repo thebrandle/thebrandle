@@ -1,0 +1,252 @@
+{
+  "slug": "wordpress-vs-webflow",
+  "url": "https://www.thebrandle.com/blog/wordpress-vs-webflow/",
+  "path": "/blog/wordpress-vs-webflow/",
+  "canonical": "https://www.thebrandle.com/blog/wordpress-vs-webflow/",
+  "lang": "en",
+  "source": "hand-written",
+  "title": "WordPress vs Webflow: An Honest Comparison | TheBrandle",
+  "titleWithoutBrand": "WordPress vs Webflow: An Honest Comparison",
+  "description": "WordPress vs Webflow compared honestly - cost, editing, SEO, ecommerce and maintenance, with a clear view of which suits which kind of business.",
+  "h1": "WordPress vs Webflow: an honest comparison",
+  "headline": "WordPress vs Webflow: An Honest Comparison | TheBrandle",
+  "datePublished": "2026-07-28",
+  "dateModified": "2026-07-28",
+  "dateDisplayed": "Jul 28, 2026",
+  "sitemapLastmod": "2026-08-16",
+  "gitFirstCommit": "2026-08-07T03:49:12+04:00",
+  "gitLastCommit": "2026-11-03T10:57:22+04:00",
+  "author": {
+    "name": "The Brandle Team",
+    "role": "Design Studio",
+    "avatar": "/assets/blog/_shared/author-avatar.jpg",
+    "avatarOriginal": "/framerusercontent.com/images/A0LPOEdkaRkfMcS2EWs1My620fA.jpg",
+    "schemaAuthor": {
+      "@type": "Organization",
+      "name": "TheBrandle",
+      "url": "https://www.thebrandle.com"
+    }
+  },
+  "category": "Platforms",
+  "categorySource": "tag in scripts/blog-posts-data.js (never rendered on the live page)",
+  "tags": [
+    "Platforms"
+  ],
+  "suggestedGroup": "Platforms",
+  "heroImage": {
+    "src": "/assets/blog/wordpress-vs-webflow/cover.jpg",
+    "alt": "A dense abstract texture meeting a smooth surface",
+    "width": 2560,
+    "height": 1440,
+    "original": "/assets/blog/covers/wordpress-vs-webflow.jpg"
+  },
+  "cardImage": {
+    "src": "/assets/blog/wordpress-vs-webflow/card.jpg",
+    "alt": "WordPress vs Webflow: an honest comparison",
+    "width": 1600,
+    "height": 900,
+    "original": "/assets/blog/wordpress-vs-webflow.jpg",
+    "svgSource": "/assets/blog/wordpress-vs-webflow/card.svg",
+    "bakedText": {
+      "eyebrow": "COMPARISON",
+      "h1": "Ownership or a polished product?",
+      "sub": "Cost, editing, SEO and maintenance compared honestly"
+    }
+  },
+  "readingMinutes": 2,
+  "readingMinutesSource": "computed: (body words + FAQ words) / 225, rounded, minimum 1. The live page shows no reading time.",
+  "readingMinutesDeclared": 7,
+  "wordCount": 367,
+  "wordCountFaq": 93,
+  "wordCountSchema": null,
+  "excerpt": "WordPress vs Webflow compared honestly - cost, editing, SEO, ecommerce and maintenance, with a clear view of which suits which kind of business.",
+  "listing": {
+    "position": 9,
+    "title": "WordPress vs Webflow: an honest comparison",
+    "blurb": "Cost, editing, SEO and maintenance compared honestly."
+  },
+  "faq": [
+    {
+      "q": "Is Webflow better for SEO than WordPress?",
+      "a": "Marginally, out of the box, because it is faster by default and has clean markup. A well-built WordPress site matches it. Platform is not what decides your rankings."
+    },
+    {
+      "q": "Can I move from Webflow to WordPress later?",
+      "a": "Yes, but it is a rebuild rather than a migration - the content moves, the design does not. Choose deliberately rather than planning to switch."
+    },
+    {
+      "q": "Which is cheaper long term?",
+      "a": "Once you count maintenance honestly, they are closer than most comparisons suggest. WordPress wins on licence cost and loses on time."
+    }
+  ],
+  "relatedServices": [
+    {
+      "label": "Webflow Website Design",
+      "href": "/services/webflow-website-design/"
+    },
+    {
+      "label": "WordPress Website Design",
+      "href": "/services/wordpress-website-design/"
+    },
+    {
+      "label": "All Services",
+      "href": "/services/"
+    }
+  ],
+  "headings": [
+    {
+      "level": 2,
+      "text": "Cost over three years",
+      "id": "cost-over-three-years"
+    },
+    {
+      "level": 2,
+      "text": "Editing and control",
+      "id": "editing-and-control"
+    },
+    {
+      "level": 2,
+      "text": "SEO and ecommerce",
+      "id": "seo-and-ecommerce"
+    },
+    {
+      "level": 2,
+      "text": "Which to choose",
+      "id": "which-to-choose"
+    }
+  ],
+  "links": [
+    {
+      "href": "/services/shopify-website-design/",
+      "text": "Shopify website design service"
+    },
+    {
+      "href": "/services/woocommerce-website-design/",
+      "text": "WooCommerce website design service"
+    }
+  ],
+  "moreArticlesAsPublished": [
+    {
+      "title": "How to build a startup website people trust",
+      "href": "/blog/how-to-build-a-startup-website/"
+    },
+    {
+      "title": "Headless CMS: what it is and when you actually need one",
+      "href": "/blog/headless-cms-guide/"
+    },
+    {
+      "title": "AI in web design: what it does well and where it fails",
+      "href": "/blog/ai-in-web-design/"
+    },
+    {
+      "title": "Arabic and RTL website design: doing it properly",
+      "href": "/blog/arabic-rtl-website-design/"
+    },
+    {
+      "title": "How to redesign your website without losing SEO",
+      "href": "/blog/website-redesign-without-losing-seo/"
+    }
+  ],
+  "cta": {
+    "heading": "Ready to build it right?",
+    "text": "Tell us about your project and we will come back with a clear plan, timeline and a fixed quote.",
+    "button": "Book a free consultation",
+    "href": "/contact"
+  },
+  "meta": {
+    "robots": "index, follow",
+    "ogType": "article",
+    "ogTitle": "WordPress vs Webflow: An Honest Comparison | TheBrandle",
+    "ogDescription": "WordPress vs Webflow compared honestly - cost, editing, SEO, ecommerce and maintenance, with a clear view of which suits which kind of business.",
+    "ogImage": "https://www.thebrandle.com/assets/blog/wordpress-vs-webflow.jpg",
+    "twitterCard": "summary_large_image",
+    "twitterTitle": "WordPress vs Webflow: An Honest Comparison | TheBrandle",
+    "twitterImage": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+    "rssAlternate": null
+  },
+  "jsonLdTypes": [
+    "Article",
+    "FAQPage",
+    "BreadcrumbList"
+  ],
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "WordPress vs Webflow: An Honest Comparison | TheBrandle",
+      "description": "WordPress vs Webflow compared honestly - cost, editing, SEO, ecommerce and maintenance, with a clear view of which suits which kind of business.",
+      "datePublished": "2026-07-28",
+      "dateModified": "2026-07-28",
+      "author": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.thebrandle.com/framerusercontent.com/assets/TheBrandle.svg"
+        }
+      },
+      "image": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+      "mainEntityOfPage": "https://www.thebrandle.com/blog/wordpress-vs-webflow/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Webflow better for SEO than WordPress?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Marginally, out of the box, because it is faster by default and has clean markup. A well-built WordPress site matches it. Platform is not what decides your rankings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I move from Webflow to WordPress later?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, but it is a rebuild rather than a migration - the content moves, the design does not. Choose deliberately rather than planning to switch."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which is cheaper long term?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Once you count maintenance honestly, they are closer than most comparisons suggest. WordPress wins on licence cost and loses on time."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.thebrandle.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.thebrandle.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "WordPress vs Webflow: An Honest Comparison | TheBrandle",
+          "item": "https://www.thebrandle.com/blog/wordpress-vs-webflow/"
+        }
+      ]
+    }
+  ]
+}

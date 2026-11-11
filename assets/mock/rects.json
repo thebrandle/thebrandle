@@ -1,0 +1,62 @@
+{
+ "xdr-orange-portrait.webp": {
+  "x": 6.514,
+  "y": 26.486,
+  "w": 86.811,
+  "h": 32.559
+ },
+ "xdr-blue-portrait.webp": {
+  "x": 6.514,
+  "y": 26.486,
+  "w": 86.811,
+  "h": 32.559
+ },
+ "xdr-red-portrait.webp": {
+  "x": 6.514,
+  "y": 26.486,
+  "w": 86.811,
+  "h": 32.559
+ },
+ "studio-dark-portrait.webp": {
+  "x": 7.425,
+  "y": 32.732,
+  "w": 85.149,
+  "h": 32.477
+ },
+ "studio-white-portrait.webp": {
+  "x": 7.151,
+  "y": 25.113,
+  "w": 85.698,
+  "h": 28.529
+ },
+ "concrete-portrait.webp": {
+  "x": 6.677,
+  "y": 27.2,
+  "w": 86.572,
+  "h": 33.05
+ },
+ "xdr-orange-wide.webp": {
+  "x": 16.867,
+  "y": 10.667,
+  "w": 71.378,
+  "h": 60.233
+ },
+ "studio-dark-wide.webp": {
+  "x": 25.42,
+  "y": 29.571,
+  "w": 49.08,
+  "h": 40.114
+ },
+ "studio-white-wide.webp": {
+  "x": 19.5,
+  "y": 12.514,
+  "w": 60.88,
+  "h": 43.429
+ },
+ "concrete-wide.webp": {
+  "x": 28.443,
+  "y": 27.2,
+  "w": 43.076,
+  "h": 33.05
+ }
+}

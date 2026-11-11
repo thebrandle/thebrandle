@@ -1,0 +1,95 @@
+{
+ "type": "client",
+ "seo_title": "Voice & Data Resale: Shopify Store | The Brandle",
+ "summary": "A Shopify store for a UK IT asset recovery and data destruction business.",
+ "cover": "teal",
+ "portrait": "xdr-teal-portrait",
+ "screens": 7,
+ "cta": "Visit the store",
+ "brief": {
+  "label": "IT asset recovery",
+  "heading": "The client",
+  "paras": [
+   "Voice & Data Resale helps businesses and consumers recover value from retired technology: secure IT asset recovery, certified data destruction and refurbishment. The company says it has traded for over thirty years.",
+   "In other words, they were dealing with old office kit before most of it was old."
+  ]
+ },
+ "answer": {
+  "label": "Shopify store",
+  "heading": "What we built",
+  "paras": [
+   "A Shopify storefront, designed and built. One half of the site sells refurbished IT and communications equipment. The other half is for businesses with kit to retire: asset disposal, data destruction and office clearances.",
+   "We have not published the scope, the timeline or any results for this one. When there are numbers we can stand behind, they will go here."
+  ]
+ },
+ "tags": [
+  "Store design",
+  "Shopify build",
+  "Client project"
+ ],
+ "blocks": [
+  {
+   "t": "full",
+   "img": "s1",
+   "alt": "The Voice & Data Resale store listing certified refurbished IT and communications equipment"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p1",
+    "alt": "The Voice & Data Resale home page on a phone"
+   },
+   "b": {
+    "img": "p2",
+    "alt": "The Voice & Data Resale shop on a phone"
+   }
+  },
+  {
+   "t": "mock",
+   "scene": "studio-dark",
+   "alt": "Pages of the Voice & Data Resale store cutting past on a desktop display"
+  },
+  {
+   "t": "full",
+   "img": "s2",
+   "alt": "The asset recovery process on the Voice & Data Resale site, from quote to payment"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p3",
+    "alt": "The IT asset disposal page on a phone"
+   },
+   "b": {
+    "img": "p4",
+    "alt": "The data destruction page on a phone"
+   }
+  },
+  {
+   "t": "full",
+   "img": "s3",
+   "alt": "The shop page for refurbished IT and communications equipment"
+  },
+  {
+   "t": "full",
+   "img": "s4",
+   "alt": "The IT asset disposal services page on the Voice & Data Resale site"
+  },
+  {
+   "t": "full",
+   "img": "s5",
+   "alt": "The data destruction services page on the Voice & Data Resale site"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "What the client does, \"over thirty years\" (the client's own statement), Shopify storefront design and build, nothing published on scope, timeline or results",
+   "source": "https://www.thebrandle.com/projects/voice-and-data-resale/ (live page text, research/brandle-pages/content/project-voice-and-data-resale.md)"
+  },
+  {
+   "claim": "Shop and service sections",
+   "source": "https://voiceanddataresale.com (collections and pages, captured 2026-11-11)"
+  }
+ ],
+ "description": "A Shopify store for a UK IT asset recovery and data destruction business. Designed and built by The Brandle, a Dubai design and development studio."
+}

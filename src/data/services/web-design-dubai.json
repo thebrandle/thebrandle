@@ -1,0 +1,166 @@
+{
+ "title": "Web Design Dubai: Websites and Online Stores | The Brandle",
+ "description": "Web design in Dubai from a studio based here. Custom websites and online stores, Arabic-capable and VAT-ready, on fixed plans from $1,299 to $6,499.",
+ "crumb": "Dubai",
+ "country": "United Arab Emirates",
+ "schema_name": "Web design Dubai",
+ "service_type": "Web Design Dubai",
+ "hub": {
+  "name": "Web design Dubai",
+  "line": "For businesses stuck in the same traffic as us."
+ },
+ "hero": {
+  "h1": [
+   "Web design",
+   "Dubai"
+  ],
+  "stickers": [
+   {
+    "icon": "pin"
+   }
+  ],
+  "chips": [
+   "Dubai based",
+   "VAT & local payments",
+   "Arabic capable"
+  ],
+  "joke": "Dubai has a lot of websites with a skyline photo and nothing else to say. Yours can do better.",
+  "intro": "Web design in Dubai, from a studio that's based here. Custom websites and online stores for Dubai businesses, with local payment methods, 5% VAT and Arabic handled properly. Fixed plans from $1,299 to $6,499."
+ },
+ "get": {
+  "h2": "Built for here",
+  "items": [
+   {
+    "icon": "card",
+    "t": "Local payment methods",
+    "p": "Cards, Apple Pay and instalments through Tabby or Tamara, for customers who expect them at checkout."
+   },
+   {
+    "icon": "doc",
+    "t": "VAT-ready stores",
+    "p": "5% UAE VAT shown and invoiced correctly, with your tax registration number where it needs to be."
+   },
+   {
+    "icon": "globe",
+    "t": "Arabic and RTL",
+    "p": "Right-to-left layouts designed on purpose, with Arabic type chosen for screens. Our [Arabic and RTL guide](/blog/arabic-rtl-website-design/) shows what that involves."
+   },
+   {
+    "icon": "building",
+    "t": "Free zone or mainland",
+    "p": "Contact details, licence information and legal pages set out the way your set-up requires."
+   },
+   {
+    "icon": "pin",
+    "t": "Google Business Profile",
+    "p": "Your profile connected to the site with matching details, so maps and search agree on who you are."
+   },
+   {
+    "icon": "phone",
+    "t": "Quick on a phone",
+    "p": "Light pages that load fast on mobile data, tested on actual phones."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Why a Dubai studio?",
+  "p": "Because we're awake when you are. Calls happen in your working day, and nobody has to explain VAT or free zones to us. Beyond that, judge us on the work, like you would anyone else.",
+  "yes": [
+   "A Dubai business launching or rebranding",
+   "A retailer moving into online sales",
+   "Running a site that describes the company you were three years ago",
+   "In need of Arabic and English side by side"
+  ],
+  "no": "you're in the capital and buying through a committee: read [web design Abu Dhabi](/services/web-design-abu-dhabi/). Selling into Saudi Arabia needs different things again, covered on [web design Riyadh](/services/web-design-riyadh/)."
+ },
+ "proof": {
+  "label": "Our own work",
+  "h2": "Made in Dubai",
+  "cards": [
+   "sameticket",
+   "soznikar"
+  ],
+  "p": "Two of our own. SameTicket is our site comparing ticket prices for attractions in Dubai and the other emirates. Soznikar is our Shopify store selling Kashmiri pashmina across the Gulf. We built both and we run both, so we find our own bugs the hard way."
+ },
+ "steps": {
+  "h2": "Brief to launch",
+  "items": [
+   {
+    "t": "Brief",
+    "p": "A free call, in your working hours. You get a written scope and a fixed quote."
+   },
+   {
+    "t": "Design",
+    "p": "Key pages designed in Figma, in English, and in Arabic too if you need both."
+   },
+   {
+    "t": "Build",
+    "p": "Built on the platform that suits you, not the one we happen to like this month."
+   },
+   {
+    "t": "Launch",
+    "p": "Payments tested, profile connected, site live. Free fixes for 30 days."
+   }
+  ]
+ },
+ "price": {
+  "big": [
+   "$1,299 to",
+   "$6,499"
+  ],
+  "p": "Our fixed plans run from $1,299 to $6,499, about AED 4,800 to 23,900, and a site or store takes 3 to 6 weeks. For how that compares with the rest of the market, read [how much a website costs in Dubai](/blog/website-cost-dubai/)."
+ },
+ "tools": {
+  "h2": "What we build with",
+  "items": [
+   "shopify",
+   "webflow",
+   "framer",
+   "wordpress",
+   "tabby",
+   "tamara",
+   "Apple Pay",
+   "Google Business Profile"
+  ]
+ },
+ "faq_h2": "Dubai, answered",
+ "faq": [
+  {
+   "q": "How much does a website cost in Dubai?",
+   "a": "Ours run from $1,299 to $6,499, about AED 4,800 to 23,900, fixed before work starts. Market prices vary widely, and our [Dubai cost guide](/blog/website-cost-dubai/) breaks down why."
+  },
+  {
+   "q": "Do you build Arabic websites?",
+   "a": "Yes, with proper right-to-left layouts and Arabic typography. The translation itself usually comes from you or a translator we can recommend."
+  },
+  {
+   "q": "Are you actually based in Dubai?",
+   "a": "Yes. The studio is in Dubai, so calls and replies happen during the working week here. We reply within one business day."
+  },
+  {
+   "q": "Which platform is best for a Dubai business?",
+   "a": "It depends on whether you sell online, how often you edit and your budget. Shopify for stores, Webflow or Framer for marketing sites, WordPress when you want to own everything. We recommend for your case, not our convenience."
+  }
+ ],
+ "related": [
+  "web-design-abu-dhabi",
+  "web-design-riyadh",
+  "ecommerce-website-design"
+ ],
+ "post": {
+  "slug": "website-cost-dubai",
+  "title": "How much does a website cost in Dubai?"
+ },
+ "cta": {
+  "lines": [
+   "Skip the",
+   "skyline photo"
+  ],
+  "pills": [
+   "Free call",
+   "Fixed quote",
+   "Based in Dubai"
+  ],
+  "p": "Tell us about the business. We reply within one business day, in the same daylight as you."
+ }
+}

@@ -1,0 +1,248 @@
+{
+  "slug": "website-total-cost-of-ownership",
+  "url": "https://www.thebrandle.com/blog/website-total-cost-of-ownership/",
+  "path": "/blog/website-total-cost-of-ownership/",
+  "canonical": "https://www.thebrandle.com/blog/website-total-cost-of-ownership/",
+  "lang": "en",
+  "source": "hand-written",
+  "title": "The Real Cost of a Website Over Three Years | TheBrandle",
+  "titleWithoutBrand": "The Real Cost of a Website Over Three Years",
+  "description": "The true total cost of owning a website - build, hosting, maintenance, content and the hidden costs most quotes leave out, with a three-year view.",
+  "h1": "The real cost of a website over three years",
+  "headline": "The Real Cost of a Website Over Three Years | TheBrandle",
+  "datePublished": "2026-07-28",
+  "dateModified": "2026-07-28",
+  "dateDisplayed": "Jul 28, 2026",
+  "sitemapLastmod": "2026-08-16",
+  "gitFirstCommit": "2026-08-07T03:49:12+04:00",
+  "gitLastCommit": "2026-11-03T10:57:22+04:00",
+  "author": {
+    "name": "The Brandle Team",
+    "role": "Design Studio",
+    "avatar": "/assets/blog/_shared/author-avatar.jpg",
+    "avatarOriginal": "/framerusercontent.com/images/A0LPOEdkaRkfMcS2EWs1My620fA.jpg",
+    "schemaAuthor": {
+      "@type": "Organization",
+      "name": "TheBrandle",
+      "url": "https://www.thebrandle.com"
+    }
+  },
+  "category": "Pricing",
+  "categorySource": "tag in scripts/blog-posts-data.js (never rendered on the live page)",
+  "tags": [
+    "Pricing"
+  ],
+  "suggestedGroup": "Pricing",
+  "heroImage": {
+    "src": "/assets/blog/website-total-cost-of-ownership/cover.jpg",
+    "alt": "Abstract strata accumulating in layers",
+    "width": 2560,
+    "height": 1440,
+    "original": "/assets/blog/covers/website-total-cost-of-ownership.jpg"
+  },
+  "cardImage": {
+    "src": "/assets/blog/website-total-cost-of-ownership/card.jpg",
+    "alt": "The real cost of a website over three years",
+    "width": 1600,
+    "height": 900,
+    "original": "/assets/blog/website-total-cost-of-ownership.jpg",
+    "svgSource": "/assets/blog/website-total-cost-of-ownership/card.svg",
+    "bakedText": {
+      "eyebrow": "PRICING",
+      "h1": "The real cost over three years",
+      "sub": "Build, hosting, maintenance and the costs quotes leave out"
+    }
+  },
+  "readingMinutes": 2,
+  "readingMinutesSource": "computed: (body words + FAQ words) / 225, rounded, minimum 1. The live page shows no reading time.",
+  "readingMinutesDeclared": 6,
+  "wordCount": 349,
+  "wordCountFaq": 98,
+  "wordCountSchema": null,
+  "excerpt": "The true total cost of owning a website - build, hosting, maintenance, content and the hidden costs most quotes leave out, with a three-year view.",
+  "listing": {
+    "position": 10,
+    "title": "The real cost of a website over three years",
+    "blurb": "Build, hosting, maintenance and the costs quotes leave out."
+  },
+  "faq": [
+    {
+      "q": "What is a realistic annual running cost?",
+      "a": "For a small business site, budget for hosting, maintenance and a content allowance. Ecommerce runs higher because more can break and downtime costs revenue directly."
+    },
+    {
+      "q": "Is a cheap website worth it?",
+      "a": "For validating an idea, sometimes. As the front door of an established business, a site that gets replaced in eighteen months costs more than building it properly once."
+    },
+    {
+      "q": "Should I pay monthly or one-off?",
+      "a": "One-off build plus a maintenance plan is the most common and usually the most transparent. Be careful with monthly plans where you never own the site."
+    }
+  ],
+  "relatedServices": [
+    {
+      "label": "Website Maintenance",
+      "href": "/services/website-maintenance/"
+    },
+    {
+      "label": "Web Design Dubai",
+      "href": "/services/web-design-dubai/"
+    },
+    {
+      "label": "All Services",
+      "href": "/services/"
+    }
+  ],
+  "headings": [
+    {
+      "level": 2,
+      "text": "The build is the visible part",
+      "id": "the-build-is-the-visible-part"
+    },
+    {
+      "level": 2,
+      "text": "The recurring costs",
+      "id": "the-recurring-costs"
+    },
+    {
+      "level": 2,
+      "text": "The hidden costs",
+      "id": "the-hidden-costs"
+    },
+    {
+      "level": 2,
+      "text": "How to compare quotes properly",
+      "id": "how-to-compare-quotes-properly"
+    }
+  ],
+  "links": [
+    {
+      "href": "/contact",
+      "text": "get in touch"
+    }
+  ],
+  "moreArticlesAsPublished": [
+    {
+      "title": "How to build a startup website people trust",
+      "href": "/blog/how-to-build-a-startup-website/"
+    },
+    {
+      "title": "Headless CMS: what it is and when you actually need one",
+      "href": "/blog/headless-cms-guide/"
+    },
+    {
+      "title": "AI in web design: what it does well and where it fails",
+      "href": "/blog/ai-in-web-design/"
+    },
+    {
+      "title": "Arabic and RTL website design: doing it properly",
+      "href": "/blog/arabic-rtl-website-design/"
+    },
+    {
+      "title": "How to redesign your website without losing SEO",
+      "href": "/blog/website-redesign-without-losing-seo/"
+    }
+  ],
+  "cta": {
+    "heading": "Ready to build it right?",
+    "text": "Tell us about your project and we will come back with a clear plan, timeline and a fixed quote.",
+    "button": "Book a free consultation",
+    "href": "/contact"
+  },
+  "meta": {
+    "robots": "index, follow",
+    "ogType": "article",
+    "ogTitle": "The Real Cost of a Website Over Three Years | TheBrandle",
+    "ogDescription": "The true total cost of owning a website - build, hosting, maintenance, content and the hidden costs most quotes leave out, with a three-year view.",
+    "ogImage": "https://www.thebrandle.com/assets/blog/website-total-cost-of-ownership.jpg",
+    "twitterCard": "summary_large_image",
+    "twitterTitle": "The Real Cost of a Website Over Three Years | TheBrandle",
+    "twitterImage": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+    "rssAlternate": null
+  },
+  "jsonLdTypes": [
+    "Article",
+    "FAQPage",
+    "BreadcrumbList"
+  ],
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "The Real Cost of a Website Over Three Years | TheBrandle",
+      "description": "The true total cost of owning a website - build, hosting, maintenance, content and the hidden costs most quotes leave out, with a three-year view.",
+      "datePublished": "2026-07-28",
+      "dateModified": "2026-07-28",
+      "author": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.thebrandle.com/framerusercontent.com/assets/TheBrandle.svg"
+        }
+      },
+      "image": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+      "mainEntityOfPage": "https://www.thebrandle.com/blog/website-total-cost-of-ownership/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a realistic annual running cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For a small business site, budget for hosting, maintenance and a content allowance. Ecommerce runs higher because more can break and downtime costs revenue directly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a cheap website worth it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For validating an idea, sometimes. As the front door of an established business, a site that gets replaced in eighteen months costs more than building it properly once."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I pay monthly or one-off?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One-off build plus a maintenance plan is the most common and usually the most transparent. Be careful with monthly plans where you never own the site."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.thebrandle.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.thebrandle.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "The Real Cost of a Website Over Three Years | TheBrandle",
+          "item": "https://www.thebrandle.com/blog/website-total-cost-of-ownership/"
+        }
+      ]
+    }
+  ]
+}

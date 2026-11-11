@@ -1,0 +1,158 @@
+{
+ "title": "Web Design London: A Dubai Studio, Remotely | The Brandle",
+ "description": "Web design for London businesses from a Dubai studio. UK VAT, cookie consent and company details handled. We work remotely, across your whole morning.",
+ "crumb": "London",
+ "country": "United Kingdom",
+ "schema_name": "Web design London",
+ "service_type": "Web Design London",
+ "hub": {
+  "name": "Web design London",
+  "line": "Your morning, our afternoon."
+ },
+ "hero": {
+  "h1": [
+   "Web design",
+   "London"
+  ],
+  "stickers": [
+   {
+    "icon": "clock"
+   }
+  ],
+  "chips": [
+   "Remote from Dubai",
+   "UK VAT & GDPR",
+   "Your morning overlaps"
+  ],
+  "joke": "Your last agency was ten minutes away and you still only saw them on video calls. We're just being honest about it.",
+  "intro": "Web design for London businesses, from a studio in Dubai. We don't have a London office and won't pretend to. We work on video calls and shared documents, across your whole morning, and build websites and stores that get UK VAT, cookie consent and company details right."
+ },
+ "get": {
+  "h2": "Built for the UK",
+  "items": [
+   {
+    "icon": "doc",
+    "t": "UK VAT done right",
+    "p": "Prices shown with 20% VAT included for consumers, VAT numbers on invoices, and B2B pricing set up separately if you need it."
+   },
+   {
+    "icon": "shield",
+    "t": "Cookies and privacy",
+    "p": "A cookie banner that actually blocks tracking until people agree, and a privacy notice written for UK GDPR, not copied from an American site."
+   },
+   {
+    "icon": "building",
+    "t": "Company details",
+    "p": "Registered name, company number and registered office where UK rules expect them, so Companies House and your customers agree."
+   },
+   {
+    "icon": "card",
+    "t": "UK checkout",
+    "p": "Cards, Apple Pay, Google Pay, PayPal and pay later with Klarna or Clearpay, with Strong Customer Authentication handled by the gateway."
+   },
+   {
+    "icon": "eye",
+    "t": "Accessibility basics",
+    "p": "Readable contrast, keyboard navigation, proper headings and alt text, built in from the first page."
+   },
+   {
+    "icon": "bolt",
+    "t": "Fast in the UK",
+    "p": "Hosted and cached so pages load quickly in London, not just in Dubai."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Why hire a studio in Dubai?",
+  "p": "Because the work is the same and the overhead isn't. London rents don't end up in your quote. We overlap with your whole morning and lunch, and the afternoon is when you review what we sent. If you need someone in the room every week, we're honestly not that.",
+  "yes": [
+   "A London business that's happy to work over video",
+   "A founder who wants senior people without London overheads",
+   "A company outgrowing a template site",
+   "Anyone who wants a fixed price before work starts"
+  ],
+  "no": "you need an agency you can visit every week. That's a fair need and we can't meet it. For stores selling outside London, [web design Manchester](/services/web-design-manchester/) covers UK ecommerce in more depth, and [UI and UX design](/services/ui-ux-design/) covers product work."
+ },
+ "steps": {
+  "h2": "Brief to launch",
+  "items": [
+   {
+    "t": "Brief",
+    "p": "A free video call in your morning. Dubai is four hours ahead in winter and three in summer. A written scope and fixed quote follow."
+   },
+   {
+    "t": "Design",
+    "p": "Key pages designed in Figma, shared for comments so feedback doesn't need a meeting."
+   },
+   {
+    "t": "Build",
+    "p": "Built and tested while you're asleep, so there's progress to look at with your coffee."
+   },
+   {
+    "t": "Launch",
+    "p": "Cookie banner, VAT and payments checked, then live. Free fixes for 30 days."
+   }
+  ]
+ },
+ "price": {
+  "big": [
+   "$1,299 to",
+   "$6,499"
+  ],
+  "p": "Our fixed plans run from $1,299 to $6,499, fixed before work starts, and a site or store takes 3 to 6 weeks. We quote in US dollars, so your bank does the conversion to pounds on the day. No London rent is hiding in the number."
+ },
+ "tools": {
+  "h2": "What we build with",
+  "items": [
+   "shopify",
+   "webflow",
+   "framer",
+   "stripe",
+   "Apple Pay",
+   "Google Pay",
+   "PayPal",
+   "Klarna",
+   "Clearpay"
+  ]
+ },
+ "faq_h2": "London, answered",
+ "faq": [
+  {
+   "q": "Do you have a London office?",
+   "a": "No. We're a Dubai studio of three founders and we work with London clients remotely, on video calls and shared documents. We reply within one business day."
+  },
+  {
+   "q": "How do the time zones work?",
+   "a": "Dubai is four hours ahead of London in winter and three in summer. Your morning and lunch are our afternoon, so calls fit easily, and work moves on overnight."
+  },
+  {
+   "q": "Will the site meet UK rules?",
+   "a": "We build in the usual requirements: VAT shown properly, company details, a cookie banner that blocks tracking until consent and a privacy notice. Your solicitor has the final word on legal text."
+  },
+  {
+   "q": "Do you charge in pounds?",
+   "a": "We quote and invoice in US dollars, from $1,299 to $6,499 for our fixed plans. Your bank or card handles the conversion."
+  }
+ ],
+ "related": [
+  "web-design-manchester",
+  "web-design-new-york",
+  "ui-ux-design"
+ ],
+ "post": {
+  "slug": "website-redesign-without-losing-seo",
+  "title": "How to redesign a website without losing SEO"
+ },
+ "cta": {
+  "lines": [
+   "Skip the",
+   "commute"
+  ],
+  "pills": [
+   "Free call",
+   "Fixed quote",
+   "Your morning"
+  ],
+  "p": "Tell us about the business. We reply within one business day, usually before your lunch."
+ }
+}

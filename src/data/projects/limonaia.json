@@ -1,0 +1,97 @@
+{
+ "type": "template",
+ "seo_title": "Limonaia: Framer Template Design | The Brandle",
+ "summary": "A Framer template for selling one new residential project, told like a slow film.",
+ "cover": "concrete",
+ "portrait": "concrete-portrait",
+ "screens": 8,
+ "cta": "Open the live preview",
+ "brief": {
+  "label": "Framer template, real estate",
+  "heading": "The idea",
+  "paras": [
+   "Most property sites list floor areas. This one is meant to make people want to live there.",
+   "Limonaia is a Framer template for developers, agents and architects selling one new residential project. An arch opens on a hillside, the terraces drift past as you scroll, and the whole site moves like a slow film."
+  ]
+ },
+ "answer": {
+  "label": "Launched 2026",
+  "heading": "What's inside",
+  "paras": [
+   "Seven page types, with 18 residences and 3 residence types on Framer's CMS. The list of homes filters, and every home gets its own page with a floor plan.",
+   "The hero has a morning and an evening. The lemon branches really move. On phones the pinned scenes have their own timing, so a flick of the thumb stays smooth.",
+   "It is on the Framer Marketplace. Swap in your photos and prices, and launch. The lemons are included."
+  ]
+ },
+ "tags": [
+  "Template design",
+  "Framer build",
+  "Scroll motion",
+  "CMS setup"
+ ],
+ "blocks": [
+  {
+   "t": "full",
+   "img": "s1",
+   "alt": "A terrace with an infinity pool above the sea, from the Limonaia home page"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p1",
+    "alt": "The Limonaia home page on a phone"
+   },
+   "b": {
+    "img": "p2",
+    "alt": "The Limonaia list of residences on a phone"
+   }
+  },
+  {
+   "t": "mock",
+   "scene": "studio-white",
+   "alt": "Pages of the Limonaia template cutting past on a desktop display in a white studio"
+  },
+  {
+   "t": "full",
+   "img": "s2",
+   "alt": "The Above the Bay chapter of Limonaia on a pale green ground"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p3",
+    "alt": "A single residence page on a phone"
+   },
+   "b": {
+    "img": "p4",
+    "alt": "The Limonaia viewing request page on a phone"
+   }
+  },
+  {
+   "t": "full",
+   "img": "s3",
+   "alt": "Large serif type reading The Sorrento Coast, from the Limonaia home page"
+  },
+  {
+   "t": "full",
+   "img": "s4",
+   "alt": "The Limonaia residences page: Choose a residence, above the list of homes"
+  },
+  {
+   "t": "full",
+   "img": "s5",
+   "alt": "A Limonaia residence page with its floor plan"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Everything on this page: who it is for, the arch and terraces, 7 page types, 18 residences and 3 types on the CMS with filters and floor plans, morning and evening hero, moving lemon branches, phone timing, listed on the Framer Marketplace on 2026-11-05",
+   "source": "~/framertemplates/templates/limonaia/LISTING_KIT.md (State, section 1 Description)"
+  },
+  {
+   "claim": "Page captures",
+   "source": "https://limonaia.framer.website (captured 2026-11-11)"
+  }
+ ],
+ "description": "A Framer template for selling one new residential project, told like a slow film. Designed and built by The Brandle, a Dubai design and development studio."
+}

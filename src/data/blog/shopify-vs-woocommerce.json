@@ -1,0 +1,247 @@
+{
+  "slug": "shopify-vs-woocommerce",
+  "url": "https://www.thebrandle.com/blog/shopify-vs-woocommerce/",
+  "path": "/blog/shopify-vs-woocommerce/",
+  "canonical": "https://www.thebrandle.com/blog/shopify-vs-woocommerce/",
+  "lang": "en",
+  "source": "hand-written",
+  "title": "Shopify vs WooCommerce: Which Should You Build Your Store On? | TheBrandle",
+  "titleWithoutBrand": "Shopify vs WooCommerce: Which Should You Build Your Store On?",
+  "description": "Shopify or WooCommerce in 2026? A practical comparison of cost, speed, maintenance and scaling - and how to pick the right platform for your online store.",
+  "h1": "Shopify vs WooCommerce: which should you build your store on?",
+  "headline": "Shopify vs WooCommerce: Which Should You Build Your Store On?",
+  "datePublished": "2026-07-22",
+  "dateModified": "2026-07-22",
+  "dateDisplayed": "Jul 22, 2026",
+  "sitemapLastmod": "2026-08-16",
+  "gitFirstCommit": "2026-07-23T18:19:12+04:00",
+  "gitLastCommit": "2026-11-03T10:57:22+04:00",
+  "author": {
+    "name": "The Brandle Team",
+    "role": "Design Studio",
+    "avatar": "/assets/blog/_shared/author-avatar.jpg",
+    "avatarOriginal": "/framerusercontent.com/images/A0LPOEdkaRkfMcS2EWs1My620fA.jpg",
+    "schemaAuthor": {
+      "@type": "Organization",
+      "name": "TheBrandle",
+      "url": "https://www.thebrandle.com"
+    }
+  },
+  "category": "Ecommerce",
+  "categorySource": "tag in scripts/blog-posts-data.js (never rendered on the live page)",
+  "tags": [
+    "Ecommerce"
+  ],
+  "suggestedGroup": "Platforms",
+  "heroImage": {
+    "src": "/assets/blog/shopify-vs-woocommerce/cover.jpg",
+    "alt": "A closed abstract monolith beside an open modular frame",
+    "width": 2560,
+    "height": 1440,
+    "original": "/assets/blog/covers/shopify-vs-woocommerce.jpg"
+  },
+  "cardImage": {
+    "src": "/assets/blog/shopify-vs-woocommerce/card.jpg",
+    "alt": "Shopify vs WooCommerce: which should you build your store on?",
+    "width": 1600,
+    "height": 900,
+    "original": "/assets/blog/shopify-vs-woocommerce.jpg",
+    "svgSource": "/assets/blog/shopify-vs-woocommerce/card.svg",
+    "bakedText": {
+      "eyebrow": "COMPARISON",
+      "h1": "Which should your store run on?",
+      "sub": "Hosted convenience against ownership and no platform fees"
+    }
+  },
+  "readingMinutes": 2,
+  "readingMinutesSource": "computed: (body words + FAQ words) / 225, rounded, minimum 1. The live page shows no reading time.",
+  "readingMinutesDeclared": 6,
+  "wordCount": 389,
+  "wordCountFaq": 117,
+  "wordCountSchema": null,
+  "excerpt": "Shopify or WooCommerce in 2026? A practical comparison of cost, speed, maintenance and scaling - and how to pick the right platform for your online store.",
+  "listing": {
+    "position": 16,
+    "title": "Shopify vs WooCommerce: which should you build your store on?",
+    "blurb": "Hosted convenience against ownership and no platform fees."
+  },
+  "faq": [
+    {
+      "q": "Is Shopify or WooCommerce cheaper?",
+      "a": "For small catalogues, WooCommerce can be cheaper on paper because the software is free. Once you add quality hosting, premium plugins and maintenance time, total cost usually lands close to Shopify's subscription. Shopify is more predictable; WooCommerce is more variable."
+    },
+    {
+      "q": "Which platform is better for SEO?",
+      "a": "Both rank well when built properly. WooCommerce offers more technical control; Shopify covers the essentials cleanly out of the box. Site structure, content and page speed matter far more than the platform choice."
+    },
+    {
+      "q": "Can I migrate from WooCommerce to Shopify later?",
+      "a": "Yes - products, customers and orders can be migrated, and we set up redirects so you keep your search rankings. We handle migrations in both directions."
+    }
+  ],
+  "relatedServices": [
+    {
+      "label": "Shopify Website Design",
+      "href": "/services/shopify-website-design/"
+    },
+    {
+      "label": "WordPress Website Design",
+      "href": "/services/wordpress-website-design/"
+    },
+    {
+      "label": "Ecommerce Website Design",
+      "href": "/services/ecommerce-website-design/"
+    }
+  ],
+  "headings": [
+    {
+      "level": 2,
+      "text": "Shopify: the managed route",
+      "id": "shopify-the-managed-route"
+    },
+    {
+      "level": 2,
+      "text": "WooCommerce: the ownership route",
+      "id": "woocommerce-the-ownership-route"
+    },
+    {
+      "level": 2,
+      "text": "The practical decision",
+      "id": "the-practical-decision"
+    }
+  ],
+  "links": [
+    {
+      "href": "/services/shopify-website-design/",
+      "text": "Shopify website design service"
+    },
+    {
+      "href": "/services/wordpress-website-design/",
+      "text": "WordPress website design service"
+    }
+  ],
+  "moreArticlesAsPublished": [
+    {
+      "title": "How to build a startup website people trust",
+      "href": "/blog/how-to-build-a-startup-website/"
+    },
+    {
+      "title": "Headless CMS: what it is and when you actually need one",
+      "href": "/blog/headless-cms-guide/"
+    },
+    {
+      "title": "AI in web design: what it does well and where it fails",
+      "href": "/blog/ai-in-web-design/"
+    },
+    {
+      "title": "Arabic and RTL website design: doing it properly",
+      "href": "/blog/arabic-rtl-website-design/"
+    },
+    {
+      "title": "How to redesign your website without losing SEO",
+      "href": "/blog/website-redesign-without-losing-seo/"
+    }
+  ],
+  "cta": {
+    "heading": "Ready to build it right?",
+    "text": "Tell us about your project and we will come back with a clear plan, timeline and a fixed quote.",
+    "button": "Book a free consultation",
+    "href": "/contact"
+  },
+  "meta": {
+    "robots": "index, follow",
+    "ogType": "article",
+    "ogTitle": "Shopify vs WooCommerce: Which Should You Build Your Store On?",
+    "ogDescription": "Shopify or WooCommerce in 2026? A practical comparison of cost, speed, maintenance and scaling - and how to pick the right platform for your online store.",
+    "ogImage": "https://www.thebrandle.com/assets/blog/shopify-vs-woocommerce.jpg",
+    "twitterCard": "summary_large_image",
+    "twitterTitle": "Shopify vs WooCommerce: Which Should You Build Your Store On?",
+    "twitterImage": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+    "rssAlternate": null
+  },
+  "jsonLdTypes": [
+    "Article",
+    "FAQPage",
+    "BreadcrumbList"
+  ],
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Shopify vs WooCommerce: Which Should You Build Your Store On?",
+      "description": "Shopify or WooCommerce in 2026? A practical comparison of cost, speed, maintenance and scaling - and how to pick the right platform for your online store.",
+      "datePublished": "2026-07-22",
+      "dateModified": "2026-07-22",
+      "author": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.thebrandle.com/framerusercontent.com/assets/TheBrandle.svg"
+        }
+      },
+      "image": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+      "mainEntityOfPage": "https://www.thebrandle.com/blog/shopify-vs-woocommerce/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Shopify or WooCommerce cheaper?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For small catalogues, WooCommerce can be cheaper on paper because the software is free. Once you add quality hosting, premium plugins and maintenance time, total cost usually lands close to Shopify's subscription. Shopify is more predictable; WooCommerce is more variable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which platform is better for SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both rank well when built properly. WooCommerce offers more technical control; Shopify covers the essentials cleanly out of the box. Site structure, content and page speed matter far more than the platform choice."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I migrate from WooCommerce to Shopify later?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes - products, customers and orders can be migrated, and we set up redirects so you keep your search rankings. We handle migrations in both directions."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.thebrandle.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.thebrandle.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Shopify vs WooCommerce: Which Should You Build Your Store On?",
+          "item": "https://www.thebrandle.com/blog/shopify-vs-woocommerce/"
+        }
+      ]
+    }
+  ]
+}

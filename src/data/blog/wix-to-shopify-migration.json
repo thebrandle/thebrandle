@@ -1,0 +1,247 @@
+{
+  "slug": "wix-to-shopify-migration",
+  "url": "https://www.thebrandle.com/blog/wix-to-shopify-migration/",
+  "path": "/blog/wix-to-shopify-migration/",
+  "canonical": "https://www.thebrandle.com/blog/wix-to-shopify-migration/",
+  "lang": "en",
+  "source": "hand-written",
+  "title": "Moving from Wix to Shopify: A Practical Migration Guide | TheBrandle",
+  "titleWithoutBrand": "Moving from Wix to Shopify: A Practical Migration Guide",
+  "description": "Outgrown Wix ecommerce? How to migrate to Shopify without losing sales or SEO - what moves across, what does not, timelines, and when migration is worth it.",
+  "h1": "Moving from Wix to Shopify: a practical guide",
+  "headline": "Moving from Wix to Shopify: A Practical Migration Guide",
+  "datePublished": "2026-07-22",
+  "dateModified": "2026-07-22",
+  "dateDisplayed": "Jul 22, 2026",
+  "sitemapLastmod": "2026-08-16",
+  "gitFirstCommit": "2026-07-23T18:19:12+04:00",
+  "gitLastCommit": "2026-11-03T10:57:22+04:00",
+  "author": {
+    "name": "The Brandle Team",
+    "role": "Design Studio",
+    "avatar": "/assets/blog/_shared/author-avatar.jpg",
+    "avatarOriginal": "/framerusercontent.com/images/A0LPOEdkaRkfMcS2EWs1My620fA.jpg",
+    "schemaAuthor": {
+      "@type": "Organization",
+      "name": "TheBrandle",
+      "url": "https://www.thebrandle.com"
+    }
+  },
+  "category": "Ecommerce",
+  "categorySource": "tag in scripts/blog-posts-data.js (never rendered on the live page)",
+  "tags": [
+    "Ecommerce"
+  ],
+  "suggestedGroup": "Platforms",
+  "heroImage": {
+    "src": "/assets/blog/wix-to-shopify-migration/cover.jpg",
+    "alt": "Abstract particles streaming from one form into another",
+    "width": 2560,
+    "height": 1440,
+    "original": "/assets/blog/covers/wix-to-shopify-migration.jpg"
+  },
+  "cardImage": {
+    "src": "/assets/blog/wix-to-shopify-migration/card.jpg",
+    "alt": "Moving from Wix to Shopify: a practical guide",
+    "width": 1600,
+    "height": 900,
+    "original": "/assets/blog/wix-to-shopify-migration.jpg",
+    "svgSource": "/assets/blog/wix-to-shopify-migration/card.svg",
+    "bakedText": {
+      "eyebrow": "MIGRATION",
+      "h1": "Moving without losing your rankings",
+      "sub": "Products, customers and URLs carried across properly"
+    }
+  },
+  "readingMinutes": 2,
+  "readingMinutesSource": "computed: (body words + FAQ words) / 225, rounded, minimum 1. The live page shows no reading time.",
+  "readingMinutesDeclared": 5,
+  "wordCount": 336,
+  "wordCountFaq": 117,
+  "wordCountSchema": null,
+  "excerpt": "Outgrown Wix ecommerce? How to migrate to Shopify without losing sales or SEO - what moves across, what does not, timelines, and when migration is worth it.",
+  "listing": {
+    "position": 19,
+    "title": "Moving from Wix to Shopify: a practical guide",
+    "blurb": "Products, customers and URLs carried across properly."
+  },
+  "faq": [
+    {
+      "q": "Will I lose my Google rankings moving from Wix to Shopify?",
+      "a": "Not if the migration includes proper 301 redirects and carried-over metadata. Expect stability or a brief dip followed by improvement. Skipping redirects is the one mistake that genuinely destroys rankings."
+    },
+    {
+      "q": "Can I keep my domain when moving to Shopify?",
+      "a": "Yes. Your domain points to Shopify after switchover and your email stays wherever it is hosted today. Customers notice a better store, not a different address."
+    },
+    {
+      "q": "How much does a Wix to Shopify migration cost?",
+      "a": "It scales with catalogue size and how custom the new store design is. We scope it up front and quote a fixed price - migrations are a defined project, not an open-ended one."
+    }
+  ],
+  "relatedServices": [
+    {
+      "label": "Shopify Website Design",
+      "href": "/services/shopify-website-design/"
+    },
+    {
+      "label": "Wix Website Design",
+      "href": "/services/wix-website-design/"
+    },
+    {
+      "label": "Ecommerce Website Design",
+      "href": "/services/ecommerce-website-design/"
+    }
+  ],
+  "headings": [
+    {
+      "level": 2,
+      "text": "What moves across cleanly",
+      "id": "what-moves-across-cleanly"
+    },
+    {
+      "level": 2,
+      "text": "Protecting your SEO",
+      "id": "protecting-your-seo"
+    },
+    {
+      "level": 2,
+      "text": "Timeline and when it is worth it",
+      "id": "timeline-and-when-it-is-worth-it"
+    }
+  ],
+  "links": [
+    {
+      "href": "/services/shopify-website-design/",
+      "text": "Shopify website design service"
+    },
+    {
+      "href": "/services/wix-website-design/",
+      "text": "Wix website design service"
+    }
+  ],
+  "moreArticlesAsPublished": [
+    {
+      "title": "How to build a startup website people trust",
+      "href": "/blog/how-to-build-a-startup-website/"
+    },
+    {
+      "title": "Headless CMS: what it is and when you actually need one",
+      "href": "/blog/headless-cms-guide/"
+    },
+    {
+      "title": "AI in web design: what it does well and where it fails",
+      "href": "/blog/ai-in-web-design/"
+    },
+    {
+      "title": "Arabic and RTL website design: doing it properly",
+      "href": "/blog/arabic-rtl-website-design/"
+    },
+    {
+      "title": "How to redesign your website without losing SEO",
+      "href": "/blog/website-redesign-without-losing-seo/"
+    }
+  ],
+  "cta": {
+    "heading": "Ready to build it right?",
+    "text": "Tell us about your project and we will come back with a clear plan, timeline and a fixed quote.",
+    "button": "Book a free consultation",
+    "href": "/contact"
+  },
+  "meta": {
+    "robots": "index, follow",
+    "ogType": "article",
+    "ogTitle": "Moving from Wix to Shopify: A Practical Migration Guide",
+    "ogDescription": "Outgrown Wix ecommerce? How to migrate to Shopify without losing sales or SEO - what moves across, what does not, timelines, and when migration is worth it.",
+    "ogImage": "https://www.thebrandle.com/assets/blog/wix-to-shopify-migration.jpg",
+    "twitterCard": "summary_large_image",
+    "twitterTitle": "Moving from Wix to Shopify: A Practical Migration Guide",
+    "twitterImage": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+    "rssAlternate": null
+  },
+  "jsonLdTypes": [
+    "Article",
+    "FAQPage",
+    "BreadcrumbList"
+  ],
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Moving from Wix to Shopify: A Practical Migration Guide",
+      "description": "Outgrown Wix ecommerce? How to migrate to Shopify without losing sales or SEO - what moves across, what does not, timelines, and when migration is worth it.",
+      "datePublished": "2026-07-22",
+      "dateModified": "2026-07-22",
+      "author": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.thebrandle.com/framerusercontent.com/assets/TheBrandle.svg"
+        }
+      },
+      "image": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+      "mainEntityOfPage": "https://www.thebrandle.com/blog/wix-to-shopify-migration/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Will I lose my Google rankings moving from Wix to Shopify?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not if the migration includes proper 301 redirects and carried-over metadata. Expect stability or a brief dip followed by improvement. Skipping redirects is the one mistake that genuinely destroys rankings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I keep my domain when moving to Shopify?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Your domain points to Shopify after switchover and your email stays wherever it is hosted today. Customers notice a better store, not a different address."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does a Wix to Shopify migration cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It scales with catalogue size and how custom the new store design is. We scope it up front and quote a fixed price - migrations are a defined project, not an open-ended one."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.thebrandle.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.thebrandle.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Moving from Wix to Shopify: A Practical Migration Guide",
+          "item": "https://www.thebrandle.com/blog/wix-to-shopify-migration/"
+        }
+      ]
+    }
+  ]
+}

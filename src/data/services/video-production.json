@@ -1,0 +1,155 @@
+{
+ "title": "Video Production Dubai: Event and Brand Films | The Brandle",
+ "description": "Video production in Dubai. Event films, founder interviews, brand and venue content, with vertical cuts planned before the shoot. Fixed quote first.",
+ "crumb": "Video production",
+ "schema_name": "Video production Dubai",
+ "service_type": "Video Production",
+ "hub": {
+  "name": "Video production",
+  "line": "Event films, interviews and brand content."
+ },
+ "hero": {
+  "h1": [
+   "Video production",
+   "Dubai"
+  ],
+  "stickers": [
+   {
+    "icon": "clapper"
+   }
+  ],
+  "chips": [
+   "Dubai-based crew",
+   "Social cuts, same shoot",
+   "Fixed quote up front"
+  ],
+  "joke": "One long film nobody finishes, or twelve short ones people watch. We know which we'd pick.",
+  "intro": "Video production in Dubai: event films, founder interviews, brand films and venue content. We decide the deliverables before the camera comes out, so the vertical cuts for social are planned, not cropped. Fixed quote before the shoot."
+ },
+ "proof": {
+  "films": true,
+  "label": "Recent films",
+  "h2": "Press play",
+  "p": "Five films by Raheem Dzhairkhanov, our co-founder and Chief of Media. They're his work, shown here because he's the one who'll be holding the camera."
+ },
+ "get": {
+  "h2": "Every cut you need",
+  "items": [
+   {
+    "icon": "play",
+    "t": "Event films",
+    "p": "Launches, conferences and brand events covered start to finish, cut into a highlight film and short pieces for social."
+   },
+   {
+    "icon": "mic",
+    "t": "Founder and interview content",
+    "p": "You, on camera, sounding like yourself. We handle the questions, the lighting and the bit where you don't know what to do with your hands."
+   },
+   {
+    "icon": "clapper",
+    "t": "Brand films",
+    "p": "A short film that sells the feeling of the product or the place, not a feature list read aloud."
+   },
+   {
+    "icon": "building",
+    "t": "Venue and hospitality",
+    "p": "Interiors, food and atmosphere for restaurants, hotels and spaces that look better than their current photos suggest."
+   },
+   {
+    "icon": "phone",
+    "t": "Social-first edits",
+    "p": "Vertical versions framed during the shoot, subtitled and ready for Reels, TikTok and Shorts."
+   },
+   {
+    "icon": "pencil",
+    "t": "Post-production",
+    "p": "Editing, colour, sound, titles and subtitles, in your brand's type and colours."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Worth filming?",
+  "p": "A sharp website next to shaky phone footage makes both look worse. If something is happening that you'll want to show people afterwards, film it properly, once.",
+  "yes": [
+   "Running an event and wanting more than a photo dump",
+   "A founder who has to be on camera and would rather not",
+   "A venue with good interiors and no footage to prove it",
+   "Posting video that looks nothing like your brand"
+  ],
+  "no": "you need daily content on a tiny budget. A phone and good light will do, and we'll happily tell you how. For the posting side, see [social media marketing](/services/social-media-marketing/)."
+ },
+ "steps": {
+  "h2": "Brief to final cut",
+  "items": [
+   {
+    "t": "Brief and plan",
+    "p": "A free call about what the film is for. We list every deliverable, plan the shoot around them and give a fixed quote."
+   },
+   {
+    "t": "Shoot",
+    "p": "We arrive early, with a shot list. You get on with your event."
+   },
+   {
+    "t": "Edit",
+    "p": "A first cut for your notes, then revisions. Vertical versions are edited as their own films, not afterthoughts."
+   },
+   {
+    "t": "Delivery",
+    "p": "Final files in every format you need, named sensibly, ready to upload."
+   }
+  ]
+ },
+ "commit": "video",
+ "price": {
+  "big": [
+   "Fixed quote",
+   "before the shoot"
+  ],
+  "p": "A half-day interview and a multi-day event are different jobs. We scope the shoot and every deliverable, then quote a fixed price before anything is booked. Shooting outside Dubai? Ask, and travel goes in the quote."
+ },
+ "tools": {
+  "h2": "Cut for",
+  "items": [
+   "instagram",
+   "tiktok",
+   "youtube"
+  ],
+  "note": "The places your film will live. We edit for each of them. We don't work for any of them."
+ },
+ "faq_h2": "Video, answered",
+ "faq": [
+  {
+   "q": "Do we get vertical cuts for social?",
+   "a": "Yes, and we plan them before the shoot so they're framed properly. Vertical versions come from the same footage, subtitled and ready to post."
+  },
+  {
+   "q": "Can you work to our brand guidelines?",
+   "a": "Yes. Titles, colours and tone follow your identity, so the film looks like it belongs to the same company as your website."
+  },
+  {
+   "q": "Do you cover events outside Dubai?",
+   "a": "We're based in Dubai. For shoots elsewhere, tell us where and when, and travel goes into the fixed quote so there's no surprise later."
+  },
+  {
+   "q": "Who actually shoots it?",
+   "a": "Raheem Dzhairkhanov, our co-founder and Chief of Media. The films on this page are his. You can [meet the team](/team/) before you meet the camera."
+  }
+ ],
+ "related": [
+  "social-media-marketing",
+  "brand-identity-design",
+  "digital-marketing"
+ ],
+ "cta": {
+  "lines": [
+   "Lights, camera,",
+   "fixed quote"
+  ],
+  "pills": [
+   "Free call",
+   "Shot list included",
+   "Vertical cuts planned"
+  ],
+  "p": "Tell us what's happening and when. We'll come back with a shoot plan and a number."
+ }
+}

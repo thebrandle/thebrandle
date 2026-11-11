@@ -1,0 +1,308 @@
+{
+  "slug": "how-to-build-a-startup-website",
+  "url": "https://www.thebrandle.com/blog/how-to-build-a-startup-website/",
+  "path": "/blog/how-to-build-a-startup-website/",
+  "canonical": "https://www.thebrandle.com/blog/how-to-build-a-startup-website/",
+  "lang": "en",
+  "source": "hand-written",
+  "title": "Startup Website Design: How to Build Yours | TheBrandle",
+  "titleWithoutBrand": "Startup Website Design: How to Build Yours",
+  "description": "How to build a startup website that earns trust: one clear job, the pages you actually need, the right platform, a realistic budget and a launch checklist.",
+  "h1": "How to build a startup website people trust",
+  "headline": "Startup Website Design: How to Build Yours",
+  "datePublished": "2026-10-16",
+  "dateModified": "2026-10-16",
+  "dateDisplayed": "Oct 16, 2026",
+  "sitemapLastmod": "2026-10-16",
+  "gitFirstCommit": "2026-10-16T13:29:01+04:00",
+  "gitLastCommit": "2026-11-03T10:57:22+04:00",
+  "author": {
+    "name": "The Brandle Team",
+    "role": "Design Studio",
+    "avatar": "/assets/blog/_shared/author-avatar.jpg",
+    "avatarOriginal": "/framerusercontent.com/images/A0LPOEdkaRkfMcS2EWs1My620fA.jpg",
+    "schemaAuthor": {
+      "@type": "Organization",
+      "name": "TheBrandle",
+      "url": "https://www.thebrandle.com"
+    }
+  },
+  "category": "Startups",
+  "categorySource": "tag in scripts/blog-posts-data.js (never rendered on the live page)",
+  "tags": [
+    "Startups"
+  ],
+  "suggestedGroup": "Planning",
+  "heroImage": {
+    "src": "/assets/blog/how-to-build-a-startup-website/cover.jpg",
+    "alt": "Glowing abstract blocks coming together into a first structure",
+    "width": 2560,
+    "height": 1440,
+    "original": "/assets/blog/covers/how-to-build-a-startup-website.jpg"
+  },
+  "cardImage": {
+    "src": "/assets/blog/how-to-build-a-startup-website/card.jpg",
+    "alt": "How to build a startup website people trust",
+    "width": 1600,
+    "height": 900,
+    "original": "/assets/blog/how-to-build-a-startup-website.jpg",
+    "svgSource": "/assets/blog/how-to-build-a-startup-website/card.svg",
+    "bakedText": {
+      "eyebrow": "STARTUPS",
+      "h1": "Building your first startup website",
+      "sub": "One clear job, the pages you need, and a launch checklist"
+    }
+  },
+  "readingMinutes": 6,
+  "readingMinutesSource": "computed: (body words + FAQ words) / 225, rounded, minimum 1. The live page shows no reading time.",
+  "readingMinutesDeclared": 7,
+  "wordCount": 1066,
+  "wordCountFaq": 184,
+  "wordCountSchema": null,
+  "excerpt": "How to build a startup website that earns trust: one clear job, the pages you actually need, the right platform, a realistic budget and a launch checklist.",
+  "listing": {
+    "position": 1,
+    "title": "How to build a startup website people trust",
+    "blurb": "One clear job, the pages you need, the right platform and a launch checklist."
+  },
+  "faq": [
+    {
+      "q": "How much does a startup website cost?",
+      "a": "It depends how much is custom. Setting up a template yourself costs little more than the platform subscription. A custom design and build is a one-off cost: our fixed-price plans start at $1,299 for a homepage and up to three inner pages, with the scope agreed before work starts."
+    },
+    {
+      "q": "How long does it take to build a startup website?",
+      "a": "A custom marketing site usually takes about 3 to 6 weeks from kickoff to launch, and Framer sites are often faster. Having your copy and images ready is the biggest thing you can do to shorten it."
+    },
+    {
+      "q": "Which platform is best for a startup website?",
+      "a": "Framer for most early-stage marketing sites, Webflow when you need a lot of structured content, and Shopify if you sell physical products. WordPress suits content-heavy businesses that will keep it maintained."
+    },
+    {
+      "q": "Does a startup website need a blog at launch?",
+      "a": "No. Launch with a strong homepage and the pages buyers need to decide. Start a blog when you can publish useful articles regularly, because an abandoned blog makes a young company look inactive."
+    }
+  ],
+  "relatedServices": [
+    {
+      "label": "Framer Website Design",
+      "href": "/services/framer-website-design/"
+    },
+    {
+      "label": "UI/UX Design",
+      "href": "/services/ui-ux-design/"
+    },
+    {
+      "label": "Brand Identity Design",
+      "href": "/services/brand-identity-design/"
+    }
+  ],
+  "headings": [
+    {
+      "level": 2,
+      "text": "Decide the one job the site has to do",
+      "id": "decide-the-one-job-the-site-has-to-do"
+    },
+    {
+      "level": 2,
+      "text": "Write the message before you design anything",
+      "id": "write-the-message-before-you-design-anything"
+    },
+    {
+      "level": 2,
+      "text": "The pages a first website actually needs",
+      "id": "the-pages-a-first-website-actually-needs"
+    },
+    {
+      "level": 2,
+      "text": "Choosing a platform",
+      "id": "choosing-a-platform"
+    },
+    {
+      "level": 2,
+      "text": "Budget and timeline",
+      "id": "budget-and-timeline"
+    },
+    {
+      "level": 2,
+      "text": "Your launch checklist",
+      "id": "your-launch-checklist"
+    },
+    {
+      "level": 2,
+      "text": "After launch: treat it as version one",
+      "id": "after-launch-treat-it-as-version-one"
+    },
+    {
+      "level": 2,
+      "text": "DIY, freelancer or agency?",
+      "id": "diy-freelancer-or-agency"
+    }
+  ],
+  "links": [
+    {
+      "href": "/services/framer-website-design/",
+      "text": "Framer website design service"
+    },
+    {
+      "href": "/services/webflow-website-design/",
+      "text": "Webflow website design service"
+    },
+    {
+      "href": "/services/shopify-website-design/",
+      "text": "Shopify website design service"
+    },
+    {
+      "href": "/blog/framer-vs-webflow/",
+      "text": "our Framer vs Webflow comparison"
+    },
+    {
+      "href": "/pricing/",
+      "text": "our fixed-price plans"
+    },
+    {
+      "href": "/blog/website-cost-dubai/",
+      "text": "our guide to website costs in Dubai"
+    },
+    {
+      "href": "/blog/should-i-hire-a-web-designer-or-do-it-myself/",
+      "text": "our honest guide to hiring a designer or doing it yourself"
+    },
+    {
+      "href": "/contact",
+      "text": "get in touch"
+    }
+  ],
+  "moreArticlesAsPublished": [
+    {
+      "title": "Headless CMS: what it is and when you actually need one",
+      "href": "/blog/headless-cms-guide/"
+    },
+    {
+      "title": "AI in web design: what it does well and where it fails",
+      "href": "/blog/ai-in-web-design/"
+    },
+    {
+      "title": "Arabic and RTL website design: doing it properly",
+      "href": "/blog/arabic-rtl-website-design/"
+    },
+    {
+      "title": "How to redesign your website without losing SEO",
+      "href": "/blog/website-redesign-without-losing-seo/"
+    },
+    {
+      "title": "Website maintenance: what you actually need to pay for",
+      "href": "/blog/website-maintenance-cost/"
+    }
+  ],
+  "cta": {
+    "heading": "Ready to build it right?",
+    "text": "Tell us about your project and we will come back with a clear plan, timeline and a fixed quote.",
+    "button": "Book a free consultation",
+    "href": "/contact"
+  },
+  "meta": {
+    "robots": "index, follow",
+    "ogType": "article",
+    "ogTitle": "Startup Website Design: How to Build Yours",
+    "ogDescription": "How to build a startup website that earns trust: one clear job, the pages you actually need, the right platform, a realistic budget and a launch checklist.",
+    "ogImage": "https://www.thebrandle.com/assets/blog/how-to-build-a-startup-website.jpg",
+    "twitterCard": "summary_large_image",
+    "twitterTitle": "Startup Website Design: How to Build Yours",
+    "twitterImage": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+    "rssAlternate": null
+  },
+  "jsonLdTypes": [
+    "Article",
+    "FAQPage",
+    "BreadcrumbList"
+  ],
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Startup Website Design: How to Build Yours",
+      "description": "How to build a startup website that earns trust: one clear job, the pages you actually need, the right platform, a realistic budget and a launch checklist.",
+      "datePublished": "2026-10-16",
+      "dateModified": "2026-10-16",
+      "author": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.thebrandle.com/framerusercontent.com/assets/TheBrandle.svg"
+        }
+      },
+      "image": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+      "mainEntityOfPage": "https://www.thebrandle.com/blog/how-to-build-a-startup-website/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does a startup website cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends how much is custom. Setting up a template yourself costs little more than the platform subscription. A custom design and build is a one-off cost: our fixed-price plans start at $1,299 for a homepage and up to three inner pages, with the scope agreed before work starts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to build a startup website?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A custom marketing site usually takes about 3 to 6 weeks from kickoff to launch, and Framer sites are often faster. Having your copy and images ready is the biggest thing you can do to shorten it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which platform is best for a startup website?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Framer for most early-stage marketing sites, Webflow when you need a lot of structured content, and Shopify if you sell physical products. WordPress suits content-heavy businesses that will keep it maintained."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a startup website need a blog at launch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Launch with a strong homepage and the pages buyers need to decide. Start a blog when you can publish useful articles regularly, because an abandoned blog makes a young company look inactive."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.thebrandle.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.thebrandle.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Startup Website Design: How to Build Yours",
+          "item": "https://www.thebrandle.com/blog/how-to-build-a-startup-website/"
+        }
+      ]
+    }
+  ]
+}

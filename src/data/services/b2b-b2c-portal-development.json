@@ -1,0 +1,140 @@
+{
+ "title": "B2B Portal Development Dubai: B2B and B2C | The Brandle",
+ "description": "B2B and B2C portal development in Dubai. Wholesale ordering, dealer portals and customer self-service with customer-specific pricing and approvals.",
+ "crumb": "Portals",
+ "schema_name": "B2B and B2C portal development Dubai",
+ "service_type": "B2B & B2C Portal Development",
+ "hub": {
+  "name": "B2B & B2C portals",
+  "line": "Wholesale ordering without the voice notes."
+ },
+ "hero": {
+  "h1": [
+   "B2B portal",
+   "development",
+   "Dubai"
+  ],
+  "stickers": [
+   {
+    "icon": "key"
+   }
+  ],
+  "chips": [
+   "Tiered pricing",
+   "Account hierarchies",
+   "Approval workflows"
+  ],
+  "joke": "Your biggest customer is still ordering by voice note. Let's fix that.",
+  "intro": "B2B and B2C portal development in Dubai. Wholesale ordering, dealer and distributor portals and customer self-service, with the customer-specific pricing, approvals and account structures a normal online store can't handle."
+ },
+ "get": {
+  "h2": "Past the shop's limits",
+  "items": [
+   {
+    "icon": "tag",
+    "t": "Customer-specific pricing",
+    "p": "Each customer logs in and sees their own negotiated prices, discounts and minimum quantities."
+   },
+   {
+    "icon": "users",
+    "t": "Account hierarchies",
+    "p": "Head office, branches, buyers and approvers under one company account, each with the right access."
+   },
+   {
+    "icon": "check",
+    "t": "Approval workflows",
+    "p": "Orders over a limit go to a manager before they come to you. Their rules, built in."
+   },
+   {
+    "icon": "cart",
+    "t": "Quick reordering",
+    "p": "Repeat last month's order in two clicks, or upload a list of product codes."
+   },
+   {
+    "icon": "plug",
+    "t": "ERP and system links",
+    "p": "Orders passed into your ERP or accounting system where it has an API, so nobody types them in twice."
+   },
+   {
+    "icon": "doc",
+    "t": "Self-service",
+    "p": "Invoices, statements, order history and tracking, available without anyone ringing your team."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Portal or shop?",
+  "p": "A shop sells to anyone at one price. A portal sells to people you already know, on terms you've already agreed. If each customer has their own price list, a normal shop will fight you.",
+  "yes": [
+   "A wholesaler taking orders by email or WhatsApp",
+   "A brand with dealers or distributors",
+   "Selling at prices negotiated customer by customer",
+   "Retyping orders into an ERP every day"
+  ],
+  "no": "everyone pays the same price. Then a normal store does the job for less: see [ecommerce website design](/services/ecommerce-website-design/). If the portal is one part of something bigger, that's [web application development](/services/web-application-development/)."
+ },
+ "steps": {
+  "h2": "Order flow to launch",
+  "items": [
+   {
+    "t": "Follow an order",
+    "p": "A free call, then we trace one real order from request to invoice and write down every step and exception."
+   },
+   {
+    "t": "Scope",
+    "p": "Pricing rules, roles and integrations specified. We check the ERP connection is possible before you commit."
+   },
+   {
+    "t": "Build",
+    "p": "A platform where one fits, custom where the rules demand it. Then a working version to try with two or three friendly customers."
+   },
+   {
+    "t": "Roll out",
+    "p": "Customers moved over in batches, with training for your team. Free fixes for 30 days."
+   }
+  ]
+ },
+ "price": {
+  "big": [
+   "Fixed price",
+   "per phase"
+  ],
+  "p": "The price depends on how complicated the pricing rules are and what the portal connects to. We run discovery first, so the quote reflects your actual rules. Each phase then has a fixed price."
+ },
+ "faq_h2": "Portals, answered",
+ "faq": [
+  {
+   "q": "Can it run alongside our retail store?",
+   "a": "Yes. A common setup is one public shop plus a private portal with its own prices and catalogue."
+  },
+  {
+   "q": "Can it connect to our ERP?",
+   "a": "Usually, if the ERP has an API or allows database access. We verify that in discovery, before you've committed to anything."
+  },
+  {
+   "q": "Custom build or an existing platform?",
+   "a": "A platform where it fits, custom where your rules demand it. We explain the trade for your case, including what each costs to keep running."
+  },
+  {
+   "q": "Will our customers actually use it?",
+   "a": "They will if it's quicker than sending a message. That's the test we design against: reordering has to take less time than typing the order out."
+  }
+ ],
+ "related": [
+  "web-application-development",
+  "ecommerce-website-design",
+  "payment-gateway-integration"
+ ],
+ "cta": {
+  "lines": [
+   "Orders, out of",
+   "your inbox"
+  ],
+  "pills": [
+   "Free call",
+   "Fixed price per phase",
+   "You own the code"
+  ],
+  "p": "Tell us how customers order today. Screenshots of the WhatsApp chaos are welcome."
+ }
+}

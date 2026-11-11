@@ -1,0 +1,157 @@
+{
+ "title": "Web Design Manchester: Online Stores, Remotely | The Brandle",
+ "description": "Web design for Manchester businesses from a Dubai studio. Shopify stores with UK VAT, Klarna and Clearpay and proper delivery rates, worked on remotely.",
+ "crumb": "Manchester",
+ "country": "United Kingdom",
+ "schema_name": "Web design Manchester",
+ "service_type": "Web Design Manchester",
+ "hub": {
+  "name": "Web design Manchester",
+  "line": "Northern stores, built from the Gulf."
+ },
+ "hero": {
+  "h1": [
+   "Web design",
+   "Manchester"
+  ],
+  "stickers": [
+   {
+    "icon": "box"
+   }
+  ],
+  "chips": [
+   "Remote from Dubai",
+   "UK stores",
+   "Klarna & Clearpay"
+  ],
+  "joke": "It rains in Manchester and it's sunny in Dubai. Neither of those decides whether people finish checkout. Your store does.",
+  "intro": "Web design for Manchester and the North West, from a studio in Dubai. We don't have a Manchester office. We build online stores and websites for independent brands and growing businesses over video calls and shared documents, with UK VAT, delivery rates and pay later options set up properly."
+ },
+ "get": {
+  "h2": "Built for UK stores",
+  "items": [
+   {
+    "icon": "cart",
+    "t": "Stores that sell",
+    "p": "Product pages, collections and a checkout built for people buying from their phone on the bus."
+   },
+   {
+    "icon": "box",
+    "t": "Delivery that adds up",
+    "p": "Royal Mail, Evri or courier rates set by weight and zone, with free delivery thresholds that don't eat your margin."
+   },
+   {
+    "icon": "card",
+    "t": "UK checkout",
+    "p": "Cards, Apple Pay, Google Pay, PayPal and pay later through Klarna or Clearpay."
+   },
+   {
+    "icon": "doc",
+    "t": "VAT when you need it",
+    "p": "20% VAT included in consumer prices once you're registered. Under the £90,000 threshold? The store leaves it off until you are."
+   },
+   {
+    "icon": "shield",
+    "t": "Cookies and returns",
+    "p": "A cookie banner that respects consent and clear returns pages that match UK consumer rules."
+   },
+   {
+    "icon": "swap",
+    "t": "Moving platforms",
+    "p": "Products, customers and old addresses moved over from Wix, WooCommerce or Etsy without breaking your search rankings."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Who this suits",
+  "p": "This page is for Manchester businesses that sell, or want to. We build the store, connect the payments and delivery, and hand over something you can run yourself. We do it remotely, and we're upfront about that from the first call.",
+  "yes": [
+   "An independent brand ready to leave Etsy or a marketplace",
+   "A shop that wants a store as good as its window",
+   "A growing business stuck on a slow or patched-up site",
+   "Happy to work over video and shared documents"
+  ],
+  "no": "you need a corporate site with lots of sign-off. [Web design London](/services/web-design-london/) describes that kind of project. For platform detail, see [Shopify website design](/services/shopify-website-design/)."
+ },
+ "steps": {
+  "h2": "Brief to launch",
+  "items": [
+   {
+    "t": "Brief",
+    "p": "A free video call in your morning. Dubai is four hours ahead in winter and three in summer. A fixed quote follows."
+   },
+   {
+    "t": "Design",
+    "p": "Home, collection and product pages designed in Figma and shared for comments."
+   },
+   {
+    "t": "Build",
+    "p": "Products loaded, delivery and VAT set, payments connected in test mode while you sleep."
+   },
+   {
+    "t": "Launch",
+    "p": "Real test orders end to end, then live. Free fixes for 30 days."
+   }
+  ]
+ },
+ "price": {
+  "big": [
+   "$1,299 to",
+   "$6,499"
+  ],
+  "p": "Our fixed plans run from $1,299 to $6,499, fixed before work starts, and a store takes 3 to 6 weeks. We quote in US dollars, so your bank turns it into pounds on the day. Large catalogues add scope, which the quote will show."
+ },
+ "tools": {
+  "h2": "At the UK checkout",
+  "items": [
+   "shopify",
+   "woo",
+   "stripe",
+   "PayPal",
+   "Klarna",
+   "Clearpay",
+   "Apple Pay",
+   "Royal Mail"
+  ]
+ },
+ "faq_h2": "Manchester, answered",
+ "faq": [
+  {
+   "q": "Do you have an office in Manchester?",
+   "a": "No. We're in Dubai and work with UK clients remotely, on video calls and shared documents. Calls fit in your morning, and we reply within one business day."
+  },
+  {
+   "q": "Do I need to charge VAT on my store?",
+   "a": "Only once you're VAT registered, which becomes compulsory when taxable turnover passes £90,000 a year. Then prices include 20% VAT. Your accountant confirms the details."
+  },
+  {
+   "q": "Can you move my store from Etsy or Wix?",
+   "a": "Yes. Products, images and customers come across, and old addresses redirect to the new ones so you don't lose search traffic. Our [Wix to Shopify guide](/blog/wix-to-shopify-migration/) shows the steps."
+  },
+  {
+   "q": "Which pay later options work in the UK?",
+   "a": "Klarna and Clearpay are the common ones, and PayPal offers its own. We connect whichever your platform and gateway support."
+  }
+ ],
+ "related": [
+  "web-design-london",
+  "shopify-website-design",
+  "ecommerce-website-design"
+ ],
+ "post": {
+  "slug": "wix-to-shopify-migration",
+  "title": "Moving from Wix to Shopify: a practical migration guide"
+ },
+ "cta": {
+  "lines": [
+   "Sell while",
+   "it rains"
+  ],
+  "pills": [
+   "Free call",
+   "Fixed quote",
+   "Your morning"
+  ],
+  "p": "Tell us what you sell and where it ships. We reply within one business day."
+ }
+}

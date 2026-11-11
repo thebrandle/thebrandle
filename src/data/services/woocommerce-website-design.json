@@ -1,0 +1,154 @@
+{
+ "title": "WooCommerce Website Design Dubai | The Brandle",
+ "description": "WooCommerce website design and development in Dubai. A custom WordPress store you own outright, with payments, delivery and 5% VAT set up and tested.",
+ "crumb": "WooCommerce",
+ "schema_name": "WooCommerce website design",
+ "service_type": "WooCommerce Website Design & Development",
+ "hub": {
+  "name": "WooCommerce design",
+  "line": "A shop you own outright, plumbing included."
+ },
+ "hero": {
+  "h1": [
+   "WooCommerce",
+   "website design"
+  ],
+  "stickers": [
+   {
+    "mark": "woo"
+   }
+  ],
+  "chips": [
+   "Custom themes",
+   "Payments & shipping",
+   "Speed optimised"
+  ],
+  "joke": "A shop with no landlord. You own the building, and also the plumbing.",
+  "intro": "WooCommerce website design and development in Dubai. A custom store on WordPress with payments, delivery and VAT set up properly. You own the code and the data, and there's no monthly platform fee. Fixed quote, 3 to 6 weeks."
+ },
+ "get": {
+  "h2": "A shop you own",
+  "items": [
+   {
+    "icon": "pencil",
+    "t": "Custom store design",
+    "p": "Shop, product, basket and checkout pages designed for your catalogue and built as a lightweight theme."
+   },
+   {
+    "icon": "card",
+    "t": "Payments for the UAE",
+    "p": "Card payments through a gateway that suits your business, plus Tabby or Tamara instalments and cash on delivery if your customers expect them."
+   },
+   {
+    "icon": "box",
+    "t": "Delivery and VAT",
+    "p": "Delivery zones, rates and 5% UAE VAT configured, with invoices that show what they should."
+   },
+   {
+    "icon": "bolt",
+    "t": "Speed work",
+    "p": "WooCommerce gets slow when neglected. Caching, image handling and a strict plugin diet keep it quick."
+   },
+   {
+    "icon": "swap",
+    "t": "Migration",
+    "p": "Products, customers and orders moved from your old store, with every old address redirected."
+   },
+   {
+    "icon": "key",
+    "t": "Training and handover",
+    "p": "How to add products, process orders and issue refunds. Plus every login, because it's your shop."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Woo or Shopify?",
+  "p": "WooCommerce is free, open and yours. It also needs hosting, updates and someone who cares. Shopify costs a monthly fee and looks after itself. Neither is better. They suit different owners.",
+  "yes": [
+   "Already on WordPress and adding a shop",
+   "Unwilling to pay a platform fee every month",
+   "Selling products with unusual options or rules",
+   "Set on owning your data and your hosting"
+  ],
+  "no": "you want to sell and never think about servers. That's [Shopify](/services/shopify-website-design/), and there's no shame in it. Undecided? Start at [ecommerce website design](/services/ecommerce-website-design/)."
+ },
+ "steps": {
+  "h2": "Catalogue to launch",
+  "items": [
+   {
+    "t": "Scope",
+    "p": "A free call about catalogue, delivery and payments. Then a written scope and a fixed quote."
+   },
+   {
+    "t": "Design",
+    "p": "Shop pages designed in Figma around your real products, not placeholder trainers."
+   },
+   {
+    "t": "Build",
+    "p": "Theme, products, gateway, delivery and tax, assembled on a staging site you can poke at."
+   },
+   {
+    "t": "Launch",
+    "p": "A test order on every payment method, redirects live, training done. Free fixes for 30 days."
+   }
+  ]
+ },
+ "price": {
+  "big": [
+   "$1,299 to",
+   "$6,499"
+  ],
+  "p": "Our fixed plans run from $1,299 to $6,499, about AED 4,800 to 23,900, and a store takes 3 to 6 weeks. WooCommerce itself is free. Hosting, gateway fees and any paid plugins are separate, and we list them in the quote."
+ },
+ "tools": {
+  "h2": "Plays nicely with",
+  "items": [
+   "woo",
+   "wordpress",
+   "tabby",
+   "tamara",
+   "shopify"
+  ],
+  "note": "Built on WooCommerce and WordPress. Tabby and Tamara are instalment options we can connect. Shopify is here because we'll tell you when it's the better answer."
+ },
+ "faq_h2": "Woo, answered",
+ "faq": [
+  {
+   "q": "WooCommerce or Shopify?",
+   "a": "Shopify is quicker to launch and hosted for you. WooCommerce gives you ownership and no platform fee, in exchange for maintenance. [Shopify vs WooCommerce](/blog/shopify-vs-woocommerce/) has the full comparison."
+  },
+  {
+   "q": "Can you move my existing store?",
+   "a": "Yes. Products, customers and order history come across, and old addresses are mapped to new ones so links and search results keep working."
+  },
+  {
+   "q": "Who handles hosting?",
+   "a": "You own the hosting account. We recommend a host that suits WooCommerce and set it up with you. Keeping it updated afterwards can sit under a [maintenance plan](/services/website-maintenance/)."
+  },
+  {
+   "q": "Which payment gateways can you connect?",
+   "a": "That depends on your trade licence, your volumes and where your customers are. The [payment gateway integration](/services/payment-gateway-integration/) page explains how we choose."
+  }
+ ],
+ "related": [
+  "wordpress-website-design",
+  "shopify-website-design",
+  "payment-gateway-integration"
+ ],
+ "post": {
+  "slug": "shopify-vs-woocommerce",
+  "title": "Shopify vs WooCommerce: which should you build your store on?"
+ },
+ "cta": {
+  "lines": [
+   "No landlord,",
+   "no rent"
+  ],
+  "pills": [
+   "Free call",
+   "Fixed quote",
+   "You own it"
+  ],
+  "p": "Tell us what you sell and what you're selling it on now. We reply within one business day."
+ }
+}

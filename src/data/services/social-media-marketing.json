@@ -1,0 +1,156 @@
+{
+ "title": "Social Media Marketing Agency Dubai | The Brandle",
+ "description": "Social media marketing in Dubai. Designed posts, captions, scheduling, replies and paid social on Instagram, LinkedIn and TikTok for a fixed monthly fee.",
+ "crumb": "Social media",
+ "schema_name": "Social media marketing agency Dubai",
+ "service_type": "Social Media Marketing",
+ "hub": {
+  "name": "Social media",
+  "line": "A feed that looks like one company made it.",
+  "sticker": {
+   "icon": "chat"
+  }
+ },
+ "hero": {
+  "h1": [
+   "Social media",
+   "marketing",
+   "agency Dubai"
+  ],
+  "stickers": [
+   {
+    "mark": "instagram"
+   },
+   {
+    "mark": "tiktok"
+   }
+  ],
+  "chips": [
+   "Designed content",
+   "Paid & organic",
+   "Consistent branding"
+  ],
+  "joke": "Your feed shouldn't look like three different interns took turns. Even if they did.",
+  "intro": "A social media marketing agency in Dubai, run by designers. Content plans, designed posts, captions, scheduling, community replies and paid campaigns for Instagram, LinkedIn and TikTok, on a fixed monthly fee."
+ },
+ "get": {
+  "h2": "A feed with a plan",
+  "items": [
+   {
+    "icon": "calendar",
+    "t": "Content plan",
+    "p": "What you post, how often and why, agreed a month ahead. No more panicked posting on a Sunday night."
+   },
+   {
+    "icon": "pencil",
+    "t": "Designed posts",
+    "p": "Templates and one-offs made by designers in your brand's type and colours. Not a stock template with your logo in the corner."
+   },
+   {
+    "icon": "clock",
+    "t": "Scheduling",
+    "p": "Everything queued and published at sensible times, so the feed runs while you run the business."
+   },
+   {
+    "icon": "chat",
+    "t": "Community replies",
+    "p": "Comments and messages answered in your voice, with anything tricky passed to you."
+   },
+   {
+    "icon": "megaphone",
+    "t": "Paid social",
+    "p": "A boost for what already works, and proper campaigns when there's something to sell."
+   },
+   {
+    "icon": "chart",
+    "t": "Reporting",
+    "p": "A monthly page on what was posted, what people did and what we'll try next."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Should you bother?",
+  "p": "Not every business needs to be on every platform. Two done well beats five done badly. We'll say which two, and whether the honest answer is none.",
+  "yes": [
+   "Posting in bursts, then going quiet for a month",
+   "Running a feed that looks nothing like your website",
+   "Losing hours every week making content yourself",
+   "Selling something good that photographs badly"
+  ],
+  "no": "what you want is leads from ads. That's [digital marketing](/services/digital-marketing/), and the two overlap less than people think. Nothing to post yet? Start with [brand identity](/services/brand-identity-design/)."
+ },
+ "steps": {
+  "h2": "Plan, make, post",
+  "items": [
+   {
+    "t": "Plan",
+    "p": "A free call about the brand, the audience and what you've tried. You get a content plan and a fixed monthly quote."
+   },
+   {
+    "t": "Make",
+    "p": "We design and write the month's posts in one go and send them over for approval."
+   },
+   {
+    "t": "Post",
+    "p": "Approved content is scheduled and published. Replies are handled as they come in."
+   },
+   {
+    "t": "Review",
+    "p": "Monthly numbers, then the next plan is adjusted to match what worked."
+   }
+  ]
+ },
+ "commit": "retainer",
+ "price": {
+  "big": [
+   "Fixed",
+   "monthly fee"
+  ],
+  "p": "Priced by how many platforms and how many posts a month, quoted as one fixed monthly fee. Ad spend, if any, is separate and paid to the platform. All the content and source files are yours."
+ },
+ "tools": {
+  "h2": "Where we post",
+  "items": [
+   "instagram",
+   "tiktok",
+   "LinkedIn"
+  ],
+  "note": "We post on them. We aren't partnered with any of them, and nobody's badge is on our wall."
+ },
+ "faq_h2": "Social, answered",
+ "faq": [
+  {
+   "q": "Which platforms do you cover?",
+   "a": "Usually Instagram and LinkedIn, plus TikTok when your audience is really there. We'd rather do two properly than five badly."
+  },
+  {
+   "q": "Do you write the captions?",
+   "a": "Yes, in your voice, with your input on anything technical. You approve everything before it goes out."
+  },
+  {
+   "q": "Do I need paid ads as well?",
+   "a": "Often, a little. Unpaid reach is limited on most platforms now. We'll tell you whether your goals are realistic without any spend."
+  },
+  {
+   "q": "Who owns the content?",
+   "a": "You do. Designs, source files and captions are handed over, and they stay yours if we stop working together."
+  }
+ ],
+ "related": [
+  "digital-marketing",
+  "video-production",
+  "brand-identity-design"
+ ],
+ "cta": {
+  "lines": [
+   "Post like",
+   "you mean it"
+  ],
+  "pills": [
+   "Free call",
+   "Fixed monthly fee",
+   "You approve everything"
+  ],
+  "p": "Send us your handle. We'll have a look and come back with thoughts, politely."
+ }
+}

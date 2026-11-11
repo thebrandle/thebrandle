@@ -1,0 +1,97 @@
+{
+ "type": "own",
+ "seo_title": "Bellow: Mac App Design and Build | The Brandle",
+ "summary": "A push-to-talk dictation app for the Mac that transcribes on the device, with no cloud and no account.",
+ "cover": "studio-dark",
+ "portrait": "studio-dark-portrait",
+ "screens": 8,
+ "cta": "Visit bellow.dev",
+ "brief": {
+  "label": "Mac app",
+  "heading": "The idea",
+  "paras": [
+   "Bellow is push-to-talk dictation for the Mac. Hold a key, speak, let go. Your words land wherever the cursor is.",
+   "The transcription happens on the Mac itself. No cloud, no account, no recordings sent anywhere. Fingers are slower than tongues, and that is nobody else's business."
+  ]
+ },
+ "answer": {
+  "label": "Mac app",
+  "heading": "The build",
+  "paras": [
+   "Built by Muteeb, one of our founders, who got tired of typing. The app, the brand and the site at bellow.dev were all made in-house.",
+   "It works in any app, and it needs an Apple Silicon Mac. Transcripts are saved on your machine and encrypted. One switch wipes the history and stops new ones being kept, which is there for lawyers, doctors and journalists.",
+   "The site has a section called \"Private? We can prove it.\" We rather liked writing that."
+  ]
+ },
+ "tags": [
+  "App design",
+  "Mac app build",
+  "Brand identity",
+  "Product site"
+ ],
+ "blocks": [
+  {
+   "t": "full",
+   "img": "s1",
+   "alt": "How Bellow works in three steps, each with the red panda mascot: hold a key, talk, release"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "video": "bellow-mac",
+    "alt": "The Bellow site playing on a MacBook Pro"
+   },
+   "b": {
+    "img": "p1",
+    "alt": "The Bellow site on a phone: Your voice. Your Mac. Your way."
+   }
+  },
+  {
+   "t": "mock",
+   "scene": "studio-white",
+   "alt": "Pages of the Bellow site cutting past on a desktop display in a white studio"
+  },
+  {
+   "t": "full",
+   "img": "s2",
+   "alt": "The section of the Bellow site titled Private? We can prove it, beside a panel listing the app's permissions"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p2",
+    "alt": "The Bellow site on a phone, further down the page"
+   },
+   "b": {
+    "img": "p3",
+    "alt": "The Bellow comparison page on a phone"
+   }
+  },
+  {
+   "t": "full",
+   "img": "s3",
+   "alt": "The Bellow comparison hub: which Mac dictation app is right for you"
+  },
+  {
+   "t": "full",
+   "img": "s4",
+   "alt": "A Bellow guide about dictation that works offline on a Mac"
+  },
+  {
+   "t": "full",
+   "img": "s5",
+   "alt": "The closing section of the Bellow site with its questions and the mascot cheering"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Push-to-talk dictation, hold a key, speak, release, text lands at the cursor, on-device, no cloud, no accounts, no recordings, Apple Silicon only, works in any app, encrypted local history, confidential mode for lawyers, doctors and journalists, made by Muteeb Mehraj",
+   "source": "~/bellow/MARKETING.md (sections 1 to 3)"
+  },
+  {
+   "claim": "Site sections and wording",
+   "source": "https://bellow.dev (captured 2026-11-11)"
+  }
+ ],
+ "description": "A push-to-talk dictation app for the Mac that transcribes on the device, with no cloud and no account. Designed and built by The Brandle, a Dubai design and development studio."
+}

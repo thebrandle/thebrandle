@@ -1,0 +1,162 @@
+{
+ "title": "Webflow Website Design and Development | The Brandle",
+ "description": "Custom Webflow website design from a Dubai studio. Built from a blank canvas with a CMS your team can edit. Fixed quote first, live in 3 to 6 weeks.",
+ "crumb": "Webflow",
+ "schema_name": "Webflow website design",
+ "service_type": "Webflow Website Design & Development",
+ "hub": {
+  "name": "Webflow design",
+  "line": "Custom sites your team can edit without us."
+ },
+ "hero": {
+  "h1": [
+   "Webflow",
+   "website design"
+  ],
+  "stickers": [
+   {
+    "mark": "webflow"
+   }
+  ],
+  "chips": [
+   "Custom, no templates",
+   "CMS you can manage",
+   "Smooth interactions"
+  ],
+  "joke": "For people who want a custom site and never want to email a developer about a typo.",
+  "intro": "Webflow website design and development: custom layouts, a CMS your team can run, and motion that knows when to stop. Built from a blank canvas, with no template underneath. Fixed quote, 3 to 6 weeks."
+ },
+ "get": {
+  "h2": "Built from blank",
+  "items": [
+   {
+    "icon": "pencil",
+    "t": "Designed from nothing",
+    "p": "No template under the bonnet. Layouts drawn for your content, then built to match the design to the pixel."
+   },
+   {
+    "icon": "layers",
+    "t": "A CMS with manners",
+    "p": "Blog, case studies, team, jobs. Structured so adding one means filling in a form, not rebuilding a page."
+   },
+   {
+    "icon": "play",
+    "t": "Motion with a point",
+    "p": "Scroll and hover effects that guide the eye. If an animation doesn't help someone read, it goes."
+   },
+   {
+    "icon": "phone",
+    "t": "Every screen size",
+    "p": "Checked at desktop, tablet and phone widths. Not just squeezed until it fits."
+   },
+   {
+    "icon": "search",
+    "t": "Quick and findable",
+    "p": "Clean markup, compressed images, a title and description on every page, and a sitemap that updates itself."
+   },
+   {
+    "icon": "key",
+    "t": "A proper handover",
+    "p": "A walkthrough of the Editor, and the site moved to your own Webflow account. You hold the keys."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Is Webflow the one?",
+  "p": "Webflow suits marketing sites that change often and have to look sharp. It comes with a monthly hosting fee, and it isn't a shop platform. For what it's good at, it's very good.",
+  "yes": [
+   "Publishing posts or case studies every month",
+   "Keen to edit pages without calling a developer",
+   "After custom design, not a theme with your logo on it",
+   "Leaving WordPress and its weekly plugin updates"
+  ],
+  "no": "you need a big online store, which is [Shopify](/services/shopify-website-design/) territory, or a launch page in a hurry, where [Framer](/services/framer-website-design/) is quicker. [WordPress](/services/wordpress-website-design/) still wins if you want to own the hosting."
+ },
+ "proof": {
+  "label": "Our own work",
+  "h2": "Made by us",
+  "cards": [
+   "tideline"
+  ],
+  "p": "Tideline is our own Webflow template: a seafront tower, floor plans, a materials page and a map. It's a product we made, not a client job, and it shows how we build in Webflow when nobody is telling us what to do."
+ },
+ "steps": {
+  "h2": "Blank to live",
+  "items": [
+   {
+    "t": "Scope",
+    "p": "A free call, a sitemap and a fixed quote. We agree what's in before anyone opens Webflow."
+   },
+   {
+    "t": "Design",
+    "p": "Key pages in Figma first, with real copy where you have it."
+   },
+   {
+    "t": "Build",
+    "p": "Built in Webflow with a tidy class system, CMS collections and interactions. You watch it grow on a staging link."
+   },
+   {
+    "t": "Hand over",
+    "p": "Redirects, launch, an Editor walkthrough, and the project transferred to your account. Free fixes for 30 days."
+   }
+  ]
+ },
+ "price": {
+  "big": [
+   "$1,299 to",
+   "$6,499"
+  ],
+  "p": "Our fixed plans run from $1,299 to $6,499, about AED 4,800 to 23,900. Page count and CMS depth decide where you land. Webflow's hosting plan is separate and paid to Webflow. A site takes 3 to 6 weeks."
+ },
+ "tools": {
+  "h2": "Plays nicely with",
+  "items": [
+   "webflow",
+   "figma",
+   "wordpress",
+   "wix",
+   "squarespace"
+  ],
+  "note": "Built in Webflow, designed in Figma. The other three are platforms we move people off. No partner badges, just the work."
+ },
+ "faq_h2": "Webflow, answered",
+ "faq": [
+  {
+   "q": "Can I edit the site after launch?",
+   "a": "Yes, and it's a big reason to choose Webflow. Text, images and CMS items are edited in the browser. The layout itself stays locked unless you'd like the keys to that too."
+  },
+  {
+   "q": "Can you move my current site to Webflow?",
+   "a": "We rebuild it in Webflow and bring the content across from WordPress, Wix, Squarespace or wherever it lives, with a redirect for every old address. [How to redesign a website without losing SEO](/blog/website-redesign-without-losing-seo/) explains the method."
+  },
+  {
+   "q": "Webflow or WordPress?",
+   "a": "Webflow if you want less maintenance and tighter design control. WordPress if you need a particular plugin or want to choose your own host. The longer answer is in [WordPress vs Webflow](/blog/wordpress-vs-webflow/)."
+  },
+  {
+   "q": "Who pays for Webflow hosting?",
+   "a": "You do, directly to Webflow, on your own account. That way the site never depends on us paying a bill."
+  }
+ ],
+ "related": [
+  "framer-website-design",
+  "wordpress-website-design",
+  "ui-ux-design"
+ ],
+ "post": {
+  "slug": "framer-vs-webflow",
+  "title": "Framer vs Webflow: which builder fits your website?"
+ },
+ "cta": {
+  "lines": [
+   "Go with",
+   "the flow"
+  ],
+  "pills": [
+   "Free call",
+   "Fixed quote",
+   "Your account"
+  ],
+  "p": "Tell us what the site has to do. We reply within one business day with questions, then a number."
+ }
+}

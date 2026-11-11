@@ -1,0 +1,151 @@
+{
+ "title": "WordPress Website Design and Development | The Brandle",
+ "description": "Custom WordPress website design from a Dubai studio. Lightweight themes, few plugins and a site you fully own. Fixed quote first, live in 3 to 6 weeks.",
+ "crumb": "WordPress",
+ "schema_name": "WordPress website design",
+ "service_type": "WordPress Website Design & Development",
+ "hub": {
+  "name": "WordPress design",
+  "line": "Own everything. Fewer plugins than you'd think."
+ },
+ "hero": {
+  "h1": [
+   "WordPress",
+   "website design"
+  ],
+  "stickers": [
+   {
+    "mark": "wordpress"
+   }
+  ],
+  "chips": [
+   "Custom themes",
+   "Fully ownable",
+   "Content-ready"
+  ],
+  "joke": "WordPress, minus the forty plugins and the theme that does everything badly.",
+  "intro": "WordPress website design and development for content-heavy sites that want full ownership. A custom lightweight theme, a short plugin list and an editor your team can use. Fixed quote, 3 to 6 weeks."
+ },
+ "get": {
+  "h2": "WordPress, done properly",
+  "items": [
+   {
+    "icon": "pencil",
+    "t": "A custom theme",
+    "p": "Built for your design and nothing else. No page builder with two hundred options you'll never open."
+   },
+   {
+    "icon": "doc",
+    "t": "Content structure",
+    "p": "Post types, categories and templates planned for what you publish, so the hundredth article is as easy as the first."
+   },
+   {
+    "icon": "plug",
+    "t": "A short plugin list",
+    "p": "Every plugin is something to update and something that can break. We pick few, pick well and write down why."
+   },
+   {
+    "icon": "shield",
+    "t": "Security basics",
+    "p": "Updates, sensible logins, backups and a host that takes it seriously. We work from our own [website security checklist](/blog/website-security-checklist/)."
+   },
+   {
+    "icon": "bolt",
+    "t": "Speed",
+    "p": "Caching, image compression and a theme that only loads what the page uses."
+   },
+   {
+    "icon": "key",
+    "t": "All of it yours",
+    "p": "The code, the database, the hosting account, the logins. Move it anywhere, hire anyone."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Still WordPress?",
+  "p": "WordPress asks for more upkeep than the hosted builders. In return you own everything and can make it do nearly anything. That's a fair trade for some sites and a poor one for others.",
+  "yes": [
+   "Publishing a lot, with several authors",
+   "Keen to own the hosting and the code outright",
+   "In need of a members' area or an odd feature",
+   "Adding a shop to a site that's already on WordPress"
+  ],
+  "no": "you'd rather never think about updates. [Webflow](/services/webflow-website-design/) hosts and patches itself. And if the shop is the main event, read the [WooCommerce](/services/woocommerce-website-design/) page first."
+ },
+ "steps": {
+  "h2": "Plan, build, hand over",
+  "items": [
+   {
+    "t": "Plan",
+    "p": "A free call, a content inventory and a fixed quote. If there's an existing site, we look under the bonnet first."
+   },
+   {
+    "t": "Design",
+    "p": "Templates designed in Figma around your real content types."
+   },
+   {
+    "t": "Build",
+    "p": "Theme built, content moved, plugins chosen and configured on a staging site you can click around."
+   },
+   {
+    "t": "Launch",
+    "p": "Redirects, backups switched on, an editor walkthrough and every login handed over. Free fixes for 30 days."
+   }
+  ]
+ },
+ "price": {
+  "big": [
+   "$1,299 to",
+   "$6,499"
+  ],
+  "p": "Our fixed plans run from $1,299 to $6,499, about AED 4,800 to 23,900, and a site takes 3 to 6 weeks. Hosting is separate and in your name. After launch, updates are yours to do, or ours on a [maintenance plan](/services/website-maintenance/)."
+ },
+ "tools": {
+  "h2": "Built on",
+  "items": [
+   "wordpress",
+   "woo",
+   "figma"
+  ]
+ },
+ "faq_h2": "WordPress, answered",
+ "faq": [
+  {
+   "q": "Do you build custom themes or use a template?",
+   "a": "Custom, and light. Multipurpose themes ship with code for every feature anyone might want, and your visitors download all of it. Ours only carries what your site uses."
+  },
+  {
+   "q": "Can you fix or speed up my existing WordPress site?",
+   "a": "Usually. We audit it first and tell you whether it needs a tune-up or a rebuild. Sometimes the honest answer is that the theme is the problem and no plugin will save it."
+  },
+  {
+   "q": "Will I be able to manage it myself?",
+   "a": "Yes. Writing posts and editing pages is straightforward, and you get a walkthrough. Updates to WordPress and its plugins need a little care, which is what maintenance plans are for."
+  },
+  {
+   "q": "Is WordPress still a good choice?",
+   "a": "For content-heavy sites and anyone who wants full ownership, yes. For a small brochure site, a hosted builder is less work. [WordPress vs Webflow](/blog/wordpress-vs-webflow/) goes through it honestly."
+  }
+ ],
+ "related": [
+  "woocommerce-website-design",
+  "webflow-website-design",
+  "website-maintenance"
+ ],
+ "post": {
+  "slug": "wordpress-vs-webflow",
+  "title": "WordPress vs Webflow: an honest comparison"
+ },
+ "cta": {
+  "lines": [
+   "Own the",
+   "whole thing"
+  ],
+  "pills": [
+   "Free call",
+   "Fixed quote",
+   "Your hosting"
+  ],
+  "p": "Tell us what you publish and what annoys you about the current site. We reply within one business day."
+ }
+}

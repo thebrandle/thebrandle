@@ -1,0 +1,162 @@
+{
+ "title": "Shopify Website Design and Development | The Brandle",
+ "description": "Shopify website design from a Dubai studio. A custom theme, product pages built for thumbs and a calm checkout. Fixed quote first, live in 3 to 6 weeks.",
+ "crumb": "Shopify",
+ "schema_name": "Shopify website design",
+ "service_type": "Shopify Website Design & Development",
+ "hub": {
+  "name": "Shopify design",
+  "line": "Custom stores that take money politely."
+ },
+ "hero": {
+  "h1": [
+   "Shopify",
+   "website design"
+  ],
+  "stickers": [
+   {
+    "mark": "shopify"
+   }
+  ],
+  "chips": [
+   "Custom Shopify themes",
+   "Conversion-focused",
+   "Built to scale"
+  ],
+  "joke": "Your products deserve better than a free theme and a prayer.",
+  "intro": "Shopify website design and development from a Dubai studio: a custom theme, product pages built for thumbs, and a checkout that gets out of the way. Fixed quote before we start, live in 3 to 6 weeks, and the store is yours."
+ },
+ "get": {
+  "h2": "What's in the box",
+  "items": [
+   {
+    "icon": "pencil",
+    "t": "Custom theme",
+    "p": "Designed around your brand, then built as a proper Shopify theme. Not a free one in a nicer hat."
+   },
+   {
+    "icon": "phone",
+    "t": "Thumb-first product pages",
+    "p": "Photos, price, options and the buy button, all reachable with one thumb. Tested on real phones, not a squashed browser window."
+   },
+   {
+    "icon": "cart",
+    "t": "A calm checkout",
+    "p": "Short basket, clear delivery costs, no surprise fields. Every step we remove is one fewer place to lose someone."
+   },
+   {
+    "icon": "plug",
+    "t": "Apps and payments",
+    "p": "Only the apps you need, connected and tested. Each extra app is a monthly bill and a slower store, so we're stingy."
+   },
+   {
+    "icon": "bolt",
+    "t": "Speed",
+    "p": "Compressed images, lean code and nothing loading that doesn't have to. Shoppers are not patient people."
+   },
+   {
+    "icon": "search",
+    "t": "Search basics",
+    "p": "Clean addresses, product details search engines can read and sensible page titles. Plus redirects, if you're moving from somewhere else."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Is Shopify right for you?",
+  "p": "Shopify is the sensible choice for most stores. It hosts itself, takes payments on day one and doesn't need a developer on standby. You pay a monthly fee for that peace.",
+  "yes": [
+   "Selling products and planning to manage them yourself",
+   "Tired of a store that breaks whenever a plugin updates",
+   "Thinking about subscriptions, several currencies or selling abroad",
+   "Moving off Wix, Squarespace or WooCommerce"
+  ],
+  "no": "you want to own the hosting and never pay a platform fee. That's [WooCommerce](/services/woocommerce-website-design/). Still deciding? The [ecommerce page](/services/ecommerce-website-design/) helps you pick."
+ },
+ "proof": {
+  "label": "Proof",
+  "h2": "Stores we built",
+  "cards": [
+   "soznikar",
+   "voice-and-data-resale"
+  ],
+  "p": "Soznikar is our own store: Kashmiri pashmina, sold across the Gulf, designed and built by us on Shopify. Voice & Data Resale is a client's store for refurbished IT equipment. We'd rather show two real ones than twelve imaginary ones."
+ },
+ "steps": {
+  "h2": "Call to checkout",
+  "items": [
+   {
+    "t": "Brief",
+    "p": "A free call about your products, your margins and what the current store gets wrong. You get a written scope and a fixed quote."
+   },
+   {
+    "t": "Design",
+    "p": "Home, collection, product and basket pages, designed in Figma. You react, we revise, twice per stage if needed."
+   },
+   {
+    "t": "Build",
+    "p": "The theme gets built, products loaded, payments and delivery connected. You watch it happen on a preview link."
+   },
+   {
+    "t": "Launch",
+    "p": "Test orders, redirects, domain switch. Then 30 days of free fixes while real customers find what we missed."
+   }
+  ]
+ },
+ "price": {
+  "big": [
+   "$1,299 to",
+   "$6,499"
+  ],
+  "p": "That's the range of our fixed plans, about AED 4,800 to 23,900. Where you land depends on catalogue size and custom features. Shopify's own monthly fee is separate and goes to Shopify. A store takes 3 to 6 weeks."
+ },
+ "tools": {
+  "h2": "Plays nicely with",
+  "items": [
+   "shopify",
+   "woo",
+   "wix",
+   "squarespace"
+  ],
+  "note": "Shopify is what we build on. The other three are what we move people off. No partner badges, just the work."
+ },
+ "faq_h2": "Shopify, answered",
+ "faq": [
+  {
+   "q": "Can you move my existing store to Shopify?",
+   "a": "Yes. Products, collections, customers and addresses come across from WooCommerce, Wix, Squarespace and most other platforms, with redirects so old links keep working. Our guide to [moving from Wix to Shopify](/blog/wix-to-shopify-migration/) has the long version."
+  },
+  {
+   "q": "Will I be able to run the store myself?",
+   "a": "That's the point of Shopify. Adding products, changing prices and handling orders needs no developer. We walk you through all of it at handover."
+  },
+  {
+   "q": "Do you use a ready-made theme or build one?",
+   "a": "We build a custom theme for your brand. If your budget suits a good paid theme with careful customising, we'll say so and quote that instead."
+  },
+  {
+   "q": "What do I pay Shopify, and what do I pay you?",
+   "a": "Shopify charges its own monthly plan and payment fees, paid straight to them. We charge a fixed project price, agreed before work starts. We don't take a cut of your sales."
+  }
+ ],
+ "related": [
+  "ecommerce-website-design",
+  "woocommerce-website-design",
+  "payment-gateway-integration"
+ ],
+ "post": {
+  "slug": "shopify-vs-woocommerce",
+  "title": "Shopify vs WooCommerce: which should you build your store on?"
+ },
+ "cta": {
+  "lines": [
+   "Let's sell",
+   "some things"
+  ],
+  "pills": [
+   "Free call",
+   "Fixed quote",
+   "3 to 6 weeks"
+  ],
+  "p": "Tell us what you sell and where it hurts. You'll hear back within one business day."
+ }
+}

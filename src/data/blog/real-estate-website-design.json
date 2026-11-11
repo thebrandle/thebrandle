@@ -1,0 +1,243 @@
+{
+  "slug": "real-estate-website-design",
+  "url": "https://www.thebrandle.com/blog/real-estate-website-design/",
+  "path": "/blog/real-estate-website-design/",
+  "canonical": "https://www.thebrandle.com/blog/real-estate-website-design/",
+  "lang": "en",
+  "source": "hand-written",
+  "title": "Real Estate Website Design: What Actually Converts | TheBrandle",
+  "titleWithoutBrand": "Real Estate Website Design: What Actually Converts",
+  "description": "What works in real estate website design - listing search, lead capture, portal integration and the mistakes that lose enquiries on property websites.",
+  "h1": "Real estate website design: what actually converts",
+  "headline": "Real Estate Website Design: What Actually Converts | TheBrandle",
+  "datePublished": "2026-07-28",
+  "dateModified": "2026-07-28",
+  "dateDisplayed": "Jul 28, 2026",
+  "sitemapLastmod": "2026-08-16",
+  "gitFirstCommit": "2026-08-07T03:49:12+04:00",
+  "gitLastCommit": "2026-11-03T10:57:22+04:00",
+  "author": {
+    "name": "The Brandle Team",
+    "role": "Design Studio",
+    "avatar": "/assets/blog/_shared/author-avatar.jpg",
+    "avatarOriginal": "/framerusercontent.com/images/A0LPOEdkaRkfMcS2EWs1My620fA.jpg",
+    "schemaAuthor": {
+      "@type": "Organization",
+      "name": "TheBrandle",
+      "url": "https://www.thebrandle.com"
+    }
+  },
+  "category": "Industry",
+  "categorySource": "tag in scripts/blog-posts-data.js (never rendered on the live page)",
+  "tags": [
+    "Industry"
+  ],
+  "suggestedGroup": "Industry",
+  "heroImage": {
+    "src": "/assets/blog/real-estate-website-design/cover.jpg",
+    "alt": "Abstract architectural volumes cut by a shaft of light",
+    "width": 2560,
+    "height": 1440,
+    "original": "/assets/blog/covers/real-estate-website-design.jpg"
+  },
+  "cardImage": {
+    "src": "/assets/blog/real-estate-website-design/card.jpg",
+    "alt": "Real estate website design: what actually converts",
+    "width": 1600,
+    "height": 900,
+    "original": "/assets/blog/real-estate-website-design.jpg",
+    "svgSource": "/assets/blog/real-estate-website-design/card.svg",
+    "bakedText": {
+      "eyebrow": "INDUSTRY",
+      "h1": "Property websites that convert",
+      "sub": "Search, listings and the details that decide the enquiry"
+    }
+  },
+  "readingMinutes": 2,
+  "readingMinutesSource": "computed: (body words + FAQ words) / 225, rounded, minimum 1. The live page shows no reading time.",
+  "readingMinutesDeclared": 6,
+  "wordCount": 269,
+  "wordCountFaq": 96,
+  "wordCountSchema": null,
+  "excerpt": "What works in real estate website design - listing search, lead capture, portal integration and the mistakes that lose enquiries on property websites.",
+  "listing": {
+    "position": 11,
+    "title": "Real estate website design: what actually converts",
+    "blurb": "Search, listings and the details that decide the enquiry."
+  },
+  "faq": [
+    {
+      "q": "Should we build our own site if we are on the portals?",
+      "a": "Yes. Portals put you next to every competitor and own the relationship. Your own site is where you control presentation and keep the lead."
+    },
+    {
+      "q": "Can our website pull listings automatically?",
+      "a": "Usually yes, if your CRM or portal exposes a feed or API. It is worth confirming before design begins, since it shapes the build."
+    },
+    {
+      "q": "What matters most for property SEO?",
+      "a": "Area and development pages with genuinely useful local content, fast mobile performance, and structured data on listings so they can appear richly in results."
+    }
+  ],
+  "relatedServices": [
+    {
+      "label": "Web Application Development",
+      "href": "/services/web-application-development/"
+    },
+    {
+      "label": "Web Design Dubai",
+      "href": "/services/web-design-dubai/"
+    },
+    {
+      "label": "UI/UX Design",
+      "href": "/services/ui-ux-design/"
+    }
+  ],
+  "headings": [
+    {
+      "level": 2,
+      "text": "Search is the whole product",
+      "id": "search-is-the-whole-product"
+    },
+    {
+      "level": 2,
+      "text": "Listing pages sell or lose the enquiry",
+      "id": "listing-pages-sell-or-lose-the-enquiry"
+    },
+    {
+      "level": 2,
+      "text": "The integration question",
+      "id": "the-integration-question"
+    }
+  ],
+  "links": [
+    {
+      "href": "/services/web-application-development/",
+      "text": "web application development service"
+    }
+  ],
+  "moreArticlesAsPublished": [
+    {
+      "title": "How to build a startup website people trust",
+      "href": "/blog/how-to-build-a-startup-website/"
+    },
+    {
+      "title": "Headless CMS: what it is and when you actually need one",
+      "href": "/blog/headless-cms-guide/"
+    },
+    {
+      "title": "AI in web design: what it does well and where it fails",
+      "href": "/blog/ai-in-web-design/"
+    },
+    {
+      "title": "Arabic and RTL website design: doing it properly",
+      "href": "/blog/arabic-rtl-website-design/"
+    },
+    {
+      "title": "How to redesign your website without losing SEO",
+      "href": "/blog/website-redesign-without-losing-seo/"
+    }
+  ],
+  "cta": {
+    "heading": "Ready to build it right?",
+    "text": "Tell us about your project and we will come back with a clear plan, timeline and a fixed quote.",
+    "button": "Book a free consultation",
+    "href": "/contact"
+  },
+  "meta": {
+    "robots": "index, follow",
+    "ogType": "article",
+    "ogTitle": "Real Estate Website Design: What Actually Converts | TheBrandle",
+    "ogDescription": "What works in real estate website design - listing search, lead capture, portal integration and the mistakes that lose enquiries on property websites.",
+    "ogImage": "https://www.thebrandle.com/assets/blog/real-estate-website-design.jpg",
+    "twitterCard": "summary_large_image",
+    "twitterTitle": "Real Estate Website Design: What Actually Converts | TheBrandle",
+    "twitterImage": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+    "rssAlternate": null
+  },
+  "jsonLdTypes": [
+    "Article",
+    "FAQPage",
+    "BreadcrumbList"
+  ],
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Real Estate Website Design: What Actually Converts | TheBrandle",
+      "description": "What works in real estate website design - listing search, lead capture, portal integration and the mistakes that lose enquiries on property websites.",
+      "datePublished": "2026-07-28",
+      "dateModified": "2026-07-28",
+      "author": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TheBrandle",
+        "url": "https://www.thebrandle.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.thebrandle.com/framerusercontent.com/assets/TheBrandle.svg"
+        }
+      },
+      "image": "https://www.thebrandle.com/assets/brand/og-image.jpg",
+      "mainEntityOfPage": "https://www.thebrandle.com/blog/real-estate-website-design/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Should we build our own site if we are on the portals?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Portals put you next to every competitor and own the relationship. Your own site is where you control presentation and keep the lead."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can our website pull listings automatically?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually yes, if your CRM or portal exposes a feed or API. It is worth confirming before design begins, since it shapes the build."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What matters most for property SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Area and development pages with genuinely useful local content, fast mobile performance, and structured data on listings so they can appear richly in results."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.thebrandle.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.thebrandle.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Real Estate Website Design: What Actually Converts | TheBrandle",
+          "item": "https://www.thebrandle.com/blog/real-estate-website-design/"
+        }
+      ]
+    }
+  ]
+}

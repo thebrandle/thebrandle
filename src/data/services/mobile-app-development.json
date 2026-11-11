@@ -1,0 +1,163 @@
+{
+ "title": "Mobile App Development Dubai: iOS and Android | The Brandle",
+ "description": "Mobile app design and development in Dubai. iOS and Android apps designed and built by one team, in phases, with a fixed price for each phase.",
+ "crumb": "Mobile apps",
+ "schema_name": "Mobile app development Dubai",
+ "service_type": "Mobile App Design & Development",
+ "hub": {
+  "name": "Mobile apps",
+  "line": "iOS and Android, designed and built by one team."
+ },
+ "hero": {
+  "h1": [
+   "Mobile app",
+   "development",
+   "Dubai"
+  ],
+  "stickers": [
+   {
+    "icon": "phone"
+   }
+  ],
+  "chips": [
+   "iOS & Android",
+   "Design + build",
+   "App Store handled"
+  ],
+  "joke": "App Store review is a rite of passage. We've been through it, so you don't have to go alone.",
+  "intro": "Mobile app development in Dubai, with design and build under one roof. iOS and Android apps taken from idea to the stores in phases, each with a fixed price, so you see working software early."
+ },
+ "get": {
+  "h2": "Idea to app store",
+  "items": [
+   {
+    "icon": "search",
+    "t": "Product and UX",
+    "p": "What the app is for, who it's for and the shortest path through it. Decided before any screens."
+   },
+   {
+    "icon": "eye",
+    "t": "UI design",
+    "p": "Every screen and state designed in Figma, following each platform's habits so it feels at home."
+   },
+   {
+    "icon": "phone",
+    "t": "The build",
+    "p": "One codebase for both platforms where that suits the app. Separate native builds where the app needs them."
+   },
+   {
+    "icon": "plug",
+    "t": "Backend and APIs",
+    "p": "Accounts, data, notifications, payments and the connections to your other systems."
+   },
+   {
+    "icon": "check",
+    "t": "Store submission",
+    "p": "Listings, screenshots, privacy forms and the review process on the App Store and Google Play. Including the second attempt, if there is one."
+   },
+   {
+    "icon": "wrench",
+    "t": "After launch",
+    "p": "Free fixes for 30 days, then updates as phones and their operating systems change."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Do you need an app?",
+  "p": "Honestly, maybe not. If people will use it twice a year, a good website is cheaper and nobody has to install anything. An app earns its place when people come back often.",
+  "yes": [
+   "A founder taking a first version to market",
+   "Running a service people use every week",
+   "Holding a design with nobody to build it",
+   "Recovering from an app that shipped and didn't work"
+  ],
+  "no": "a website would do the job. A [progressive web app](/blog/progressive-web-apps/) can sit on a home screen without the stores. For tools your staff use at a desk, see [web application development](/services/web-application-development/)."
+ },
+ "proof": {
+  "label": "Built by us",
+  "h2": "We shipped one",
+  "cards": [
+   "pawsword"
+  ],
+  "p": "Pawsword is our own password manager for iPhone and Mac. We designed it, built it and took it through App Store review ourselves. It's our product, not a client's, so we can show you all of it."
+ },
+ "steps": {
+  "h2": "In phases",
+  "items": [
+   {
+    "t": "Define",
+    "p": "A free call, then a scope for a first version that does one thing well. Fixed price for the phase."
+   },
+   {
+    "t": "Design",
+    "p": "Flows, then screens, then a prototype you can tap through on your own phone."
+   },
+   {
+    "t": "Build",
+    "p": "Working builds on your phone as we go. No big reveal at the end, because big reveals go badly."
+   },
+   {
+    "t": "Ship",
+    "p": "Store submission, launch, and 30 days of free fixes while real users find the edges."
+   }
+  ]
+ },
+ "price": {
+  "big": [
+   "Fixed price",
+   "per phase"
+  ],
+  "p": "Apps vary too much for a price list. A focused first version typically takes a few months. We break the work into phases and quote a fixed price for each, so you can stop, change direction or carry on knowing the cost."
+ },
+ "tools": {
+  "h2": "Where it ships",
+  "items": [
+   "figma",
+   "iOS",
+   "Android",
+   "App Store",
+   "Google Play"
+  ],
+  "note": "Store names are written as words. Apple and Google keep their badges for apps, not agencies."
+ },
+ "faq_h2": "Apps, answered",
+ "faq": [
+  {
+   "q": "One codebase or separate native apps?",
+   "a": "One shared codebase suits most business apps and costs less. Separate native builds are worth it for heavy graphics or deep use of the phone's hardware. We recommend based on the app, not on what we feel like building."
+  },
+  {
+   "q": "How long does an app take?",
+   "a": "A focused first version is typically a few months. Phases mean you're using real software long before the end."
+  },
+  {
+   "q": "Do you handle App Store submission?",
+   "a": "Yes. Listings, screenshots, privacy declarations and the review itself, which often takes more than one go."
+  },
+  {
+   "q": "Who owns the code?",
+   "a": "You do. The repository and the store accounts are in your name, so you're never locked in to us."
+  }
+ ],
+ "related": [
+  "ui-ux-design",
+  "web-application-development",
+  "payment-gateway-integration"
+ ],
+ "post": {
+  "slug": "progressive-web-apps",
+  "title": "Progressive web apps: do you need one?"
+ },
+ "cta": {
+  "lines": [
+   "Build the",
+   "first version"
+  ],
+  "pills": [
+   "Free call",
+   "Fixed price per phase",
+   "Your code"
+  ],
+  "p": "Tell us what it does in one sentence. If it takes three, fine, we'll work on that together."
+ }
+}

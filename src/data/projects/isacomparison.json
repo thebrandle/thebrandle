@@ -1,0 +1,95 @@
+{
+ "type": "own",
+ "seo_title": "ISA Comparison: UK Savings Comparison Site | The Brandle",
+ "summary": "Our own UK comparison site: Cash ISA rates ranked by rate alone, eight calculators and plain answers on the rules.",
+ "description": "ISA Comparison, our own UK site that ranks Cash ISA rates by rate alone and explains the rules in plain English. Designed and built by The Brandle in Dubai.",
+ "cover": "studio-white",
+ "portrait": "studio-white-portrait",
+ "screens": 7,
+ "cta": "Visit the site",
+ "brief": {
+  "label": "Personal finance, UK",
+  "heading": "The idea",
+  "paras": [
+   "UK savers get a £20,000 tax-free ISA allowance, then get buried in rate tables sorted by who pays the most commission. We wanted one that is sorted by the rate, and nothing else."
+  ]
+ },
+ "answer": {
+  "label": "Built by us",
+  "heading": "What we built",
+  "paras": [
+   "A fast comparison site that lists Cash ISA rates ranked by rate alone, with the date each one was last checked against the provider's own page. Links that can earn a commission are marked, and they never change the order.",
+   "Around it: eight calculators that turn rates into pounds, guides to every ISA type, and the Budget news written so a normal person can follow it. New posts go out on a schedule, so it never goes stale."
+  ]
+ },
+ "tags": [
+  "Web design",
+  "Content design",
+  "Calculators",
+  "Comparison site"
+ ],
+ "blocks": [
+  {
+   "t": "full",
+   "img": "s1",
+   "alt": "The ISA Comparison home page: save tax-free with an ISA, next to a live table of the best Cash ISA rates"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p1",
+    "alt": "The ISA Comparison home page on a phone"
+   },
+   "b": {
+    "img": "p2",
+    "alt": "The best Cash ISA rates page on a phone"
+   }
+  },
+  {
+   "t": "mock",
+   "scene": "studio-white",
+   "alt": "Pages of ISA Comparison cutting past on a desktop display in a white studio"
+  },
+  {
+   "t": "full",
+   "img": "s2",
+   "alt": "What is an ISA, explained in three short paragraphs beside an illustration of savers"
+  },
+  {
+   "t": "full",
+   "img": "s3",
+   "alt": "The best Cash ISA rates in the UK, with the date they were checked"
+  },
+  {
+   "t": "duo",
+   "a": {
+    "img": "p3",
+    "alt": "The Cash ISA interest calculator on a phone"
+   },
+   "b": {
+    "img": "p4",
+    "alt": "The Cash ISA limit page on a phone"
+   }
+  },
+  {
+   "t": "full",
+   "img": "s4",
+   "alt": "The Cash ISA interest calculator: deposit, rate and term in, interest and a year by year chart out"
+  },
+  {
+   "t": "full",
+   "img": "s5",
+   "alt": "The Cash ISA limit page explaining the Budget news for savers"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Own site, UK ISA comparison, ranked by rate alone, date last checked, commission links marked and never change the order, eight calculators, ISA guides, Budget coverage, scheduled posts",
+   "source": "https://isacomparison.com home and /calculators/ pages (read 2026-11-11); memory note isacomparison-project"
+  },
+  {
+   "claim": "Page captures",
+   "source": "https://isacomparison.com (captured 2026-11-11)"
+  }
+ ]
+}

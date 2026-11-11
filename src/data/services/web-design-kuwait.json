@@ -1,0 +1,155 @@
+{
+ "title": "Web Design Kuwait: Websites and Online Stores | The Brandle",
+ "description": "Web design for Kuwait City businesses. Online stores that take KNET, Arabic and English done properly, and a way out of selling through Instagram DMs.",
+ "crumb": "Kuwait",
+ "country": "Kuwait",
+ "schema_name": "Web design Kuwait",
+ "service_type": "Web Design Kuwait",
+ "hub": {
+  "name": "Web design Kuwait",
+  "line": "From Instagram DMs to a real checkout."
+ },
+ "hero": {
+  "h1": [
+   "Web design",
+   "Kuwait"
+  ],
+  "stickers": [
+   {
+    "icon": "cart"
+   }
+  ],
+  "chips": [
+   "KNET checkout",
+   "Arabic and English",
+   "Beyond Instagram"
+  ],
+  "joke": "A lot of Kuwait's best shops live in an Instagram bio and a WhatsApp number. Buying a cake shouldn't need a conversation.",
+  "intro": "Web design for Kuwait City and the rest of Kuwait, from a studio in Dubai. Online stores and websites that take KNET, speak Arabic and English, and turn the brand you built on Instagram into a shop that takes orders while you sleep."
+ },
+ "get": {
+  "h2": "Built for Kuwait",
+  "items": [
+   {
+    "icon": "card",
+    "t": "KNET at checkout",
+    "p": "KNET is how most people in Kuwait pay online, so it goes first, next to Visa and Mastercard, through a gateway that supports it."
+   },
+   {
+    "icon": "cart",
+    "t": "Out of the DMs",
+    "p": "Products, options and delivery slots on a proper store, so orders stop arriving as voice notes at midnight."
+   },
+   {
+    "icon": "camera",
+    "t": "Instagram stays",
+    "p": "Your feed links to products people can actually buy, and the store looks like the brand your followers already know."
+   },
+   {
+    "icon": "globe",
+    "t": "Arabic and English",
+    "p": "Both languages designed properly, right-to-left included. Our [Arabic and RTL guide](/blog/arabic-rtl-website-design/) explains what that takes."
+   },
+   {
+    "icon": "box",
+    "t": "Delivery your way",
+    "p": "Areas, fees and time slots set up the way you actually deliver, plus cash on delivery if your customers want it."
+   },
+   {
+    "icon": "tag",
+    "t": "No VAT to add",
+    "p": "Kuwait doesn't charge VAT, so prices stay simple. The store can add a tax line later without a rebuild."
+   }
+  ]
+ },
+ "fit": {
+  "h2": "Running a shop on Instagram?",
+  "p": "Instagram is a great shop window and a terrible till. If you're typing the same price into DMs fifty times a day, a store with KNET at checkout gives you the evenings back.",
+  "yes": [
+   "A home business selling through Instagram and WhatsApp",
+   "A Kuwait brand ready for its first proper store",
+   "A retailer whose website can't take payments",
+   "A restaurant or bakery tired of taking orders by hand"
+  ],
+  "no": "you sell mostly across the whole Gulf. Read [ecommerce website design](/services/ecommerce-website-design/) for multi-country stores. If your store exists and only KNET is missing, see [payment gateway integration](/services/payment-gateway-integration/)."
+ },
+ "steps": {
+  "h2": "DMs to checkout",
+  "items": [
+   {
+    "t": "Brief",
+    "p": "A free video call. Kuwait is one hour behind Dubai, so we pick a time that suits you. A fixed quote follows."
+   },
+   {
+    "t": "Design",
+    "p": "Key pages and product layouts designed in Arabic and English, to match the brand you already have."
+   },
+   {
+    "t": "Build",
+    "p": "Products loaded, delivery areas set and KNET connected in test mode. Our weeks overlap Monday to Thursday."
+   },
+   {
+    "t": "Launch",
+    "p": "Real test orders with KNET and cash on delivery, then live. Free fixes for 30 days."
+   }
+  ]
+ },
+ "price": {
+  "big": [
+   "$1,299 to",
+   "$6,499"
+  ],
+  "p": "Our fixed plans run from $1,299 to $6,499, and a store takes 3 to 6 weeks. Two languages and a KNET gateway add scope, which the quote will show. If you have a lot of products, we can load them for you or show you how."
+ },
+ "tools": {
+  "h2": "At the Kuwait checkout",
+  "items": [
+   "shopify",
+   "KNET",
+   "Visa",
+   "Mastercard",
+   "Cash on delivery"
+  ],
+  "note": "Payment methods we can connect through a gateway that supports them. Mostly written as words, because that's how their owners prefer it."
+ },
+ "faq_h2": "Kuwait, answered",
+ "faq": [
+  {
+   "q": "Can my store take KNET?",
+   "a": "Yes, through a payment gateway that supports KNET in Kuwait. We help you pick one, connect it and test it with real payments before launch."
+  },
+  {
+   "q": "Is there VAT in Kuwait?",
+   "a": "No. Kuwait doesn't charge VAT, so your prices stay as they are. We still set the store up so a tax line can be switched on later."
+  },
+  {
+   "q": "Do I have to leave Instagram?",
+   "a": "Not at all. Instagram keeps bringing people in, and the store takes the money. Your bio link, product posts and store just start working together."
+  },
+  {
+   "q": "Can you work with us from Dubai?",
+   "a": "Yes. Kuwait is one hour behind Dubai. Your week runs Sunday to Thursday and ours Monday to Friday, so four days overlap. We reply within one business day."
+  }
+ ],
+ "related": [
+  "ecommerce-website-design",
+  "shopify-website-design",
+  "payment-gateway-integration"
+ ],
+ "post": {
+  "slug": "shopify-vs-woocommerce",
+  "title": "Shopify vs WooCommerce: which should you build your store on?"
+ },
+ "cta": {
+  "lines": [
+   "Close the",
+   "DMs"
+  ],
+  "pills": [
+   "Free call",
+   "Fixed quote",
+   "KNET ready"
+  ],
+  "p": "Tell us what you sell and how you deliver it. We reply within one business day."
+ }
+}
