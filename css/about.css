@@ -1,0 +1,231 @@
+/* The Brandle, About page. Layout and sizes follow the measured two26.studio About page (em scale, 16px at 1440).
+   Nothing here hides content: start states are set by js/about.js. */
+
+.ab-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.ab-art { width: 100%; height: 100%; will-change: transform; }
+.ab-art img { width: 100%; height: 100%; object-fit: contain; }
+
+/* ---------- tall wrapper ---------- */
+.ab-top { isolation: isolate; position: relative; display: flex; flex-direction: column; align-items: center; padding-top: 6em; overflow: hidden; overflow: clip; }
+
+/* ---------- hero ---------- */
+.ab-hero { position: relative; width: 100%; }
+.ab-hero__text { position: relative; width: 100%; padding: 0 2em 0 1.25em; }
+.ab-h1 { font: 800 10em/0.8 var(--fd); font-stretch: 75%; color: var(--orange); text-transform: uppercase; white-space: nowrap; }
+.ab-h1 .lm { padding-bottom: 0.14em; margin-bottom: -0.14em; } /* room for the comma under the baseline */
+.ab-h1__a { text-align: right; }
+.ab-h1__b { text-align: left; }
+.ab-pill { position: absolute; z-index: 3; }
+.ab-pill--1 { top: 35%; right: 20%; rotate: 3deg; }
+.ab-pill--2 { bottom: -3%; left: 5%; rotate: -7deg; }
+.ab-loop { position: absolute; z-index: -1; top: -3.5em; right: -15.5em; width: 30.75em; height: 49.3em; max-width: none; overflow: visible; pointer-events: none; }
+.ab-loop path { fill: none; stroke: var(--orange); stroke-width: 30; stroke-linecap: round; stroke-linejoin: round; }
+.ab-hero__row { display: flex; justify-content: space-between; align-items: center; padding: 0 7em; }
+.ab-hero__art { flex: none; width: 41.3em; aspect-ratio: 2528 / 1696; }
+.ab-hero__col { flex: 1; display: flex; justify-content: center; padding-right: 5em; }
+.ab-hero__para { max-width: 14em; font-size: 1.5em; line-height: 1.25; color: var(--orange); }
+
+/* ---------- story + team: the line and the flood ---------- */
+.ab-flow { position: static; width: 100%; }
+.ab-line { position: absolute; z-index: 2; inset: 0; width: 100%; height: 100%; max-width: none; overflow: visible; pointer-events: none; }
+.ab-line path { fill: none; stroke: var(--orange); stroke-linecap: round; stroke-linejoin: round; }
+.ab-story { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 20em; width: 100%; max-width: var(--container); margin: 0 auto; padding: 35em 0 21em; }
+.ab-scene { display: flex; align-items: center; gap: 4em; width: 100%; padding: 0 3em; }
+.ab-scene__art { flex: none; width: 35.125em; aspect-ratio: 1701 / 1689; }
+.ab-scene--2 .ab-scene__art { width: 38em; aspect-ratio: 1898 / 818; }
+.ab-scene__text { flex: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 2em; min-width: 0; }
+.ab-scene--2 .ab-scene__text { flex: none; width: 42em; }
+.ab-scene__label { font-size: 1.125em; font-weight: 500; line-height: 1; text-transform: uppercase; color: var(--orange); }
+.ab-scene__h { max-width: 11em; font: 800 3em/0.92 var(--fd); letter-spacing: -0.02em; color: var(--orange); text-wrap: balance; }
+.ab-scene__p { max-width: 28em; font-size: 1.5em; line-height: 1.25; color: var(--orange); text-wrap: pretty; }
+
+/* team: orange in CSS so it reads without the script; the script clears it and floods it instead */
+.ab-team { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 2.5em; width: 100%; padding: 5em 0; background: var(--orange); }
+.ab-flooding .ab-team { background: none; }
+.ab-end { width: 26em; aspect-ratio: 1835 / 1629; margin-bottom: 1.5em; }
+.ab-team .label { color: var(--white); }
+.ab-team .sheading { max-width: 6em; color: var(--bg); }
+.ab-cards { display: flex; justify-content: space-between; align-items: flex-start; width: 100%; max-width: var(--container); padding: 0 1.25em 0 1.125em; }
+.ab-person { width: 32%; }
+.ab-card { display: flex; flex-direction: column; align-items: flex-start; gap: 1em; width: 100%; text-align: left; color: var(--white); border-radius: 1em; }
+.ab-card:focus-visible { outline-color: var(--white); outline-offset: 6px; }
+.ab-card__frame { display: block; width: 100%; aspect-ratio: 1; border: 0.5em solid var(--bg); border-radius: 1em; background: #e5d7cc; box-shadow: 2px 3px 0 0 var(--black); overflow: hidden; transition: translate 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.ab-card__frame img { width: 100%; height: 100%; object-fit: cover; }
+.ab-card__name { margin-top: 0.5em; font: 800 2.5em/1 var(--fd); letter-spacing: -0.02em; }
+.ab-card__role { max-width: 20em; font-size: 1.125em; line-height: 1.1; text-transform: uppercase; }
+.ab-card__more { display: inline-flex; align-items: center; gap: 0.6em; font-size: 1.125em; line-height: 1; text-transform: uppercase; opacity: 0.85; }
+.ab-card__more i { display: inline-flex; justify-content: center; align-items: center; width: 1.5em; height: 1.5em; border-radius: 50%; background: var(--black); color: var(--bg); font-style: normal; font-weight: 500; line-height: 1; transition: rotate 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); }
+@media (hover: hover) and (pointer: fine) {
+  .ab-card:hover .ab-card__frame { translate: -3px -4px; box-shadow: 6px 8px 0 0 var(--black); }
+  .ab-card:hover .ab-card__more i { rotate: 90deg; }
+}
+/* bios sit under each card until the script moves them into the popup */
+.ab-bio { margin-top: 1em; color: var(--white); font-size: 1em; line-height: 1.45; }
+.ab-bio p + p, .ab-bio p + a { margin-top: 0.8em; }
+.ab-bio a { display: inline-block; text-decoration: underline; text-underline-offset: 0.2em; }
+.js .ab-bio { display: none; }
+
+/* ---------- team popup ---------- */
+.ab-pop { position: fixed; inset: 0; width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 1.5em; border: 0; background: transparent; color: #111; overflow: hidden; }
+.ab-pop[open] { display: flex; justify-content: center; align-items: center; }
+.ab-pop::backdrop { background: transparent; }
+.ab-pop__card { position: relative; display: grid; grid-template-columns: minmax(240px, 38%) 1fr; gap: 2em; width: 100%; max-width: 960px; padding: 1.5em; border: 1.5px solid rgba(0, 0, 0, 0.12); border-radius: 1.5em; background: var(--bg); box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.4); will-change: transform; }
+.ab-pop__img { width: 100%; height: auto; aspect-ratio: 1; border-radius: 1em; background: #e5d7cc; object-fit: cover; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); }
+.ab-pop__body { display: flex; flex-direction: column; justify-content: space-between; gap: 1.5em; min-width: 0; padding-right: 0.5em; }
+.ab-pop__name { font: 800 3em/1.05 var(--fd); font-stretch: 75%; letter-spacing: -0.01em; text-transform: uppercase; }
+.ab-pop__role { margin-top: 0.35em; font-size: 1.125em; font-weight: 500; line-height: 1.2; letter-spacing: 0.04em; text-transform: uppercase; }
+.ab-pop__bio p { font-size: 1.125em; font-weight: 500; line-height: 1.55; color: #2b2b2b; }
+.ab-pop__bio p + p { margin-top: 1em; }
+.ab-pop__links { display: flex; flex-wrap: wrap; gap: 0.875em; }
+.ab-pop__links a { display: inline-flex; align-items: center; gap: 0.6em; padding: 0.5em 0.9em; border: 1.5px solid var(--orange); border-radius: 999px; font-size: 1.25em; line-height: 1; transition: scale 0.2s ease; }
+.ab-pop__links svg { width: 1em; height: 1em; fill: currentColor; }
+.ab-pop__close { position: absolute; top: -16px; right: -16px; display: flex; justify-content: center; align-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--orange); box-shadow: 2.5px 2.5px 0 var(--black); transition: scale 0.2s ease, rotate 0.2s ease, background-color 0.2s ease; }
+.ab-pop__close svg { width: 18px; height: 18px; fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; }
+@media (hover: hover) and (pointer: fine) {
+  .ab-pop__links a:hover { scale: 1.04; }
+  .ab-pop__close:hover { scale: 1.1; rotate: 90deg; background: #e03a22; }
+}
+
+/* ---------- behind the work: two marquee rows ---------- */
+
+/* ---------- house rules: sticky stack ---------- */
+.ab-rules { --step: 5em; display: flex; flex-direction: column; width: 100%; max-width: var(--container); margin: 0 auto; padding: 5em 1.25em 0 1.125em; }
+.ab-rule { position: sticky; top: calc(5em + var(--i) * var(--step)); z-index: calc(10 + var(--i) * 10); display: flex; flex-direction: column; gap: 2em; min-height: 40svh; padding-top: 2em; border-top: 1px solid rgba(249, 69, 45, 0.1); background: var(--bg); }
+.ab-rule__line { position: absolute; top: -1px; left: 0; right: 0; height: 1px; background: var(--orange); transform-origin: left; }
+.ab-rule__label { font-size: 1.125em; font-weight: 500; line-height: 1; text-transform: uppercase; }
+.ab-rule__row { display: flex; justify-content: space-between; align-items: flex-start; gap: 2em; }
+.ab-rule__h { max-width: 6em; font: 800 5em/0.8 var(--fd); font-stretch: 75%; text-transform: uppercase; color: var(--orange); text-wrap: balance; }
+.ab-rule__h .w { display: inline-block; white-space: nowrap; }
+.ab-rule__h .cm { display: inline-block; overflow: hidden; vertical-align: top; padding-top: 0.08em; margin-top: -0.08em; }
+.ab-rule__p { width: 33%; font-size: 1.15em; font-weight: 500; line-height: 1.35; }
+.ab-rules__spacer { height: max(0px, calc(60svh - 5em - 3 * var(--step))); }
+
+/* ---------- capabilities ---------- */
+.ab-caps { display: flex; flex-direction: column; align-items: center; gap: 4em; padding: 3em 0 5em; }
+.ab-caplist { display: flex; flex-wrap: wrap; justify-content: center; gap: 1em; max-width: var(--container); margin: 0; padding: 0 1.125em; list-style: none; }
+.ab-cap { position: relative; display: block; padding: 1em 2em; border: 1px solid var(--orange); border-radius: 100px; color: var(--orange); overflow: hidden; transition: background-color 0.3s ease, color 0.3s ease; }
+.ab-cap > span { position: relative; z-index: 2; display: block; font-size: 1.375em; font-weight: 500; line-height: 1; white-space: nowrap; }
+.ab-cap > svg { position: absolute; z-index: 1; inset: 0; width: 100%; height: 100%; max-width: none; pointer-events: none; }
+.ab-cap > svg path { fill: none; stroke: var(--orange); stroke-width: 0; stroke-linecap: round; stroke-linejoin: round; }
+a.ab-cap:focus-visible { outline-offset: 4px; }
+.ab-cap:not(.is-live):hover, .ab-cap:not(.is-live):focus-visible { background: var(--orange); color: var(--white); } /* plain fill when the script is not drawing it */
+.ab-cap.is-live { transition: none; }
+.ab-caps__cta { display: flex; align-items: center; gap: 1.5em; }
+.ab-work { font-size: 0.875em; font-weight: 500; text-decoration: underline; text-underline-offset: 0.25em; }
+
+/* ---------- tablet ---------- */
+@media (max-width: 991px) {
+  .ab-top { padding-top: 5em; }
+  .ab-h1 { font-size: 7.4em; white-space: normal; }
+  .ab-h1__a { padding-right: 0.12em; }
+  .ab-loop { top: 2em; right: -21em; }
+  .ab-hero__row { gap: 3.5em; padding: 0 5em; }
+  .ab-hero__art { width: 22em; }
+  .ab-hero__col { padding-right: 2em; }
+  .ab-hero__para { font-size: 1.125em; }
+  .ab-story { gap: 16em; padding: 18em 0 17em; }
+  .ab-scene { gap: 3em; }
+  .ab-scene__art { width: 20em; }
+  .ab-scene--2 .ab-scene__art { width: 22em; }
+  .ab-scene--2 .ab-scene__text { flex: 1; width: auto; }
+  .ab-scene__text { gap: 1.5em; }
+  .ab-scene__label { font-size: 1em; }
+  .ab-scene__h { font-size: 2.2em; }
+  .ab-scene__p { font-size: 1.125em; line-height: 1.3; }
+  .ab-end { width: 20em; }
+  .ab-team .sheading { font-size: 4em; }
+  .ab-card__name { font-size: 2em; }
+  .ab-card__role, .ab-card__more { font-size: 1em; }
+  .ab-rule__h { font-size: 5em; }
+  .ab-rule__p { width: 38%; }
+}
+
+/* ---------- phones: text first, art under it, the line runs down a gutter beside the text ---------- */
+@media (max-width: 767px) {
+  .ab-top { padding-top: 6.5em; }
+  .ab-hero__text { padding: 0 0.6em; }
+  .ab-h1 { font-size: 5.6em; text-align: center; }
+  .ab-h1__a, .ab-h1__b { padding: 0; text-align: center; }
+  .ab-pill { font-size: 0.85em; }
+  .ab-pill--1 { top: -9%; right: 6%; }
+  .ab-pill--2 { bottom: -7%; left: 7%; }
+  .ab-loop { display: none; }
+  .ab-hero__row { flex-direction: column-reverse; gap: 2.5em; padding: 3.5em 1.25em 0; }
+  .ab-hero__col { padding: 0; }
+  .ab-hero__para { max-width: 19em; font-size: 1.125em; line-height: 1.35; text-align: center; }
+  .ab-hero__art { width: 86%; }
+  .ab-story { gap: 7em; padding: 9em 0 13em; }
+  .ab-scene, .ab-scene--2 { flex-direction: column; align-items: stretch; gap: 2.5em; padding: 0 1.25em; }
+  .ab-scene--2 { flex-direction: column; }
+  .ab-scene--1 .ab-scene__art { order: 2; }
+  .ab-scene--1 .ab-scene__text { padding-left: 3.6em; }
+  .ab-scene--2 .ab-scene__text { order: -1; width: auto; padding-right: 3.6em; }
+  .ab-scene__text { gap: 1.1em; }
+  .ab-scene__label { font-size: 0.875em; }
+  .ab-scene__h { font-size: 2em; }
+  .ab-scene__p { font-size: 1.0625em; line-height: 1.4; }
+  .ab-scene__art { width: 64%; margin: 0 auto; }
+  .ab-scene--2 .ab-scene__art { width: 84%; margin: 0 auto; }
+  .ab-team { gap: 1.5em; }
+  .ab-end { width: 60%; margin-bottom: 0.5em; }
+  .ab-team .shead { align-items: center; }
+  .ab-team .sheading { font-size: 3.6em; text-align: center; }
+  .ab-cards { flex-direction: column; align-items: center; gap: 2.5em; padding: 0 0.5em; }
+  .ab-person { width: 80%; }
+  .ab-card { gap: 0.6em; }
+  .ab-card__name { font-size: 1.75em; }
+  .ab-pop { padding: 16px; }
+  .ab-pop__card { grid-template-columns: 1fr; gap: 1.25em; max-height: 90svh; padding: 1.25em; overflow-y: auto; }
+  .ab-pop__img { width: 46%; border-radius: 16px; }
+  .ab-pop__name { font-size: 2.125em; }
+  .ab-pop__role { font-size: 0.9em; }
+  .ab-pop__bio p { font-size: 1em; line-height: 1.5; }
+  .ab-pop__links a { font-size: 1.125em; }
+  .ab-pop__close { top: 10px; right: 10px; }
+  .ab-rules { --step: 3em; padding: 5em 0.5em 0; }
+  .ab-rule { gap: 1em; padding: 1em 0 3em; }
+  .ab-rule__label { font-size: 1em; }
+  .ab-rule__row { flex-direction: column; gap: 1.25em; }
+  .ab-rule__h { font-size: 3.4em; }
+  .ab-rule__p { width: 88%; font-size: 1.0625em; }
+  .ab-caps { gap: 2em; }
+  .ab-caplist { gap: 0.5em; padding: 0 0.5em; }
+  .ab-cap { padding: 0.75em 1.5em; }
+  .ab-cap > span { font-size: 1.03em; }
+}
+@media (max-width: 479px) {
+  .ab-h1 { font-size: 4.1em; }
+  .ab-scene__h { font-size: 1.8em; }
+  .ab-rule__h { font-size: 3em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ab-card__frame, .ab-card__more i, .ab-pop__close, .ab-pop__links a, .ab-cap { transition: none; }
+}
+
+/* four people across (Ziyavdi joined 2026-11-11) */
+.ab-person { width: 23.5%; }
+.ab-card__frame img { object-fit: cover; }
+@media (max-width: 767px) { .ab-person { width: 80%; } }
+
+/* what's cooking (2026-11-11): three things the studio is making for itself */
+.ab-cook { width: 100%; max-width: var(--container); margin: 0 auto; padding: 8em 1.25em 4em; }
+.ab-cook__lede { max-width: 30em; margin: 0 0 3em; font-size: 1.25em; line-height: 1.4; }
+.ab-cook__list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5em; margin: 0; padding: 0; list-style: none; }
+.ab-dish { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 0.75em; }
+.ab-dish__img { display: block; width: 100%; aspect-ratio: 4 / 3; border: 1.5px solid #000; border-radius: 1.2em; box-shadow: 0.3em 0.3em 0 #000; overflow: hidden; transition: rotate 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), translate 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.ab-dish__img img { width: 100%; height: 100%; object-fit: cover; }
+.ab-dish:nth-child(odd) .ab-dish__img { rotate: -1.5deg; } .ab-dish:nth-child(even) .ab-dish__img { rotate: 1.5deg; }
+@media (hover: hover) and (pointer: fine) { .ab-dish:hover .ab-dish__img { rotate: 0deg; translate: 0 -0.4em; } }
+.ab-dish__pill { position: absolute; top: -0.9em; left: 1em; z-index: 2; padding: 0.5em 1.1em; background: #000; rotate: -4deg; }
+.ab-dish__pill > span { color: var(--bg); }
+.ab-dish__pill--hot { background: var(--orange); } .ab-dish__pill--hot > span { color: #000; }
+.ab-dish h3 { margin-top: 0.5em; font: 800 1.9em/0.95 var(--fd); font-stretch: 75%; text-transform: uppercase; }
+.ab-dish p { max-width: 24em; font-size: 1.05em; line-height: 1.4; }
+.ab-dish p a { text-decoration: underline; text-underline-offset: 0.2em; }
+@media (max-width: 991px) { .ab-cook__list { grid-template-columns: 1fr 1fr; row-gap: 3em; } }
+@media (max-width: 767px) { .ab-cook { padding-top: 5em; } .ab-cook__list { grid-template-columns: 1fr; } }
+.ab-cook .sheading { max-width: none; }
+.ab-cook__cta { display: flex; align-items: center; justify-content: space-between; gap: 2em; margin-top: 4em; padding: 2em 2.25em; border: 1.5px solid #000; border-radius: 1.5em; background: var(--orange); box-shadow: 0.35em 0.35em 0 #000; }
+.ab-cook__cta p { max-width: 30em; font: 800 1.9em/1 var(--fd); font-stretch: 75%; text-transform: uppercase; color: #000; }
+@media (max-width: 767px) { .ab-cook__cta { flex-direction: column; align-items: flex-start; gap: 1.25em; padding: 1.5em; } .ab-cook__cta p { font-size: 1.5em; } }

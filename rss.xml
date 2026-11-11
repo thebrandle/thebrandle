@@ -1,31 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-<title>TheBrandle - Articles</title>
-<link>https://www.thebrandle.com/blog</link>
-<description>Practical guidance on websites, ecommerce and brand.</description>
-<language>en</language>
-<atom:link href="https://www.thebrandle.com/rss.xml" rel="self" type="application/rss+xml"/>
-<item>
-<title>How to Choose a Branding Agency (Without Getting Burned)</title>
-<link>https://www.thebrandle.com/blog/branding-agency/</link>
-<guid isPermaLink="true">https://www.thebrandle.com/blog/branding-agency/</guid>
-
-<description>Choosing the wrong branding agency is an expensive mistake. Here is a practical decision framework for founders - covering what to look for, what to avoid, and how to tell whether you even need an agency at all.</description>
-</item>
-<item>
-<title>Website Design in 2026: What Founders Need to Know Before They Build</title>
-<link>https://www.thebrandle.com/blog/website-design/</link>
-<guid isPermaLink="true">https://www.thebrandle.com/blog/website-design/</guid>
-
-<description>First impressions form in 50 milliseconds - and in 2026, good website design means far more than looking polished. Here&#39;s what actually matters before you build.</description>
-</item>
-<item>
-<title>Should I Hire a Web Designer or Do It Myself? An Honest Answer for Founders</title>
-<link>https://www.thebrandle.com/blog/should-i-hire-a-web-designer-or-do-it-myself/</link>
-<guid isPermaLink="true">https://www.thebrandle.com/blog/should-i-hire-a-web-designer-or-do-it-myself/</guid>
-
-<description>Most guides tell early-stage founders to just DIY. We disagree. Here is a straight answer on when to build it yourself, when to hire, and what a poor site is actually costing you.</description>
-</item>
+  <title>The Brandle blog</title>
+  <link>https://www.thebrandle.com/blog</link>
+  <description>Plain guides on website costs, platforms, redesigns, ecommerce and branding from The Brandle, a Dubai design and development studio.</description>
+  <language>en</language>
+  <lastBuildDate>Fri, 16 Oct 2026 00:00:00 +0000</lastBuildDate>
+  <atom:link href="https://www.thebrandle.com/rss.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>How to build a startup website people trust</title>
+    <link>https://www.thebrandle.com/blog/how-to-build-a-startup-website/</link>
+    <guid isPermaLink="true">https://www.thebrandle.com/blog/how-to-build-a-startup-website/</guid>
+    <pubDate>Fri, 16 Oct 2026 00:00:00 +0000</pubDate>
+    <description>How to build a startup website that earns trust: one clear job, the pages you actually need, the right platform, a realistic budget and a launch checklist.</description>
+  </item>
+  <item>
+    <title>How to Choose a Branding Agency (Without Getting Burned)</title>
+    <link>https://www.thebrandle.com/blog/branding-agency/</link>
+    <guid isPermaLink="true">https://www.thebrandle.com/blog/branding-agency/</guid>
+    <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
+    <description>A practical guide for founders on how to choose a branding agency - what to look for, what red flags to avoid, and how platform choice affects your brand.</description>
+  </item>
+  <item>
+    <title>Website Design in 2026: What Founders Need to Know Before They Build</title>
+    <link>https://www.thebrandle.com/blog/website-design/</link>
+    <guid isPermaLink="true">https://www.thebrandle.com/blog/website-design/</guid>
+    <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+    <description>What makes good website design in 2026? A practical guide for founders on trends, platforms, custom vs. themes, and what to look for in a studio.</description>
+  </item>
+  <item>
+    <title>Headless CMS: what it is and when you actually need one</title>
+    <link>https://www.thebrandle.com/blog/headless-cms-guide/</link>
+    <guid isPermaLink="true">https://www.thebrandle.com/blog/headless-cms-guide/</guid>
+    <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+    <description>A plain-English guide to headless CMS - what it means, what it costs, and the honest cases where a traditional CMS is still the better call.</description>
+  </item>
+  <item>
+    <title>AI in web design: what it does well and where it fails</title>
+    <link>https://www.thebrandle.com/blog/ai-in-web-design/</link>
+    <guid isPermaLink="true">https://www.thebrandle.com/blog/ai-in-web-design/</guid>
+    <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+    <description>An honest look at AI in web design and SEO in 2026 - what it genuinely speeds up, where it produces work you have to redo, and what Google actually penalises.</description>
+  </item>
+  <item>
+    <title>Arabic and RTL website design: doing it properly</title>
+    <link>https://www.thebrandle.com/blog/arabic-rtl-website-design/</link>
+    <guid isPermaLink="true">https://www.thebrandle.com/blog/arabic-rtl-website-design/</guid>
+    <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+    <description>How to design Arabic and right-to-left websites properly - typography, layout mirroring, bilingual structure and the mistakes that make a site look translated.</description>
+  </item>
+  <item>
+    <title>How to redesign your website without losing SEO</title>
+    <link>https://www.thebrandle.com/blog/website-redesign-without-losing-seo/</link>
+    <guid isPermaLink="true">https://www.thebrandle.com/blog/website-redesign-without-losing-seo/</guid>
+    <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+    <description>A practical checklist for redesigning a website without losing search rankings - URL mapping, redirects, content parity and what to monitor after launch.</description>
+  </item>
+  <item>
+    <title>Website maintenance: what you actually need to pay for</title>
+    <link>https://www.thebrandle.com/blog/website-maintenance-cost/</link>
+    <guid isPermaLink="true">https://www.thebrandle.com/blog/website-maintenance-cost/</guid>
+    <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+    <description>What website maintenance really costs, what a care plan should include, and which line items are worth paying for versus padding on an invoice.</description>
+  </item>
+  <item>
+    <title>WordPress vs Webflow: an honest comparison</title>
+    <link>https://www.thebrandle.com/blog/wordpress-vs-webflow/</link>
+    <guid isPermaLink="true">https://www.thebrandle.com/blog/wordpress-vs-webflow/</guid>
+    <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+    <description>WordPress vs Webflow compared honestly - cost, editing, SEO, ecommerce and maintenance, with a clear view of which suits which kind of business.</description>
+  </item>
+  <item>
+    <title>The real cost of a website over three years</title>
+    <link>https://www.thebrandle.com/blog/website-total-cost-of-ownership/</link>
+    <guid isPermaLink="true">https://www.thebrandle.com/blog/website-total-cost-of-ownership/</guid>
+    <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+    <description>The true total cost of owning a website - build, hosting, maintenance, content and the hidden costs most quotes leave out, with a three-year view.</description>
+  </item>
+  <item>
+    <title>Real estate website design: what actually converts</title>
+    <link>https://www.thebrandle.com/blog/real-estate-website-design/</link>
+    <guid isPermaLink="true">https://www.thebrandle.com/blog/real-estate-website-design/</guid>
+    <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+    <description>What works in real estate website design - listing search, lead capture, portal integration and the mistakes that lose enquiries on property websites.</description>
+  </item>
+  <item>
+    <title>Core Web Vitals: what they are and how to fix them</title>
+    <link>https://www.thebrandle.com/blog/core-web-vitals-guide/</link>
+    <guid isPermaLink="true">https://www.thebrandle.com/blog/core-web-vitals-guide/</guid>
+    <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+    <description>A practical guide to Core Web Vitals - LCP, INP and CLS explained in plain English, what causes bad scores, and the fixes that actually move the numbers.</description>
+  </item>
+  <item>
+    <title>Progressive web apps: do you actually need one?</title>
+    <link>https://www.thebrandle.com/blog/progressive-web-apps/</link>
+    <guid isPermaLink="true">https://www.thebrandle.com/blog/progressive-web-apps/</guid>
+    <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+    <description>What a progressive web app is, how it compares to a native mobile app, and the honest cases where a PWA is the right choice for a business.</description>
+  </item>
+  <item>
+    <title>Website security: a practical checklist for small businesses</title>
+    <link>https://www.thebrandle.com/blog/website-security-checklist/</link>
+    <guid isPermaLink="true">https://www.thebrandle.com/blog/website-security-checklist/</guid>
+    <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+    <description>A practical website security checklist for small businesses - the realistic threats, the fixes that matter most, and what to do if you are compromised.</description>
+  </item>
+  <item>
+    <title>Should I Hire a Web Designer or Do It Myself? An Honest Answer for Founders</title>
+    <link>https://www.thebrandle.com/blog/should-i-hire-a-web-designer-or-do-it-myself/</link>
+    <guid isPermaLink="true">https://www.thebrandle.com/blog/should-i-hire-a-web-designer-or-do-it-myself/</guid>
+    <pubDate>Mon, 27 Jul 2026 00:00:00 +0000</pubDate>
+    <description>Weighing DIY vs hiring a web designer? Get an honest, founder-focused decision guide covering costs, risks, platforms, and when not to hire anyone.</description>
+  </item>
+  <item>
+    <title>Shopify vs WooCommerce: which should you build your store on?</title>
+    <link>https://www.thebrandle.com/blog/shopify-vs-woocommerce/</link>
+    <guid isPermaLink="true">https://www.thebrandle.com/blog/shopify-vs-woocommerce/</guid>
+    <pubDate>Wed, 22 Jul 2026 00:00:00 +0000</pubDate>
+    <description>Shopify or WooCommerce in 2026? A practical comparison of cost, speed, maintenance and scaling - and how to pick the right platform for your online store.</description>
+  </item>
+  <item>
+    <title>How much does a website cost in Dubai?</title>
+    <link>https://www.thebrandle.com/blog/website-cost-dubai/</link>
+    <guid isPermaLink="true">https://www.thebrandle.com/blog/website-cost-dubai/</guid>
+    <pubDate>Wed, 22 Jul 2026 00:00:00 +0000</pubDate>
+    <description>Real 2026 price ranges for websites in Dubai and the UAE - template builds, custom design, ecommerce stores - and what actually drives the cost up or down.</description>
+  </item>
+  <item>
+    <title>Framer vs Webflow: which builder fits your website?</title>
+    <link>https://www.thebrandle.com/blog/framer-vs-webflow/</link>
+    <guid isPermaLink="true">https://www.thebrandle.com/blog/framer-vs-webflow/</guid>
+    <pubDate>Wed, 22 Jul 2026 00:00:00 +0000</pubDate>
+    <description>Framer vs Webflow in 2026 - speed, animation, CMS, scaling and pricing compared by an agency that builds on both. How to pick the right tool for your site.</description>
+  </item>
+  <item>
+    <title>Moving from Wix to Shopify: a practical guide</title>
+    <link>https://www.thebrandle.com/blog/wix-to-shopify-migration/</link>
+    <guid isPermaLink="true">https://www.thebrandle.com/blog/wix-to-shopify-migration/</guid>
+    <pubDate>Wed, 22 Jul 2026 00:00:00 +0000</pubDate>
+    <description>Outgrown Wix ecommerce? How to migrate to Shopify without losing sales or SEO - what moves across, what does not, timelines, and when migration is worth it.</description>
+  </item>
 </channel>
 </rss>

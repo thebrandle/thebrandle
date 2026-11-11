@@ -1,0 +1,352 @@
+{
+ "status": "FINAL. All 13 files are in place.",
+ "notes": [
+  "Every file is a transparent-background SVG in three colours: black #000, orange #f9452d, paper #f8eee8 (the page --bg). No raster, no text inside the art. Paper is a real fill, so the art works on cream and on the orange panel without blend modes.",
+  "display_em is [width, height] in em at the intended size (1em = 16px at 1440). At that size the outline is about 3.5px. Smaller is fine; keep art visible on phones.",
+  "Use <img src width height alt loading=lazy> with the width and height given here (viewBox units) so the layout holds. Decorative uses: alt=\"\" and aria-hidden.",
+  "Inline the SVG only if you want to restyle it: paths sit in groups with class ink, paper or orange."
+ ],
+ "files": {
+  "contact-camel-head.svg": {
+   "ready": true,
+   "viewBox": [
+    0,
+    0,
+    1594,
+    1642
+   ],
+   "width": 1594,
+   "height": 1642,
+   "bytes": 50624,
+   "alt": "",
+   "role": "head without lower jaw and ears; includes a short neck stub that ends in a round paper cap centred on neck.attach",
+   "display_em": [
+    16,
+    16.48
+   ]
+  },
+  "contact-camel-jaw.svg": {
+   "ready": true,
+   "viewBox": [
+    0,
+    0,
+    1594,
+    1642
+   ],
+   "width": 1594,
+   "height": 1642,
+   "bytes": 23573,
+   "alt": "",
+   "role": "lower jaw with the black inside of the mouth",
+   "pivot": [
+    723,
+    1255
+   ],
+   "rotate_deg": {
+    "rest_open": 0,
+    "holding_card": 22,
+    "chew_between": [
+     17,
+     24
+    ],
+    "safe_range": [
+     -4,
+     34
+    ],
+    "sign": "CSS rotate, positive closes the mouth"
+   }
+  },
+  "contact-camel-ear-l.svg": {
+   "ready": true,
+   "viewBox": [
+    0,
+    0,
+    1594,
+    1642
+   ],
+   "width": 1594,
+   "height": 1642,
+   "bytes": 14599,
+   "alt": "",
+   "role": "far ear (the left one)",
+   "pivot": [
+    842,
+    451
+   ],
+   "rotate_deg": {
+    "safe_range": [
+     -18,
+     14
+    ]
+   }
+  },
+  "contact-camel-ear-r.svg": {
+   "ready": true,
+   "viewBox": [
+    0,
+    0,
+    1594,
+    1642
+   ],
+   "width": 1594,
+   "height": 1642,
+   "bytes": 15155,
+   "alt": "",
+   "role": "near ear (the right one)",
+   "pivot": [
+    1262,
+    607
+   ],
+   "rotate_deg": {
+    "safe_range": [
+     -18,
+     14
+    ]
+   }
+  },
+  "contact-camel-lid.svg": {
+   "ready": true,
+   "viewBox": [
+    0,
+    0,
+    1594,
+    1642
+   ],
+   "width": 1594,
+   "height": 1642,
+   "bytes": 246,
+   "alt": "",
+   "role": "eyelid: paper almond over the eye with a black closing edge. Blink with scaleY 0 (open) to 1 (closed)",
+   "pivot": [
+    947,
+    639
+   ],
+   "eye_centre": [
+    947,
+    689
+   ]
+  },
+  "about-hero.svg": {
+   "ready": true,
+   "viewBox": [
+    0,
+    0,
+    2528.0,
+    1696.0
+   ],
+   "width": 2528,
+   "height": 1696,
+   "display_em": [
+    41.31,
+    27.71
+   ],
+   "bytes": 54498,
+   "alt": "The Brandle family photo: an orange camel resting its chin on a man in sunglasses, a woman with big wavy hair, and a white spotted camel nibbling her hair.",
+   "note": "Cut flat by the left, right and bottom edges like a cropped photo. Clear space above the heads."
+  },
+  "notfound.svg": {
+   "ready": true,
+   "viewBox": [
+    0,
+    0,
+    1010.0,
+    1812.0
+   ],
+   "width": 1010,
+   "height": 1812,
+   "display_em": [
+    15,
+    26.91
+   ],
+   "bytes": 33870,
+   "alt": "A lost orange camel standing on two legs with a rucksack, frowning at a map it is holding upside down.",
+   "note": "Tall figure. 15em wide is 27em tall."
+  },
+  "work-hero.svg": {
+   "ready": true,
+   "viewBox": [
+    0,
+    0,
+    2519.0,
+    1341.0
+   ],
+   "width": 2519,
+   "height": 1341,
+   "display_em": [
+    35,
+    18.63
+   ],
+   "bytes": 46907,
+   "alt": "The two designers hang a big framed screen. He is on a step stool, she checks if it is straight, and the spotted camel is pulling one corner up with its teeth, so it is not.",
+   "screen": {
+    "note": "blank paper area inside the black frame, free for live content or a .mock__screen; the woman's head and raised hand overlap its lower right",
+    "corners_tl_tr_br_bl": [
+     [
+      1081,
+      68
+     ],
+     [
+      1971,
+      204
+     ],
+     [
+      1887,
+      714
+     ],
+     [
+      1001,
+      577
+     ]
+    ],
+    "rotate_deg": 8.7,
+    "size": [
+     900,
+     515
+    ]
+   }
+  },
+  "about-story-1.svg": {
+   "ready": true,
+   "viewBox": [
+    0,
+    0,
+    1701.0,
+    1689.0
+   ],
+   "width": 1701,
+   "height": 1689,
+   "display_em": [
+    35.13,
+    34.88
+   ],
+   "bytes": 53870,
+   "alt": "The orange camel calmly eating the corner of a paper brief.",
+   "beat": "how we work: the brief (fixed quote before work starts). The sheet carries dummy bars, add any word as HTML on top."
+  },
+  "about-story-2.svg": {
+   "ready": true,
+   "viewBox": [
+    0,
+    0,
+    1898.0,
+    818.0
+   ],
+   "width": 1898,
+   "height": 818,
+   "display_em": [
+    35.13,
+    15.14
+   ],
+   "bytes": 26600,
+   "alt": "A hand in an orange sleeve passing a big key with a tiny camel charm to an open hand.",
+   "beat": "the client owns the code and files",
+   "note": "Wide and short: 35.13em wide is about 15em tall. Centre it in the 35.13em x 37em slot or show it at full column width."
+  },
+  "about-end.svg": {
+   "ready": true,
+   "viewBox": [
+    0,
+    0,
+    1835.0,
+    1629.0
+   ],
+   "width": 1835,
+   "height": 1629,
+   "display_em": [
+    38,
+    33.73
+   ],
+   "bytes": 41102,
+   "alt": "The spotted camel sitting upright in an office chair that is too small for it. The second chair is empty with an orange bomber jacket over its back.",
+   "ground": "orange",
+   "note": "Made for the orange field: the jacket's orange merges with the ground and reads as line work. Also fine on cream."
+  },
+  "blog-hero.svg": {
+   "ready": true,
+   "viewBox": [
+    0,
+    0,
+    1794.0,
+    1533.0
+   ],
+   "width": 1794,
+   "height": 1533,
+   "display_em": [
+    32,
+    27.34
+   ],
+   "bytes": 42408,
+   "alt": "The orange camel sitting cross-legged in round reading glasses, reading a large newspaper."
+  },
+  "services-hero.svg": {
+   "ready": true,
+   "viewBox": [
+    0,
+    0,
+    1715.0,
+    1595.0
+   ],
+   "width": 1715,
+   "height": 1595,
+   "display_em": [
+    25.8,
+    23.99
+   ],
+   "bytes": 54583,
+   "alt": "The white spotted camel wearing a tool belt full of tools, a pencil behind its ear and a spirit level in its mouth.",
+   "note": "25.8em wide is 24em tall."
+  }
+ },
+ "contact_camel": {
+  "coordinate_space": "All five part files share one viewBox, 0 0 1594 1642. Stack them at the same position and size; every point below is in that space. Percent origin for CSS: x/1594, y/1642.",
+  "stack_bottom_to_top": [
+   "neck (drawn in code)",
+   "contact-camel-ear-l.svg",
+   "contact-camel-jaw.svg",
+   "card (HTML link)",
+   "contact-camel-head.svg",
+   "contact-camel-ear-r.svg",
+   "contact-camel-lid.svg"
+  ],
+  "faces": "left",
+  "neck": {
+   "attach": [
+    1115,
+    1309
+   ],
+   "direction": "straight down from attach at rest",
+   "width_outer": 629,
+   "outline": 20,
+   "fill": "#f8eee8",
+   "stroke": "#000",
+   "how": "two paths with the same d and round caps, starting at attach: black at width_outer under paper at width_outer - 2*outline. Units are viewBox units, scale with the art. The head's stub ends in a round cap centred on attach, so the head can turn about attach without a seam (checked to 12 degrees either way).",
+   "as_share_of_head_width": 0.395
+  },
+  "head_pivot": [
+   1115,
+   1309
+  ],
+  "mouth": {
+   "hold_point": [
+    430,
+    1010
+   ],
+   "card_angle_deg": -14,
+   "note": "Put the middle of the card's right edge on hold_point, transform-origin 100% 50%, rotate(-14deg): the card then runs out to the left along the upper lip, left end lower. To make the card tilt up 8 degrees as in the spec, turn the whole head group by rotate(22deg) about head_pivot. The upper lip (head) covers the card's top right corner; the jaw closes on it from below at 22 degrees.",
+   "card_size_hint": [
+    950,
+    440
+   ]
+  },
+  "spots": "three small spots on the cheek only; none on the neck stub, so neck spots are yours to add as ellipses",
+  "tested": "rest pose, jaw at -5, 12, 16, 24 and 34 degrees, ears at -18 to 14, lid at 0, 0.5 and 1, head at -10, 6 and 12 degrees, on orange and on cream, at 420, 300, 240 and 120 px wide",
+  "known_limits": [
+   "with the jaw closed past 16 degrees a small straight edge shows at the back corner of the mouth; the card hides it",
+   "ears turned more than 14 degrees toward each other open a hairline at the base"
+  ]
+ },
+ "source": {
+  "model": "Google Nano Banana 2.1 at 2k with the hero still as reference; traced with potrace into three flat layers",
+  "credits_spent": 750
+ }
+}

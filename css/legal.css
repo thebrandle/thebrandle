@@ -1,0 +1,80 @@
+/* Long-form pages: /privacy and /terms. Sizes in em of the body size, like styles.css.
+   .prose is the reading column on its own (headings, paragraphs, lists, links): any long article can use it.
+   No page script: the reading bar and the "you are here" dots in the contents list are CSS scroll timelines,
+   and browsers without them simply show neither. */
+
+/* hero */
+.legal__hero { position: relative; display: flex; flex-direction: column; align-items: center; gap: 2em; padding: 9em 1.25em 5em; background: linear-gradient(180deg, #fae3e2 60%, var(--bg)); text-align: center; overflow: hidden; }
+.legal__text { position: relative; margin-top: 1em; }
+.legal__pill { position: absolute; z-index: 2; }
+.legal__pill--1 { top: -8%; left: -22%; rotate: -6deg; }
+.legal__pill--2 { bottom: 8%; left: calc(100% - 1.5em); rotate: 4deg; } /* hangs off the right edge of the heading, clear of its letters */
+.legal__lead { max-width: 30em; font-size: 1.5em; line-height: 1.3; text-wrap: balance; }
+.legal__date { font-size: 1em; font-weight: 500; text-transform: uppercase; color: var(--orange); }
+
+/* contents list beside the reading column */
+.legal__body { display: grid; grid-template-columns: 17em minmax(0, 42em); justify-content: center; align-items: start; gap: 5em; padding: 3em 1.25em 9em; }
+.legal__toc { position: sticky; top: 6.5em; }
+.legal__toc-h { margin-bottom: 1.2em; font-size: 1.125em; font-weight: 500; line-height: 1; text-transform: uppercase; }
+.legal__toc ol { display: flex; flex-direction: column; gap: 0.15em; margin: 0; padding: 0; list-style: none; counter-reset: toc; }
+.legal__toc li { counter-increment: toc; }
+.legal__toc a { position: relative; display: flex; gap: 0.6em; padding: 0.3em 0 0.3em 1.1em; font-size: 0.9375em; line-height: 1.25; }
+.legal__toc a::after { content: counter(toc, decimal-leading-zero); order: -1; flex: none; width: 1.5em; font-weight: 500; color: var(--orange); }
+.legal__toc a::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 0.5em; height: 0.5em; border-radius: 50%; background: var(--orange); opacity: 0; }
+@media (hover: hover) and (pointer: fine) { .legal__toc a:hover { text-decoration: underline; text-underline-offset: 0.2em; } }
+
+/* the reading column */
+.prose { min-width: 0; }
+.prose section { scroll-margin-top: 2.5em; }
+.prose section + section { padding-top: 3.75em; } /* padding, not margin: sections touch, so exactly one is "here" at a time */
+.prose h2 { margin-bottom: 0.5em; font: 800 2.75em/0.95 var(--fd); font-stretch: 75%; text-transform: uppercase; text-wrap: balance; }
+.prose h2 b { margin-right: 0.25em; font-weight: inherit; color: var(--orange); }
+.prose h3 { margin: 1.6em 0 0.5em; font-size: 1.375em; font-weight: 500; line-height: 1.2; }
+.prose p, .prose li { font-size: 1.125em; line-height: 1.6; }
+.prose p + p, .prose ul + p, .prose p + ul { margin-top: 0.9em; }
+.prose ul { display: flex; flex-direction: column; gap: 0.55em; margin: 0; padding: 0; list-style: none; }
+.prose li { position: relative; padding-left: 1.4em; }
+.prose li::before { content: ""; position: absolute; left: 0.15em; top: 0.62em; width: 0.4em; height: 0.4em; border-radius: 50%; background: var(--orange); }
+.prose strong { font-weight: 500; }
+.prose a { text-decoration: underline; text-decoration-color: var(--orange); text-decoration-thickness: 0.1em; text-underline-offset: 0.2em; overflow-wrap: anywhere; }
+@media (hover: hover) and (pointer: fine) { .prose a:hover { color: var(--orange); } }
+
+/* the short version: a card above the full text */
+.legal__short { margin-bottom: 4em; padding: 2em 2.25em; border: 1px solid var(--orange); border-radius: 2em 2em 2em 0; background: var(--white); }
+.legal__short h2 { font-size: 2em; color: var(--orange); }
+.legal__short small { display: block; margin-top: 1.2em; font-size: 0.875em; line-height: 1.4; opacity: 0.7; }
+.legal__note { margin-top: 3.75em; padding-top: 1.5em; border-top: 1px solid #0003; }
+.legal__note p { font-size: 1em; }
+
+/* scroll timelines: a reading bar across the top, and a dot beside the section that is on screen */
+.legal__bar { display: none; }
+@supports (animation-timeline: scroll()) {
+  .legal__bar { display: block; position: fixed; z-index: 1000; inset: 0 0 auto; height: 0.3em; background: var(--orange); transform-origin: 0 50%; animation: legal-bar linear both; animation-timeline: scroll(root); }
+  @keyframes legal-bar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  @media (min-width: 992px) {
+    .legal__body { timeline-scope: --s1, --s2, --s3, --s4, --s5, --s6, --s7, --s8, --s9, --s10, --s11, --s12, --s13, --s14; }
+    .prose section { view-timeline-name: var(--tl); view-timeline-inset: 30% 69%; } /* a section is "here" while it crosses a thin line a third of the way down the window */
+    .legal__toc a::before { animation: legal-here linear both; animation-timeline: var(--tl); }
+    @keyframes legal-here { 0%, 100% { opacity: 0; } 1%, 99% { opacity: 1; } }
+  }
+}
+
+@media (max-width: 991px) {
+  .legal__body { grid-template-columns: minmax(0, 42em); gap: 3em; }
+  .legal__toc { position: static; padding: 1.75em 2em; border-radius: 1em; background: #f2e3da; }
+  .legal__toc ol { display: block; columns: 2; column-gap: 2em; }
+  .legal__toc a { padding-left: 0; }
+  .legal__pill--1 { left: -10%; }
+}
+@media (max-width: 767px) {
+  .legal__hero { padding: 9em 1em 4em; }
+  .legal__text { margin: 2em 0 2.25em; }
+  .legal__pill--1 { top: -30%; left: -2%; }
+  .legal__pill--2 { bottom: -42%; left: auto; right: -2%; }
+  .legal__lead { font-size: 1.25em; }
+  .legal__body { padding: 2em 1em 6em; }
+  .legal__toc ol { columns: 1; }
+  .legal__toc a { font-size: 1em; padding: 0.45em 0; }
+  .prose h2 { font-size: 2.25em; }
+  .legal__short { padding: 1.5em; }
+}

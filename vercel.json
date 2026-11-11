@@ -2,6 +2,17 @@
   "cleanUrls": false,
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "thebrandlefinal.vercel.app"
+        }
+      ],
+      "destination": "https://www.thebrandle.com/:path*",
+      "permanent": true
+    },
+    {
       "source": "/thebrandle.framer.website",
       "destination": "/",
       "permanent": true
@@ -14,6 +25,16 @@
     {
       "source": "/thebrandle.framer.website/:path*",
       "destination": "/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/home-preview",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home-preview/",
+      "destination": "/",
       "permanent": true
     },
     {
@@ -77,160 +98,257 @@
       "permanent": true
     },
     {
-      "source": "/home-preview",
+      "source": "/index.html",
       "destination": "/",
       "permanent": true
-    },
-    {
-      "source": "/home-preview/",
-      "destination": "/",
-      "permanent": true
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/api/contact",
-      "destination": "/api/contact"
-    },
-    {
-      "source": "/api/cal-slots",
-      "destination": "/api/cal-slots"
-    },
-    {
-      "source": "/sitemap.xml",
-      "destination": "/thebrandle.framer.website/sitemap.xml"
-    },
-    {
-      "source": "/robots.txt",
-      "destination": "/robots.txt"
-    },
-    {
-      "source": "/services",
-      "destination": "/services/index.html"
-    },
-    {
-      "source": "/team",
-      "destination": "/team/index.html"
-    },
-    {
-      "source": "/services/:slug",
-      "destination": "/services/:slug/index.html"
-    },
-    {
-      "source": "/blog",
-      "destination": "/blog/index.html"
-    },
-    {
-      "source": "/faq",
-      "destination": "/faq/index.html"
-    },
-    {
-      "source": "/api/visibility-check",
-      "destination": "/api/visibility-check"
-    },
-    {
-      "source": "/tools/ai-visibility",
-      "destination": "/tools/ai-visibility/index.html"
-    },
-    {
-      "source": "/tools/ai-visibility/",
-      "destination": "/tools/ai-visibility/index.html"
-    },
-    {
-      "source": "/llms.txt",
-      "destination": "/llms.txt"
-    },
-    {
-      "source": "/about",
-      "destination": "/about/index.html"
     },
     {
       "source": "/about/",
-      "destination": "/about/index.html"
-    },
-    {
-      "source": "/contact",
-      "destination": "/contact/index.html"
+      "destination": "/about",
+      "permanent": true
     },
     {
       "source": "/contact/",
-      "destination": "/contact/index.html"
-    },
-    {
-      "source": "/projects",
-      "destination": "/projects/index.html"
+      "destination": "/contact",
+      "permanent": true
     },
     {
       "source": "/projects/",
-      "destination": "/projects/index.html"
+      "destination": "/projects",
+      "permanent": true
+    },
+    {
+      "source": "/blog/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/faq/",
+      "destination": "/faq",
+      "permanent": true
+    },
+    {
+      "source": "/privacy/",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/terms/",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/services/",
+      "permanent": true
+    },
+    {
+      "source": "/pricing",
+      "destination": "/pricing/",
+      "permanent": true
+    },
+    {
+      "source": "/team",
+      "destination": "/team/",
+      "permanent": true
+    },
+    {
+      "source": "/work",
+      "destination": "/projects",
+      "permanent": true
+    },
+    {
+      "source": "/work/",
+      "destination": "/projects",
+      "permanent": true
     },
     {
       "source": "/projects/dropx-website-design",
-      "destination": "/projects/dropx-website-design/index.html"
+      "destination": "/projects",
+      "permanent": true
     },
     {
       "source": "/projects/dropx-website-design/",
-      "destination": "/projects/dropx-website-design/index.html"
+      "destination": "/projects",
+      "permanent": true
     },
     {
       "source": "/projects/orblead-website-design",
-      "destination": "/projects/orblead-website-design/index.html"
+      "destination": "/projects",
+      "permanent": true
     },
     {
       "source": "/projects/orblead-website-design/",
-      "destination": "/projects/orblead-website-design/index.html"
+      "destination": "/projects",
+      "permanent": true
     },
     {
       "source": "/projects/shine-skincare-branding",
-      "destination": "/projects/shine-skincare-branding/index.html"
+      "destination": "/projects",
+      "permanent": true
     },
     {
       "source": "/projects/shine-skincare-branding/",
-      "destination": "/projects/shine-skincare-branding/index.html"
+      "destination": "/projects",
+      "permanent": true
     },
     {
       "source": "/projects/oh-my-pasta-branding",
-      "destination": "/projects/oh-my-pasta-branding/index.html"
+      "destination": "/projects",
+      "permanent": true
     },
     {
       "source": "/projects/oh-my-pasta-branding/",
-      "destination": "/projects/oh-my-pasta-branding/index.html"
+      "destination": "/projects",
+      "permanent": true
     },
     {
-      "source": "/projects/voice-and-data-resale",
-      "destination": "/projects/voice-and-data-resale/index.html"
+      "source": "/projects/vero-app-development",
+      "destination": "/projects",
+      "permanent": true
     },
     {
-      "source": "/projects/voice-and-data-resale/",
-      "destination": "/projects/voice-and-data-resale/index.html"
+      "source": "/projects/vero-app-development/",
+      "destination": "/projects",
+      "permanent": true
+    },
+    {
+      "source": "/projects/stoyo-branding",
+      "destination": "/projects",
+      "permanent": true
+    },
+    {
+      "source": "/projects/stoyo-branding/",
+      "destination": "/projects",
+      "permanent": true
+    },
+    {
+      "source": "/projects/stoyo-branding-copy",
+      "destination": "/projects",
+      "permanent": true
+    },
+    {
+      "source": "/projects/stoyo-branding-copy/",
+      "destination": "/projects",
+      "permanent": true
+    },
+    {
+      "source": "/projects/radiant-skincare-branding",
+      "destination": "/projects",
+      "permanent": true
+    },
+    {
+      "source": "/projects/radiant-skincare-branding/",
+      "destination": "/projects",
+      "permanent": true
+    },
+    {
+      "source": "/projects/radiant-skincare-branding-copy",
+      "destination": "/projects",
+      "permanent": true
+    },
+    {
+      "source": "/projects/radiant-skincare-branding-copy/",
+      "destination": "/projects",
+      "permanent": true
     },
     {
       "source": "/projects/cyb3r-media",
-      "destination": "/projects/cyb3r-media/index.html"
+      "destination": "/projects",
+      "permanent": true
     },
     {
       "source": "/projects/cyb3r-media/",
-      "destination": "/projects/cyb3r-media/index.html"
+      "destination": "/projects",
+      "permanent": true
     },
     {
-      "source": "/projects/soznikar",
-      "destination": "/projects/soznikar/index.html"
+      "source": "/assets/brand/og-image.jpg",
+      "destination": "/assets/og.jpg",
+      "permanent": true
     },
     {
-      "source": "/projects/soznikar/",
-      "destination": "/projects/soznikar/index.html"
+      "source": "/assets/brand/logo-mark.png",
+      "destination": "/assets/logo-icon.png",
+      "permanent": true
     },
     {
-      "source": "/projects/storage-hire",
-      "destination": "/projects/storage-hire/index.html"
+      "source": "/assets/brand/favicon.png",
+      "destination": "/assets/favicon.png",
+      "permanent": true
     },
     {
-      "source": "/projects/storage-hire/",
-      "destination": "/projects/storage-hire/index.html"
+      "source": "/favicon.ico",
+      "destination": "/assets/favicon.png",
+      "permanent": true
     },
     {
-      "source": "/((?!_vercel/).*)",
-      "destination": "/thebrandle.framer.website/index.html"
+      "source": "/apple-touch-icon.png",
+      "destination": "/assets/logo-icon.png",
+      "permanent": true
+    },
+    {
+      "source": "/framerusercontent.com/assets/TheBrandle.svg",
+      "destination": "/assets/logo-sticker.svg",
+      "permanent": true
+    },
+    {
+      "source": "/framerusercontent.com/assets/TheBrandleDark.svg",
+      "destination": "/assets/logo-sticker.svg",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:slug([a-z0-9-]+)",
+      "destination": "/blog/:slug/",
+      "permanent": true
+    },
+    {
+      "source": "/services/:slug([a-z0-9-]+)",
+      "destination": "/services/:slug/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/:slug([a-z0-9-]+)",
+      "destination": "/projects/:slug/",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/fonts/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/404.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
     }
   ]
 }
