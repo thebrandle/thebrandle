@@ -1,7 +1,8 @@
 # CLAUDE.md
 
 The live website of **The Brandle**, a design and development studio in Dubai. This repository IS the live site:
-every push to `main` deploys to production on Vercel (project `thebrandle.final`) in about a minute. Work carefully,
+every push to `main` deploys to production on Cloudflare (Worker `thebrandle`, account thebrandleteam@gmail.com, Workers
+Builds from GitHub; moved off Vercel 2026-11-12) in about two minutes. Work carefully,
 a mistake goes live.
 
 ## How the site is made (since 2026-11-11)
@@ -16,7 +17,10 @@ A static site built by `python3 build.py` (Python 3, no packages) from `src/`:
   `services/` (one JSON per page, `_shared.json` for the hub), `projects/`, `redirects.json`, `content-plan.json`.
 - Output is written next to `src/`: `index.html`, `blog/`, `services/`, `css/`, `js/`, `sitemap.xml`, `vercel.json` ...
   Never edit output files by hand: change `src/` and rebuild. Commit the rebuilt output with the source.
-- `api/` - Vercel functions, separate from the build: `contact.js` (the forms, sends with Resend; takes JSON
+- `worker/index.js` - the Cloudflare Worker: serves the built files, applies the redirects in `vercel.json` (the build
+  still writes that file; the Worker reads it), and answers `/api/contact` (the forms, Resend; secret `RESEND_API_KEY`
+  in the Worker's settings) and `/api/visibility-check`. `wrangler.jsonc` and `.assetsignore` decide what is served.
+- `api/` - the old Vercel functions, kept for reference; `api/_lib/ai-visibility.js` is still used by the Worker: `contact.js` (the forms, sends with Resend; takes JSON
   `{name, email, phone, plan, message}`), `cal-slots.js`, `opinly-webhook.js`, `visibility-check.js`.
 - `tools/ai-visibility/` - a standalone tool page, not made by the build. `framerusercontent.com/` holds its assets.
 - The design work happens on the studio Mac in `~/friday/projects/brandle-two26` (same `src/`, plus drafts and
@@ -73,4 +77,4 @@ marketing and SEO), never only websites. A post's `group` is the service it is a
    it must return 200 and its `<title>` must contain the new title. Report if not.
 7. Final message (all Muteeb reads): item number and title, live URL, word count, keywords covered, anything unsure.
 
-Never touch `api/`, `tools/`, `vercel.json` by hand (the build writes it), `HANDOFF.md`, or other posts' text.
+Never touch `worker/`, `wrangler.jsonc`, `api/`, `tools/`, `vercel.json` by hand (the build writes it), `HANDOFF.md`, or other posts' text.
