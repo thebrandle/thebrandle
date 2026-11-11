@@ -1,39 +1,64 @@
-/* The Brandle pricing page: the Build / Grow switch, rolling prices, plan cards, the printing receipt.
-   The switch itself is two radio inputs read by CSS, so it works with no script; this file only adds the motion. */
+/* The Brandle pricing page: the price builder (its receipt prints as you add things), the hero, the printing receipt. */
 (() => {
   const { $, $$, ok } = TB;
+
+  /* ---------- the price builder: a receipt prints a line for everything you add, the total rolls up ---------- */
+  const form = $('.bld');
+  if (form) {
+    const P = JSON.parse(form.dataset.prices);
+    const rows = $('.bcart__rows', form), usd = $('.bcart__usd', form), aed = $('.bcart__aed span', form), num = $('.step__n', form);
+    const money = (n) => '$' + Math.round(n).toLocaleString('en-US');
+    // tablets and phones: a total pill floats over the options and jumps to the receipt
+    document.body.insertAdjacentHTML('beforeend', '<a class="bpill" href="#bld-cart"><span>Your receipt</span><b>$0</b></a>');
+    const pill = document.body.lastElementChild, pillN = $('b', pill), cart = $('.bld__cart', form);
+    cart.id = 'bld-cart';
+    let inOpts = false, cartSeen = false;
+    const showPill = () => pill.classList.toggle('is-on', inOpts && !cartSeen);
+    new IntersectionObserver(([e]) => { inOpts = e.isIntersecting; showPill(); }).observe($('.bld__opts', form));
+    new IntersectionObserver(([e]) => { cartSeen = e.isIntersecting; showPill(); }, { threshold: 0.3 }).observe(cart);
+    let pages = 0, shown = P.base;
+    const label = (k) => $(`input[value="${k}"]`, form).closest('.bopt').querySelector('b').textContent;
+    const lines = () => {
+      const out = [['base', 'The website', P.base]];
+      if (pages) out.push(['pages', `${pages} more page${pages > 1 ? 's' : ''}`, pages * P.page]);
+      $$('input[name="addon"]:checked', form).forEach((c) => out.push([c.value, label(c.value), P.addons[c.value]]));
+      return out;
+    };
+    const paint = () => {
+      const want = lines(), have = new Map($$('li', rows).map((li) => [li.dataset.k, li]));
+      want.forEach(([k, t, price], i) => {
+        let li = have.get(k);
+        const txt = `<span>${t}</span><i></i><b>${price == null ? 'Quoted' : money(price)}</b>`;
+        if (!li) {
+          li = document.createElement('li'); li.dataset.k = k; li.innerHTML = txt;
+          rows.insertBefore(li, rows.children[i] || null);
+          if (ok) gsap.from(li, { height: 0, opacity: 0, y: -8, duration: 0.45, ease: 'back.out(2)', clearProps: 'all' });
+        } else if (li.innerHTML !== txt) li.innerHTML = txt;
+        have.delete(k);
+      });
+      have.forEach((li) => (ok ? gsap.to(li, { height: 0, opacity: 0, duration: 0.3, ease: 'power2.in', onComplete: () => li.remove() }) : li.remove()));
+      const total = want.reduce((sum, [, , p]) => sum + (p || 0), 0);
+      const quoted = want.some(([, , p]) => p == null);
+      const set = (v) => { usd.textContent = money(v) + (quoted ? ' +' : ''); pillN.textContent = usd.textContent; aed.textContent = Math.round(v * P.aed).toLocaleString('en-US'); };
+      if (ok) gsap.to({ v: shown }, { v: total, duration: 0.6, ease: 'power3.out', onUpdate() { set(this.targets()[0].v); } });
+      else set(total);
+      if (ok && total !== shown) gsap.fromTo('.bcart', { rotation: total > shown ? -1.5 : 1.5 }, { rotation: 0, duration: 0.6, ease: 'elastic.out(1.1, 0.4)' });
+      shown = total;
+      num.textContent = pages;
+    };
+    $$('.step__b', form).forEach((btn) => btn.addEventListener('click', () => { pages = Math.max(0, Math.min(20, pages + +btn.dataset.step)); paint(); }));
+    form.addEventListener('change', paint);
+    paint();
+    // the receipt goes to the contact form: the plan box says "custom", the message holds every line
+    $('.bcart__go', form).addEventListener('click', () => {
+      const L = lines(), total = L.reduce((s2, [, , p]) => s2 + (p || 0), 0);
+      const text = 'My website from the price builder:\n' + L.map(([, t, p]) => `- ${t}: ${p == null ? 'to be quoted' : money(p)}`).join('\n') + `\nTotal: ${money(total)}${L.some(([, , p]) => p == null) ? ' plus the quoted items' : ''}`;
+      try { sessionStorage.setItem('tb-quote', text); } catch (e) {}
+      location.href = '/contact?plan=custom#brief';
+    });
+  }
+
   if (!ok) return;
-
-  const grow = () => $('#tier-grow').checked;
-  const sw = $('.sw');
-  const knob = $('.sw__knob');
-  sw.classList.add('sw--js');
-  gsap.set(knob, { xPercent: grow() ? 100 : 0 });
-
-  /* ---------- prices: one strip of 0 to 9 per digit, rolled to the digit of the chosen tier ---------- */
-  $$('.price__n').forEach((p) => {
-    const b = p.dataset.build, g = p.dataset.grow; // "2,499" and "3,199": always the same length
-    const roll = document.createElement('span');
-    roll.className = 'price__roll';
-    roll.setAttribute('aria-hidden', 'true');
-    roll.innerHTML = [...b].map((c, i) => (/\d/.test(c) ? `<span class="rd"><span class="rd__s" data-b="${c}" data-g="${g[i]}">${[...'0123456789'].map((d) => `<b>${d}</b>`).join('')}</span></span>` : c)).join('');
-    $$('[data-tier]', p).forEach((s) => s.classList.add('vh')); // screen readers keep the plain number
-    p.append(roll);
-  });
-  const strips = $$('.rd__s');
-  const digit = (i, el) => -10 * el.dataset[grow() ? 'g' : 'b'];
-  gsap.set(strips, { yPercent: digit });
-
-  const plans = $$('.plan');
-  $$('.sw input').forEach((r) => r.addEventListener('change', () => {
-    const g = grow();
-    gsap.to(knob, { xPercent: g ? 100 : 0, duration: 0.8, ease: 'elastic.out(1, 0.55)', overwrite: true });
-    gsap.fromTo(knob, { scaleX: 1.3, scaleY: 0.84 }, { scaleX: 1, scaleY: 1, duration: 0.7, ease: 'elastic.out(1, 0.4)' });
-    gsap.to(strips, { yPercent: digit, duration: 0.8, ease: 'back.out(1.4)', stagger: 0.04, overwrite: true });
-    gsap.fromTo(plans, { rotation: g ? 2.5 : -2.5 }, { rotation: 0, duration: 0.9, ease: 'elastic.out(1.1, 0.4)', stagger: 0.05, overwrite: 'auto' });
-    gsap.fromTo($$(`.plan__list[data-tier="${g ? 'grow' : 'build'}"] li`), { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: 'power2.out', stagger: 0.025 });
-    ScrollTrigger.refresh(); // the two tiers' lists differ in height
-  }));
 
   /* ---------- hero ---------- */
   const paths = $$('.hero__path path');

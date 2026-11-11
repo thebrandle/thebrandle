@@ -49,6 +49,8 @@
   const want = new URLSearchParams(location.search).get('plan');
   const opt = want && $$('option[data-plan]', form).find((o) => o.dataset.plan === want.toLowerCase());
   if (opt) opt.selected = true;
+  // from the pricing page's price builder: its receipt goes into the message
+  try { const q = sessionStorage.getItem('tb-quote'); if (q && want === 'custom') { form.elements.message.value = q; sessionStorage.removeItem('tb-quote'); } } catch (e) {}
 
   /* branded dropdowns: a button and a listbox over each real select, which stays in the form and keeps the value */
   const ARROW = '<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.8L5 6.8l3-3"/></svg>';
