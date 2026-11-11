@@ -36,7 +36,7 @@
 - [About](https://www.thebrandle.com/about): who we are and how we work
 - [Services](https://www.thebrandle.com/services/): every service, one page each
 - [Locations](https://www.thebrandle.com/locations/): web design by city and country
-- [Pricing](https://www.thebrandle.com/pricing/): fixed-price plans from $1,299
+- [Pricing](https://www.thebrandle.com/pricing/): website plans from $1,299; branding, video, apps and SEO get a fixed quote
 - [FAQ](https://www.thebrandle.com/faq): pricing, timelines, revisions, ownership and support
 - [Blog](https://www.thebrandle.com/blog): guides on costs, platforms, redesigns and SEO
 - [Contact](https://www.thebrandle.com/contact): start a project

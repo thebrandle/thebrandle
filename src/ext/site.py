@@ -177,7 +177,7 @@ def llms(api):
     has = lambda path: (root / path.strip('/') / 'index.html').is_file()
     link = lambda name, path, about: f'- [{name}]({site}{path}): {about}\n' if has(path) else ''
     pages = (link('Work', '/projects', 'projects we designed and built') + link('About', '/about', 'who we are and how we work')
-             + link('Services', '/services/', 'every service, one page each') + link('Locations', '/locations/', 'web design by city and country') + link('Pricing', '/pricing/', 'fixed-price plans from $1,299')
+             + link('Services', '/services/', 'every service, one page each') + link('Locations', '/locations/', 'web design by city and country') + link('Pricing', '/pricing/', 'website plans from $1,299; branding, video, apps and SEO get a fixed quote')
              + link('FAQ', '/faq', 'pricing, timelines, revisions, ownership and support') + link('Blog', '/blog', 'guides on costs, platforms, redesigns and SEO')
              + link('Contact', '/contact', 'start a project'))
     projects = json.loads((api.SRC / 'data' / 'projects.json').read_text())

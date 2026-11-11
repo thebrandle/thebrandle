@@ -138,3 +138,21 @@
   .rcpt-slot { margin: 0; }
 }
 @media (prefers-reduced-motion: reduce) { .plan, .sw label span { transition: none; } }
+
+/* "Websites" over the plans, and the section for everything that is not a website (2026-11-11) */
+.pr-panel__kicker { margin-bottom: 0.6em; font-size: 1em; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; opacity: 0.7; }
+.pr-rest { width: 100%; max-width: var(--container); margin: 0 auto; padding: 8em 1.25em 2em; }
+.pr-rest__lede { max-width: 34em; margin: 0 0 3em; font-size: 1.25em; line-height: 1.4; }
+.pr-rest__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1em; }
+.qcard { position: relative; display: flex; flex-direction: column; gap: 0.7em; min-height: 15em; padding: 1.4em 1.4em 3.4em; border: 1.5px solid #000; border-radius: 1.2em; background: var(--bg); transition: translate 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, background-color 0.25s ease; }
+.qcard__how { align-self: flex-start; padding: 0.35em 0.8em; border-radius: 99em; background: #000; color: var(--bg); font-size: 0.82em; font-weight: 500; }
+.qcard__h { font: 800 1.9em/0.95 var(--fd); font-stretch: 75%; text-transform: uppercase; }
+.qcard p { font-size: 1em; line-height: 1.4; color: #000c; }
+.qcard__go { position: absolute; right: 1.1em; bottom: 1.1em; display: grid; place-items: center; width: 2em; height: 2em; border-radius: 50%; background: var(--orange); }
+.qcard__go svg { width: 0.75em; height: 0.75em; fill: none; stroke: #000; stroke-width: 1.4; }
+@media (hover: hover) and (pointer: fine) { .qcard:hover { translate: 0 -0.35em; box-shadow: 0.3em 0.3em 0 #000; background: #fff; } }
+.pr-rest__cta { display: flex; align-items: center; justify-content: space-between; gap: 2em; margin-top: 2.5em; padding: 1.75em 2em; border-radius: 1.5em; background: var(--orange); }
+.pr-rest__cta p { max-width: 26em; font: 800 1.7em/1 var(--fd); font-stretch: 75%; text-transform: uppercase; color: #000; }
+@media (max-width: 991px) { .pr-rest__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 767px) { .pr-rest { padding-top: 5em; } .pr-rest__cta { flex-direction: column; align-items: flex-start; padding: 1.5em; } .pr-rest__cta p { font-size: 1.4em; } }
+@media (max-width: 479px) { .pr-rest__grid { grid-template-columns: 1fr; } .qcard { min-height: 0; } }
