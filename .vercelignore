@@ -8,3 +8,7 @@ server.js
 .agents
 skills-lock.json
 node_modules
+worker
+wrangler.jsonc
+.assetsignore
+_headers

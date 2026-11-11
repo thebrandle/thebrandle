@@ -1,0 +1,15 @@
+{
+  // The live site on Cloudflare Workers (moved from Vercel 2026-11-12). Deploys from GitHub on every push to main.
+  "name": "thebrandle",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "html_handling": "none",
+    "not_found_handling": "404-page",
+    // pages and the API go through the Worker; files with an extension are served straight from the edge
+    "run_worker_first": ["/*", "!/assets/*", "!/fonts/*", "!/css/*", "!/js/*", "!/framerusercontent.com/*", "!/*.css", "!/*.js", "!/*.png", "!/*.ico", "!/*.txt", "!/*.xml", "!/*.json"]
+  },
+  "observability": { "enabled": true }
+}
