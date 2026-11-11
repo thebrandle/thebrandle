@@ -205,3 +205,19 @@ body:has(.np), body:has(.nps) { background: var(--paper); }
   .is-paper .spager { bottom: 0.75em; right: 50%; translate: 50% 0; }
 }
 @media (prefers-reduced-motion: reduce) { .npt__in { animation: none; } .is-paper .sc__hint span { animation: none; } }
+
+/* phone fixes (2026-11-12) */
+.is-paper .nps { position: relative; }
+/* the arrows belong to the opened paper: they ride with it and leave with it, never over the footer */
+.is-paper .spager { position: absolute; }
+/* the last page: its box centred, its type shrinks to fit short screens (js sets --fit) */
+.is-paper .se { font-size: calc(1em * var(--fit, 1)); }
+@media (max-width: 767px) {
+  .se__cta { align-items: center; padding: 1.4em 1.25em; text-align: center; }
+  .se__cta p { font-size: 1.35em; text-wrap: balance; }
+  /* the ticker runs edge to edge */
+  .npt { width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); }
+}
+/* the currency flips in a box sized for the longest word, so the line never moves */
+.bflip { text-align: left; }
+.is-paper .se__end { font-size: clamp(3em, 6vw, 5.5em); }

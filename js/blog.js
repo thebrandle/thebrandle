@@ -111,6 +111,9 @@
   let st = null, colW = 0;
   let snaps = [0];
   const size = () => {
+    // the last page has to fit the screen it is on (Safari's bars make phones shorter): shrink its type until it does
+    const end = $('.se', post);
+    if (end) { end.style.setProperty('--fit', 1); for (let f = 1; f > 0.62 && end.scrollHeight > end.clientHeight + 1; f -= 0.04) end.style.setProperty('--fit', f.toFixed(2)); }
     // the story's columns overflow sideways. Lay them out in a box far wider than needed (an exact number of columns, so
     // none get stretched), find where the last line ends, then shrink the box to exactly that many columns.
     const cs = getComputedStyle(body), pad = parseFloat(cs.paddingLeft), gap = parseFloat(cs.columnGap), cw = parseFloat(cs.columnWidth);
@@ -186,6 +189,10 @@
   const w = document.querySelector('.bflip');
   if (!w || !window.gsap || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const MONEY = ['dirham', 'dollar', 'riyal', 'pound', 'lira', 'euro', 'rupee', 'penny'];
+  // a box as wide as the longest word, so the words around it stay put
+  const was = w.textContent;
+  w.style.width = `${Math.max(...MONEY.map((m) => { w.textContent = m; return w.getBoundingClientRect().width; }))}px`;
+  w.textContent = was;
   let i = 0;
   const next = () => {
     i = (i + 1) % MONEY.length;
