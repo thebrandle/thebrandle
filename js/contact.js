@@ -185,7 +185,8 @@
   const s = { dx: 0, dy: 0, look: 0, nod: 0, tag: 0, tagV: 0 };
   const toX = gsap.quickTo(s, 'dx', { duration: 0.6, ease: 'power3.out' });
   const toY = gsap.quickTo(s, 'dy', { duration: 0.6, ease: 'power3.out' });
-  let live = false, away = true, prevDx = 0;
+  let live = false, away = true, prevDx = 0, camW = camel.clientWidth;
+  addEventListener('resize', () => { camW = camel.clientWidth; });
   const frame = (time, delta) => {
     const dt = Math.min(delta, 50) / 1000;
     const breathe = Math.sin(time * 1.96) * 1.4;
@@ -199,7 +200,7 @@
       spots[i].setAttribute('cx', (a * P0[0] + b * cx + c * jx + off).toFixed(1));
       spots[i].setAttribute('cy', (a * P0[1] + b * cy + c * jy).toFixed(1));
     });
-    const k = camel.clientWidth / 400; // art units to pixels
+    const k = camW / 400; // art units to pixels (measured on resize, not every frame)
     const turn = (Math.atan2(jy - cy, jx - cx) - REST) * 180 / Math.PI; // the head sits square on the end of the neck
     gsap.set(top, { x: dx * k, y: dy * k, rotation: turn + s.look + s.nod });
     // the tag hangs back like a pendulum: a spring pulled by how fast the head moves sideways

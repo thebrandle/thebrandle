@@ -58,9 +58,9 @@ def media(p, rects, v):
 def screen(p, v, c):
     """What plays on a display mockup: the site's own scroll recording when there is one, else the flash of its pages."""
     slug = p['slug']
-    if (ROOT / 'assets' / 'work' / f'{slug}-desk.mp4').exists():
+    if (ROOT / 'assets' / 'work' / f'{slug}-card.mp4').exists():   # a small cut of the desktop recording: cards are small, and several play at once
         return (f'<video class="pcard__video pcard__video--screen" muted loop playsinline preload="none" poster="/{v(f"assets/work/{slug}-w0.webp")}" aria-label="{e(p["alt"])}">'
-                f'<source src="/{v(f"assets/work/{slug}-desk.mp4")}" type="video/mp4"></video>')
+                f'<source src="/{v(f"assets/work/{slug}-card.mp4")}" type="video/mp4"></video>')
     return f'<div class="pflash" role="img" aria-label="{e(p["alt"])}">{flash(slug, c["frames"], p["alt"], v)}</div>'
 
 
@@ -225,10 +225,11 @@ def cover(p, rects, v, cls, eager):
     d = p['page']
     wide, tall = f'cover-{d["cover"]}.webp', f'{d["portrait"]}.webp'
     load = ' fetchpriority="high"' if eager else ' loading="lazy" decoding="async"'
-    rec = ROOT / 'assets' / 'work' / f'{p["slug"]}-desk.mp4'
+    cut = 'desk' if eager else 'card'      # the cover gets the full recording, the next-project teaser the small one
+    rec = ROOT / 'assets' / 'work' / f'{p["slug"]}-{cut}.mp4'
     if rec.exists():
         frames = (f'<video class="pvid pvid--hero" muted loop playsinline{" autoplay" if eager else ""} preload="{"auto" if eager else "none"}" poster="/{v(f"assets/work/{p["slug"]}-w0.webp")}">'
-                  f'<source src="/{v(f"assets/work/{p["slug"]}-desk.mp4")}" type="video/mp4"></video>')
+                  f'<source src="/{v(f"assets/work/{p["slug"]}-{cut}.mp4")}" type="video/mp4"></video>')
     else:
         frames = f'<img src="/{v(f"assets/work/{p["slug"]}-w0.webp")}" alt=""{ON + load}>'
     label = f'role="img" aria-label="{e(p["alt"] if p["card"]["type"] == "mock" else "Pages of the " + p["title"] + " site on a desktop display")}"'

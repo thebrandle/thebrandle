@@ -153,21 +153,6 @@
       "permanent": true
     },
     {
-      "source": "/tools",
-      "destination": "/tools/ai-visibility/",
-      "permanent": true
-    },
-    {
-      "source": "/tools/",
-      "destination": "/tools/ai-visibility/",
-      "permanent": true
-    },
-    {
-      "source": "/tools/ai-visibility",
-      "destination": "/tools/ai-visibility/",
-      "permanent": true
-    },
-    {
       "source": "/work",
       "destination": "/projects",
       "permanent": true
@@ -290,6 +275,26 @@
     {
       "source": "/assets/brand/favicon.png",
       "destination": "/assets/favicon.png",
+      "permanent": true
+    },
+    {
+      "source": "/favicon.ico",
+      "destination": "/assets/favicon.png",
+      "permanent": true
+    },
+    {
+      "source": "/apple-touch-icon.png",
+      "destination": "/assets/logo-icon.png",
+      "permanent": true
+    },
+    {
+      "source": "/framerusercontent.com/assets/TheBrandle.svg",
+      "destination": "/assets/logo-sticker.svg",
+      "permanent": true
+    },
+    {
+      "source": "/framerusercontent.com/assets/TheBrandleDark.svg",
+      "destination": "/assets/logo-sticker.svg",
       "permanent": true
     },
     {

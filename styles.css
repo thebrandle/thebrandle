@@ -497,3 +497,4 @@ html:not(.js) .fa { display: flex; } /* answers readable when scripts are off */
 /* no lonely word on a last line, anywhere (owner's rule, 2026-11-11): paragraphs wrap "pretty", short display lines balance */
 p, li, dd, dt, figcaption, small, label, legend, blockquote { text-wrap: pretty; }
 h1, h2, h3, h4, .sheading { text-wrap: balance; }
+.qf__card, .tm-pop__card, .ab-pop__card, .menu, .game__card { overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }

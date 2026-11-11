@@ -18,16 +18,18 @@
       hw.insertAdjacentHTML('beforeend', '<i class="hword__drop" aria-hidden="true"></i><i class="hword__ring" aria-hidden="true"></i>');
       const drop = $('.hword__drop', hw), ring = $('.hword__ring', hw);
       gsap.set(f, { '--lvl': '-0.2em', '--wx': '0em' });
-      gsap.to(f, { '--wx': '1.1em', duration: 1.4, ease: 'none', repeat: -1 });   // the wave rolls along
+      const wave = gsap.to(f, { '--wx': '1.1em', duration: 1.4, ease: 'none', repeat: -1, paused: true });   // the wave rolls along, only while the level moves
       let i = 0;
       const tl = gsap.timeline({ repeat: -1, delay: 1.1 });
-      tl.fromTo(drop, { y: '-1.4em', scaleX: 0.7, scaleY: 1.3, opacity: 0 }, { y: '0.8em', opacity: 1, duration: 0.5, ease: 'power2.in' })   // falls
+      tl.add(() => wave.play()).fromTo(drop, { y: '-1.4em', scaleX: 0.7, scaleY: 1.3, opacity: 0 }, { y: '0.8em', opacity: 1, duration: 0.5, ease: 'power2.in' })   // falls
         .to(drop, { scaleX: 2.2, scaleY: 0.25, opacity: 0, duration: 0.18, ease: 'power2.out' })                                                // lands
         .fromTo(ring, { scale: 0.2, opacity: 0.9 }, { scale: 1.6, opacity: 0, duration: 0.5, ease: 'power2.out' }, '<')                          // splash
         .to(f, { '--lvl': '-1.75em', duration: 1.4, ease: 'power2.out' }, '<')                                                                  // fills up
+        .add(() => wave.pause())
         .to({}, { duration: 2.1 })                                                                                                                // full
+        .add(() => wave.play())
         .to(f, { '--lvl': '-0.2em', duration: 0.7, ease: 'power2.in' })                                                                          // drains
-        .add(() => { i = (i + 1) % WORDS.length; set(WORDS[i]); gsap.fromTo(o, { opacity: 0 }, { opacity: 1, duration: 0.3 }); })
+        .add(() => { wave.pause(); i = (i + 1) % WORDS.length; set(WORDS[i]); gsap.fromTo(o, { opacity: 0 }, { opacity: 1, duration: 0.3 }); })
         .to({}, { duration: 0.25 });
       document.addEventListener('visibilitychange', () => (document.hidden ? tl.pause() : tl.resume()));
     }
@@ -273,7 +275,8 @@
   ];
   const vid = $('.hero__video');
   // the video is not fetched until the loader has lifted, so the poster paints first and nothing competes with it
-  if (vid) TB.ready(() => { const pl = vid.play(); pl && pl.catch(() => {}); });
+  // the walk plays only while the hero is on screen (its frames also drive the slogans on the boards)
+  if (vid) TB.ready(() => new IntersectionObserver(([e]) => { if (e.isIntersecting) { const pl = vid.play(); pl && pl.catch(() => {}); } else vid.pause(); }).observe(vid));
   const signs = $$('.hero__signs g');
   if (vid && signs.length) {
     const CAP = 0.7; // cap height of the display face as a share of its font size
@@ -311,7 +314,10 @@
   let off = 0;
   document.fonts.ready.then(() => {
     buildBand();
+    let mqOn = true;   // only moves while on screen: a text path is laid out again on every step
+    new IntersectionObserver(([e]) => { mqOn = e.isIntersecting; }).observe(tp.closest('svg'));
     gsap.ticker.add((_, dt) => {
+      if (!mqOn) return;
       const v = TB.lenis ? Math.abs(TB.lenis.velocity) : 0;
       off = (off + (dt / 1000) * (80 + v * 24)) % unitLen;
       tp.setAttribute('startOffset', -off);
@@ -351,8 +357,10 @@
   measure();
   addEventListener('resize', measure);
   addEventListener('load', measure);
-  let x = 0, dir = -1, tdir = -1;
+  let x = 0, dir = -1, tdir = -1, slOn = true;
+  new IntersectionObserver(([e]) => { slOn = e.isIntersecting; }).observe(slider);
   gsap.ticker.add(() => {
+    if (!slOn) return;
     const v = TB.lenis ? TB.lenis.velocity : 0;
     if (Math.abs(v) > 0.5) tdir = v > 0 ? -1 : 1;
     dir += (tdir - dir) * 0.06;

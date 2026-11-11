@@ -339,7 +339,7 @@ window.TB = (() => {
 
   gsap.registerPlugin(ScrollTrigger);
   if (typeof Lenis !== 'undefined') {
-    lenis = new Lenis({ duration: 1.5 });
+    lenis = new Lenis({ lerp: 0.12, prevent: (node) => !!node.closest('dialog, [data-lenis-prevent]') });   // a lighter glide; dialogs scroll on their own
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add((t) => lenis.raf(t * 1000));
     gsap.ticker.lagSmoothing(0);
@@ -553,11 +553,15 @@ window.TB = (() => {
   /* three arcs, edge to edge; the middle one runs the other way. Each tile's x loops round its row, its y and tilt follow the arc */
   const box = wall.querySelector('.brands__rows');
   const rows = [...wall.querySelectorAll('.brands__row')].map((row, r) => ({ tiles: [...row.children], dir: r === 1 ? 1 : -1, x: 0, speed: 1, r }));
-  const place = () => {
-    const W = box.clientWidth, em = parseFloat(getComputedStyle(box).fontSize);
-    const tw = rows[0].tiles[0].offsetWidth, th = rows[0].tiles[0].offsetHeight, gap = 1.6 * em;
-    const sag = Math.min(th, W * 0.065), lane = th * 1.6;               // sag: how much higher the middle of an arc sits; lane: arc to arc
+  // sizes are measured once and on resize; each frame only writes transforms (reading layout every frame made it stutter)
+  let W, tw, sag, lane, gap;
+  const measure = () => {
+    W = box.clientWidth; const em = parseFloat(getComputedStyle(box).fontSize);
+    tw = rows[0].tiles[0].offsetWidth; const th = rows[0].tiles[0].offsetHeight; gap = 1.6 * em;
+    sag = Math.min(th, W * 0.065); lane = th * 1.6;                    // sag: how much higher the middle of an arc sits; lane: arc to arc
     box.style.height = `${sag + 2 * lane + th + em}px`;
+  };
+  const place = () => {
     rows.forEach((row) => {
       const step = tw + gap, L = Math.max(row.tiles.length * step, W + 2 * step);
       const top = row.r * lane + sag;
@@ -570,8 +574,8 @@ window.TB = (() => {
       });
     });
   };
-  place();
-  addEventListener('resize', place);
+  measure(); place();
+  addEventListener('resize', () => { measure(); place(); });
   if (still) return;
   let on = false;
   new IntersectionObserver(([en]) => { on = en.isIntersecting; }, { rootMargin: '10% 0px' }).observe(box);
