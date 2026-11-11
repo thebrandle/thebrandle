@@ -79,8 +79,8 @@ def jsonld(obj):
 
 
 def org(compact=False):
-    """The studio as a schema.org node. Published, confirmed facts only: no rating, review, award, founding date,
-    head count, street address or opening hours, and no phone until the owner confirms it is shown on /contact."""
+    """The studio as a schema.org node. Published, confirmed facts only (founding year and hours confirmed by the owner
+    2026-11-12, both shown on /contact): no rating, review, award, head count or street address."""
     node = {'@type': 'ProfessionalService', '@id': ORG_ID, 'name': 'The Brandle', 'url': SITE + '/',
             'logo': {'@type': 'ImageObject', 'url': SITE + '/assets/logo-icon.png', 'width': 512, 'height': 512}}
     if compact:
@@ -90,7 +90,8 @@ def org(compact=False):
             'email': 'hello@thebrandle.com',
             'address': {'@type': 'PostalAddress', 'addressLocality': 'Dubai', 'addressCountry': 'AE'},
             'areaServed': [{'@type': 'Country', 'name': 'United Arab Emirates'}, {'@type': 'Country', 'name': 'Saudi Arabia'}],
-            'priceRange': '$799 - $3,799',
+            'priceRange': '$1,299+', 'telephone': '+971561429789', 'foundingDate': '2019',
+            'openingHoursSpecification': [{'@type': 'OpeningHoursSpecification', 'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], 'opens': '10:00', 'closes': '18:00'}],
             'knowsAbout': ['Web design', 'Brand identity design', 'UI/UX design', 'Ecommerce website design', 'Web application development', 'Search engine optimisation', 'Video production'],
             'founder': [{'@type': 'Person', 'name': n, 'jobTitle': t, 'sameAs': ['https://www.linkedin.com/in/' + l]} for n, t, l in FOUNDERS],
             'sameAs': ['https://www.instagram.com/thebrandlestudio', 'https://www.linkedin.com/company/thebrandle/', 'https://www.facebook.com/profile.php?id=61596184447358']}
