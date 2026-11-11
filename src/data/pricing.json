@@ -1,0 +1,362 @@
+{
+  "_": "The price builder on /pricing/. Each category has items; 'base' items are what the category starts from (ticking any other item ticks its base too); 'qty' items have a stepper; 'unit' is once or mo (monthly); a price of null means quoted separately. All prices approved by Muteeb on 2026-11-11. Built into the page by src/ext/pricing.py.",
+  "aed": 3.6725,
+  "categories": [
+    {
+      "key": "web",
+      "name": "Website",
+      "items": [
+        {
+          "key": "web-base",
+          "base": true,
+          "label": "The website",
+          "note": "Homepage and 3 inner pages, designed and built, contact form, analytics, 30 days of fixes",
+          "price": 1299,
+          "on": true
+        },
+        {
+          "key": "web-pages",
+          "qty": true,
+          "label": "More pages",
+          "note": "$149 each",
+          "price": 149
+        },
+        {
+          "key": "web-blog",
+          "label": "Blog, designed and set up",
+          "note": "Posts you can add yourself",
+          "price": 599
+        },
+        {
+          "key": "web-store",
+          "label": "Online store",
+          "note": "Shopify or WooCommerce",
+          "price": 1499
+        },
+        {
+          "key": "web-seo",
+          "label": "SEO set-up",
+          "note": "Core pages, done properly",
+          "price": 449
+        },
+        {
+          "key": "web-anim",
+          "label": "Micro-animations",
+          "note": "The bits people screenshot",
+          "price": 499
+        },
+        {
+          "key": "web-social",
+          "label": "Social media links and feeds",
+          "note": "Instagram, LinkedIn and the rest",
+          "price": 99
+        },
+        {
+          "key": "web-email",
+          "label": "Lead email template",
+          "note": "A branded reply for every enquiry",
+          "price": 199
+        },
+        {
+          "key": "web-analytics",
+          "label": "Analytics reports",
+          "note": "Monthly, for three months",
+          "price": 299
+        },
+        {
+          "key": "web-priority",
+          "label": "Priority delivery",
+          "note": "You jump the queue",
+          "price": 299
+        },
+        {
+          "key": "web-support",
+          "label": "Extended support",
+          "note": "60 days of priority help, not 30",
+          "price": 299
+        }
+      ]
+    },
+    {
+      "key": "brand",
+      "name": "Branding",
+      "items": [
+        {
+          "key": "brand-logo",
+          "base": true,
+          "label": "Logo design",
+          "note": "Two directions, one refined into the final logo, two rounds of changes",
+          "price": 799
+        },
+        {
+          "key": "brand-system",
+          "label": "Colours and type",
+          "note": "A palette and fonts that work together",
+          "price": 299
+        },
+        {
+          "key": "brand-mark",
+          "label": "Icon and secondary logo",
+          "note": "For small spaces and app icons",
+          "price": 299
+        },
+        {
+          "key": "brand-guide",
+          "label": "Brand guidelines",
+          "note": "A PDF your team will actually use",
+          "price": 499
+        },
+        {
+          "key": "brand-social",
+          "label": "Social media kit",
+          "note": "Post and story templates",
+          "price": 399
+        },
+        {
+          "key": "brand-stationery",
+          "label": "Stationery",
+          "note": "Business card, letterhead, email signature",
+          "price": 299
+        },
+        {
+          "key": "brand-pack",
+          "qty": true,
+          "label": "Packaging designs",
+          "note": "$499 per item",
+          "price": 499
+        },
+        {
+          "key": "brand-name",
+          "label": "Brand naming",
+          "note": "Names checked for clashes before you fall in love",
+          "price": null,
+          "alone": true
+        }
+      ]
+    },
+    {
+      "key": "video",
+      "name": "Video and content",
+      "items": [
+        {
+          "key": "video-shoot",
+          "base": true,
+          "label": "Half-day shoot",
+          "note": "Up to 4 hours in Dubai, one videographer and kit",
+          "price": 899
+        },
+        {
+          "key": "video-day",
+          "qty": true,
+          "label": "More shoot time",
+          "note": "$699 per extra half day",
+          "price": 699
+        },
+        {
+          "key": "video-film",
+          "label": "Brand film edit",
+          "note": "60 to 90 seconds, the main story",
+          "price": 599
+        },
+        {
+          "key": "video-reels",
+          "qty": true,
+          "label": "Short-form reels",
+          "note": "$149 each, cut for Instagram and TikTok",
+          "price": 149
+        },
+        {
+          "key": "video-interview",
+          "label": "Interview edit",
+          "note": "Talking head, cleaned up and captioned",
+          "price": 399
+        },
+        {
+          "key": "video-event",
+          "label": "Event aftermovie",
+          "note": "The night, in under two minutes",
+          "price": 499
+        },
+        {
+          "key": "video-motion",
+          "label": "Motion graphics and titles",
+          "note": "Animated text, logos and lower thirds",
+          "price": 399
+        },
+        {
+          "key": "video-grade",
+          "label": "Colour and sound",
+          "note": "Colour grading and sound design",
+          "price": 299
+        },
+        {
+          "key": "video-photo",
+          "label": "Photography",
+          "note": "20 edited photos from the same shoot",
+          "price": 399
+        },
+        {
+          "key": "video-travel",
+          "label": "Shooting outside Dubai",
+          "note": "Travel goes in the quote",
+          "price": null
+        }
+      ]
+    },
+    {
+      "key": "design",
+      "name": "App and product design",
+      "items": [
+        {
+          "key": "design-base",
+          "base": true,
+          "label": "UX and interface design",
+          "note": "Discovery, flows and 5 key screens in Figma",
+          "price": 1499
+        },
+        {
+          "key": "design-screens",
+          "qty": true,
+          "label": "More screens",
+          "note": "$99 each",
+          "price": 99
+        },
+        {
+          "key": "design-system",
+          "label": "Design system",
+          "note": "Components your developers can reuse",
+          "price": 799
+        },
+        {
+          "key": "design-proto",
+          "label": "Clickable prototype",
+          "note": "Tap through it before anything is built",
+          "price": 299
+        },
+        {
+          "key": "design-test",
+          "label": "User testing",
+          "note": "Five people try it, we fix what trips them",
+          "price": 599
+        },
+        {
+          "key": "design-build",
+          "label": "App development",
+          "note": "iOS, Android or web. Quoted per phase",
+          "price": null,
+          "alone": true
+        }
+      ]
+    },
+    {
+      "key": "social",
+      "name": "Social media",
+      "items": [
+        {
+          "key": "social-base",
+          "base": true,
+          "unit": "mo",
+          "label": "One platform",
+          "note": "12 designed posts a month, captions and scheduling",
+          "price": 599
+        },
+        {
+          "key": "social-platform",
+          "qty": true,
+          "unit": "mo",
+          "label": "More platforms",
+          "note": "$199 a month each",
+          "price": 199
+        },
+        {
+          "key": "social-reels",
+          "unit": "mo",
+          "label": "Reels",
+          "note": "4 short videos a month",
+          "price": 399
+        },
+        {
+          "key": "social-community",
+          "unit": "mo",
+          "label": "Community management",
+          "note": "Comments and messages answered",
+          "price": 299
+        },
+        {
+          "key": "social-ads",
+          "unit": "mo",
+          "label": "Ads management",
+          "note": "Ad spend goes to the platform, not us",
+          "price": 399
+        }
+      ]
+    },
+    {
+      "key": "seo",
+      "name": "SEO",
+      "items": [
+        {
+          "key": "seo-audit",
+          "base": true,
+          "label": "SEO audit",
+          "note": "What is wrong, in order of what matters",
+          "price": 499
+        },
+        {
+          "key": "seo-fixes",
+          "label": "Fixes from the audit",
+          "note": "Made in the code. Quoted after the audit",
+          "price": null
+        },
+        {
+          "key": "seo-local",
+          "label": "Google Business Profile",
+          "note": "Set up and tidied for local search",
+          "price": 199
+        },
+        {
+          "key": "seo-monthly",
+          "unit": "mo",
+          "label": "Ongoing SEO",
+          "note": "Monthly fixes, tracking and a report",
+          "price": 599
+        },
+        {
+          "key": "seo-content",
+          "unit": "mo",
+          "label": "Articles",
+          "note": "Two researched articles a month",
+          "price": 399
+        }
+      ]
+    },
+    {
+      "key": "care",
+      "name": "Website care",
+      "items": [
+        {
+          "key": "care-base",
+          "base": true,
+          "unit": "mo",
+          "label": "Care plan",
+          "note": "Updates, backups and uptime checks",
+          "price": 99
+        },
+        {
+          "key": "care-edits",
+          "unit": "mo",
+          "label": "Content changes",
+          "note": "Up to 2 hours of edits a month",
+          "price": 149
+        },
+        {
+          "key": "care-priority",
+          "unit": "mo",
+          "label": "Priority fixes",
+          "note": "Same-business-day response",
+          "price": 99
+        }
+      ]
+    }
+  ]
+}

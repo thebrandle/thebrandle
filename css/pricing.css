@@ -197,3 +197,27 @@
 .bpill span { padding: 0.5em 0.9em; border-radius: 99em; background: #000; color: var(--bg); font-size: 0.85em; }
 @media (max-width: 991px) { .bpill.is-on { display: flex; } }
 @media (max-width: 767px) { .bopt { padding: 0.8em 0.9em; gap: 0.7em; } .bopt__p { font-size: 1.25em; } .bcart { padding: 1.4em 1.1em 2.2em; }  }
+
+/* the builder across services (2026-11-11): tabs, grouped receipt, monthly total */
+.bld__left { display: flex; flex-direction: column; gap: 1em; min-width: 0; }
+.btabs { display: flex; gap: 0.5em; overflow-x: auto; padding: 0.2em 0.2em 0.6em; scrollbar-width: none; }
+.btabs::-webkit-scrollbar { display: none; }
+.btab { position: relative; flex: none; display: inline-flex; align-items: center; gap: 0.5em; padding: 0.7em 1.15em; border: 1.5px solid #000; border-radius: 99em; background: var(--bg); color: #000; font-weight: 600; cursor: pointer; transition: background-color 0.2s ease, translate 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.btab.is-on { background: #000; color: var(--bg); translate: 0 -0.15em; box-shadow: 0.15em 0.2em 0 var(--bg); }
+.btab:focus-visible { outline: 2px solid var(--bg); outline-offset: 2px; }
+.btab__n { display: grid; place-items: center; min-width: 1.5em; height: 1.5em; padding: 0 0.35em; border-radius: 99em; background: var(--orange); color: #000; font-style: normal; font-size: 0.8em; }
+.btab__n[hidden] { display: none; }
+.bcat { display: flex; flex-direction: column; gap: 0.6em; }
+.bcat[hidden] { display: none; }
+.bopt__p small { font-size: 0.55em; }
+.bcart__rows { display: flex; flex-direction: column; gap: 0.6em; }
+.bcart__g { margin-top: 0.4em; font: 800 1.1em/1 var(--fd); font-stretch: 75%; text-transform: uppercase; color: var(--orange); overflow: hidden; }
+.bcart__g:first-child { margin-top: 0; }
+.bcart__r { display: flex; align-items: baseline; gap: 0.5em; font-size: 0.82em; font-weight: 500; letter-spacing: 0.03em; text-transform: uppercase; overflow: hidden; }
+.bcart__r i { flex: 1; min-width: 1em; border-bottom: 2px dotted #0005; translate: 0 -0.25em; }
+.bcart__r b { font-weight: 600; white-space: nowrap; }
+.bcart__empty { padding: 0.5em 0 0.2em; font-size: 0.85em; color: #0008; text-align: center; }
+.bcart__empty[hidden] { display: none; }
+.bcart__total--mo { margin-top: 0.4em; padding-top: 0; border-top: 0; font-size: 1.4em; }
+.bcart__total--mo[hidden] { display: none; }
+@media (min-width: 992px) { .btabs { flex-wrap: wrap; overflow: visible; } }
