@@ -3,22 +3,27 @@
    two nudged, a faded sub line, and the character rising from the bottom edge. */
 html:not(.js) .fa { display: flex; } /* no script: every answer is readable */
 
-/* ---------- hero ---------- */
-.ct-hero { isolation: isolate; position: relative; display: flex; align-items: center; min-height: max(100svh, 46em); padding: 5em 0 2em; background: linear-gradient(180deg, #fae3e2 73%, var(--bg)); overflow: hidden; }
-.ct-hero__block { position: relative; z-index: 2; display: flex; align-items: flex-start; width: 100%; }
-.ct-hero__left { display: flex; flex-direction: column; align-items: center; width: 56%; }
-.ct-h1 { font: 800 9em/0.8 var(--fd); font-stretch: 75%; text-transform: uppercase; text-align: center; color: var(--orange); }
+/* ---------- hero: centred like the other pages, small tilted labels around the heading ---------- */
+.ct-hero { isolation: isolate; position: relative; display: flex; flex-direction: column; align-items: center; gap: 1.5em; padding: 7em 1.25em 6em; background: linear-gradient(180deg, #fae3e2 73%, var(--bg)); text-align: center; overflow: hidden; }
+.ct-crumb { display: flex; gap: 0.6em; font-size: 0.9375em; font-weight: 500; text-transform: uppercase; }
+.ct-crumb a { color: inherit; }
+.ct-crumb [aria-current] { color: var(--orange); }
+.ct-hero__text { position: relative; margin: 1.75em 0 0; }
+.ct-h1 { font: 800 8.4em/0.82 var(--fd); font-stretch: 75%; text-transform: uppercase; text-align: center; color: var(--orange); }
 .ct-h1 > span { display: block; white-space: nowrap; }
 .ct-h1 .w { display: inline-block; white-space: nowrap; }
-.ct-h1__l3 { translate: -0.8em 0; }
-.ct-h1__l4 { translate: 0.3em 0; }
-.ct-sub { margin-top: 0.25em; padding-bottom: 0.2em; font: 800 3.375em/1 var(--fd); font-stretch: 75%; color: #0006; translate: 1.3em 0; overflow: hidden; }
+.ct-pills { position: absolute; inset: 0; pointer-events: none; }
+.ct-pill { position: absolute; z-index: 3; }
+.ct-pill--1 { top: -6%; left: -12%; rotate: -7deg; }
+.ct-pill--2 { top: 40%; right: -16%; rotate: 5deg; }
+.ct-pill--3 { bottom: -6%; left: -8%; rotate: 4deg; }
+.ct-sub { padding-bottom: 0.2em; font: 800 3.375em/1 var(--fd); font-stretch: 75%; color: #0006; overflow: hidden; }
 .ct-sub > span { display: block; }
-.ct-hero__right { display: flex; flex-direction: column; gap: 3.75em; width: 44%; padding-top: 0.5em; }
-.ct-hero__right .elink { white-space: nowrap; }
+.ct-jump { display: inline-flex; align-items: center; gap: 0.6em; margin-top: 0.5em; font-size: 1.125em; font-weight: 500; color: inherit; text-decoration: underline; text-underline-offset: 0.25em; }
+.ct-jump svg { width: 0.8em; height: 0.8em; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
 
 /* the camel: a code-drawn neck (two strokes, black under paper), a head that turns on its end, a real link in its mouth */
-.camel { position: absolute; z-index: 1; right: 11%; bottom: -2.5em; width: 25em; height: 31em; pointer-events: none; }
+.camel { position: absolute; z-index: 1; right: 8%; bottom: 0; width: 25em; height: 31em; pointer-events: none; }
 .camel__neck { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 .camel__nb { fill: none; stroke: #000; stroke-width: 67; }
 .camel__nf { fill: none; stroke: var(--white); stroke-width: 60; }
@@ -35,27 +40,42 @@ html:not(.js) .fa { display: flex; } /* no script: every answer is readable */
 .camel__head--art > * { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; }
 .camel--art .camel__nb { stroke-width: 97; }
 .camel--art .camel__nf { stroke-width: 88; stroke: var(--bg); }
-.camel--art ellipse { transform-box: fill-box; transform-origin: 50% 50%; scale: 1.35; }
+.camel--art .camel__neck ellipse { transform-box: fill-box; transform-origin: 50% 50%; scale: 1.35; }
 .camel__tag span { display: block; font: 800 2.9em/1 var(--fd); font-stretch: 75%; text-transform: uppercase; white-space: nowrap; color: var(--orange); }
 
-/* ---------- ways ---------- */
-.ct-ways { padding: 9em 0 8em; }
-.ct-list { margin: 5em 1.125em 0; padding: 0; list-style: none; border-bottom: 1px solid #000; }
-.way { position: relative; display: grid; grid-template-columns: 11em 1fr 21em 3em; align-items: center; gap: 1.5em; min-height: 7em; padding: 1.25em 1.25em 1em; border-top: 1px solid #000; overflow: hidden; }
+/* ---------- ways: the list on the left; the value, the line and a black button stacked, the camel on the right ---------- */
+.ct-ways { padding: 4em 0 8em; scroll-margin-top: 4em; }
+.ct-ways__body { display: grid; grid-template-columns: minmax(0, 1fr) 30em; gap: 2em; margin: 4em 1.125em 0; }
+.ct-list { margin: 0; padding: 0; list-style: none; border-bottom: 1px solid #000; }
+.way { position: relative; display: grid; grid-template-columns: 10em 1fr; align-items: start; gap: 1.5em; padding: 1.6em 1.25em 1.5em; border-top: 1px solid #000; overflow: hidden; }
 .way > * { position: relative; }
 .way__fill { position: absolute; inset: 0; background: var(--orange); transform: scaleY(0); transform-origin: 50% 100%; transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1); }
-.way__k { font-size: 1.125em; font-weight: 500; line-height: 1; text-transform: uppercase; }
-.way__v { font: 800 4em/0.9 var(--fd); font-stretch: 75%; text-transform: uppercase; transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1); }
-.way__q { font-size: 1.125em; line-height: 1.3; }
-.way__a { justify-self: end; display: flex; justify-content: center; align-items: center; width: 3em; height: 3em; border-radius: 50%; background: #000; color: var(--white); transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1); }
-.way__a svg { width: 0.9em; height: 0.9em; fill: none; stroke: currentColor; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+.way__k { padding-top: 0.6em; font-size: 1.125em; font-weight: 500; line-height: 1; text-transform: uppercase; }
+.way__main { display: flex; flex-direction: column; align-items: flex-start; gap: 0.7em; min-width: 0; }
+.way__v { font: 800 4em/0.9 var(--fd); font-stretch: 75%; text-transform: uppercase; overflow-wrap: anywhere; transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.way__q { max-width: 26em; font-size: 1.125em; line-height: 1.3; }
+.way__btn { display: inline-flex; align-items: center; gap: 0.75em; margin-top: 0.2em; padding: 0.3em 0.3em 0.3em 1.1em; border-radius: 3em; background: #000; color: var(--white); font-size: 1em; font-weight: 500; }
+.way__a { display: flex; justify-content: center; align-items: center; width: 2.2em; height: 2.2em; border-radius: 50%; background: var(--orange); color: #000; transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.way__a svg { width: 0.8em; height: 0.8em; fill: none; stroke: currentColor; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
 .way, .way__k, .way__q { transition: color 0.3s ease; }
 .way:focus-visible { outline-offset: -4px; }
 @media (hover: hover) and (pointer: fine) {
-  .way:hover { color: var(--white); }
+  .way:hover { color: #000; }
   .way:hover .way__fill { transform: scaleY(1); }
-  .way:hover .way__v { transform: translateX(0.25em); }
-  .way:hover .way__a { transform: rotate(45deg) scale(1.1); }
+  .way:hover .way__v { transform: translateX(0.15em); }
+  .way:hover .way__a { transform: rotate(45deg) scale(1.08); background: var(--white); }
+}
+/* the camel's corner: sticky beside the list, rising out of a line, acting out the way you point at */
+.ct-cam { position: sticky; top: calc(100svh - 38em); align-self: start; height: 34em; border-bottom: 1px solid #000; }
+.ct-cam { clip-path: inset(-100vh -100vw 0 -100vw); }   /* the neck ends at the line, everything else may spill */
+.ct-cam .camel { right: 0; font-size: 0.92em; }
+.camel__hold { transition: opacity 0.3s ease; }
+.camel.is-busy .camel__hold { opacity: 0; }   /* mouth busy: the card goes while it holds the phone or the laptop */
+.camel__props { position: absolute; z-index: 3; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.camel__props > g { opacity: 0; }
+@media (max-width: 991px) {
+  .ct-ways__body { grid-template-columns: 1fr; }
+  .ct-cam { display: none; }        /* phones and tablets: no camel, no acts, just the list */
 }
 .ct-where { display: flex; gap: 4em; margin: 2.5em 1.125em 0; padding: 0 1.25em; }
 .ct-where p { max-width: 22em; font-size: 1.125em; line-height: 1.35; }
@@ -127,18 +147,12 @@ html:not(.js) .fa { display: flex; } /* no script: every answer is readable */
 .ct-more a { text-decoration-color: var(--orange); text-decoration-thickness: 0.1em; }
 .ct-faq { padding-top: 6em; }
 
-/* ---------- tablet: the form stacks, each way puts its aside under the value ---------- */
+/* ---------- tablet: the form stacks; the camel steps out, the list takes the width ---------- */
 @media (max-width: 991px) {
-  .ct-hero { align-items: flex-start; min-height: max(100svh, 62em); padding-top: 11em; }
-  .ct-h1 { font-size: 5.9em; }
+  .ct-h1 { font-size: 6.4em; }
   .ct-sub { font-size: 2.8em; }
-  .ct-hero__right .elink { font-size: 1.45em; }
-  .camel { right: 7%; font-size: 1.15em; }
-  .way { grid-template-columns: 7em 1fr 3em; gap: 0.6em 1em; padding: 1.5em 1.25em 1.4em; }
-  .way__k { grid-row: 1 / span 2; }
-  .way__v { grid-column: 2; font-size: 3.4em; }
-  .way__q { grid-column: 2; }
-  .way__a { grid-column: 3; grid-row: 1 / span 2; }
+  .way { grid-template-columns: 7em 1fr; gap: 1em; }
+  .way__v { font-size: 3.4em; }
   .ct-brief { flex-direction: column; gap: 3em; padding: 4em 3em 4.5em; }
   .ct-brief__left { position: static; width: 100%; gap: 1.5em; }
   .ct-brief__p { max-width: 26em; }
@@ -148,26 +162,22 @@ html:not(.js) .fa { display: flex; } /* no script: every answer is readable */
   .step h3 { font-size: 2.5em; }
   .step__n { font-size: 7em; }
 }
-/* ---------- phones: one column, the camel stays, smaller, under the text ---------- */
+/* ---------- phones: one column, no camel, no acts ---------- */
 @media (max-width: 767px) {
-  .ct-hero { min-height: 0; padding: 7.5em 0 23em; }
-  .ct-hero__block { flex-direction: column; align-items: center; gap: 3em; }
-  .ct-hero__left, .ct-hero__right { width: 100%; }
   .ct-h1 { font-size: 5.6em; }
-  .ct-h1__l3 { translate: -0.55em 0; }
-  .ct-sub { font-size: 2.2em; translate: 1em 0; }
-  .ct-hero__right { align-items: center; gap: 1.75em; padding: 0 1.25em; text-align: center; }
-  .ct-hero__right .elink { display: inline-block; padding: 0.45em 0; font-size: 1.5em; }  /* 44px to tap */
-  .ct-hero__right .ehead { margin-bottom: 0.1em; }
-  .camel { right: 4%; bottom: -3em; font-size: 0.8em; }
-  .ct-ways { padding: 6em 0 5em; }
-  .ct-list { margin-top: 2.5em; }
-  .way { grid-template-columns: 1fr 2.75em; gap: 0.5em 1em; min-height: 0; padding: 1.4em 0.25em 1.25em; }
-  .way__k, .way__v, .way__q { grid-column: 1; grid-row: auto; }
-  .way__k { font-size: 0.9375em; }
-  .way__v { font-size: 2.6em; overflow-wrap: anywhere; }
+  .ct-sub { font-size: 2.2em; }
+  .ct-hero { padding: 6.5em 1em 4em; }
+  .ct-hero__text { display: flex; flex-direction: column; align-items: center; gap: 1.5em; }
+  .ct-pills { position: static; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5em; }
+  .ct-pill { position: static; }
+  .ct-ways__body { margin-top: 2.5em; }
+  .way { grid-template-columns: 1fr; gap: 0.6em; padding: 1.4em 0.25em 1.3em; }
+  .way__k { padding-top: 0; font-size: 0.9375em; }
+  .way__v { font-size: 2.6em; }
   .way__q { font-size: 1.0625em; }
-  .way__a { grid-column: 2; grid-row: 1 / span 3; width: 2.75em; height: 2.75em; }
+  .ct-ways { padding: 3em 0 5em; }
+  .ct-ways__body { margin-left: 0.75em; margin-right: 0.75em; }
+  .way__btn { font-size: 1.0625em; padding-top: 0.4em; padding-bottom: 0.4em; }   /* 44px to tap */
   .ct-where { flex-direction: column; gap: 1.75em; padding: 0 0.25em; }
   .ct-brief { gap: 2.5em; margin: 0 0.75em; padding: 3em 1.5em 3.5em; border-radius: 1.5em; }
   .ct-row { grid-template-columns: 1fr; gap: 2.25em; }
@@ -187,8 +197,6 @@ html:not(.js) .fa { display: flex; } /* no script: every answer is readable */
 @media (max-width: 479px) {
   .ct-h1 { font-size: 4.9em; }
   .ct-sub { font-size: 2em; }
-  .ct-hero { padding-bottom: 20em; }
-  .camel { right: -5%; font-size: 0.7em; }
   .way__v { font-size: 1.85em; }
   .ct-done__h { font-size: 2.9em; }
 }

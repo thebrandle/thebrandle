@@ -163,7 +163,7 @@
   const top = $('.camel__top');
   const tag = $('.camel__tag');
   const P0 = [285, 520], C0 = [300, 330], J0 = [262, 160];
-  const src = $('.contact .ccamel__art');
+  const src = $('.ct-art .ccamel__art');   // our camel's drawn head, kept on this page
   if (src && src.dataset.geo && src.firstElementChild) {
     const g = JSON.parse(src.dataset.geo), u = g.em[0] / g.vb[0] * 16 * 1.3, pc = (v) => `${v * 100}%`;
     const art = src.cloneNode(true);
@@ -181,10 +181,10 @@
   /* ---------- hero: letters pop one by one (the panel's values), sub line rises, links follow ---------- */
   const letters = $$('.ct-h1 > span').flatMap((l) => TB.chars(l));
   const sub = $('.ct-sub > span');
-  const side = $$('.ct-hero__right > div');
+  const pills = $$('.ct-pill');
   gsap.set(letters, { opacity: 0, scale: 0.5 });
   gsap.set(sub, { yPercent: 120 });
-  gsap.set(side, { y: 24, opacity: 0 });
+  gsap.set(pills, { scale: 0 });
   gsap.set(camel, { yPercent: 105, rotation: rnd(-3, 3), transformOrigin: '50% 100%' });
 
   /* ---------- the camel: the neck bends after the pointer, the head turns with it, the tag swings behind ---------- */
@@ -224,7 +224,7 @@
   new IntersectionObserver(([e]) => run(e.isIntersecting)).observe(camel);
 
   if (fine) {
-    const hero = $('.ct-hero');
+    const hero = $('.ct-ways');   // he watches your pointer over the list
     hero.addEventListener('mousemove', (e) => {
       const r = camel.getBoundingClientRect(), k = r.width / 400;
       const x = (e.clientX - r.left) / k - (J0[0] - 60), y = (e.clientY - r.top) / k - (J0[1] - 60); // from his face, in art units
@@ -256,10 +256,13 @@
         .to(c, { scale: 1, rotation: 0, duration: 0.6, ease: 'power2.out' });
     });
     gsap.to(sub, { yPercent: 0, duration: 0.85, ease: 'back.out(1.4)', delay: 0.75 });
-    gsap.to(side, { y: 0, opacity: 1, duration: 0.6, ease: 'back.out(1.6)', stagger: 0.1, delay: 0.7 });
-    gsap.to(camel, { yPercent: 0, rotation: 0, duration: 0.75, ease: 'back.out(1.4)', delay: 0.55 });
-    gsap.delayedCall(0.55, () => { s.tag = -20; }); // let go at -20 degrees: the spring does the settling
+    gsap.to(pills, { scale: 1, duration: 0.55, ease: 'back.out(2.5)', stagger: 0.12, delay: 0.8 });
   });
+
+  ScrollTrigger.create({ trigger: '.ct-cam', start: 'top 80%', once: true, onEnter: () => {
+    gsap.to(camel, { yPercent: 0, rotation: 0, duration: 0.75, ease: 'back.out(1.4)' });
+    gsap.delayedCall(0.1, () => { s.tag = -20; }); // let go at -20 degrees: the spring does the settling
+  } });
 
   /* ---------- scroll reveals ---------- */
   const rise = (els, trigger) => {
@@ -269,7 +272,7 @@
   };
   $$('.ct [data-lines]').forEach((h) => rise($$('.lm > span', h), h));
   $$('.way').forEach((w) => {
-    const parts = $$('.way__k, .way__v, .way__q, .way__a', w);
+    const parts = $$('.way__k, .way__v, .way__q, .way__btn', w);
     gsap.set(parts, { y: 28, opacity: 0 });
     gsap.to(parts, { y: 0, opacity: 1, duration: 0.6, ease: 'back.out(1.6)', stagger: 0.06, scrollTrigger: { trigger: w, start: 'top 90%' } });
   });
@@ -289,8 +292,8 @@
     }
   });
 
-  /* ---------- the two ways in: hover the email and envelopes fall out of the camel's mouth; hover the call and
-     headphones drop onto its head ---------- */
+  /* ---------- the ways in, acted out (desktop only, the camel is not shown on smaller screens): the email spits
+     envelopes, the phone puts headphones on, and the acts below for the form, WhatsApp, the video call and Instagram ---------- */
   const mailLink = $('[data-fx="mail"]'), callLink = $('[data-fx="call"]');
   if (fine && mailLink) {
     const layer = document.createElement('div');
@@ -336,5 +339,60 @@
     };
     callLink.addEventListener('mouseenter', on); callLink.addEventListener('focus', on);
     callLink.addEventListener('mouseleave', off); callLink.addEventListener('blur', off);
+  }
+
+  /* ---------- the other acts: each is a group in .camel__props; it pops up in his hoof while you point at its way ---------- */
+  if (fine) {
+    const props = $('.camel__props');
+    const act = (fx, on, off) => {
+      const link = $(`[data-fx="${fx}"]`);
+      const g = props && $(`.pr--${fx}`, props);
+      if (!link) return;
+      let tl = null;
+      const show = () => {
+        if (g) { gsap.killTweensOf(g); gsap.fromTo(g, { opacity: 0, y: 70, scale: 0.85, transformOrigin: '60% 100%' }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'back.out(2)' }); }
+        tl && tl.kill(); tl = on(g);
+        camel.classList.toggle('is-busy', !!g);
+      };
+      const hide = () => {
+        if (g) gsap.to(g, { opacity: 0, y: 70, scale: 0.85, duration: 0.3, ease: 'power2.in', overwrite: true });
+        tl && tl.kill(); tl = null; off && off(g);
+        camel.classList.remove('is-busy');
+        gsap.killTweensOf(s, 'nod,look'); gsap.to(s, { nod: 0, look: 0, duration: 0.6, ease: 'elastic.out(1, 0.5)' });
+      };
+      link.addEventListener('mouseenter', show); link.addEventListener('focus', show);
+      link.addEventListener('mouseleave', hide); link.addEventListener('blur', hide);
+    };
+    const nod = (from, to, d) => gsap.fromTo(s, { nod: from }, { nod: to, duration: d, yoyo: true, repeat: -1, ease: 'sine.inOut' });
+    // the form: the card in his mouth says so, and he wags it at you
+    const word = tagText.textContent;
+    act('form', () => { tagText.textContent = 'Fill me in'; s.tagV = 260; return nod(-4, 4, 0.3); }, () => { tagText.textContent = word; });
+    // WhatsApp: phone out, thumb tapping, messages arriving, a typing bubble over his head
+    act('chat', (g) => {
+      const tl = gsap.timeline({ repeat: -1 });
+      tl.fromTo($$('.pr__m', g), { scaleX: 0, transformOrigin: '0% 50%' }, { scaleX: 1, duration: 0.3, ease: 'back.out(2)', stagger: 0.45 })
+        .to({}, { duration: 0.8 });
+      gsap.fromTo($$('.pr__dots circle', g), { y: 0 }, { y: -4, duration: 0.25, yoyo: true, repeat: -1, ease: 'sine.inOut', stagger: 0.1 });
+      gsap.fromTo($('.pr__dev', g), { rotation: -1.5, transformOrigin: '50% 80%' }, { rotation: 1.5, duration: 0.09, yoyo: true, repeat: -1 });   // tap tap tap
+      gsap.fromTo($('.pr__pop', g), { scale: 0, transformOrigin: '30% 100%' }, { scale: 1, duration: 0.5, ease: 'back.out(3)', delay: 0.3 });
+      gsap.to(s, { look: -7, duration: 0.5, ease: 'power2.out' });   // eyes down at the screen
+      return tl;
+    }, (g) => { g && gsap.killTweensOf([...$$('.pr__dots circle', g), $('.pr__dev', g)]); });
+    // the video call: the laptop opens, the other side appears, the 15 minutes start counting down
+    act('video', (g) => {
+      const t = $('.pr__time', g), clock = { left: 900 };
+      gsap.fromTo($('.pr__lid', g), { scaleY: 0, transformOrigin: '50% 100%' }, { scaleY: 1, duration: 0.55, ease: 'back.out(1.8)', delay: 0.1 });
+      gsap.fromTo($$('.pr__face', g), { y: 0 }, { y: -3, duration: 0.3, yoyo: true, repeat: -1, ease: 'sine.inOut' });
+      const tl = gsap.to(clock, { left: 0, duration: 900, ease: 'none', onUpdate: () => { const v = Math.ceil(clock.left); t.textContent = `${String(v / 60 | 0).padStart(2, '0')}:${String(v % 60).padStart(2, '0')}`; } });
+      nod(-2, 3, 0.22);   // talking
+      return tl;
+    }, (g) => { g && gsap.killTweensOf($$('.pr__face', g)); });
+    // Instagram: thumb scrolling the feed, hearts floating off
+    act('insta', (g) => {
+      const tl = gsap.fromTo($('.pr__feed', g), { y: 0 }, { y: -124, duration: 1.6, ease: 'power1.inOut', repeat: -1 });
+      gsap.fromTo($$('.pr__hearts path', g), { y: 0, opacity: 0 }, { y: -60, opacity: 1, duration: 1.2, ease: 'power1.out', stagger: 0.4, repeat: -1 });
+      gsap.to(s, { look: -6, duration: 0.5, ease: 'power2.out' });
+      return tl;
+    }, (g) => { g && gsap.killTweensOf($$('.pr__hearts path', g)); });
   }
 })();

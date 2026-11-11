@@ -105,3 +105,6 @@
 @media (hover: hover) and (pointer: fine) { .vibe:hover .vibe__tip { scale: 1; } }
 .vibe:focus-visible { outline: 2px solid #000; outline-offset: 4px; }
 @media (prefers-reduced-motion: reduce) { .vibe__bars i { animation: none; transform: scaleY(0.7); } }
+
+/* phones: the hero breathes without its three labels (2026-11-12) */
+@media (max-width: 767px) { .hero__text > .pill { display: none; } }
