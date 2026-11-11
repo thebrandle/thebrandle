@@ -95,11 +95,8 @@
   ]
  },
  "price": {
-  "big": [
-   "$1,299 to",
-   "$6,499"
-  ],
-  "p": "Our fixed plans run from $1,299 to $6,499, and a store takes 3 to 6 weeks. Two languages and a KNET gateway add scope, which the quote will show. If you have a lot of products, we can load them for you or show you how."
+  "big": ["From", "$1,299"],
+  "p": "Websites start at $1,299, and a store takes 3 to 6 weeks. Two languages and a KNET gateway add scope, which the quote will show. If you have a lot of products, we can load them for you or show you how."
  },
  "tools": {
   "h2": "At the Kuwait checkout",

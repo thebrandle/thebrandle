@@ -109,11 +109,8 @@
   ]
  },
  "price": {
-  "big": [
-   "$1,299 to",
-   "$6,499"
-  ],
-  "p": "Our fixed plans run from $1,299 to $6,499, about AED 4,800 to 23,900. A site takes 3 to 6 weeks, and a small Framer build sits at the short end. Framer's own site plan is separate and paid to Framer."
+  "big": ["From", "$1,299"],
+  "p": "Websites start at $1,299, about AED 4,800, and you can [price yours](/pricing/) item by item. A site takes 3 to 6 weeks, and a small Framer build sits at the short end. Framer's own site plan is separate and paid to Framer."
  },
  "tools": {
   "h2": "Made with",

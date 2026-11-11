@@ -1,6 +1,6 @@
 {
  "title": "Web Design Sharjah: Websites and Online Stores | The Brandle",
- "description": "Web design for Sharjah businesses from a studio one emirate away. Bilingual websites and stores, 5% VAT handled, fixed plans from $1,299 to $6,499.",
+ "description": "Web design for Sharjah businesses from a studio one emirate away. Bilingual websites and stores, 5% VAT handled, fixed prices from $1,299.",
  "crumb": "Sharjah",
  "country": "United Arab Emirates",
  "schema_name": "Web design Sharjah",
@@ -25,7 +25,7 @@
    "5% VAT ready"
   ],
   "joke": "Your customers already spend an hour in Sharjah to Dubai traffic. Your website shouldn't make them wait as well.",
-  "intro": "Web design for Sharjah businesses, from a studio one emirate away in Dubai. Bilingual websites and online stores for family firms, schools, clinics and shops, with 5% UAE VAT, local payment methods and Arabic designed properly. Fixed plans from $1,299 to $6,499."
+  "intro": "Web design for Sharjah businesses, from a studio one emirate away in Dubai. Bilingual websites and online stores for family firms, schools, clinics and shops, with 5% UAE VAT, local payment methods and Arabic designed properly. Fixed prices from $1,299."
  },
  "get": {
   "h2": "Built for Sharjah",
@@ -103,11 +103,8 @@
   ]
  },
  "price": {
-  "big": [
-   "$1,299 to",
-   "$6,499"
-  ],
-  "p": "Our fixed plans run from $1,299 to $6,499, about AED 4,800 to 23,900, and a site or store takes 3 to 6 weeks. For how that compares with the rest of the UAE market, read [how much a website costs in Dubai](/blog/website-cost-dubai/). The numbers don't change at the border."
+  "big": ["From", "$1,299"],
+  "p": "Websites start at $1,299, about AED 4,800, and you can [price yours](/pricing/) item by item, and a site or store takes 3 to 6 weeks. For how that compares with the rest of the UAE market, read [how much a website costs in Dubai](/blog/website-cost-dubai/). The numbers don't change at the border."
  },
  "tools": {
   "h2": "What we build with",
@@ -126,7 +123,7 @@
  "faq": [
   {
    "q": "How much does a website cost in Sharjah?",
-   "a": "Ours run from $1,299 to $6,499, about AED 4,800 to 23,900, fixed before work starts. Two languages and online payments add scope, and the quote will say so."
+   "a": "Websites start at $1,299, about AED 4,800, fixed before work starts. Two languages and online payments add scope, and the quote will say so."
   },
   {
    "q": "Are you based in Sharjah?",

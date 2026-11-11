@@ -95,11 +95,8 @@
   ]
  },
  "price": {
-  "big": [
-   "$1,299 to",
-   "$6,499"
-  ],
-  "p": "Our fixed plans run from $1,299 to $6,499, fixed before work starts, and a site or store takes 3 to 6 weeks. We quote in US dollars, so your bank does the conversion to pounds on the day. No London rent is hiding in the number."
+  "big": ["From", "$1,299"],
+  "p": "Websites start at $1,299, fixed before work starts, and a site or store takes 3 to 6 weeks. We quote in US dollars, so your bank does the conversion to pounds on the day. No London rent is hiding in the number."
  },
  "tools": {
   "h2": "What we build with",
@@ -131,7 +128,7 @@
   },
   {
    "q": "Do you charge in pounds?",
-   "a": "We quote and invoice in US dollars, from $1,299 to $6,499 for our fixed plans. Your bank or card handles the conversion."
+   "a": "We quote and invoice in US dollars, with websites from $1,299. Your bank or card handles the conversion."
   }
  ],
  "related": [

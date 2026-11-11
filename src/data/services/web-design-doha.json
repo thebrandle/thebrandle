@@ -95,11 +95,8 @@
   ]
  },
  "price": {
-  "big": [
-   "$1,299 to",
-   "$6,499"
-  ],
-  "p": "Our fixed plans run from $1,299 to $6,499, and a site or store takes 3 to 6 weeks. A second language and a Qatar payment gateway add scope, which the quote will show. Translation is separate."
+  "big": ["From", "$1,299"],
+  "p": "Websites start at $1,299, and a site or store takes 3 to 6 weeks. A second language and a Qatar payment gateway add scope, which the quote will show. Translation is separate."
  },
  "tools": {
   "h2": "At the Qatar checkout",

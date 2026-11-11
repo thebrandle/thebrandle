@@ -103,10 +103,7 @@
   ]
  },
  "price": {
-  "big": [
-   "$1,299 to",
-   "$6,499"
-  ],
+  "big": ["From", "$1,299"],
   "p": "That's the range of our fixed plans, about AED 4,800 to 23,900. Where you land depends on catalogue size and custom features. Shopify's own monthly fee is separate and goes to Shopify. A store takes 3 to 6 weeks."
  },
  "tools": {

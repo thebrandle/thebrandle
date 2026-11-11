@@ -95,11 +95,8 @@
   ]
  },
  "price": {
-  "big": [
-   "$1,299 to",
-   "$6,499"
-  ],
-  "p": "Our fixed plans run from $1,299 to $6,499, fixed before work starts, and a store takes 3 to 6 weeks. We quote in US dollars, so your bank turns it into pounds on the day. Large catalogues add scope, which the quote will show."
+  "big": ["From", "$1,299"],
+  "p": "Websites start at $1,299, fixed before work starts, and a store takes 3 to 6 weeks. We quote in US dollars, so your bank turns it into pounds on the day. Large catalogues add scope, which the quote will show."
  },
  "tools": {
   "h2": "At the UK checkout",

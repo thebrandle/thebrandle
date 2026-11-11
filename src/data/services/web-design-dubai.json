@@ -1,6 +1,6 @@
 {
  "title": "Web Design Dubai: Websites and Online Stores | The Brandle",
- "description": "Web design in Dubai from a studio based here. Custom websites and online stores, Arabic-capable and VAT-ready, on fixed plans from $1,299 to $6,499.",
+ "description": "Web design in Dubai from a studio based here. Custom websites and online stores, Arabic-capable and VAT-ready, on fixed prices from $1,299.",
  "crumb": "Dubai",
  "country": "United Arab Emirates",
  "schema_name": "Web design Dubai",
@@ -25,7 +25,7 @@
    "Arabic capable"
   ],
   "joke": "Dubai has a lot of websites with a skyline photo and nothing else to say. Yours can do better.",
-  "intro": "Web design in Dubai, from a studio that's based here. Custom websites and online stores for Dubai businesses, with local payment methods, 5% VAT and Arabic handled properly. Fixed plans from $1,299 to $6,499."
+  "intro": "Web design in Dubai, from a studio that's based here. Custom websites and online stores for Dubai businesses, with local payment methods, 5% VAT and Arabic handled properly. Fixed prices from $1,299."
  },
  "get": {
   "h2": "Built for here",
@@ -104,11 +104,8 @@
   ]
  },
  "price": {
-  "big": [
-   "$1,299 to",
-   "$6,499"
-  ],
-  "p": "Our fixed plans run from $1,299 to $6,499, about AED 4,800 to 23,900, and a site or store takes 3 to 6 weeks. For how that compares with the rest of the market, read [how much a website costs in Dubai](/blog/website-cost-dubai/)."
+  "big": ["From", "$1,299"],
+  "p": "Websites start at $1,299, about AED 4,800, and you can [price yours](/pricing/) item by item, and a site or store takes 3 to 6 weeks. For how that compares with the rest of the market, read [how much a website costs in Dubai](/blog/website-cost-dubai/)."
  },
  "tools": {
   "h2": "What we build with",
@@ -127,7 +124,7 @@
  "faq": [
   {
    "q": "How much does a website cost in Dubai?",
-   "a": "Ours run from $1,299 to $6,499, about AED 4,800 to 23,900, fixed before work starts. Market prices vary widely, and our [Dubai cost guide](/blog/website-cost-dubai/) breaks down why."
+   "a": "Websites start at $1,299, about AED 4,800, fixed before work starts. Market prices vary widely, and our [Dubai cost guide](/blog/website-cost-dubai/) breaks down why."
   },
   {
    "q": "Do you build Arabic websites?",

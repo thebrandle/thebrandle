@@ -30,6 +30,12 @@ def plain(s):
     return LINK.sub(r'\1', s).replace("'", '’')
 
 
+# which tab of the price builder each service page opens (src/data/pricing.json); website pages and cities open "web"
+TAB = {'brand-identity-design': 'brand', 'video-production': 'video', 'ui-ux-design': 'design', 'mobile-app-development': 'design',
+       'web-application-development': 'design', 'social-media-marketing': 'social', 'digital-marketing': 'social',
+       'seo-services': 'seo', 'website-maintenance': 'care'}
+
+
 def cta(text, href, talk=False):
     return (f'<a class="cta" href="{href}"{" data-talk" if talk else ""}><span class="cta__fill"></span><span class="cta__t">{t(text)}</span>'
             f'<span class="cta__arrow">{ARROW}</span></a>')
@@ -194,7 +200,7 @@ class Site:
     <p class="label label--static">What it costs</p>
     <h2 class="heading sv-price__big" style="--k:{kp:.3f}" data-lines>{" <br>".join(t(l) for l in pr["big"])}</h2>
     <p>{t(pr["p"])}</p>
-    {cta("See the plans", "/pricing/")}
+    {cta("Price it yourself", f"/pricing/?service={TAB.get(slug, 'web')}#plans")}
   </section>'''
 
         tl = p.get('tools') or {'h2': '', 'items': []}
@@ -318,9 +324,9 @@ class Site:
         end = f'''
   <section class="sv-price sv-hub__price">
     <p class="label label--static">What it costs</p>
-    <h2 class="heading sv-price__big" style="--k:1" data-lines>$1,299 to <br>$6,499</h2>
+    <h2 class="heading sv-price__big" style="--k:1" data-lines>From <br>$1,299</h2>
     <p>{t(hb["price"])}</p>
-    {cta("See the plans", "/pricing/")}
+    {cta("Build your price", "/pricing/#plans")}
   </section>
   <section class="pend sv-end">
     <div class="pend__inner">
@@ -360,7 +366,7 @@ class Site:
     {PATH_R}
     <nav class="sv-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/services/">Services</a><span aria-hidden="true">/</span><span aria-current="page">Locations</span></nav>
     <div class="sv-hero__text">
-      <h1 class="heading sv-h1" data-lines>Web design, <br>wherever you are</h1>
+      <h1 class="heading sv-h1" style="--k:0.780" data-lines>Web design, <br>wherever you are</h1>
       <div class="sv-pills"><span class="pill sv-pill sv-pill--1"><span>{len(cities)} cities</span></span><span class="pill sv-pill sv-pill--2"><span>{len([c for c in by if by[c]])} countries</span></span><span class="pill sv-pill sv-pill--3"><span>1 time zone (ours)</span></span></div>
     </div>
     <p class="sv-joke">We&rsquo;re in Dubai. Your customers are wherever they are. The website has to work for them, not for us.</p>
