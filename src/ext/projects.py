@@ -144,6 +144,14 @@ def index(api, projects, rects):
     <p class="films__lede">We point cameras at things too. Launches, roundtables and the odd very good party, filmed for brands, PR agencies and media in Dubai. Tap one for sound, or keep it a silent movie.</p>
     <div class="films__grid">{''.join(film(i, f, v) for i, f in enumerate(FILMS))}</div>
   </section>
+  <section class="edits" id="edits" aria-labelledby="edits-h">
+    <div class="shead">
+      <p class="label">Edit and motion</p>
+      <h2 class="sheading" id="edits-h" data-magnetic>Edits</h2>
+    </div>
+    <p class="edits__lede">Motion titles, colour, concert promos and nature films, cut in-house. Muted here, because the music is better with the real thing.</p>
+    <ul class="edits__row" aria-label="Six short edits, playing without sound"><li class="edits__item"><video class="edits__v" muted loop playsinline preload="none" poster="/assets/team/ziyavdi/zv1.webp"><source src="/assets/team/ziyavdi/zv1.mp4" type="video/mp4"></video></li><li class="edits__item"><video class="edits__v" muted loop playsinline preload="none" poster="/assets/team/ziyavdi/zv2.webp"><source src="/assets/team/ziyavdi/zv2.mp4" type="video/mp4"></video></li><li class="edits__item"><video class="edits__v" muted loop playsinline preload="none" poster="/assets/team/ziyavdi/zv3.webp"><source src="/assets/team/ziyavdi/zv3.mp4" type="video/mp4"></video></li><li class="edits__item"><video class="edits__v" muted loop playsinline preload="none" poster="/assets/team/ziyavdi/zv4.webp"><source src="/assets/team/ziyavdi/zv4.mp4" type="video/mp4"></video></li><li class="edits__item"><video class="edits__v" muted loop playsinline preload="none" poster="/assets/team/ziyavdi/zv5.webp"><source src="/assets/team/ziyavdi/zv5.mp4" type="video/mp4"></video></li><li class="edits__item"><video class="edits__v" muted loop playsinline preload="none" poster="/assets/team/ziyavdi/zv6.webp"><source src="/assets/team/ziyavdi/zv6.mp4" type="video/mp4"></video></li></ul>
+  </section>
 {api.render('{{> brands}}', {})}
   <div class="pfollow" aria-hidden="true"><span class="pill pfollow__name"><span></span></span><span class="pill pill--orange pfollow__go"><span>View project</span></span></div>
 </main>'''

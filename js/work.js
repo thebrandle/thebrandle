@@ -1,6 +1,14 @@
 /* Work index and project pages. Reads its helpers from main.js (window.TB). Everything is visible and usable when
    TB.ok is false: start states are set here, never in the stylesheet. */
 (() => {
+  /* the edits play muted while on screen */
+  {
+    const reel = TB.$$('.edits__v');
+    if (reel.length && !TB.reduce) {
+      const io = new IntersectionObserver((es) => es.forEach((e) => { e.isIntersecting ? e.target.play().catch(() => {}) : e.target.pause(); }), { threshold: 0.25 });
+      reel.forEach((v) => io.observe(v));
+    } else reel.forEach((v) => { v.controls = true; });
+  }
   const { $, $$, ok, fine, reduce, ready, draw } = TB;
 
   /* ---------- looping videos load and play only while they are on screen; under reduced motion they wait for a press ---------- */

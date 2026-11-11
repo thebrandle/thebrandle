@@ -41,12 +41,6 @@
   pop.addEventListener('cancel', (e) => { e.preventDefault(); close(); });
   pop.addEventListener('close', () => TB.lenis && TB.lenis.start());
 
-  /* Ziyavdi's edits play muted while on screen */
-  const reel = $$('.tm-reel__v');
-  if (reel.length && !TB.reduce) {
-    const io = new IntersectionObserver((es) => es.forEach((e) => { e.isIntersecting ? e.target.play().catch(() => {}) : e.target.pause(); }), { threshold: 0.25 });
-    reel.forEach((v) => io.observe(v));
-  } else reel.forEach((v) => { v.controls = true; });
   if (!ok) return;
 
   /* ---------- hero ---------- */

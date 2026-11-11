@@ -516,3 +516,7 @@ h1, h2, h3, h4, .sheading { text-wrap: balance; }
   dialog.tm-pop .tm-pop__card, dialog.ab-pop .ab-pop__card, dialog.qf .qf__card, dialog.game .game__card { will-change: auto; }
 }
 
+
+/* footer menus (2026-11-12): main menu, social, legal side by side */
+.footer__rt { gap: 2.5em; }
+@media (max-width: 767px) { .footer__rt { display: grid; grid-template-columns: 1fr 1fr; gap: 2em 1.5em; } .footer__rt > .flinks:first-child { grid-row: span 2; } }

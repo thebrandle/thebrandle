@@ -149,7 +149,7 @@ class Site:
     </div>
     <p class="sv-joke">{t(h["joke"])}</p>
     <p class="sv-intro">{t(h["intro"])}</p>
-    <div class="sv-hero__cta">{cta("Start your project", "/contact#brief", True)}<a class="sv-link" href="/pricing/">See the plans</a></div>
+    <div class="sv-hero__cta">{cta("Start your project", "/contact", True)}<a class="sv-link" href="/pricing/">See the plans</a></div>
     <p class="sv-hint" aria-hidden="true">Click anywhere up here. Stickers are free.</p>
     {self.slap_tray()}
   </section>'''
@@ -222,7 +222,7 @@ class Site:
     <div class="faq__left">
       <div class="faq__head"><p class="label label--static">Questions</p><h2 class="sheading sheading--faq" data-magnetic>{t(p["faq_h2"])}</h2></div>
       <div class="sv-more"><p>Not on the list? The big FAQ page covers money, timelines and what happens after launch.</p>
-        <a class="sv-link" href="/faq">Read the full FAQ</a><a class="sv-link" href="/contact#brief" data-talk>Or just ask us</a></div>
+        <a class="sv-link" href="/faq">Read the full FAQ</a><a class="sv-link" href="/contact" data-talk>Or just ask us</a></div>
     </div>
     <div class="faq__right">{qa}</div>
   </section>'''

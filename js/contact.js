@@ -6,7 +6,7 @@
   const form = $('.ct-form');
   const tagText = $('.camel__tag span');
 
-  /* ---------- "Let's Talk" (header, footer, the camel's tag) goes to the form instead of opening the panel ---------- */
+  /* ---------- on this page Let's Talk goes back up to the hero; the form row takes you to the form ---------- */
   const toForm = () => {
     const y = brief.getBoundingClientRect().top + scrollY - 70;
     TB.lenis ? TB.lenis.scrollTo(y, { duration: 1.1 }) : scrollTo({ top: y, behavior: TB.reduce ? 'auto' : 'smooth' });
@@ -18,7 +18,8 @@
     const t = e.target.closest && e.target.closest('[data-talk], a[href="#brief"]');
     if (!t || e.metaKey || e.ctrlKey || e.shiftKey) return;
     e.preventDefault(); e.stopPropagation();
-    toForm();
+    if (t.matches('[data-talk]')) { TB.lenis ? TB.lenis.scrollTo(0, { duration: 1.1 }) : scrollTo({ top: 0, behavior: TB.reduce ? 'auto' : 'smooth' }); return; }   // Let's Talk: the page starts at the hero
+    toForm();   // "Tell us everything": straight to the form
   }, true);
 
   /* ---------- form ---------- */
