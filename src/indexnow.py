@@ -9,7 +9,7 @@ import json, re, sys, urllib.request
 KEY = '5f2a9c71d04e4b8ab6e3c19f7d82e046'
 HOST = 'www.thebrandle.com'
 urls = [f'https://{HOST}{p}' for p in sys.argv[1:]] or re.findall(
-    r'<loc>([^<]+)</loc>', urllib.request.urlopen(f'https://{HOST}/sitemap.xml').read().decode())
+    r'<loc>([^<]+)</loc>', urllib.request.urlopen(urllib.request.Request(f'https://{HOST}/sitemap.xml', headers={'User-Agent': 'Mozilla/5.0 (compatible; TheBrandle-IndexNow)'})).read().decode())
 body = json.dumps({'host': HOST, 'key': KEY, 'keyLocation': f'https://{HOST}/{KEY}.txt', 'urlList': urls}).encode()
 req = urllib.request.Request('https://api.indexnow.org/indexnow', body, {'Content-Type': 'application/json; charset=utf-8'})
 with urllib.request.urlopen(req) as r:
