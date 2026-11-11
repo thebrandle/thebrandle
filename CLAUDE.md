@@ -68,7 +68,8 @@ marketing and SEO), never only websites. A post's `group` is the service it is a
 5. Set the item's `status` to "done" and `published` to today in `content-plan.json`, rebuild, and make one commit:
    `feat(blog): "<h1>" (content plan item <n>)` (or `feat(services): ...`) with a two-line body. Push with
    `git push origin HEAD:main`; if rejected, push to `claude/content-plan-<n>` and open a pull request.
-6. About 90 seconds after the push, `curl` the live page (https://www.thebrandle.com/blog/<slug>/ or /services/<slug>/):
+6. About 90 seconds after the push, run `python3 src/indexnow.py /blog/<slug>/ /blog/` (or the service path) so Bing
+   recrawls it now, then `curl` the live page (https://www.thebrandle.com/blog/<slug>/ or /services/<slug>/):
    it must return 200 and its `<title>` must contain the new title. Report if not.
 7. Final message (all Muteeb reads): item number and title, live URL, word count, keywords covered, anything unsure.
 
