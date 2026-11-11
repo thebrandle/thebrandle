@@ -31,7 +31,7 @@
 @font-face { font-family: 'Geist'; font-style: normal; font-weight: 500; font-display: swap; src: url(/fonts/geist-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 @font-face { font-family: 'Geist'; font-style: normal; font-weight: 500; font-display: swap; src: url(/fonts/geist-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }</style>
 <link rel="stylesheet" href="/styles.css?v=923833fe">
-<link rel="stylesheet" href="/css/blog.css?v=0d90e710">
+<link rel="stylesheet" href="/css/blog.css?v=045e151a">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="article:published_time" content="2026-07-28">
@@ -74,26 +74,30 @@
   </nav>
 </header>
 
-<main id="top" class="post">
+<main id="top" class="post nps">
+  <div class="nps__strip">
+    <a class="nps__name" href="/blog">The Brandle Gazette</a>
+    <span class="nps__where">Page 13 &middot; <a href="/blog#seo-and-performance">SEO and performance</a></span>
+    <span class="nps__when"><time datetime="2026-07-28">28 July 2026</time> &middot; 2 min read</span>
+  </div>
   <div class="pbar" aria-hidden="true"><i></i></div>
 
-  <header class="phero">
-    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/blog">Blog</a></li><li aria-current="page">Core Web Vitals: what they are and how to fix them</li></ol></nav>
-    <a class="pill pill--orange phero__group" href="/blog#seo-and-performance"><span>SEO and performance</span></a>
-    <h1 class="phero__h">Core Web Vitals: what they are and how to fix them</h1>
-    <p class="phero__lead">A practical guide to Core Web Vitals - LCP, INP and CLS explained in plain English, what causes bad scores, and the fixes that actually move the numbers.</p>
-    <p class="phero__meta"><span>Published <time datetime="2026-07-28">28 July 2026</time></span><span>2 min read</span><span>By The Brandle team</span></p>
-    <div class="phero__art"><img src="/assets/blog/covers/core-web-vitals-guide-1200.jpg" srcset="/assets/blog/covers/core-web-vitals-guide-1200.jpg 1200w, /assets/blog/covers/core-web-vitals-guide.jpg 2400w" sizes="(max-width: 767px) 94vw, 90vw" width="2400" height="1000" alt="Core Web Vitals, in big letters. Cover art for this guide" fetchpriority="high"></div>
-  </header>
+  <!-- the spread: cover, the story in columns, the last word. With the script it reads sideways like an open paper. -->
+  <div class="spread">
+    <div class="spread__track">
+      <header class="sc">
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/blog">Blog</a></li><li aria-current="page">Core Web Vitals: what they are and how to fix them</li></ol></nav>
+        <p class="sc__kicker">LCP, INP, CLS, OMG</p>
+        <p class="sc__big" aria-hidden="true">Core Web Vitals</p>
+        <h1 class="sc__h">Core Web Vitals: what they are and how to fix them</h1>
+        <p class="sc__dek">A practical guide to Core Web Vitals - LCP, INP and CLS explained in plain English, what causes bad scores, and the fixes that actually move the numbers.</p>
+        <p class="sc__by">By The Brandle desk &middot; Published <time datetime="2026-07-28">28 July 2026</time></p>
 
-  <div class="pwrap">
-    <div class="prail" aria-hidden="true">
-      <svg class="pline"><path class="pline__ghost"/><path class="pline__dark"/></svg>
-      <div class="pcamel"><img src="/assets/blog/camel-still.png?v=1f933f89" width="232" height="240" alt="" loading="lazy"><video muted loop playsinline preload="none" width="232" height="240" src="/assets/blog/camel-walk.mp4?v=7ee74b2f"></video></div>
-    </div>
+        <p class="sc__hint" aria-hidden="true">Scroll to turn the page <span>&rarr;</span></p>
+      </header>
 
-    <div class="pcol">
-      <article class="prose">
+      <div class="sb">
+        <article class="prose">
 <p>Core Web Vitals are Google's attempt to measure whether a page feels fast to a real person. They are a genuine ranking signal, but a modest one - fixing them will not rescue thin content.</p>
 <p>They are worth fixing anyway, because they measure things that also cost you conversions.</p>
 <h2 id="the-three-metrics">The three metrics</h2>
@@ -110,7 +114,7 @@
 <p>Remove scripts you no longer use. Most sites carry tracking for tools abandoned years ago, each still loading on every visit.</p>
 <p>Preload the font you actually use, and set a sensible fallback so text is readable while it loads.</p>
 <p>Measure with real user data in Search Console rather than a one-off lab test. Lab tools are useful for diagnosis, but Google ranks on field data. See our <a href="/services/seo-services/">SEO services</a> if you want this handled.</p>
-      </article>
+        </article>
       <section class="pfaq" aria-labelledby="pfaq-h"><h2 id="pfaq-h">Questions people ask</h2>
 <details>
 <summary>How much do Core Web Vitals affect rankings?</summary>
@@ -133,43 +137,23 @@
 <li><a href="/services/">All Services</a></li>
 </ul>
       </aside>
-      <p class="psource">Found this useful? <a href="https://www.google.com/preferences/source?q=thebrandle.com" target="_blank" rel="noopener">Add The Brandle as a preferred source on Google</a> so our guides show up first for you in Search and AI Overviews.</p>
-      <p class="pback"><a class="cta" href="/blog"><span class="cta__fill"></span><span class="cta__t">All guides</span><span class="cta__arrow"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 8.5l7-7M2.5 1.5h6v6"/></svg></span></a></p>
+        <p class="psource">Found this useful? <a href="https://www.google.com/preferences/source?q=thebrandle.com" target="_blank" rel="noopener">Add The Brandle as a preferred source on Google</a> so our guides show up first for you in Search and AI Overviews.</p>
+      </div>
+
+      <footer class="se">
+        <p class="se__end">The end.<br>(Of this one.)</p>
+        <p class="se__lbl">Read next</p>
+        <ul class="se__list"><li><a href="/blog/progressive-web-apps/"><b>Do you need a PWA?</b><span>Progressive web apps: do you actually need one?</span></a></li><li><a href="/blog/website-security-checklist/"><b>Security checklist</b><span>Website security: a practical checklist for small businesses</span></a></li><li><a href="/blog/website-redesign-without-losing-seo/"><b>Redesign. Keep the SEO</b><span>How to redesign your website without losing SEO</span></a></li>
+        </ul>
+        <div class="se__cta">
+          <p>Enough reading. Let&rsquo;s build the thing. Fixed quote first, and nobody makes you sit through a slideshow.</p>
+          <a class="cta" href="/contact" data-talk><span class="cta__fill"></span><span class="cta__t">Start a project</span><span class="cta__arrow"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 8.5l7-7M2.5 1.5h6v6"/></svg></span></a>
+          <a class="se__back" href="/blog">Back to the front page</a>
+        </div>
+      </footer>
     </div>
   </div>
-
-  <section class="projects pmore" aria-labelledby="pmore-h">
-    <div class="shead">
-      <p class="label">Related guides</p>
-      <h2 class="sheading sheading--wide" id="pmore-h" data-magnetic>While you&rsquo;re here</h2>
-    </div>
-    <div class="plist bgrid">
-      <a class="pitem bcard" href="/blog/progressive-web-apps/" data-g="seo-and-performance">
-        <div class="pcard"><div class="pcard__clip"><img src="/assets/blog/progressive-web-apps-list.jpg?v=915cede3" width="960" height="540" alt="" loading="lazy"><img class="pcard__hover" src="/assets/blog/progressive-web-apps-hover.jpg?v=33c981bc" width="960" height="540" alt="" loading="lazy"></div></div>
-        <div class="pdetail"><div class="pdetail__h"><h3>Progressive web apps: do you actually need one?</h3><p>SEO and performance &middot; 2 min read</p></div><span class="parrow"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 8.5l7-7M2.5 1.5h6v6"/></svg></span></div>
-        <p class="bcard__blurb">Where it beats a native app, and where you need neither.</p>
-      </a>
-      <a class="pitem bcard" href="/blog/website-security-checklist/" data-g="seo-and-performance">
-        <div class="pcard"><div class="pcard__clip"><img src="/assets/blog/website-security-checklist-list.jpg?v=e4a08562" width="960" height="540" alt="" loading="lazy"><img class="pcard__hover" src="/assets/blog/website-security-checklist-hover.jpg?v=2b8cd073" width="960" height="540" alt="" loading="lazy"></div></div>
-        <div class="pdetail"><div class="pdetail__h"><h3>Website security: a practical checklist for small businesses</h3><p>SEO and performance &middot; 2 min read</p></div><span class="parrow"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 8.5l7-7M2.5 1.5h6v6"/></svg></span></div>
-        <p class="bcard__blurb">The realistic threats, and the fixes that stop most of them.</p>
-      </a>
-      <a class="pitem bcard" href="/blog/website-redesign-without-losing-seo/" data-g="seo-and-performance">
-        <div class="pcard"><div class="pcard__clip"><img src="/assets/blog/website-redesign-without-losing-seo-list.jpg?v=1aca70ee" width="960" height="540" alt="" loading="lazy"><img class="pcard__hover" src="/assets/blog/website-redesign-without-losing-seo-hover.jpg?v=cdd6c809" width="960" height="540" alt="" loading="lazy"></div></div>
-        <div class="pdetail"><div class="pdetail__h"><h3>How to redesign your website without losing SEO</h3><p>SEO and performance &middot; 2 min read</p></div><span class="parrow"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 8.5l7-7M2.5 1.5h6v6"/></svg></span></div>
-        <p class="bcard__blurb">URL mapping, redirects and content parity - the checklist.</p>
-      </a>
-    </div>
-  </section>
-
-  <section class="pend pcta">
-    <div class="pend__inner">
-      <h2 class="pend__para" data-lines>Enough reading.<br>Let&rsquo;s build<br>the thing</h2>
-      <div class="pcta__pills"><span class="pill ppill"><span>Fixed quote first</span></span><span class="pill ppill"><span>You own the code</span></span><span class="pill ppill"><span>Reply in a day</span></span></div>
-      <p class="pcta__p">Tell us what you need. You get a written scope and a fixed quote before any work starts, and nobody makes you sit through a slideshow.</p>
-      <a class="cta" href="/contact" data-talk><span class="cta__fill"></span><span class="cta__t">Start a project</span><span class="cta__arrow"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 8.5l7-7M2.5 1.5h6v6"/></svg></span></a>
-    </div>
-  </section>
+  <div class="spager" aria-hidden="true"><button type="button" class="spager__b" data-d="-1" tabindex="-1">&larr;</button><span class="spager__n">1 / 1</span><button type="button" class="spager__b" data-d="1" tabindex="-1">&rarr;</button></div>
 </main>
 
 <footer class="footer">
@@ -238,6 +222,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
 <script src="/main.js?v=a16ea6f3"></script>
-<script src="/js/blog.js?v=7c2a8811"></script>
+<script src="/js/blog.js?v=a3bd00f9"></script>
 </body>
 </html>

@@ -48,6 +48,37 @@ def card(p, v, h='h3'):
       </a>'''
 
 
+def first_para(D, slug):
+    """The story's opening paragraph, as plain text, for the front page's lead."""
+    m = re.search(r'<p>(.*?)</p>', (D / f'{slug}.html').read_text(), re.S)
+    return f'<p class="nst__dek">{esc(re.sub(r"<[^>]+>", "", m.group(1)))}</p>' if m else ''
+
+
+def headline(cards, p):
+    """The paper's own short headline for a post: its card lines (the art's big words), joined."""
+    c = cards.get(p['slug']) or {}
+    return ' '.join(c.get('lines') or [p['h1']])
+
+
+def story(p, cards, size, page):
+    """One story on the front page. size: lead | top | brief. Every story links to its post; data-g feeds the section filter."""
+    s, c = p['slug'], cards.get(p['slug'], {})
+    kicker = esc(c.get('quip') or p['suggestedGroup'])
+    meta = f'<p class="nst__meta"><span>{esc(p["suggestedGroup"])}</span><span>{p["readingMinutes"]} min read</span><span>Page {page}</span></p>'
+    if size == 'lead':
+        return f'''    <a class="nst nst--lead" href="/blog/{s}/" data-g="{gid(p['suggestedGroup'])}" data-page="{page}">
+      <p class="nst__kicker">{kicker}</p>
+      <h2 class="nst__big">{esc(headline(cards, p))}</h2>
+      <h3 class="nst__h">{esc(p['h1'])}</h3>
+      <div class="nst__cols"><p class="nst__dek">{esc(p['description'])}</p>{p.get('first', '')}<p class="nst__more">{esc(p['blurb'])} <span class="nst__cont">Continued on page {page} &rarr;</span></p></div>
+      {meta}
+    </a>'''
+    tag = 'h3'
+    return (f'\n    <a class="nst nst--{size}" href="/blog/{s}/" data-g="{gid(p["suggestedGroup"])}" data-page="{page}">'
+            f'<p class="nst__kicker">{kicker}</p><{tag} class="nst__t">{esc(headline(cards, p))}</{tag}>'
+            f'<p class="nst__sub">{esc(p["h1"])}</p><p class="nst__dek">{esc(p["blurb"])}</p>{meta}</a>')
+
+
 def featured(p, v):
     s = p['slug']
     return f'''    <a class="pitem bfeat" href="/blog/{s}/" data-g="{gid(p['suggestedGroup'])}">
@@ -78,20 +109,20 @@ def build(api):
     crumb = lambda *items: [{'@type': 'ListItem', 'position': i + 1, 'name': n, 'item': u} for i, (n, u) in enumerate(items)]
 
     # ---------- the listing ----------
-    art_file = api.ROOT / 'assets' / 'art' / 'blog-hero.svg'
-    if art_file.exists():      # the character art; its size and alt text come from the art builder's manifest
-        m = json.loads((api.ROOT / 'assets' / 'art' / 'manifest.json').read_text())['files']['blog-hero.svg']
-        art = (f'<div class="bhero__art" style="aspect-ratio: {m["width"]} / {m["height"]}"><img class="bhero__img" src="/{api.ver("assets/art/blog-hero.svg")}" '
-               f'width="{m["width"]}" height="{m["height"]}" alt="{esc(m["alt"])}"></div>')
-    else:                      # without it: the three newest covers, fanned out
-        art = '<div class="bhero__art"><div class="bfan" role="img" aria-label="Three guide covers fanned out like playing cards">' + ''.join(
-            f'<img src="/{api.ver("assets/blog/" + p["slug"] + "-list.jpg")}" width="960" height="540" alt="">' for p in posts[1:4]) + '</div></div>'
+    m = json.loads((api.ROOT / 'assets' / 'art' / 'manifest.json').read_text())['files']['blog-hero.svg']
+    art = f'<img src="/{api.ver("assets/art/blog-hero.svg")}" width="{m["width"]}" height="{m["height"]}" alt="{esc(m["alt"])}">'
     count = lambda g: sum(p['suggestedGroup'] == g for p in posts)
     filters = f'<button class="bf is-on" type="button" aria-pressed="true" data-g="all">All <sup>{len(posts)}</sup></button>' + ''.join(
         f'<button class="bf" type="button" aria-pressed="false" data-g="{gid(g)}">{g} <sup>{count(g)}</sup></button>' for g in GROUPS)
+    page = {p['slug']: i + 2 for i, p in enumerate(posts)}          # the front page is page 1
+    ticker = ''.join(f'<a href="/blog/{p["slug"]}/" tabindex="-1">{esc(headline(cards, p))}</a>' for p in posts[:10]) * 2
+    today = date.today()
     body = api.render((api.SRC / 'blog' / 'listing.html').read_text(), {
-        'count': len(posts), 'art': art, 'filters': filters,
-        'featured': featured(posts[0], api.ver), 'cards': ''.join(card(p, api.ver) for p in posts[1:])})
+        'count': len(posts), 'art': art, 'filters': filters, 'ticker': ticker,
+        'today': f'{today.strftime("%A")} {today.day} {today.strftime("%B %Y")}',
+        'lead': story({**posts[0], 'first': first_para(D, posts[0]['slug'])}, cards, 'lead', page[posts[0]['slug']]),
+        'top': ''.join(story(p, cards, 'top', page[p['slug']]) for p in posts[1:4]),
+        'rest': ''.join(story(p, cards, 'brief', page[p['slug']]) for p in posts[4:])})
     title = 'Web Design, Ecommerce and Branding Guides | The Brandle'
     api.page({
         'path': '/blog/', 'canonical': f'{S}/blog', 'title': title,
@@ -124,7 +155,7 @@ def build(api):
         toc = ''
         if long:
             rows = ''.join(f'<li><a href="#{h["id"]}">{esc(h["text"])}</a></li>' for h in j['headings'] if h['level'] == 2)
-            toc = f'    <nav class="ptoc" aria-label="On this page"><p class="ptoc__h">On this page</p><ol>{rows}</ol></nav>'
+            toc = f'        <nav class="ptoc" aria-label="In this story"><p class="ptoc__h">In this story</p><ol>{rows}</ol></nav>'
         pub, mod = j['datePublished'], j['dateModified']
         ctx = {
             'slug': slug, 'h1': esc(j['h1']), 'description': esc(j['description']), 'group': esc(p['suggestedGroup']), 'group_id': gid(p['suggestedGroup']),
@@ -132,7 +163,8 @@ def build(api):
             'updated': f'<span>Updated <time datetime="{mod}">{human(mod)}</time></span>' if mod[:10] != pub[:10] else '',
             'art_alt': esc(' '.join(cards[slug]['lines']) + ', in big letters. Cover art for this guide'),
             'toc': toc, 'body': '\0body\0', 'faq': '\0faq\0', 'services': '\0services\0',
-            'related': ''.join(card(by[s], api.ver) for s in rel[slug]),
+            'related': ''.join(f'<li><a href="/blog/{r}/"><b>{esc(headline(cards, by[r]))}</b><span>{esc(by[r]["h1"])}</span></a></li>' for r in rel[slug]),
+            'page': posts.index(p) + 2, 'kicker': esc(cards[slug].get('quip') or p['suggestedGroup']), 'big': esc(headline(cards, p)),
         }
         out = api.render(tpl, ctx)       # the article goes in afterwards, so nothing in it is read as a template
         out = out.replace('\0body\0', body)

@@ -1,26 +1,37 @@
-<main id="top" class="blog">
+<main id="top" class="np">
 
-  <section class="bhero">
-    <div class="bhero__text">
-      <p class="label label--static">The blog</p>
-      <h1 class="heading bhero__h" data-lines>Free advice.<br>Worth every<br><span class="bflip">dirham</span></h1>
-      <span class="pill bpill bpill--1"><span>No fluff</span></span>
-      <span class="pill bpill bpill--2"><span>Written by builders</span></span>
-      <span class="pill bpill bpill--3"><span>Camel approved</span></span>
-      <p class="bhero__lead">Plain guides on what a website costs, which platform to pick and how to redesign without losing your rankings. {{count}} so far, none of them thought leadership.</p>
+  <!-- THE FRONT PAGE: a broadsheet. Every guide is a story on it; the newest is the lead. -->
+  <header class="npm">
+    <div class="npm__row">
+      <span>Vol. 1 &middot; No. {{count}}</span>
+      <span>Dubai, {{today}}</span>
+      <span>Price: free. Worth every <span class="bflip">dirham</span></span>
     </div>
-    {{art}}
+    <h1 class="npm__title"><span class="npm__the">The</span> Brandle Gazette<span class="vh">: free web design, branding and SEO guides from The Brandle</span></h1>
+    <p class="npm__tag">All the web advice that&rsquo;s fit to carry. Usually by camel.</p>
+    <nav class="npm__sections" aria-label="Sections">{{filters}}</nav>
+  </header>
+
+  <div class="npt" aria-hidden="true"><div class="npt__in"><b>Breaking</b>{{ticker}}</div></div>
+
+  <section class="npf" aria-label="Front page">
+{{lead}}
+    <aside class="npf__side">
+      <figure class="npf__fig">{{art}}<figcaption>Our correspondent reads every guide twice, so you only have to read it once.</figcaption></figure>
+      <div class="npf__box">
+        <p class="npf__boxh">This issue, in numbers</p>
+        <dl><div><dt>Guides</dt><dd>{{count}}</dd></div><div><dt>Thought leadership</dt><dd>0</dd></div><div><dt>Camels consulted</dt><dd>2</dd></div></dl>
+      </div>
+    </aside>
   </section>
 
-  <section class="blist" aria-labelledby="blist-h">
-    <div class="shead">
-      <p class="label">All {{count}} guides</p>
-      <h2 class="sheading sheading--wide" id="blist-h" data-magnetic>Pick your problem</h2>
-    </div>
-    <div class="bfilter" role="group" aria-label="Filter guides by topic">{{filters}}</div>
+  <section class="npr" aria-label="Top stories">{{top}}
+  </section>
+
+  <section class="npg" aria-labelledby="npg-h">
+    <h2 class="npg__h" id="npg-h">Also in this issue</h2>
     <p class="bcount" aria-live="polite"></p>
-{{featured}}
-    <div class="plist bgrid">{{cards}}
+    <div class="npg__grid">{{rest}}
     </div>
   </section>
 </main>

@@ -1,47 +1,46 @@
-<main id="top" class="post{{long_class}}">
+<main id="top" class="post nps{{long_class}}">
+  <div class="nps__strip">
+    <a class="nps__name" href="/blog">The Brandle Gazette</a>
+    <span class="nps__where">Page {{page}} &middot; <a href="/blog#{{group_id}}">{{group}}</a></span>
+    <span class="nps__when"><time datetime="{{published}}">{{published_h}}</time> &middot; {{minutes}} min read</span>
+  </div>
   <div class="pbar" aria-hidden="true"><i></i></div>
 
-  <header class="phero">
-    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/blog">Blog</a></li><li aria-current="page">{{h1}}</li></ol></nav>
-    <a class="pill pill--orange phero__group" href="/blog#{{group_id}}"><span>{{group}}</span></a>
-    <h1 class="phero__h">{{h1}}</h1>
-    <p class="phero__lead">{{description}}</p>
-    <p class="phero__meta"><span>Published <time datetime="{{published}}">{{published_h}}</time></span>{{updated}}<span>{{minutes}} min read</span><span>By The Brandle team</span></p>
-    <div class="phero__art"><img src="/assets/blog/covers/{{slug}}-1200.jpg" srcset="/assets/blog/covers/{{slug}}-1200.jpg 1200w, /assets/blog/covers/{{slug}}.jpg 2400w" sizes="(max-width: 767px) 94vw, 90vw" width="2400" height="1000" alt="{{art_alt}}" fetchpriority="high"></div>
-  </header>
-
-  <div class="pwrap">
-    <div class="prail" aria-hidden="true">
-      <svg class="pline"><path class="pline__ghost"/><path class="pline__dark"/></svg>
-      <div class="pcamel"><img src="/{{v:assets/blog/camel-still.png}}" width="232" height="240" alt="" loading="lazy"><video muted loop playsinline preload="none" width="232" height="240" src="/{{v:assets/blog/camel-walk.mp4}}"></video></div>
-    </div>
+  <!-- the spread: cover, the story in columns, the last word. With the script it reads sideways like an open paper. -->
+  <div class="spread">
+    <div class="spread__track">
+      <header class="sc">
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/blog">Blog</a></li><li aria-current="page">{{h1}}</li></ol></nav>
+        <p class="sc__kicker">{{kicker}}</p>
+        <p class="sc__big" aria-hidden="true">{{big}}</p>
+        <h1 class="sc__h">{{h1}}</h1>
+        <p class="sc__dek">{{description}}</p>
+        <p class="sc__by">By The Brandle desk &middot; Published <time datetime="{{published}}">{{published_h}}</time>{{updated}}</p>
 {{toc}}
-    <div class="pcol">
-      <article class="prose">
+        <p class="sc__hint" aria-hidden="true">Scroll to turn the page <span>&rarr;</span></p>
+      </header>
+
+      <div class="sb">
+        <article class="prose">
 {{body}}
-      </article>
+        </article>
 {{faq}}
 {{services}}
-      <p class="psource">Found this useful? <a href="https://www.google.com/preferences/source?q=thebrandle.com" target="_blank" rel="noopener">Add The Brandle as a preferred source on Google</a> so our guides show up first for you in Search and AI Overviews.</p>
-      <p class="pback"><a class="cta" href="/blog"><span class="cta__fill"></span><span class="cta__t">All guides</span><span class="cta__arrow"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 8.5l7-7M2.5 1.5h6v6"/></svg></span></a></p>
+        <p class="psource">Found this useful? <a href="https://www.google.com/preferences/source?q=thebrandle.com" target="_blank" rel="noopener">Add The Brandle as a preferred source on Google</a> so our guides show up first for you in Search and AI Overviews.</p>
+      </div>
+
+      <footer class="se">
+        <p class="se__end">The end.<br>(Of this one.)</p>
+        <p class="se__lbl">Read next</p>
+        <ul class="se__list">{{related}}
+        </ul>
+        <div class="se__cta">
+          <p>Enough reading. Let&rsquo;s build the thing. Fixed quote first, and nobody makes you sit through a slideshow.</p>
+          <a class="cta" href="/contact" data-talk><span class="cta__fill"></span><span class="cta__t">Start a project</span><span class="cta__arrow"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 8.5l7-7M2.5 1.5h6v6"/></svg></span></a>
+          <a class="se__back" href="/blog">Back to the front page</a>
+        </div>
+      </footer>
     </div>
   </div>
-
-  <section class="projects pmore" aria-labelledby="pmore-h">
-    <div class="shead">
-      <p class="label">Related guides</p>
-      <h2 class="sheading sheading--wide" id="pmore-h" data-magnetic>While you&rsquo;re here</h2>
-    </div>
-    <div class="plist bgrid">{{related}}
-    </div>
-  </section>
-
-  <section class="pend pcta">
-    <div class="pend__inner">
-      <h2 class="pend__para" data-lines>Enough reading.<br>Let&rsquo;s build<br>the thing</h2>
-      <div class="pcta__pills"><span class="pill ppill"><span>Fixed quote first</span></span><span class="pill ppill"><span>You own the code</span></span><span class="pill ppill"><span>Reply in a day</span></span></div>
-      <p class="pcta__p">Tell us what you need. You get a written scope and a fixed quote before any work starts, and nobody makes you sit through a slideshow.</p>
-      <a class="cta" href="/contact" data-talk><span class="cta__fill"></span><span class="cta__t">Start a project</span><span class="cta__arrow"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 8.5l7-7M2.5 1.5h6v6"/></svg></span></a>
-    </div>
-  </section>
+  <div class="spager" aria-hidden="true"><button type="button" class="spager__b" data-d="-1" tabindex="-1">&larr;</button><span class="spager__n">1 / 1</span><button type="button" class="spager__b" data-d="1" tabindex="-1">&rarr;</button></div>
 </main>

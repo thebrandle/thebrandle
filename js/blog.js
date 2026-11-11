@@ -1,23 +1,26 @@
-/* The Brandle blog: the listing's filter and entrance, and on a post the hero, the reading line with its camel,
-   the table of contents and the closing block. Shared parts live in /main.js (window.TB). */
+/* The Brandle Gazette: the blog as a newspaper.
+   Front page: section filter (kept in the address hash), the masthead coming off the press, and a sheet of paper
+   folding over the page when a story is opened. A post: the paper opened up. The cover, the story set in columns and
+   the last word sit on one track that slides sideways as you scroll (pinned with ScrollTrigger); arrows, the arrow
+   keys and the contents list jump a column at a time. Keywords are marked with a highlighter and one line of the story
+   becomes a pull quote. Without GSAP, or with reduced motion, the post simply reads top to bottom. */
 (() => {
   const { $, $$, ok } = TB;
-  const html = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- listing: filter by group, kept in the address hash ---------- */
+  /* ---------- front page: sections ---------- */
   const btns = $$('.bf');
   if (btns.length) {
-    const items = $$('.blog .pitem');
+    const items = $$('.np .nst');
     const note = $('.bcount');
     const names = Object.fromEntries(btns.map((b) => [b.dataset.g, b.firstChild.textContent.trim()]));
     const apply = (g, animate) => {
       if (!names[g]) g = 'all';
       btns.forEach((b) => { const on = b.dataset.g === g; b.classList.toggle('is-on', on); b.setAttribute('aria-pressed', on); });
-      const shown = items.filter((it) => { const s = g === 'all' || it.dataset.g === g; it.hidden = !s; return s; });
-      note.textContent = g === 'all' ? '' : `${shown.length} ${names[g]} guides. The other ${items.length - shown.length} are sulking.`;
-      if (!ok) return;
-      if (animate) gsap.fromTo(shown, { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.55, ease: 'back.out(2.5)', stagger: 0.04, clearProps: 'transform,opacity' });
-      ScrollTrigger.refresh();
+      const shown = items.filter((it) => { const s = g === 'all' || it.dataset.g === g; it.classList.toggle('is-out', !s); return s; });
+      note.textContent = g === 'all' ? '' : `${shown.length} ${names[g]} stories in this edition. The other ${items.length - shown.length} are in another section, sulking.`;
+      if (ok && animate) gsap.fromTo(shown, { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out', stagger: 0.04, clearProps: 'transform,opacity' });
+      if (window.ScrollTrigger) ScrollTrigger.refresh();
     };
     btns.forEach((b) => b.addEventListener('click', () => {
       const g = b.dataset.g;
@@ -27,140 +30,154 @@
     addEventListener('hashchange', () => apply(location.hash.slice(1), true));
     if (location.hash) apply(location.hash.slice(1), false);
 
-    if (ok) {
-      const lines = $$('.bhero .lm > span');
-      const pills = $$('.bhero .pill');
-      gsap.set(lines, { yPercent: 115 });
-      gsap.set(pills, { opacity: 0, scale: 0.4 });
-      gsap.set('.bhero .label, .bhero__lead', { opacity: 0, y: 15 });
-      gsap.set('.bhero__art', { opacity: 0, scale: 0.65, rotation: 6 });
-      TB.ready(() => {
-        gsap.timeline()
-          .to('.bhero .label', { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, 0)
-          .to(lines, { yPercent: 0, duration: 0.85, stagger: 0.12, ease: 'back.out(1.4)' }, 0)
-          .to('.bhero__art', { opacity: 1, scale: 1, rotation: 0, duration: 0.85, ease: 'back.out(2.2)' }, 0.25)
-          .to(pills, { opacity: 1, scale: 1, duration: 0.55, stagger: 0.12, ease: 'back.out(2.5)' }, 0.55)
-          .to('.bhero__lead', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, 0.6);
-      });
-      gsap.from(btns, { opacity: 0, scale: 0.4, duration: 0.55, stagger: 0.06, ease: 'back.out(2.5)', scrollTrigger: { trigger: '.bfilter', start: 'top 85%' } });
+    if (ok && !reduce) {
+      // off the press: the rules draw, the masthead stamps down, the stories settle in
+      gsap.set('.npm__title', { scaleY: 0.2, opacity: 0, transformOrigin: '50% 100%' });
+      gsap.set(['.npm__row', '.npm__tag', '.npm__sections', '.npt'], { opacity: 0, y: 12 });
+      gsap.set('.npf .nst, .npf__side > *', { opacity: 0, y: 24 });
+      TB.ready(() => gsap.timeline()
+        .to('.npm__row', { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }, 0)
+        .to('.npm__title', { scaleY: 1, opacity: 1, duration: 0.7, ease: 'back.out(1.6)' }, 0.1)
+        .to(['.npm__tag', '.npm__sections', '.npt'], { opacity: 1, y: 0, duration: 0.45, stagger: 0.07, ease: 'power2.out' }, 0.45)
+        .to('.npf .nst, .npf__side > *', { opacity: 1, y: 0, duration: 0.6, stagger: 0.08, ease: 'power3.out' }, 0.6));
+      $$('.npr .nst, .npg .nst').forEach((s) => gsap.from(s, { opacity: 0, y: 26, duration: 0.6, ease: 'power3.out', scrollTrigger: { trigger: s, start: 'top 92%', once: true } }));
     }
-  }
 
-  const post = $('.post');
-  if (!post) return;
-  const col = $('.pcol');
-
-  /* ---------- reading progress bar: phones, and everywhere when motion is off ---------- */
-  const bar = $('.pbar i');
-  let queued = false;
-  const fill = () => {
-    queued = false;
-    const r = col.getBoundingClientRect();
-    bar.style.transform = `scaleX(${Math.min(1, Math.max(0, (innerHeight * 0.55 - r.top) / r.height))})`;
-  };
-  addEventListener('scroll', () => { if (!queued) { queued = true; requestAnimationFrame(fill); } }, { passive: true });
-
-  /* ---------- table of contents (long posts): marks the section being read ---------- */
-  const links = $$('.ptoc a');
-  if (links.length) {
-    links.forEach((a) => a.addEventListener('click', (e) => {
-      const t = document.getElementById(a.hash.slice(1));
-      if (!t || !TB.lenis) return;        // without smooth scrolling the browser's own jump does the job
+    // opening a story: the page folds shut like a broadsheet, then the story opens
+    if (ok && !reduce) $$('.np a.nst, .npt a').forEach((a) => a.addEventListener('click', (e) => {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
       e.preventDefault();
-      TB.lenis.scrollTo(t, { offset: -70 });
-      history.replaceState(null, '', a.hash);
+      const fold = document.createElement('div');
+      fold.className = 'np-fold';
+      document.body.appendChild(fold);
+      gsap.fromTo(fold, { rotationX: -90, transformPerspective: 1600 }, { rotationX: 0, duration: 0.45, ease: 'power3.in', onComplete: () => { location.href = a.href; } });
+      gsap.to('.np', { scale: 0.97, duration: 0.45, ease: 'power3.in' });
     }));
-    const io = new IntersectionObserver((es) => es.forEach((e) => {
-      if (e.isIntersecting) links.forEach((a) => (a.hash === '#' + e.target.id ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current')));
-    }), { rootMargin: '-15% 0px -70% 0px' });
-    $$('.prose h2').forEach((h) => io.observe(h));
+    addEventListener('pageshow', (e) => { if (e.persisted) { $$('.np-fold').forEach((f) => f.remove()); if (ok) gsap.set('.np', { clearProps: 'transform' }); } });
   }
 
-  if (!ok) return;
+  const post = $('.nps');
+  if (!post) return;
 
-  /* ---------- hero: comes in when the loader lifts ---------- */
-  const h1 = $('.phero__h');
-  h1.innerHTML = h1.textContent.trim().split(/\s+/).map((w) => `<span class="lm"><span>${html(w)}</span></span>`).join(' ');
-  const words = $$('.lm > span', h1);
-  gsap.set(words, { yPercent: 120 });
-  gsap.set('.crumbs, .phero__lead, .phero__meta', { opacity: 0, y: 15 });
-  gsap.set('.phero__group', { opacity: 0, scale: 0.4 });
-  gsap.set('.phero__art', { opacity: 0, scale: 0.65, rotation: 6 });
-  TB.ready(() => {
-    gsap.timeline()
-      .to('.crumbs', { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, 0)
-      .to(words, { yPercent: 0, duration: 0.85, stagger: Math.min(0.06, 0.6 / words.length), ease: 'back.out(1.4)' }, 0)
-      .to('.phero__group', { opacity: 1, scale: 1, duration: 0.55, ease: 'back.out(2.5)' }, 0.4)
-      .to('.phero__lead, .phero__meta', { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'power2.out' }, 0.45)
-      .to('.phero__art', { opacity: 1, scale: 1, rotation: 0, duration: 0.85, ease: 'back.out(2.2)' }, 0.55);
-  });
-
-  /* ---------- the reading line: drawn down the margin as you read, with a camel walking at its tip ---------- */
-  const rail = $('.prail');
-  if (matchMedia('(min-width: 768px)').matches) {
-    post.classList.add('has-rail');
-    const svg = $('.pline'), ghost = $('.pline__ghost'), dark = $('.pline__dark'), camel = $('.pcamel'), vid = $('video', camel);
-    const st = { p: 0 };
-    let len = 0, gap = 0, was = 0, side = 1, dir = 1, idle = 0;
-    vid.addEventListener('playing', () => camel.classList.add('is-live'), { once: true });
-    const paint = () => {
-      const at = st.p * len;
-      // the line stops short of the camel on both sides, so nothing shows through it
-      dark.style.strokeDasharray = `${Math.max(0, at - gap)} ${len + 1}`;
-      ghost.style.strokeDashoffset = -Math.min(len, at + gap);
-      const a = dark.getPointAtLength(at), b = dark.getPointAtLength(Math.min(len, at + 6));
-      if (Math.abs(b.x - a.x) > 0.2) side = b.x > a.x ? 1 : -1;
-      gsap.set(camel, { x: a.x, y: a.y, scaleX: side * dir });
-    };
-    const build = () => {
-      const W = rail.clientWidth, H = rail.clientHeight, em = parseFloat(getComputedStyle(rail).fontSize);
-      const wide = W > 14 * em;
-      const cx = wide ? W - 9.5 * em : W / 2 - 0.4 * em;
-      const amp = wide ? 3.4 * em : Math.max(0.6 * em, W / 2 - 2.6 * em);
-      const n = Math.max(2, Math.round(H / (24 * em))), h = H / n;
-      let d = `M${cx} 0`, px = cx;
-      for (let i = 1; i <= n; i++) {      // one gentle S per step, swinging left and right of the centre
-        const x = i === n ? cx : cx + (i % 2 ? amp : -amp), y = i * h;
-        d += `C${px} ${y - h / 2} ${x} ${y - h / 2} ${x} ${y}`;
-        px = x;
+  /* ---------- keywords with a highlighter, a line of the story as a pull quote ---------- */
+  const KEYS = ['fixed quote', 'fixed price', 'fixed-price', 'Framer', 'Webflow', 'Shopify', 'WooCommerce', 'WordPress', 'Wix', 'SEO', 'Core Web Vitals',
+    'Arabic', 'right-to-left', 'headless CMS', 'progressive web app', 'maintenance', 'redirects', 'VAT', 'Dubai', 'budget', 'template', 'custom design',
+    'brand identity', 'conversion', 'mobile', 'page speed', 'security', 'backups', 'hosting', 'AI', 'ownership', 'you own'];
+  const prose = $('.prose', post);
+  const used = new Set();
+  let marks = 0;
+  $$('p, li', prose).forEach((el) => {
+    if (marks >= 9) return;
+    const walk = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, { acceptNode: (n) => (n.parentElement.closest('a, strong, mark, h2, h3') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT) });
+    const nodes = []; let n; while ((n = walk.nextNode())) nodes.push(n);
+    nodes.forEach((node) => {
+      for (const k of KEYS) {
+        if (used.has(k.toLowerCase()) || marks >= 9) continue;
+        const m = new RegExp(`\\b${k.replace(/[-]/g, '\\-')}\\b`, k === 'AI' ? '' : 'i').exec(node.data);
+        if (!m) continue;
+        const after = node.splitText(m.index); after.splitText(m[0].length);
+        const mark = document.createElement('mark'); mark.className = 'hl'; mark.textContent = after.data;
+        after.replaceWith(mark); used.add(k.toLowerCase()); marks++;
+        break;
       }
-      svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
-      ghost.setAttribute('d', d); dark.setAttribute('d', d);
-      len = dark.getTotalLength();
-      gap = 3.3 * em;
-      ghost.style.strokeDasharray = `${len} ${len}`;
-      paint();
-    };
-    build();
-    gsap.to(st, {
-      p: 1, ease: 'none',
-      onUpdate: () => {
-        if (Math.abs(st.p - was) > 1e-5) {      // moving: the camel walks, and stops a moment after the page does
-          dir = st.p > was ? 1 : -1;
-          if (vid.paused && !document.hidden) vid.play().catch(() => {});
-          clearTimeout(idle);
-          idle = setTimeout(() => vid.pause(), 180);
-        }
-        was = st.p;
-        paint();
-      },
-      scrollTrigger: { trigger: col, start: 'top 55%', end: 'bottom 55%', scrub: 0.5, onRefresh: build },
     });
-    document.addEventListener('visibilitychange', () => { if (document.hidden) vid.pause(); });
+  });
+  // the pull quote: the strongest short sentence from the middle of the story
+  const paras = $$(':scope > p', prose);
+  if (paras.length > 4) {
+    const pool = paras.slice(2, -1).flatMap((p) => (p.textContent.match(/[^.!?]+[.!?]/g) || []).map((s) => [s.trim(), p])).filter(([s]) => s.length > 40 && s.length < 120);
+    const pick = pool.sort((a, b) => Math.abs(a[0].length - 75) - Math.abs(b[0].length - 75))[0];
+    if (pick) { const q = document.createElement('p'); q.className = 'pq'; q.setAttribute('aria-hidden', 'true'); q.textContent = pick[0]; pick[1].after(q); }
   }
 
-  /* ---------- closing block ---------- */
-  const cl = $$('.pcta .lm > span');
-  const cp = $$('.pcta .pill');
-  gsap.set(cl, { yPercent: 115 });
-  gsap.set(cp, { opacity: 0, scale: 0.4 });
-  gsap.timeline({ scrollTrigger: { trigger: '.pcta', start: 'top 75%' } })
-    .to(cl, { yPercent: 0, duration: 0.85, stagger: 0.12, ease: 'back.out(1.4)' })
-    .to(cp, { opacity: 1, scale: 1, duration: 0.55, stagger: 0.12, ease: 'back.out(2.5)' }, 0.4)
-    .from('.pcta__p, .pcta .cta', { opacity: 0, y: 15, duration: 0.6, stagger: 0.1, ease: 'power2.out' }, 0.6);
+  const bar = $('.pbar i');
+  const paper = ok && !reduce && window.ScrollTrigger;
+  if (!paper) {
+    // top to bottom: a plain reading progress bar
+    if (bar) addEventListener('scroll', () => { const h = document.documentElement; bar.style.transform = `scaleX(${h.scrollTop / (h.scrollHeight - h.clientHeight || 1)})`; }, { passive: true });
+    return;
+  }
+
+  /* ---------- the paper, opened: one track slides sideways while you scroll down ---------- */
+  document.body.classList.add('is-paper');
+  const spread = $('.spread', post), track = $('.spread__track', post), body = $('.sb', post);
+  const pagerN = $('.spager__n', post);
+  const toc = $('.ptoc', post);
+  if (toc) body.prepend(toc);      // the contents list becomes the story's first column, not a box squeezed under the headline
+  let st = null, colW = 0;
+  let snaps = [0];
+  const size = () => {
+    // the story's columns overflow sideways. Lay them out in a box far wider than needed (an exact number of columns, so
+    // none get stretched), find where the last line ends, then shrink the box to exactly that many columns.
+    const cs = getComputedStyle(body), pad = parseFloat(cs.paddingLeft), gap = parseFloat(cs.columnGap), cw = parseFloat(cs.columnWidth);
+    colW = cw + gap || innerWidth * 0.8;
+    body.style.width = `${pad * 2 + 60 * colW - gap}px`;
+    const left = body.getBoundingClientRect().left + pad;
+    let right = 0;
+    $$('p, li, h2, h3, summary, ul, ol, nav, aside, section', body).forEach((el) => { for (const r of el.getClientRects()) if (r.width) right = Math.max(right, r.right - left); });
+    const n = Math.max(1, Math.ceil((right + gap - 2) / colW));
+    body.style.width = `${pad * 2 + n * colW - gap}px`;
+  };
+  // resting points: the cover, every column, the last word (x positions on the track). Scrolling settles on the nearest.
+  let xs = [0], pages = [0];
+  const points = () => {
+    const D = (st ? st.end - st.start : dist()) || 1;   // the same distance the scroll covers
+    const rel = (el) => el.offsetLeft;   // the track is their offset parent, so no transform (scroll, unfolding) gets in the way
+    const n = Math.max(1, Math.round((body.offsetWidth - parseFloat(getComputedStyle(body).paddingLeft)) / colW));
+    xs = [...new Set([0, ...Array.from({ length: n }, (_, k) => Math.round(rel(body) + k * colW)), Math.round(rel($('.se', post))), Math.round(D)]
+      .map((x) => Math.min(D, Math.max(0, x))))].sort((a2, b2) => a2 - b2);
+    snaps = xs.map((x) => x / D);
+    // pages for the arrows and the counter: a full screen at a time (one column on a phone)
+    const vw = document.documentElement.clientWidth;
+    pages = [0];
+    for (const x of xs) if (x > pages[pages.length - 1] + vw - colW - 4 || x === xs[xs.length - 1]) pages.push(x);
+    pages = [...new Set(pages)];
+  };
+  const dist = () => Math.max(0, track.scrollWidth - document.documentElement.clientWidth);
+  document.fonts.ready.then(() => {
+    size();
+    const setX = gsap.quickSetter(track, 'x', 'px');   // the track follows the scroll directly (Lenis already smooths it)
+    st = ScrollTrigger.create({
+      trigger: post, start: 0, end: () => dist(),   // the paper's strip stays in view with the spread
+      pin: post, invalidateOnRefresh: true, onRefresh: points,
+      snap: { snapTo: (v) => snaps.reduce((a, b) => (Math.abs(b - v) < Math.abs(a - v) ? b : a), snaps[0]), duration: { min: 0.2, max: 0.6 }, delay: 0.08, ease: 'power2.out' },
+      onUpdate: (s) => {
+        setX(-(s.progress * (s.end - s.start)));
+        bar.style.transform = `scaleX(${s.progress})`;
+        const x = s.progress * (s.end - s.start), at = pages.reduce((n, q, i) => (q <= x + 4 ? i : n), 0);
+        pagerN.textContent = `${at + 1} / ${pages.length}`;
+      },
+    });
+    ScrollTrigger.refresh();
+    points();
+    document.body.classList.add('is-ready');
+    gsap.from(spread, { rotationY: -12, transformPerspective: 1800, transformOrigin: '0% 50%', opacity: 0, duration: 0.9, ease: 'power3.out', clearProps: 'transform,opacity' });
+    gsap.from('.sc__big', { yPercent: 40, opacity: 0, duration: 0.8, ease: 'back.out(1.6)', delay: 0.15 });
+  });
+  // jump sideways: to an x position on the track, through the page's scroll position
+  const goX = (x) => { if (!st) return; const y = Math.round(st.start + Math.max(0, Math.min(dist(), x))); TB.lenis ? TB.lenis.scrollTo(y, { duration: 0.8, lock: true }) : scrollTo({ top: y, behavior: 'smooth' }); };
+  const nowX = () => (st ? Math.max(0, (TB.lenis ? TB.lenis.targetScroll : scrollY) - st.start) : 0);
+  const step = (d) => { const at = nowX(); const list = d > 0 ? pages.filter((x) => x > at + 4) : pages.filter((x) => x < at - 4).reverse(); if (list.length) goX(list[0]); };
+  $$('.spager__b', post).forEach((b) => b.addEventListener('click', () => step(+b.dataset.d)));
+  addEventListener('keydown', (e) => {
+    if (e.target.closest('input, textarea, select') || !st || !st.isActive) return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); step(e.key === 'ArrowRight' ? 1 : -1); }
+  });
+  $$('.ptoc a', post).forEach((a) => a.addEventListener('click', (e) => {
+    const h = document.getElementById(a.hash.slice(1)); if (!h) return;
+    e.preventDefault();
+    const x = h.getBoundingClientRect().left - track.getBoundingClientRect().left - 24;
+    goX(x);
+  }));
+  // a question opening up changes how many columns there are
+  $$('.pfaq details', post).forEach((d) => d.addEventListener('toggle', () => { size(); ScrollTrigger.refresh(); }));
+  // sizes are measured once, and again only when the window really changes width (a refresh can catch the layout mid-pin)
+  let rw = innerWidth, rt = 0;
+  addEventListener('resize', () => { if (innerWidth === rw) return; rw = innerWidth; clearTimeout(rt); rt = setTimeout(() => { size(); ScrollTrigger.refresh(); }, 200); });
+
 })();
 
-/* blog hero: "worth every dirham" tours the currencies of the people reading it */
+/* the masthead's price line: "worth every dirham" tours the currencies of the people reading it */
 (() => {
   const w = document.querySelector('.bflip');
   if (!w || !window.gsap || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -169,9 +186,9 @@
   const next = () => {
     i = (i + 1) % MONEY.length;
     gsap.timeline()
-      .to(w, { yPercent: -110, duration: 0.35, ease: 'power2.in' })
+      .to(w, { yPercent: -110, opacity: 0, duration: 0.3, ease: 'power2.in' })
       .add(() => { w.textContent = MONEY[i]; })
-      .fromTo(w, { yPercent: 110 }, { yPercent: 0, duration: 0.5, ease: 'back.out(1.6)' });
+      .fromTo(w, { yPercent: 110, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.45, ease: 'back.out(1.6)' });
   };
   setTimeout(() => setInterval(next, 2200), 2400);
 })();
