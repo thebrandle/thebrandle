@@ -113,7 +113,7 @@ body:has(.np), body:has(.nps) { background: var(--paper); }
 .nps { padding-top: 5.6em; color: var(--ink); }   /* padding, not a margin: a margin stops collapsing once the page is pinned and the strip would jump */
 .nps__strip { position: relative; z-index: 3; display: flex; justify-content: space-between; align-items: center; gap: 1em; margin: 0 1.25em; padding: 0.55em 0; border-top: 3px solid var(--ink); border-bottom: var(--rule); font-size: 0.78em; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
 .nps__name { font: 800 1.5em/1 var(--fd); font-stretch: 75%; letter-spacing: 0; }
-.nps__where a { color: var(--orange); }
+.nps__where a { color: var(--orange-ink); }
 .pbar { position: fixed; z-index: 1000; inset: 0 0 auto; height: 4px; pointer-events: none; }
 .pbar i { display: block; height: 100%; background: var(--orange); transform: scaleX(0); transform-origin: 0 50%; }
 
@@ -124,7 +124,7 @@ body:has(.np), body:has(.nps) { background: var(--paper); }
 .crumbs ol { display: flex; flex-wrap: wrap; gap: 0.5em; margin: 0 0 1.4em; padding: 0; list-style: none; font-size: 0.72em; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
 .crumbs li + li::before { content: "/"; margin-right: 0.5em; color: var(--orange); }
 .crumbs li:last-child { display: none; }
-.sc__kicker { font-size: 0.85em; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); }
+.sc__kicker { font-size: 0.85em; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange-ink); }
 .sc__big { margin: 0.15em 0 0.25em; font: 800 clamp(3.4rem, 9vw, 8.5rem)/0.82 var(--fd); font-stretch: 75%; text-transform: uppercase; color: var(--orange); }
 .sc__h { font: 700 clamp(1.6rem, 2.6vw, 2.4rem)/1.12 var(--news); text-wrap: balance; }
 .sc__dek { margin-top: 0.6em; font: italic 400 1.25em/1.4 var(--news); text-wrap: pretty; }
@@ -184,7 +184,7 @@ body:has(.np), body:has(.nps) { background: var(--paper); }
 .is-paper .spread { height: calc(100svh - 8.6em); padding: 0; overflow: hidden; }
 .is-paper .spread__track { position: relative; flex-direction: row; gap: 0; max-width: none; height: 100%; margin: 0; padding: 1.5em 0 4em 1.25em; will-change: transform; }   /* room under the columns for the page turner */
 .is-paper .sc { flex: none; width: min(40em, 86vw); height: 100%; padding: 0 2.4em 0 0; overflow: hidden; border-right: var(--rule); }
-.is-paper .sc__hint { display: block; margin-top: 1.4em; font-size: 0.78em; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); }
+.is-paper .sc__hint { display: block; margin-top: 1.4em; font-size: 0.78em; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange-ink); }
 .is-paper .sc__hint span { display: inline-block; animation: hint 1.6s ease-in-out infinite; }
 @keyframes hint { 50% { translate: 0.4em 0; } }
 .is-paper .sb { flex: none; height: 100%; padding: 0 2.4em; columns: 19em; column-gap: 2.4em; column-rule: var(--rule); column-fill: auto; }

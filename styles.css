@@ -4,6 +4,7 @@
   --white: #fdf8f5;
   --black: #000;
   --orange: #f9452d;
+  --orange-ink: #c42f19;   /* the orange for small text on cream: 4.9:1, passes WCAG AA (the brand orange is 3.1:1) */
   --accent: #f9e2e1;
   --fd: "Bricolage Grotesque", "Arial Narrow", sans-serif;
   --fb: "Geist", "Helvetica Neue", Arial, sans-serif;
@@ -157,7 +158,7 @@ body.menu-open { overflow: hidden; }
 .plogo { flex: none; display: flex; justify-content: center; align-items: center; width: 2.15em; height: 2.15em; border-radius: 50%; background: var(--c); color: #fff; font: 800 1.4em/1 var(--fd); font-stretch: 75%; }
 .pdetail__h { flex: 1; display: flex; flex-direction: column; gap: 0.65em; min-width: 0; }
 .pdetail h3 { font: 800 1.5em/0.8 var(--fd); font-stretch: 75%; text-transform: uppercase; }
-.pdetail p { font-size: 0.875em; font-weight: 500; line-height: 1; text-transform: uppercase; color: var(--orange); }
+.pdetail p { font-size: 0.875em; font-weight: 500; line-height: 1; text-transform: uppercase; color: var(--orange-ink); }
 .parrow { flex: none; display: flex; justify-content: center; align-items: center; width: 2.5em; height: 2.5em; font-size: 0.8em; border-radius: 50%; background: var(--orange); color: var(--accent); }
 .parrow svg { width: 1em; height: 1em; will-change: transform; }
 @media (hover: hover) and (pointer: fine) { .pitem:hover .pcard__hover { opacity: 1; } }

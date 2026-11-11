@@ -118,7 +118,7 @@
       on = !on;
       vibe.classList.toggle('is-on', on);
       vibe.setAttribute('aria-pressed', String(on));
-      vibe.setAttribute('aria-label', on ? 'Mute music' : 'Play music');
+      vibe.setAttribute('aria-label', on ? 'Sound on? Drag me anywhere. Mutes music' : 'Sound on? Drag me anywhere. Plays music');
       on ? play().catch(() => { on = false; vibe.classList.remove('is-on'); }) : stop();
       if (ok) gsap.fromTo(vibe, { scale: 0.85 }, { scale: 1, duration: 0.5, ease: 'elastic.out(1.2, 0.4)' });
     };

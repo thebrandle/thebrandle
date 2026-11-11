@@ -103,7 +103,7 @@ FILMS = [('beincrypto', 'BeInCrypto', 'Roundtable', '0:39', '2CchbQdESco', 'wide
 
 def film(i, f, v):
     slug, title, kind, length, yt, shape = f
-    play = (f'<button class="film__play" type="button" data-yt="{yt}" aria-label="Watch {title} with sound">'
+    play = (f'<button class="film__play" type="button" data-yt="{yt}" aria-label="Watch with sound: {title}">'
             f'<span class="pill pill--orange"><span>Watch with sound</span></span></button>') if yt else ''
     return (f'<article class="film film--{shape}"><div class="film__media">'
             f'<video muted loop playsinline preload="none" poster="/{v(f"assets/work/films/{slug}-poster.webp")}" data-src="/{v(f"assets/work/films/{slug}-loop.mp4")}" aria-hidden="true"></video>{play}</div>'
