@@ -93,7 +93,7 @@ def org(compact=False):
             'priceRange': '$799 - $3,799',
             'knowsAbout': ['Web design', 'Brand identity design', 'UI/UX design', 'Ecommerce website design', 'Web application development', 'Search engine optimisation', 'Video production'],
             'founder': [{'@type': 'Person', 'name': n, 'jobTitle': t, 'sameAs': ['https://www.linkedin.com/in/' + l]} for n, t, l in FOUNDERS],
-            'sameAs': ['https://www.instagram.com/thebrandlestudio']}
+            'sameAs': ['https://www.instagram.com/thebrandlestudio', 'https://www.linkedin.com/company/thebrandle/', 'https://www.facebook.com/profile.php?id=61596184447358']}
 
 
 def crumbs(canonical, names):
