@@ -118,7 +118,15 @@
     form.hidden = true; box.hidden = false;
     tagText.textContent = 'Got it';
     $('.ct-done__h').focus({ preventScroll: true });
-    if (ok) gsap.fromTo(box.children, { y: 30, opacity: 0, scale: 0.9 }, { y: 0, opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(2.2)', stagger: 0.09 });
+    // the form was long and the confirmation is short: bring "Delivered" to the top of the screen, under the nav
+    if (window.ScrollTrigger) ScrollTrigger.refresh();
+    const y = box.getBoundingClientRect().top + scrollY - (innerWidth < 768 ? 96 : 120);
+    TB.lenis ? TB.lenis.scrollTo(y, { duration: TB.reduce ? 0 : 0.9, force: true }) : scrollTo({ top: y, behavior: TB.reduce ? 'auto' : 'smooth' });
+    if (ok) {
+      const run = $('.ct-run', box);
+      gsap.fromTo([...box.children].filter((c) => c !== run), { y: 30, opacity: 0, scale: 0.9 }, { y: 0, opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(2.2)', stagger: 0.09 });
+      gsap.fromTo(run, { x: () => -innerWidth * 0.6, opacity: 0 }, { x: 0, opacity: 1, duration: 1.1, ease: 'power3.out', delay: 0.2, clearProps: 'transform,opacity' });   // it gallops in with your message
+    }
   };
   const failed = (data) => {
     const mail = `mailto:${EMAIL}?subject=${encodeURIComponent('New project from ' + data.name)}&body=${encodeURIComponent(data.message + (data.plan ? `\n\nPlan: ${data.plan}` : ''))}`;
@@ -133,7 +141,7 @@
     if (form.elements.website.value) return done(); // a bot filled the hidden field: nothing is sent
     const data = payload();
     status.textContent = '';
-    btn.disabled = true; btnT.textContent = 'Sending';
+    btn.disabled = true; btnT.textContent = 'Sending'; form.classList.add('is-sending');   // the camel sets off with it
     try {
       const ctl = new AbortController();
       const timer = setTimeout(() => ctl.abort(), 15000);
@@ -145,7 +153,7 @@
     } catch (err) {
       failed(data);
     }
-    btn.disabled = false; btnT.textContent = 'Send it';
+    btn.disabled = false; btnT.textContent = 'Send it'; form.classList.remove('is-sending');
   });
 
   /* ---------- the camel's head: the contact panel's drawn head, cloned from the dialog on this same page, so page and

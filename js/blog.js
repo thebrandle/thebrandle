@@ -8,6 +8,10 @@
   const { $, $$, ok } = TB;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // the masthead carries today's date in Dubai, not the day the page was built
+  const day = $('[data-today]');
+  if (day) day.textContent = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Dubai', weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).format(new Date()).replace(',', '');
+
   /* ---------- front page: sections ---------- */
   const btns = $$('.bf');
   if (btns.length) {

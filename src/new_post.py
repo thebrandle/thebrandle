@@ -3,8 +3,8 @@
 usage: python3 src/new_post.py <slug>
 reads  src/data/blog/drafts/<slug>.json   {"title": page title without the brand, 50 to 60 characters with " | The Brandle"
                                             when it fits, "h1", "description" (140 to 160 characters), "blurb" (one line
-                                            for the /blog card, 60 to 90 characters), "group" (Platforms | Planning |
-                                            SEO and performance | Pricing | Industry), "category" (a short tag),
+                                            for the /blog card, 60 to 90 characters), "group" (the service it is about: Websites |
+                                            Ecommerce | Branding | Apps and UX | Video and motion | Marketing and SEO), "category" (a short tag),
                                             "faq": [{"q", "a"}] (3 or 4), "services": [{"label", "href"}] (2 or 3),
                                             "card": {"lines": [2 or 3 short lines], "ground": cream|orange|black,
                                             "stickers": [platform logo names or icon names], "quip": "a short pill"}}
@@ -21,7 +21,7 @@ from pathlib import Path
 SRC = Path(__file__).resolve().parent
 D = SRC / 'data' / 'blog'
 SITE = 'https://www.thebrandle.com'
-GROUPS = ['Platforms', 'Planning', 'SEO and performance', 'Pricing', 'Industry']
+GROUPS = ['Websites', 'Ecommerce', 'Branding', 'Apps and UX', 'Video and motion', 'Marketing and SEO']
 today = datetime.now(timezone(timedelta(hours=4))).date().isoformat()   # Dubai
 
 

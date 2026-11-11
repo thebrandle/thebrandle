@@ -108,7 +108,7 @@ html:not(.js) .fa { display: flex; } /* no script: every answer is readable */
 .ct-done { display: flex; flex-direction: column; align-items: flex-start; gap: 1.75em; padding: 1em 0; }
 .ct-done[hidden] { display: none; }
 .ct-done .pill { rotate: -4deg; background: #000; }
-.ct-done__h { max-width: 9em; font: 800 4.5em/0.88 var(--fd); font-stretch: 75%; text-transform: uppercase; color: var(--bg); outline: 0; }
+.ct-done__h { max-width: 9em; font: 800 4.5em/0.88 var(--fd); font-stretch: 75%; text-transform: uppercase; color: #000; outline: 0; }
 .ct-done .cta { font-size: 1.25em; }
 .ct-done p { max-width: 24em; font-size: 1.25em; font-weight: 500; line-height: 1.4; }
 
@@ -239,3 +239,38 @@ html:not(.js) .fa { display: flex; } /* no script: every answer is readable */
 
 .ct-row:has(.pick.is-open), .ct-f:has(.pick.is-open) { position: relative; z-index: 30; }
 .camel__mouth { position: absolute; left: 27%; top: 72%; width: 1px; height: 1px; pointer-events: none; }  /* where the envelopes come out */
+
+/* the camel carrying the message: our camel at a gallop, the quote flapping in its mouth (2026-11-12).
+   Sending: a small one beside the button. Delivered: on the right of the message on desktop, a small one by the pill
+   on phones. Only transform and opacity move. */
+.ct-done { position: relative; }
+.ct-run { position: absolute; right: 0; bottom: 0; width: clamp(12em, 19vw, 18em); pointer-events: none; }
+.ct-run__bob { position: relative; animation: run-bob 0.3s ease-in-out infinite alternate; transform-origin: 50% 90%; }
+.ct-run__bob img { display: block; width: 100%; height: auto; }
+.ct-run__paper { position: absolute; inset: 0; transform-origin: 88.2% 22.4%; animation: run-flap 0.17s ease-in-out infinite alternate; }
+.ct-run__ln { position: absolute; left: -12%; height: 0.3em; border-radius: 1em; background: #000; animation: run-ln 0.55s linear infinite; }
+.ct-run__ln:nth-child(1) { top: 34%; width: 22%; }
+.ct-run__ln:nth-child(2) { top: 50%; width: 30%; animation-delay: -0.18s; }
+.ct-run__ln:nth-child(3) { top: 66%; width: 18%; animation-delay: -0.36s; }
+.ct-run__dust { position: absolute; bottom: 2%; left: 30%; width: 9%; aspect-ratio: 1; border-radius: 50%; background: var(--bg); animation: run-dust 0.6s ease-out infinite; }
+.ct-run__dust:last-child { left: 62%; width: 7%; animation-delay: -0.3s; }
+@keyframes run-bob { from { transform: translateY(0) rotate(0.5deg); } to { transform: translateY(-6%) rotate(-2.5deg); } }
+@keyframes run-flap { from { transform: rotate(-5deg) skewY(-3deg); } to { transform: rotate(6deg) skewY(4deg); } }
+@keyframes run-ln { from { transform: translateX(40%); opacity: 0; } 30% { opacity: 1; } to { transform: translateX(-90%); opacity: 0; } }
+@keyframes run-dust { from { transform: translate(0, 0) scale(0.4); opacity: 0.9; } to { transform: translate(-160%, -40%) scale(1.3); opacity: 0; } }
+.ct-done p { max-width: 20em; }
+.ct-done .cta { position: relative; z-index: 1; }
+/* sending: a small camel sets off beside the button */
+.ct-send { position: relative; }
+.ct-run--mini { position: relative; width: 6.5em; opacity: 0; transition: opacity 0.3s ease; }
+.ct-form:not(.is-sending) .ct-run--mini { display: none; }
+.ct-form.is-sending .ct-run--mini { opacity: 1; }
+.ct-form.is-sending .ct-send .ct-hint { display: none; }
+@media (max-width: 767px) {
+  .ct-done > .ct-run { top: -0.6em; bottom: auto; width: 7.5em; }
+  .ct-done .pill { margin-bottom: 0.25em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ct-run__bob, .ct-run__paper { animation: none; }
+  .ct-run__ln, .ct-run__dust { display: none; }
+}

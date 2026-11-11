@@ -40,6 +40,8 @@ a page that does not exist, a redirect chain). Fix the cause, never the check.
 A cloud routine runs Tuesday, Wednesday and Friday at 09:00 Dubai and does ONE item from `src/data/content-plan.json`:
 the first item with `status: "todo"` whose `due` is on or before today (`TZ=Asia/Dubai date +%F`). Nothing due:
 change nothing and say so.
+The blog covers every service the studio sells (websites, ecommerce, branding, apps and UX, video and motion,
+marketing and SEO), never only websites. A post's `group` is the service it is about.
 
 1. Research from this repo only. Read three existing posts (`src/data/blog/<slug>.html`) for voice, the item's
    brief and keywords, and list `blog/`, `services/` and `projects/` so every link you add exists.

@@ -13,7 +13,7 @@ The article text is never edited here: the only change made to a body is an id o
 import html, json, re
 from datetime import date
 
-GROUPS = ['Platforms', 'Planning', 'SEO and performance', 'Pricing', 'Industry']
+GROUPS = ['Websites', 'Ecommerce', 'Branding', 'Apps and UX', 'Video and motion', 'Marketing and SEO']
 LONG = 3000          # words; longer posts get a table of contents
 ARROW = '<span class="parrow"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 8.5l7-7M2.5 1.5h6v6"/></svg></span>'
 esc = lambda s: html.escape(s, quote=True)
@@ -113,7 +113,7 @@ def build(api):
     art = f'<img src="/{api.ver("assets/art/blog-hero.svg")}" width="{m["width"]}" height="{m["height"]}" alt="{esc(m["alt"])}">'
     count = lambda g: sum(p['suggestedGroup'] == g for p in posts)
     filters = f'<button class="bf is-on" type="button" aria-pressed="true" data-g="all">All <sup>{len(posts)}</sup></button>' + ''.join(
-        f'<button class="bf" type="button" aria-pressed="false" data-g="{gid(g)}">{g} <sup>{count(g)}</sup></button>' for g in GROUPS)
+        f'<button class="bf" type="button" aria-pressed="false" data-g="{gid(g)}">{g} <sup>{count(g)}</sup></button>' for g in GROUPS if count(g))   # a service with no posts yet gets no tab
     page = {p['slug']: i + 2 for i, p in enumerate(posts)}          # the front page is page 1
     ticker = ''.join(f'<a href="/blog/{p["slug"]}/" tabindex="-1">{esc(headline(cards, p))}</a>' for p in posts[:10]) * 2
     today = date.today()
