@@ -153,7 +153,7 @@ def page(meta, body, raw=True):
                              crumbs(canonical, [(meta.get('crumb') or plain, canonical)]), org(compact=True)]))
     ctx['body_class'] = ' ' + meta['body_class'] if meta.get('body_class') else ''
     ctx['head_extra'] = ''.join('\n' + e for e in extra)
-    ctx['css_links'] = ''.join(f'\n<link rel="stylesheet" href="/{ver(f)}">' for f in meta.get('css', '').split())
+    ctx['css_inline'] = '<style>' + ''.join(mincss(ROOT / f) for f in ['styles.css'] + meta.get('css', '').split()) + '</style>'
     ctx['js_scripts'] = ''.join(f'\n<script src="/{ver(f)}"></script>' for f in meta.get('js', '').split())
     body = body.strip('\n')
     doc = render((SRC / 'layout.html').read_text(), {**ctx, 'main': '\0main\0'})
@@ -163,6 +163,12 @@ def page(meta, body, raw=True):
     out.write_text(doc)
     built.append((path, out, canonical, {**meta, 'robots': ctx['robots']}))
     return out
+
+
+def mincss(path):     # comments out, whitespace squeezed: the CSS is written into every page
+    css = re.sub(r'/\*.*?\*/', '', path.read_text(), flags=re.S)
+    css = re.sub(r'\s+', ' ', css)
+    return re.sub(r'\s*([{};,>])\s*', r'\1', css).replace(';}', '}').strip()
 
 
 def front(text):
