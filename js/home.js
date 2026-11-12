@@ -13,6 +13,23 @@
     const WORDS = ['design', 'branding', 'websites', 'apps', 'deadlines', 'everything'];
     const o = $('.hword__o', hw), f = $('.hword__f', hw);
     const set = (w) => { o.textContent = w; f.textContent = w; };
+    // desktop: the heading box is as wide as its widest word, so "Annoyingly" and the three labels never move;
+    // only the word's own slot glides to the next word's width (phones stack the word on its own line instead)
+    const wide = matchMedia('(min-width: 768px)'), box = $('.hero__text');
+    let widths = [], cur = 0;
+    const measure = () => {
+      hw.style.width = ''; box.style.width = '';
+      if (!wide.matches) return;
+      const was = o.textContent;
+      widths = WORDS.map((w) => { set(w); return hw.getBoundingClientRect().width; });
+      set(WORDS[widths.indexOf(Math.max(...widths))]);
+      box.style.width = `${box.getBoundingClientRect().width}px`;
+      set(was);
+      hw.style.width = `${widths[WORDS.indexOf(was)]}px`;
+    };
+    const glide = (i) => { if (widths.length && wide.matches) gsap.to(hw, { width: widths[i], duration: 0.75, ease: 'power3.inOut', overwrite: true }); };
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(measure);
+    let rz = 0; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(measure, 150); });
     if (!ok || TB.reduce) hw.classList.add('is-full');
     else {
       hw.insertAdjacentHTML('beforeend', '<i class="hword__drop" aria-hidden="true"></i><i class="hword__ring" aria-hidden="true"></i>');
@@ -29,7 +46,7 @@
         .to({}, { duration: 2.1 })                                                                                                                // full
         .add(() => wave.play())
         .to(f, { '--lvl': '-0.2em', duration: 0.7, ease: 'power2.in' })                                                                          // drains
-        .add(() => { wave.pause(); i = (i + 1) % WORDS.length; set(WORDS[i]); gsap.fromTo(o, { opacity: 0 }, { opacity: 1, duration: 0.3 }); })
+        .add(() => { wave.pause(); i = (i + 1) % WORDS.length; set(WORDS[i]); glide(i); gsap.fromTo(o, { opacity: 0 }, { opacity: 1, duration: 0.45 }); })
         .to({}, { duration: 0.25 });
       document.addEventListener('visibilitychange', () => (document.hidden ? tl.pause() : tl.resume()));
     }

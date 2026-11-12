@@ -1,7 +1,7 @@
 /* Home page extras (2026-11-11): the liquid word in the hero, the game button and the game. */
 
 /* "design": an outline, filled by a rising liquid with a moving wave (background clipped to the letters) */
-.hword { position: relative; display: inline-block; padding: 0.12em 0.03em; margin: -0.12em -0.03em; }
+.hword { position: relative; display: inline-block; padding: 0.12em 0.03em; margin: -0.12em -0.03em; white-space: nowrap; text-align: center; vertical-align: top; }
 .hword__o { display: inline-block; color: rgba(249, 69, 45, 0.12); }   /* empty: a faint tint, no outline */
 .hword__drop { position: absolute; left: 50%; top: 0; width: 0.16em; height: 0.22em; margin-left: -0.08em; border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%; background: var(--orange); opacity: 0; pointer-events: none; }
 .hword__ring { position: absolute; left: 50%; top: 0.86em; width: 0.6em; height: 0.16em; margin-left: -0.3em; border: 0.03em solid var(--orange); border-radius: 50%; opacity: 0; pointer-events: none; }
