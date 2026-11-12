@@ -417,6 +417,52 @@ window.TB = (() => {
     }, { passive: true });
   }
 
+  /* ---------- the cursor: a dot rides the head of the trail, a ring over what you can click, a word over cards and films.
+     It follows the pointer exactly (the trail behind it does the easing). Where a part draws its own pointer (the Work
+     cards' name pills, the testimonial arrow) it steps aside; pop-ups and text fields get the system cursor. ---------- */
+  if (fine) {
+    const OWN = '.projects--index .pitem, .testi__bg, .game, .tarrow';
+    const WORDS = [['.bcard, .nst', 'Read'], ['.sv-film a, .film, [data-film]', 'Play'], ['.pitem', 'View'], ['.vibe', 'Drag'], ['.hero__stage', 'Next'], ['[data-cursor]', '']];
+    const CLICK = 'a, button, [role=button], summary, label, select, [data-magnetic], .chip, .qchip';
+    const TEXT = 'input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]), textarea, [contenteditable]';
+    const cur = document.createElement('div'), lab = document.createElement('div');
+    cur.className = 'cur is-gone'; cur.setAttribute('aria-hidden', 'true'); cur.innerHTML = '<i class="cur__dot"></i><i class="cur__ring"></i>';
+    lab.className = 'cur-l'; lab.setAttribute('aria-hidden', 'true'); lab.innerHTML = '<i></i>';
+    const word = lab.firstChild;
+    document.body.append(cur, lab);
+    let x = -99, y = -99, state = '', queued = false;
+    const set = (st, w) => {
+      if (st === 'label' && word.textContent !== w) word.textContent = w;
+      if (st === state) return; state = st;
+      cur.classList.toggle('is-link', st === 'link'); cur.classList.toggle('is-label', st === 'label'); cur.classList.toggle('is-off', st === 'off');
+      lab.classList.toggle('is-label', st === 'label');
+    };
+    const read = (el) => {
+      if (!el || !el.closest) return set('');
+      if (el.closest(OWN) || el.closest(TEXT)) return set('off');
+      for (const [sel, w] of WORDS) { const hit = el.closest(sel); if (hit) return set('label', hit.dataset.cursor || w); }
+      let n = el;
+      while (n && n !== document.body && !ptrs.has(n)) n = n.parentElement;
+      set(el.closest(CLICK) || (n && n !== document.body) ? 'link' : '');
+    };
+    // anything the page styles with a pointer is clickable: noted once, before the system cursor is hidden
+    const ptrs = new WeakSet();
+    const note = () => { $$('body *').forEach((e) => { if (getComputedStyle(e).cursor === 'pointer') ptrs.add(e); }); };
+    const place = () => { cur.style.translate = lab.style.translate = `${x}px ${y}px`; };
+    addEventListener('pointermove', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      if (!document.documentElement.classList.contains('has-cur')) { note(); document.documentElement.classList.add('has-cur'); }
+      x = e.clientX; y = e.clientY; place(); cur.classList.remove('is-gone');
+      read(e.target);
+    }, { passive: true });
+    // things move under a still pointer while the page scrolls: look again once a frame
+    addEventListener('scroll', () => { if (queued || x < 0) return; queued = true; requestAnimationFrame(() => { queued = false; read(document.elementFromPoint(x, y)); }); }, { passive: true });
+    addEventListener('pointerdown', (e) => { if (e.pointerType === 'mouse') { cur.classList.add('is-down'); lab.classList.add('is-down'); } });
+    addEventListener('pointerup', () => { cur.classList.remove('is-down'); lab.classList.remove('is-down'); });
+    document.documentElement.addEventListener('mouseleave', () => { cur.classList.add('is-gone'); set(''); });
+    document.documentElement.addEventListener('mouseenter', () => cur.classList.remove('is-gone'));
+  }
+
   /* ---------- leaving: an internal link wipes the page away corner to corner (orange, then the loader's pink), so the
      next page's loader picks up from the same colour instead of a hard cut. Page scripts that handle a click themselves
      (preventDefault) win. Pages are prefetched on hover, so the wait after the wipe is short. ---------- */

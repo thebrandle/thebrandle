@@ -106,6 +106,29 @@ body.menu-open { overflow: hidden; }
 .leave { position: fixed; inset: 0; z-index: 99998; pointer-events: none; clip-path: polygon(0 100%, 0 calc(100% - var(--p) * 210%), calc(var(--p) * 210%) 100%); }
 .leave--o { background: var(--orange); }
 .leave--p { background: var(--accent); }
+/* the cursor (main.js, mouse only): a dot at the head of the trail; a ring over anything you can click; a
+   black disc with a word over cards, films and things you drag. Parts with their own pointer effect, pop-ups and text
+   fields get the system cursor back. */
+html.has-cur, html.has-cur * { cursor: none !important; }
+html.has-cur :is(input:not([type=checkbox], [type=radio], [type=submit], [type=button]), textarea, [contenteditable]) { cursor: text !important; }
+html.has-cur:has(dialog[open]), html.has-cur:has(dialog[open]) * { cursor: auto !important; }
+html.has-cur:has(dialog[open]) :is(a, button, label, summary, select) { cursor: pointer !important; }
+.cur, .cur-l { position: fixed; top: 0; left: 0; z-index: 2147483647; width: 0; height: 0; pointer-events: none; }
+.cur { mix-blend-mode: difference; }
+.cur > i, .cur-l > i { position: absolute; display: block; border-radius: 50%; translate: -50% -50%; transition: scale 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s; }
+.cur__dot { width: 10px; height: 10px; background: #fff; }
+.cur__ring { width: 46px; height: 46px; border: 1.5px solid #fff; scale: 0.2; opacity: 0; }
+.cur-l > i { display: grid; place-items: center; width: 5.6em; height: 5.6em; background: #000; color: #fff; font: 500 0.8125em/1 var(--fb); font-style: normal; letter-spacing: 0.04em; text-transform: uppercase; scale: 0; }
+.cur.is-link .cur__dot { scale: 0; }
+.cur.is-link .cur__ring { scale: 1; opacity: 1; }
+.cur.is-label .cur__dot, .cur.is-off .cur__dot, .cur.is-gone .cur__dot { scale: 0; }
+.cur-l.is-label > i { scale: 1; }
+.cur.is-down > i { scale: 0.7; }
+.cur.is-link.is-down .cur__ring { scale: 0.85; }
+.cur-l.is-label.is-down > i { scale: 0.9; }
+html:not(.has-cur) .cur, html:not(.has-cur) .cur-l, html:has(dialog[open]) .cur, html:has(dialog[open]) .cur-l { display: none; }
+/* every button and link gives a little when pressed */
+@media (hover: hover) and (pointer: fine) { :is(a, button, [role=button]):active { scale: 0.97; } }
 .trail { position: fixed; inset: 0; z-index: 2147483647; width: 100vw; height: 100vh; pointer-events: none; }
 .hero__path { position: absolute; z-index: -1; overflow: visible; }
 .hero__path path { fill: none; stroke: var(--orange); stroke-width: 30; stroke-linecap: round; stroke-linejoin: round; }
