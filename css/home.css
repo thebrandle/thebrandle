@@ -108,3 +108,11 @@
 
 /* phones: the hero breathes without its three labels (2026-11-12) */
 @media (max-width: 767px) { .hero__text > .pill { display: none; } }
+
+/* the hero camel: behind the walkers (the stage multiplies over him), along the whole width; desktop with a mouse only */
+.hcamel { display: none; }
+@media (hover: hover) and (pointer: fine) and (min-width: 992px) {
+  .hcamel { display: block; z-index: 0; right: auto; left: 0; font-size: 1.3em; visibility: hidden; }
+  .hero__stage { z-index: 1; }
+  .hcamel .ccard { pointer-events: none; font-size: 1.9em; }
+}

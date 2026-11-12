@@ -99,17 +99,17 @@ window.TB = (() => {
      bend without a seam. The head art rides the tip; the card in his mouth is a button that asks him for another line.
      Sizes come from the art: data-geo on the preview head, or assets/art/manifest.json once the drawn parts are ready
      (viewBox, display_em, neck = where the neck joins, mouth = where the card is held, eye = [x, y, r], a pivot per part). */
-  const makeCamel = (root) => {
+  const makeCamel = (root, opt = {}) => {   // opt.reach: how far the head leans (em); opt.slide: the base follows the pointer too
     const box = $('.ccamel', root);
     if (!box) return { start() {}, stop() {} };
     const head = $('.ccamel__head', box), art = $('.ccamel__art', box), card = $('.ccard', box), say = $('span', card);
     const [nk, nf] = $$('.ccamel__neck path', box), spots = $$('.ccamel__neck ellipse', box);
     const says = [say.textContent, ...box.dataset.says.split('|')];
     const BASE = [16.4, 2], TIP = [15.6, 9.4]; // em: where the neck leaves the bottom edge (x, depth under it) and where the head rests
-    const p = { x: 0, y: 0, vx: 0, vy: 0, ca: 0, cv: 0 }, goal = { x: 0, y: 0 }, fx = { nod: 0, lift: 0 }, dc = {};
+    const reach = opt.reach || 1.8, p = { x: 0, y: 0, vx: 0, vy: 0, ca: 0, cv: 0, b: 0, vb: 0 }, goal = { x: 0, y: 0, b: 0 }, fx = { nod: 0, lift: 0 }, dc = {};
     let geo = JSON.parse(art.dataset.geo), em = 16, h = 0, on = false, line = 0, busy = false, asked = false;
     const draw = () => {
-      const bx = BASE[0] * em, by = h + BASE[1] * em, tx = (TIP[0] + p.x) * em, ty = (TIP[1] + p.y - fx.lift) * em, L = by - ty;
+      const bx = (BASE[0] + p.b) * em, by = h + BASE[1] * em, tx = (TIP[0] + p.b + p.x) * em, ty = (TIP[1] + p.y - fx.lift) * em, L = by - ty;
       const c1 = [bx, by - L * 0.45], c2 = [tx - p.x * em * 0.9, ty + L * 0.4];
       const d = `M${bx} ${by}C${c1} ${c2} ${tx} ${ty}`;
       nk.setAttribute('d', d); nf.setAttribute('d', d);
@@ -151,6 +151,7 @@ window.TB = (() => {
       const s = Math.min(dt, 50) / 1000;
       p.vx += ((goal.x - p.x) * 90 - p.vx * 11) * s; p.vy += ((goal.y + Math.sin(t * 1.96) * 0.07 - p.y) * 90 - p.vy * 11) * s;
       p.x += p.vx * s; p.y += p.vy * s;
+      p.vb += ((goal.b - p.b) * 14 - p.vb * 6.5) * s; p.b += p.vb * s; p.vx -= p.vb * s * 6; // the head lags the walk
       p.cv += ((Math.max(-14, Math.min(14, -p.vx * 2.4)) - p.ca) * 90 - p.cv * 9) * s; p.ca += p.cv * s;
       draw();
     };
@@ -181,11 +182,13 @@ window.TB = (() => {
         .to(card, { scaleX: 1, duration: 0.35, ease: 'back.out(2)' });
     };
     card.addEventListener('click', next);
-    addEventListener('resize', () => { if (root.open) layout(); });
+    addEventListener('resize', () => { if (root.open || on) layout(); });
     if (ok) {
       if (fine) root.addEventListener('pointermove', (e) => { // he leans toward the pointer, a little
         if (!on || e.pointerType !== 'mouse') return;
-        const r = box.getBoundingClientRect(), dx = (e.clientX - r.left) / em - TIP[0], dy = (e.clientY - r.top) / em - TIP[1], d = Math.hypot(dx, dy) || 1, k = Math.min(d * 0.12, 1.8) / d;
+        const r = box.getBoundingClientRect(), cx = (e.clientX - r.left) / em;
+        if (opt.slide) goal.b = Math.max(opt.slide[0], Math.min(opt.slide[1], cx - TIP[0]));
+        const dx = cx - TIP[0] - p.b, dy = (e.clientY - r.top) / em - TIP[1], d = Math.hypot(dx, dy) || 1, k = Math.min(d * 0.12, reach) / d;
         goal.x = dx * k; goal.y = dy * k * 0.5;
       });
       const perk = (up) => { // an address has his full attention
@@ -198,18 +201,19 @@ window.TB = (() => {
       });
     }
     return {
-      box,
+      box, goal,
       start(tl) {
         upgrade(); layout();
         if (!ok) return;
         on = true; busy = false;
-        Object.assign(p, { x: 0, y: 0, vx: 0, vy: 0, ca: 0, cv: 0 }); goal.x = goal.y = fx.nod = fx.lift = 0;
+        Object.assign(p, { x: 0, y: 0, vx: 0, vy: 0, ca: 0, cv: 0, vb: 0 }); goal.x = goal.y = fx.nod = fx.lift = 0;
         gsap.set(card, { scaleX: 1 });
         tl.fromTo(box, { yPercent: 105, rotation: rnd(-3, 3) }, { yPercent: 0, rotation: 0, duration: 0.75, ease: 'back.out(1.4)' }, 0.85)
           .call(() => { p.cv = -160; p.vx = -9; }, null, 1.15); // the card swings in as he arrives
         gsap.ticker.add(tick);
         again('blink', blink, 2.8, 5.5); again('ears', ears, 4, 9); again('chew', () => busy || chew(2), 3, 5.5);
-        dc.auto = gsap.delayedCall(7, () => { if (on && !card.matches(':hover, :focus-visible')) next(); }); // the punchline, once per opening
+        if (opt.talk) again('talk', next, opt.talk[0], opt.talk[1]); // a fresh line every few seconds
+        else dc.auto = gsap.delayedCall(7, () => { if (on && !card.matches(':hover, :focus-visible')) next(); }); // the punchline, once per opening
       },
       stop() {
         on = false;
@@ -219,6 +223,8 @@ window.TB = (() => {
       },
     };
   };
+
+  api.camel = makeCamel;
 
   /* ---------- contact overlay: the orange floods up from the bottom edge as one fat stroke, then the content pops in.
      Timings follow two26.studio's. Without GSAP or with reduced motion the dialog simply opens, finished. ---------- */
