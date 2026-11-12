@@ -12,7 +12,7 @@
 .hword.is-full .hword__f { --lvl: -1.75em; }
 
 /* "just here to procrastinate?": a question with two tags hanging off it on strings, swaying */
-.hask { position: absolute; z-index: 5; top: 5.75em; right: 1.5em; display: flex; flex-direction: column; align-items: center; }
+.hask { position: absolute; z-index: 5; top: 23.5em; right: 1em; /* beside the boards: up by the heading it covered the end of the longest word */ display: flex; flex-direction: column; align-items: center; }
 .hask__q { padding: 0.6em 1em; border: 1.5px solid #000; border-radius: 0.8em; background: var(--bg); box-shadow: 0.25em 0.25em 0 #000; font: 800 1.3em/1 var(--fd); font-stretch: 75%; text-transform: uppercase; rotate: 2deg; }
 .hask__tags { display: flex; gap: 1.1em; }
 .hask__tag { position: relative; display: flex; flex-direction: column; align-items: center; gap: 0.15em; margin-top: 2.6em; padding: 0.7em 1em 0.75em; border: 1.5px solid #000; border-radius: 0.7em; box-shadow: 0.2em 0.2em 0 #000; cursor: pointer; transform-origin: 50% -2.6em; }
