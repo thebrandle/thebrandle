@@ -411,6 +411,38 @@ window.TB = (() => {
     }, { passive: true });
   }
 
+  /* ---------- leaving: an internal link wipes the page away corner to corner (orange, then the loader's pink), so the
+     next page's loader picks up from the same colour instead of a hard cut. Page scripts that handle a click themselves
+     (preventDefault) win. Pages are prefetched on hover, so the wait after the wipe is short. ---------- */
+  const prefetched = new Set();
+  const inside = (a) => {
+    if (!a || (a.target && a.target !== '_self') || a.hasAttribute('download')) return null;
+    const u = new URL(a.href, location.href);
+    if (u.origin !== location.origin || !/^https?:$/.test(u.protocol) || /\.[a-z0-9]+$/i.test(u.pathname)) return null;
+    if (u.pathname === location.pathname && u.search === location.search) return null; // same page: let the hash scroll
+    return u;
+  };
+  addEventListener('pointerover', (e) => {
+    const u = inside(e.target.closest && e.target.closest('a[href]'));
+    if (!u || prefetched.has(u.pathname)) return;
+    prefetched.add(u.pathname);
+    document.head.insertAdjacentHTML('beforeend', `<link rel="prefetch" href="${u.pathname}${u.search}">`);
+  }, { passive: true });
+  if (ok) document.addEventListener('click', (e) => {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const u = inside(e.target.closest('a[href]'));
+    if (!u || document.body.classList.contains('is-leaving')) return;
+    e.preventDefault();
+    document.body.classList.add('is-leaving');
+    document.body.insertAdjacentHTML('beforeend', '<div class="leave leave--o" aria-hidden="true"></div><div class="leave leave--p" aria-hidden="true"></div>');
+    lenis && lenis.stop();
+    let gone = false;
+    const go = () => { if (!gone) { gone = true; location.href = u.href; } };
+    gsap.fromTo('.leave', { '--p': 0 }, { '--p': 1, duration: 0.55, ease: 'power3.inOut', stagger: 0.09, onComplete: go });
+    setTimeout(go, 1200); // never strand the visitor behind the wipe
+  });
+  addEventListener('pageshow', (e) => { if (e.persisted) { $$('.leave').forEach((l) => l.remove()); document.body.classList.remove('is-leaving'); lenis && lenis.start(); } });
+
   /* ---------- buttons: fill floods out of the arrow dot ---------- */
   if (fine) {
     $$('.cta').forEach((b) => {

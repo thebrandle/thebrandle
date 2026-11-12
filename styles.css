@@ -100,6 +100,11 @@ body.menu-open { overflow: hidden; }
 .hero__video { display: block; width: 100%; height: 100%; filter: brightness(1.06); } /* lifts the footage white to pure white, so no box shows against the page */
 .hero__signs { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .hero__signs text { font: 800 100px var(--fd); font-stretch: 75%; fill: var(--orange); text-anchor: middle; transform-box: fill-box; transform-origin: center; }
+/* leaving: a corner-to-corner wipe, --p 0 to 1 (main.js) */
+@property --p { syntax: '<number>'; inherits: false; initial-value: 0; }
+.leave { position: fixed; inset: 0; z-index: 99998; pointer-events: none; clip-path: polygon(0 100%, 0 calc(100% - var(--p) * 210%), calc(var(--p) * 210%) 100%); }
+.leave--o { background: var(--orange); }
+.leave--p { background: var(--accent); }
 .trail { position: fixed; inset: 0; z-index: 2147483647; width: 100vw; height: 100vh; pointer-events: none; }
 .hero__path { position: absolute; z-index: -1; overflow: visible; }
 .hero__path path { fill: none; stroke: var(--orange); stroke-width: 30; stroke-linecap: round; stroke-linejoin: round; }
