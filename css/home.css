@@ -109,10 +109,10 @@
 /* phones: the hero breathes without its three labels (2026-11-12) */
 @media (max-width: 767px) { .hero__text > .pill { display: none; } }
 
-/* the hero camel: in front of the walkers, head kept under the boards, along the whole width; desktop with a mouse only */
-.hcamel { display: none; }
-@media (hover: hover) and (pointer: fine) and (min-width: 992px) {
-  .hcamel { display: block; z-index: 2; right: auto; left: 0; bottom: -9em; font-size: 1.3em; visibility: hidden; } /* head stays under the boards so the slogans stay clear */
-  .hero__stage { z-index: 1; }
-  .hcamel .ccard { pointer-events: none; font-size: 1.9em; }
-}
+
+/* the heading is two lines on desktop whatever word is showing (the <br> sets the break) */
+@media (min-width: 768px) { .hero h1 { white-space: nowrap; } }
+/* the heads: drawn over the head-free walk, they ride each frame and turn to the pointer (home.js) */
+.hero__heads { position: absolute; inset: 0; pointer-events: none; visibility: hidden; }
+.hero__heads.is-on { visibility: visible; }
+.hero__heads img { position: absolute; display: block; height: auto; will-change: transform; filter: brightness(1.06); }
