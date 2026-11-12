@@ -112,7 +112,10 @@
 
 /* the heading is two lines on desktop whatever word is showing (the <br> sets the break) */
 @media (min-width: 768px) { .hero h1 { white-space: nowrap; } }
-/* the heads: drawn over the head-free walk, they ride each frame and turn to the pointer (home.js) */
-.hero__heads { position: absolute; inset: 0; pointer-events: none; visibility: hidden; }
-.hero__heads.is-on { visibility: visible; }
-.hero__heads img { position: absolute; display: block; height: auto; will-change: transform; filter: brightness(1.06); }
+/* the heads: while the mouse is over the page each character turns to look at it. A pose image covers the walking
+   head with the video's white and draws the turned head on top; it rides the walk frame by frame (home.js). At rest
+   nothing is drawn and the walk plays untouched. */
+.hero__heads { position: absolute; inset: 0; pointer-events: none; }
+.hero__heads > div { position: absolute; inset: 0; will-change: transform; }
+.hero__heads img { position: absolute; display: block; height: auto; opacity: 0; transition: opacity 0.16s ease-out; }
+.hero__heads img.is-on { opacity: 1; }
