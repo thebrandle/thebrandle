@@ -345,13 +345,13 @@
   const hcam = $('.hcamel');
   if (hcam && TB.fine && matchMedia('(min-width: 992px)').matches) {
     const hero = $('.hero'), media = $('.hero__media');
-    const cam = TB.camel(hero, { reach: 5, slide: [-3, 46], talk: [4.5, 7] });
+    const cam = TB.camel(hero, { reach: 5, up: 0.3, slide: [12, 30], talk: [4.5, 7] });
     let up = false;
     gsap.set(hcam, { yPercent: 105, visibility: 'visible' });
     const rise = (e) => {
       if (up) return; up = true;
       const r = media.getBoundingClientRect(), em = parseFloat(getComputedStyle(hcam).fontSize);
-      cam.goal.b = Math.max(-3, Math.min(46, (e.clientX - r.left) / em - 15.6)); // he comes up under the pointer
+      cam.goal.b = Math.max(12, Math.min(30, (e.clientX - r.left) / em - 15.6)); // he comes up under the pointer
       const tl = gsap.timeline(); cam.start(tl); tl.seek(0.84);
     };
     const duck = () => { if (!up) return; up = false; cam.stop(); gsap.to(hcam, { yPercent: 105, duration: 0.45, ease: 'back.in(1.6)', overwrite: true }); };

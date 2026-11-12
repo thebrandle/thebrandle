@@ -189,7 +189,7 @@ window.TB = (() => {
         const r = box.getBoundingClientRect(), cx = (e.clientX - r.left) / em;
         if (opt.slide) goal.b = Math.max(opt.slide[0], Math.min(opt.slide[1], cx - TIP[0]));
         const dx = cx - TIP[0] - p.b, dy = (e.clientY - r.top) / em - TIP[1], d = Math.hypot(dx, dy) || 1, k = Math.min(d * 0.12, reach) / d;
-        goal.x = dx * k; goal.y = dy * k * 0.5;
+        goal.x = dx * k; goal.y = Math.max(-(opt.up ?? 9), dy * k * 0.5); // opt.up: how far he may stretch up (em)
       });
       const perk = (up) => { // an address has his full attention
         gsap.to(fx, { lift: up ? 1.4 : 0, duration: up ? 0.45 : 0.7, ease: up ? 'back.out(3)' : 'elastic.out(1, 0.5)', overwrite: 'auto' });
