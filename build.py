@@ -94,7 +94,7 @@ def org(compact=False):
             'openingHoursSpecification': [{'@type': 'OpeningHoursSpecification', 'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], 'opens': '10:00', 'closes': '18:00'}],
             'knowsAbout': ['Web design', 'Brand identity design', 'UI/UX design', 'Ecommerce website design', 'Web application development', 'Search engine optimisation', 'Video production'],
             'founder': [{'@type': 'Person', 'name': n, 'jobTitle': t, 'sameAs': ['https://www.linkedin.com/in/' + l]} for n, t, l in FOUNDERS],
-            'sameAs': ['https://www.instagram.com/thebrandlestudio', 'https://www.linkedin.com/company/thebrandle/', 'https://www.facebook.com/profile.php?id=61596184447358', 'https://www.sortlist.com/agency/the-brandle']}
+            'sameAs': ['https://www.instagram.com/thebrandlestudio', 'https://www.linkedin.com/company/thebrandle/', 'https://www.facebook.com/profile.php?id=61596184447358', 'https://www.sortlist.com/agency/the-brandle', 'https://clutch.co/profile/brandle']}
 
 
 def crumbs(canonical, names):
